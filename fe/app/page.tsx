@@ -1,4 +1,4 @@
-import { categoriesDictionary } from "./utils/categoriesDictionary";
+import { categoriesDictionary } from "@utils/categoriesDictionary";
 
 export default function Home() {
   return (
