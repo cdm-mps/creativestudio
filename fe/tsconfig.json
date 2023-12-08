@@ -19,6 +19,9 @@
       }
     ],
     "paths": {
+      "@utils/*": ["./app/utils/*"],
+      "@model/*": ["./app/model/*"],
+      "@icons/*": ["./app/assets/icons/*"],
       "@/*": ["./*"]
     }
   },
