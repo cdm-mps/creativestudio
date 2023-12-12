@@ -4,7 +4,7 @@
 
 To setup your environment, in the project root, run the following command: `npm run build-env`.
 
-To start the local FE, in the project root, run: `rpm run start-fe`.
+To start the local FE, in the project root, run: `npm run start-fe`.
 Finally, to start the CMS, in the project root, run: `npm run start-sanity`.
 
 ##
