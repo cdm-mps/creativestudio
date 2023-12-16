@@ -12,10 +12,12 @@
     "antd": "^5.12.1",
     "clsx": "^2.0.0",
     "next": "14.0.3",
+    "next-intl": "^3.3.2",
     "react": "^18",
     "react-dom": "^18"
   },
   "devDependencies": {
+    "@babel/preset-typescript": "^7.23.3",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
