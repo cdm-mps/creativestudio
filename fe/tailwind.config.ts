@@ -7,6 +7,10 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    fontFamily: {
+      "league-gothic": ["League Gothic", "cursive"],
+      lato: ["Lato", "cursive"],
+    },
     extend: {
       colors: {
         masterclass: "#FFA630",
@@ -19,5 +23,19 @@ const config: Config = {
     },
   },
   plugins: [],
+  safelist: [
+    "text-artistic-residence",
+    "bg-artistic-residence ",
+    "text-workshop",
+    "bg-workshop",
+    "bg-edition",
+    "text-edition",
+    "text-business-workshop",
+    "bg-business-workshop",
+    "bg-creative-talks",
+    "text-creative-talks",
+    "text-masterclass",
+    "bg-masterclass",
+  ],
 };
 export default config;

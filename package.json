@@ -1,0 +1,11 @@
+{
+  "name": "creativestudio",
+  "lockfileVersion": 3,
+  "requires": true,
+  "scripts": {
+    "start-fe":"echo Running FE... && cd fe && npm start && cd..",
+    "start-sanity":"echo Running Sanity... && cd fe && npm start && cd..",
+    "install-env": "echo Running FE folder... && cd fe && npm i && cd.. && echo Running SANITY folder... && cd sanity && npm i && cd.. && echo Running finished!",
+    "build-env": "echo Running FE folder... && cd fe && npm run build && npm i && cd.. && echo Running SANITY folder... && cd sanity && npm run build && npm i && cd.. && echo Running finished!"
+  }
+}
