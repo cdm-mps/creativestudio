@@ -5,7 +5,7 @@
   "scripts": {
     "start-fe":"echo Running FE... && cd fe && npm run dev && cd..",
     "start-sanity":"echo Running Sanity... && cd sanity",
-    "install-env": "echo Running FE folder... && cd fe && npm i && cd.. && echo Running SANITY folder... && cd sanity && npm i && cd.. && echo Running finished!",
-    "build-env": "echo Running FE folder... && cd fe && npm run build && npm i && cd.. && echo Running SANITY folder... && cd sanity && npm run build && npm i && cd.. && echo Running finished!"
+    "rebuild-fe": "echo Running FE folder... && cd fe && echo Removing node_modules... && rm -rf node_modules && echo Rebuilding... && npm i && cd.. && echo Running finished and back to root!",
+    "install-env": "echo Running FE folder... && cd fe && npm i && cd.. && echo Running SANITY folder... && cd sanity && npm i && cd.. && echo Running finished!"
   }
 }
