@@ -4,7 +4,7 @@ const Title = ({ title, category }: TitleProps) => {
   return (
     <div className="flex gap-3">
       <Divider orientation="vertical" category={category} />
-      <h2 className="text-white text-5xl md:text-7xl font-league-gothic">
+      <h2 className="text-5xl md:text-7xl font-league-gothic">
         {title.toUpperCase()}
       </h2>
     </div>

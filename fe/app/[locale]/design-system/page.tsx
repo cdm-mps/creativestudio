@@ -1,34 +1,36 @@
 import ContactInfo from "@/app/components/ContactInfo/ContactInfo";
 import Divider from "@/app/components/Divider/Divider";
-import QuoteElement from "@/app/components/Quote/QuoteElement";
 import QuoteSlider from "@/app/components/Quote/QuoteSlider";
+import Title from "@components/Title/Title";
 import { Instagram } from "@icons/Instagram";
 
 import { useTranslations } from "next-intl";
 
+const LocalTitle = ({ index, title }: { index?: number; title: string }) => {
+  return (
+    <p className="text-white font-league-gothic text-2xl md:text-4xl">
+      {index ? `${index}.` : ""} {title}
+    </p>
+  );
+};
+
 export default function Home() {
   const t = useTranslations("DesignSystem");
   return (
-    <main className="flex flex-col min-h-screen items-center p-4 bg-black text-white gap-6 w-full">
-      <p className="text-white font-league-gothic uppercase text-4xl md:text-7xl">
-        {t("title")}
-      </p>
+    <main className="flex flex-col min-h-screen items-center p-4 bg-black text-white gap-10 w-full">
+      <Title title={t("title")} />
       {/* -------------- DIVIDER --------------*/}
       <div className="flex flex-col items-center gap-4">
-        <p className="text-white font-league-gothic text-2xl md:text-4xl">
-          1. Divider horizontal & vertical
-        </p>
+        <LocalTitle index={1} title="Divider horizontal & vertical" />
         <div className="flex justify-around w-40 h-40 md:w-80 md:h-80 opacity-50 gap-x-3 md:gap-x-4">
           <Divider category="workshop" />
           <Divider category="creative-talks" orientation="vertical" />
         </div>
       </div>
-      <Divider/>
+      <Divider />
       {/* -------------- CONTACT INFO --------------*/}
       <div className="flex flex-col items-center gap-4">
-        <p className="text-white font-league-gothic text-2xl md:text-4xl">
-          2. ContactInfo
-        </p>
+        <LocalTitle index={2} title="ContactInfo" />
         <ContactInfo
           email="hello@creativestudionofilters.io"
           mobilePhone="910 000 000"
@@ -38,12 +40,10 @@ export default function Home() {
           ]}
         />
       </div>
-      <Divider/>
+      <Divider />
       {/* -------------- QUOTE ELEMENT & QUOTE SLIDER --------------*/}
       <div className="flex flex-col items-center gap-4 px-3">
-        <p className="text-white font-league-gothic text-2xl md:text-4xl">
-          3. QuoteElement & QuoteSlider
-        </p>
+        <LocalTitle index={3} title="QuoteElement & QuoteSlider" />
         <QuoteSlider
           quotes={[
             {
@@ -95,11 +95,15 @@ export default function Home() {
           ]}
         />
       </div>
-      <Divider/>
+      <Divider />
+      {/* -------------- QUOTE ELEMENT & QUOTE SLIDER --------------*/}
+      <div className="flex flex-col items-center gap-4 px-3">
+        <LocalTitle index={4} title="Title" />
+        <Title title="Creative Workshops" category="creative-talks" />
+      </div>
+      <Divider />
       <div className="flex flex-col items-center gap-4">
-        <p className="text-white font-league-gothic text-2xl md:text-4xl">
-          {t("footer")}
-        </p>
+        <LocalTitle title={t("footer")} />
       </div>
     </main>
   );
