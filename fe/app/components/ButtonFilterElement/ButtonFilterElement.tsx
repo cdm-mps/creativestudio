@@ -6,7 +6,7 @@ import { ButtonFilterElementProps } from "./ButtonFilterElement.models";
 const ButtonFilterElement = ({
   label,
   category,
-  isActive,
+  isActive = false,
   onClick,
 }: ButtonFilterElementProps) => {
   return (
