@@ -1,4 +1,5 @@
 import { DividerProps } from "@/app/components/Divider/Divider.models";
+import React from "react";
 
 const Divider = ({ category, orientation = "horizontal" }: DividerProps) => {
   return orientation === "horizontal" ? (

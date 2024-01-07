@@ -1,5 +1,9 @@
 {
     "Index": {
       "title": "Hello World!"
+    },
+    "DesignSystem": {
+      "title": "Components",
+      "footer": "And more..."
     }
   }

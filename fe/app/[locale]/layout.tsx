@@ -1,9 +1,6 @@
-import { Inter } from "next/font/google";
 import "../globals.css";
 import { notFound } from "next/navigation";
 import { locales } from "@/config";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export default function RootLayout({
   children,
@@ -17,7 +14,7 @@ export default function RootLayout({
 
   return (
     <html lang={locale}>
-      <body className={inter.className}>{children}</body>
+      <body className="text-white bg-black">{children}</body>
     </html>
   );
 }
