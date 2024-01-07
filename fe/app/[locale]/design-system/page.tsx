@@ -1,5 +1,7 @@
 import ContactInfo from "@/app/components/ContactInfo/ContactInfo";
 import Divider from "@/app/components/Divider/Divider";
+import QuoteElement from "@/app/components/Quote/QuoteElement";
+import QuoteSlider from "@/app/components/Quote/QuoteSlider";
 import { Instagram } from "@icons/Instagram";
 
 import { useTranslations } from "next-intl";
@@ -7,7 +9,7 @@ import { useTranslations } from "next-intl";
 export default function Home() {
   const t = useTranslations("DesignSystem");
   return (
-    <main className="flex flex-col min-h-screen items-center p-4 bg-black text-white gap-6">
+    <main className="flex flex-col min-h-screen items-center p-4 bg-black text-white gap-6 w-full">
       <p className="text-white font-league-gothic uppercase text-4xl md:text-7xl">
         {t("title")}
       </p>
@@ -21,6 +23,7 @@ export default function Home() {
           <Divider category="creative-talks" orientation="vertical" />
         </div>
       </div>
+      <Divider/>
       {/* -------------- CONTACT INFO --------------*/}
       <div className="flex flex-col items-center gap-4">
         <p className="text-white font-league-gothic text-2xl md:text-4xl">
@@ -35,6 +38,64 @@ export default function Home() {
           ]}
         />
       </div>
+      <Divider/>
+      {/* -------------- QUOTE ELEMENT & QUOTE SLIDER --------------*/}
+      <div className="flex flex-col items-center gap-4 px-3">
+        <p className="text-white font-league-gothic text-2xl md:text-4xl">
+          3. QuoteElement & QuoteSlider
+        </p>
+        <QuoteSlider
+          quotes={[
+            {
+              content: (
+                <span>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </span>
+              ),
+              author: "Person A",
+            },
+            {
+              content: (
+                <span>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore.
+                </span>
+              ),
+            },
+            {
+              content: (
+                <span>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod.
+                </span>
+              ),
+              author: "Person C",
+            },
+            {
+              content: (
+                <span>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt.
+                </span>
+              ),
+            },
+            {
+              content: (
+                <span>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </span>
+              ),
+              author: "Person E",
+            },
+            {
+              content: <span>Lorem ipsum dolor sit amet.</span>,
+              author: "Person F",
+            },
+          ]}
+        />
+      </div>
+      <Divider/>
       <div className="flex flex-col items-center gap-4">
         <p className="text-white font-league-gothic text-2xl md:text-4xl">
           {t("footer")}
