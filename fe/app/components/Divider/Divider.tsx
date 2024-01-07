@@ -3,10 +3,16 @@ import clsx from "clsx";
 import React from "react";
 
 const Divider = ({ category, orientation = "horizontal" }: DividerProps) => {
+  console.log({ category, orientation });
   return orientation === "horizontal" ? (
-    <hr className={clsx("w-full", category || "bg-white")} />
+    <hr className={clsx("w-full", "border-" + category)} />
   ) : (
-    <div className={clsx("w-[1px] self-stretch", category || "bg-white")} />
+    <div
+      className={clsx(
+        "w-[1px] self-stretch",
+        category ? "bg-" + category : "bg-white"
+      )}
+    />
   );
 };
 
