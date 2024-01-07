@@ -1,9 +1,10 @@
 import ContactInfo from "@/app/components/ContactInfo/ContactInfo";
 import Divider from "@/app/components/Divider/Divider";
 import QuoteSlider from "@/app/components/Quote/QuoteSlider";
+import BreadcrumbsTitle from "@components/BreadcrumbsTitle/BreadcrumbsTitle";
+import { BreadcrumbsProps } from "@components/BreadcrumbsTitle/BreadcrumbsTitleProps.models";
 import Title from "@components/Title/Title";
 import { Instagram } from "@icons/Instagram";
-
 import { useTranslations } from "next-intl";
 
 const LocalTitle = ({ index, title }: { index?: number; title: string }) => {
@@ -16,6 +17,11 @@ const LocalTitle = ({ index, title }: { index?: number; title: string }) => {
 
 export default function Home() {
   const t = useTranslations("DesignSystem");
+
+  const breadcrumbs: BreadcrumbsProps[] = [
+    { label: "Calendário", url: "/example" },
+    { label: "Masterclasses", url: "/example" },
+  ];
   return (
     <main className="flex flex-col min-h-screen items-center p-4 bg-black text-white gap-10 w-full">
       <Title title={t("title")} />
@@ -96,12 +102,23 @@ export default function Home() {
         />
       </div>
       <Divider />
-      {/* -------------- QUOTE ELEMENT & QUOTE SLIDER --------------*/}
+      {/* -------------- TITLE --------------*/}
       <div className="flex flex-col items-center gap-4 px-3">
         <LocalTitle index={4} title="Title" />
         <Title title="Creative Workshops" category="creative-talks" />
       </div>
       <Divider />
+      {/* -------------- BREADCRUMBS TITLE --------------*/}
+      <div className="flex flex-col items-center gap-4 px-3">
+        <LocalTitle index={4} title="Breadcrumbs Title" />
+        <BreadcrumbsTitle
+          title="Creative Workshops"
+          category="creative-talks"
+          breadcrumbs={breadcrumbs}
+        />
+      </div>
+      <Divider />
+      {/* -------------- FOOTER --------------*/}
       <div className="flex flex-col items-center gap-4">
         <LocalTitle title={t("footer")} />
       </div>
