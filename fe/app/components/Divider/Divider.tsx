@@ -3,7 +3,6 @@ import clsx from "clsx";
 import React from "react";
 
 const Divider = ({ category, orientation = "horizontal" }: DividerProps) => {
-  console.log({ category, orientation });
   return orientation === "horizontal" ? (
     <hr className={clsx("w-full", "border-" + category)} />
   ) : (
