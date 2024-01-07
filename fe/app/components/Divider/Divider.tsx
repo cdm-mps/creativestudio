@@ -1,5 +1,4 @@
 import { DividerProps } from "@/app/components/Divider/Divider.models";
-import clsx from "clsx";
 import React from "react";
 
 const Divider = ({ category, orientation = "horizontal" }: DividerProps) => {
