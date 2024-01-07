@@ -3,30 +3,31 @@ import { QuoteElementProps } from "./Quote.models";
 const QuoteElement = ({
   container,
   text = {
-    content: "Empty content",
-    author: "Person X",
+    content: <></>,
   },
 }: QuoteElementProps) => {
   return (
-    <>
-      <div
-        className={`flex flex-col w-[132px] md:w-[368px] ${container?.className}`}
-      >
-        <div className={`flex flex-row `}>
-          <text className="text-4xl md:text-7xl">&ldquo;</text>
-          <text
-            className={`text-[10px] text-center m-3 md:text-xl md:m-5 ${text.className}`}
-          >
-            {text?.content}
-          </text>
-          <text className="text-4xl md:text-7xl rotate-180">&ldquo;</text>
+    <div
+      className={`flex flex-col max-w-[284px] md:max-w-[368px] font-lato text-white ${container?.className}`}
+    >
+      <div className={`flex flex-row `}>
+        <text className="text-4xl md:text-7xl font-league-gothic">&ldquo;</text>
+        <div
+          className={`text-[12px] text-center m-3 line-clamp-4 md:text-xl md:m-5`}
+        >
+          {text.content}
         </div>
-        <div className="flex flex-row justify-end mt-1 mr-2 text-[10px] md:mr-9 md:text-xl">
+        <text className="text-4xl md:text-7xl rotate-180 font-league-gothic">
+          &ldquo;
+        </text>
+      </div>
+      {text.author && (
+        <div className="flex flex-row justify-end mt-1 mr-2 text-[10px] font-bold md:mr-9 md:text-lg">
           <text className="text-business-workshop mr-1">-</text>
           <text>{text?.author}</text>
         </div>
-      </div>
-    </>
+      )}
+    </div>
   );
 };
 
