@@ -1,22 +1,25 @@
 "use client";
 
-import { useState } from "react";
-import { ButtonFilterElementProps } from "./ButtonFilterElement.models";
 import clsx from "clsx";
+import { ButtonFilterElementProps } from "./ButtonFilterElement.models";
 
-const ButtonFilterElement = ({ label, category }: ButtonFilterElementProps) => {
-  const [isSelected, setIsSelected] = useState(false);
+const ButtonFilterElement = ({
+  label,
+  category,
+  isActive,
+  onClick,
+}: ButtonFilterElementProps) => {
   return (
     <button
-      onClick={() => setIsSelected(!isSelected)}
+      onClick={onClick}
       className={clsx(
-        `border-[1.5px] border-${category} md:px-6 md:py-[10px] font-league-gothic rounded-lg md:text-xl text-base px-5 py-2 md:m-6 m-5`,
-        isSelected
+        `border-[1.5px] border-${category} md:px-6 md:py-[10px] font-league-gothic rounded-lg md:text-xl text-base px-5 py-2 md:m-4 m-3`,
+        isActive
           ? `bg-${category} text-white`
           : `text-white hover:text-${category}`
       )}
     >
-      {label.toUpperCase()}
+      {label?.toUpperCase()}
     </button>
   );
 };
