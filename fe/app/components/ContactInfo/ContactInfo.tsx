@@ -1,6 +1,6 @@
 import React from "react";
-import Divider from "../Divider/Divider";
 import { ContactInfoProps } from "./ContactInfo.models";
+import Divider from "../Divider/Divider";
 
 const ContactInfo = ({ email, mobilePhone, socials }: ContactInfoProps) => {
   return (
@@ -11,10 +11,10 @@ const ContactInfo = ({ email, mobilePhone, socials }: ContactInfoProps) => {
       </span>
       <Divider />
       <div className=" grid grid-cols-2 md:grid-cols-3 items-center font-semibold md:text-base">
-        {socials.map((e) => (
-          <div key={e.text} className="flex gap-x-2 items-center">
-            {e.icon}
-            <span>{e.text}</span>
+        {socials.map((social) => (
+          <div key={social.text} className="flex gap-x-2 items-center">
+            {social.icon}
+            <span>{social.text}</span>
           </div>
         ))}
       </div>
