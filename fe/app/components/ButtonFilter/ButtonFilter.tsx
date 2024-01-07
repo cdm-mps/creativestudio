@@ -1,7 +1,7 @@
 "use client";
 
-import ButtonFilterElement from "../ButtonFilterElement/ButtonFilterElement";
-import { ButtonFilterProps } from "./ButtonFilter.models";
+import { ButtonFilterProps } from "@components/ButtonFilter/ButtonFilter.models";
+import ButtonFilterElement from "@components/ButtonFilterElement/ButtonFilterElement";
 
 const ButtonFilter = ({
   category,

@@ -1,7 +1,7 @@
 "use client";
 
+import { ButtonFilterElementProps } from "@components/ButtonFilterElement/ButtonFilterElement.models";
 import clsx from "clsx";
-import { ButtonFilterElementProps } from "./ButtonFilterElement.models";
 
 const ButtonFilterElement = ({
   label,
