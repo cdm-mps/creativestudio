@@ -3,6 +3,7 @@ import Divider from "@/app/components/Divider/Divider";
 import QuoteSlider from "@/app/components/Quote/QuoteSlider";
 import BreadcrumbsTitle from "@components/BreadcrumbsTitle/BreadcrumbsTitle";
 import { BreadcrumbsProps } from "@components/BreadcrumbsTitle/BreadcrumbsTitleProps.models";
+import IconTitle from "@components/IconTitle/IconTitle";
 import Title from "@components/Title/Title";
 import { Instagram } from "@icons/Instagram";
 import { useTranslations } from "next-intl";
@@ -110,12 +111,24 @@ export default function Home() {
       <Divider />
       {/* -------------- BREADCRUMBS TITLE --------------*/}
       <div className="flex flex-col items-center gap-4 px-3">
-        <LocalTitle index={4} title="Breadcrumbs Title" />
+        <LocalTitle index={5} title="Breadcrumbs Title" />
         <BreadcrumbsTitle
           title="Creative Workshops"
           category="creative-talks"
           breadcrumbs={breadcrumbs}
         />
+      </div>
+      <Divider />
+      {/* -------------- ICON TITLE --------------*/}
+      <div className="flex flex-col items-center gap-10 px-3">
+        <LocalTitle index={6} title="Icon Title" />
+        <IconTitle
+          title="Sem Filtros"
+          mode="hashtag"
+          category="business-workshop"
+        />
+        <IconTitle title="Anteriores" mode="dots" category="workshop" />
+        <IconTitle title="Programação" mode="chevron" category="masterclass" />
       </div>
       <Divider />
       {/* -------------- FOOTER --------------*/}
