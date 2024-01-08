@@ -1,5 +1,6 @@
 import { BreadcrumbsTitleProps } from "@components/BreadcrumbsTitle/BreadcrumbsTitleProps.models";
 import Divider from "@components/Divider/Divider";
+import CoreTitle from "@components/shared/CoreTitle/CoreTitle";
 import Link from "next/link";
 
 const BreadcrumbsTitle = ({
@@ -21,9 +22,7 @@ const BreadcrumbsTitle = ({
             </>
           ))}
         </div>
-        <h2 className={`text-5xl md:text-7xl text-${category}`}>
-          {title.toUpperCase()}
-        </h2>
+        <CoreTitle title={title} />
       </div>
     </div>
   );

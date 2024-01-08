@@ -1,12 +1,11 @@
 import Divider from "@components/Divider/Divider";
 import { TitleProps } from "@components/Title/Title.models";
+import CoreTitle from "@components/shared/CoreTitle/CoreTitle";
 const Title = ({ title, category }: TitleProps) => {
   return (
     <div className="flex gap-3">
       <Divider orientation="vertical" category={category} />
-      <h2 className="text-5xl md:text-7xl font-league-gothic">
-        {title.toUpperCase()}
-      </h2>
+      <CoreTitle title={title} />
     </div>
   );
 };

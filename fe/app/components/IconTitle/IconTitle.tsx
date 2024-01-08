@@ -1,4 +1,5 @@
 import { IconTitleProps } from "@components/IconTitle/IconTitle.models";
+import CoreTitle from "@components/shared/CoreTitle/CoreTitle";
 import { ChevronIcon } from "@icons/ChevronIcon";
 import { DotsIcon } from "@icons/DotsIcon";
 import { HashtagIcon } from "@icons/HashtagIcon";
@@ -38,9 +39,7 @@ const IconTitle = ({ title, category, mode }: IconTitleProps) => {
       )}
     >
       {getIcon()}
-      <h2 className="relative z-10 text-5xl md:text-7xl font-league-gothic">
-        {title.toUpperCase()}
-      </h2>
+      <CoreTitle title={title} />
     </div>
   );
 };
