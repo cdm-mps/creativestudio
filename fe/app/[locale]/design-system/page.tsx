@@ -130,13 +130,23 @@ export default function Home() {
       {/* -------------- ICON TITLE --------------*/}
       <div className="flex flex-col items-center gap-10 px-3">
         <LocalTitle index={6} title="Icon Title" />
-        <IconTitle
-          title="Sem Filtros"
-          mode="hashtag"
-          category="business-workshop"
-        />
-        <IconTitle title="Anteriores" mode="dots" category="workshop" />
-        <IconTitle title="Programação" mode="chevron" category="masterclass" />
+        <div className="md:mt-24 md:mb-32 my-12">
+          <IconTitle
+            title="Sem Filtros"
+            mode="hashtag"
+            category="business-workshop"
+          />
+        </div>
+        <div className="my-12">
+          <IconTitle title="Anteriores" mode="dots" category="workshop" />
+        </div>
+        <div className="my-12">
+          <IconTitle
+            title="Programação"
+            mode="chevron"
+            category="masterclass"
+          />
+        </div>
       </div>
       <Divider />
       {/* -------------- ARROW TITLE --------------*/}

@@ -3,7 +3,6 @@ import CoreTitle from "@components/shared/CoreTitle/CoreTitle";
 import { ChevronIcon } from "@icons/ChevronIcon";
 import { DotsIcon } from "@icons/DotsIcon";
 import { HashtagIcon } from "@icons/HashtagIcon";
-import clsx from "clsx";
 
 const IconTitle = ({ title, category, mode }: IconTitleProps) => {
   const getIcon = () => {
@@ -11,33 +10,26 @@ const IconTitle = ({ title, category, mode }: IconTitleProps) => {
       case "hashtag":
         return (
           <HashtagIcon
-            className={`absolute md:-top-24 md:left-0 text-${category} max-md:max-h-40 -left-10 -top-14`}
+            className={`absolute md:-top-24 md:left-0 text-${category} max-md:max-h-24 -left-14 -top-8`}
           />
         );
       case "dots":
         return (
           <DotsIcon
-            className={`absolute -top-6 -left-6 text-${category} max-md:w-28`}
+            className={`absolute -top-6 -left-6 text-${category} max-md:w-[74px]`}
           />
         );
       case "chevron":
         return (
           <ChevronIcon
-            className={`absolute -top-32 -left-6 w-20 text-${category} max-md:w-16`}
+            className={`absolute -top-32 -left-6 w-20 text-${category} max-md:w-11`}
           />
         );
     }
   };
 
   return (
-    <div
-      className={clsx(
-        "relative",
-        mode === "hashtag" && "md:mt-24 md:mb-32 mb-12 mt-16",
-        mode === "chevron" && "md:my-12 mt-5",
-        mode === "dots" && "md:my-12 mb-5 mt-12"
-      )}
-    >
+    <div className="relative">
       {getIcon()}
       <CoreTitle title={title} />
     </div>
