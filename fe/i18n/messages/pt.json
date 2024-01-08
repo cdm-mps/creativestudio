@@ -1,9 +1,17 @@
 {
-    "Index": {
-      "title": "Olá Mundo!"
-    },
-    "DesignSystem": {
-      "title": "Componentes",
-      "footer": "E mais..."
+  "Index": {
+    "title": "Olá Mundo!"
+  },
+  "DesignSystem": {
+    "title": "Componentes",
+    "footer": "E mais..."
+  },
+  "Components": {
+    "Details": {
+      "entity": "Entidade",
+      "paymentReference": "Referência",
+      "descriptive": "Descritivo",
+      "amount": "Montante"
     }
   }
+}

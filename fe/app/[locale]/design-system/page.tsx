@@ -2,6 +2,7 @@ import ContactInfo from "@/app/components/ContactInfo/ContactInfo";
 import Divider from "@/app/components/Divider/Divider";
 import QuoteElement from "@/app/components/Quote/QuoteElement";
 import QuoteSlider from "@/app/components/Quote/QuoteSlider";
+import Details from "@components/Details/Details";
 import { Instagram } from "@icons/Instagram";
 
 import { useTranslations } from "next-intl";
@@ -23,7 +24,7 @@ export default function Home() {
           <Divider category="creative-talks" orientation="vertical" />
         </div>
       </div>
-      <Divider/>
+      <Divider />
       {/* -------------- CONTACT INFO --------------*/}
       <div className="flex flex-col items-center gap-4">
         <p className="text-white font-league-gothic text-2xl md:text-4xl">
@@ -38,7 +39,7 @@ export default function Home() {
           ]}
         />
       </div>
-      <Divider/>
+      <Divider />
       {/* -------------- QUOTE ELEMENT & QUOTE SLIDER --------------*/}
       <div className="flex flex-col items-center gap-4 px-3">
         <p className="text-white font-league-gothic text-2xl md:text-4xl">
@@ -95,7 +96,22 @@ export default function Home() {
           ]}
         />
       </div>
-      <Divider/>
+      <Divider />
+      {/* -------------- CONTACT INFO --------------*/}
+      <div className="flex flex-col items-center gap-4">
+        <p className="text-white font-league-gothic text-2xl md:text-4xl">
+          3. Details
+        </p>
+        <Details
+          entity="Creative studio"
+          paymentReference="0000000 0000 00 000 000 00 0 0 00"
+          descriptive="Masterclass 15-Nov"
+          amount={23}
+          category="masterclass"
+        />
+      </div>
+      <Divider />
+      {/* -------------- FOOTER --------------*/}
       <div className="flex flex-col items-center gap-4">
         <p className="text-white font-league-gothic text-2xl md:text-4xl">
           {t("footer")}
