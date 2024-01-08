@@ -164,7 +164,7 @@ export default function Home() {
       <Divider />
       {/* -------------- BUTTON --------------*/}
       <div className="flex flex-col items-center gap-4 px-3">
-        <LocalTitle index={7} title="Arrow Title" />
+        <LocalTitle index={8} title="Button" />
         <Button
           category="edition"
           label="Inscrever"
