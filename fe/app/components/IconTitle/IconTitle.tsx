@@ -9,16 +9,20 @@ const IconTitle = ({ title, category, mode }: IconTitleProps) => {
     switch (mode) {
       case "hashtag":
         return (
-          <HashtagIcon className={`absolute -top-24 left-0 text-${category}`} />
+          <HashtagIcon
+            className={`absolute md:-top-24 md:left-0 text-${category} max-md:max-h-40 -left-10 -top-14`}
+          />
         );
       case "dots":
         return (
-          <DotsIcon className={`absolute -top-6 -left-6 text-${category}`} />
+          <DotsIcon
+            className={`absolute -top-6 -left-6 text-${category} max-md:w-28`}
+          />
         );
       case "chevron":
         return (
           <ChevronIcon
-            className={`absolute -top-32 -left-6 w-20 text-${category}`}
+            className={`absolute -top-32 -left-6 w-20 text-${category} max-md:w-16`}
           />
         );
     }
@@ -28,8 +32,9 @@ const IconTitle = ({ title, category, mode }: IconTitleProps) => {
     <div
       className={clsx(
         "relative",
-        mode === "hashtag" && "my-24",
-        (mode === "dots" || mode === "chevron") && "my-6"
+        mode === "hashtag" && "md:mt-24 md:mb-32 mb-12 mt-16",
+        mode === "chevron" && "md:my-12 mt-5",
+        mode === "dots" && "md:my-12 mb-5 mt-12"
       )}
     >
       {getIcon()}

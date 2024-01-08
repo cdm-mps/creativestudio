@@ -1,6 +1,7 @@
 import ContactInfo from "@/app/components/ContactInfo/ContactInfo";
 import Divider from "@/app/components/Divider/Divider";
 import QuoteSlider from "@/app/components/Quote/QuoteSlider";
+import ArrowTitle from "@components/ArrowTitle/ArrowTitle";
 import BreadcrumbsTitle from "@components/BreadcrumbsTitle/BreadcrumbsTitle";
 import { BreadcrumbsProps } from "@components/BreadcrumbsTitle/BreadcrumbsTitleProps.models";
 import IconTitle from "@components/IconTitle/IconTitle";
@@ -129,6 +130,16 @@ export default function Home() {
         />
         <IconTitle title="Anteriores" mode="dots" category="workshop" />
         <IconTitle title="Programação" mode="chevron" category="masterclass" />
+      </div>
+      <Divider />
+      {/* -------------- ARROW TITLE --------------*/}
+      <div className="flex flex-col items-center gap-4 px-3">
+        <LocalTitle index={7} title="Arrow Title" />
+        <ArrowTitle
+          title="Próximas Datas"
+          category="masterclass"
+          subTitle="14 Masterclasses disponíveis"
+        />
       </div>
       <Divider />
       {/* -------------- FOOTER --------------*/}
