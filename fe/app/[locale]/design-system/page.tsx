@@ -1,9 +1,12 @@
+"use client";
+
 import ContactInfo from "@/app/components/ContactInfo/ContactInfo";
 import Divider from "@/app/components/Divider/Divider";
 import QuoteSlider from "@/app/components/Quote/QuoteSlider";
 import ArrowTitle from "@components/ArrowTitle/ArrowTitle";
 import BreadcrumbsTitle from "@components/BreadcrumbsTitle/BreadcrumbsTitle";
 import { BreadcrumbsProps } from "@components/BreadcrumbsTitle/BreadcrumbsTitleProps.models";
+import Button from "@components/Button/Button";
 import IconTitle from "@components/IconTitle/IconTitle";
 import Title from "@components/Title/Title";
 import CoreTitle from "@components/shared/CoreTitle/CoreTitle";
@@ -26,7 +29,7 @@ export default function Home() {
     { label: "Masterclasses", url: "/example" },
   ];
   return (
-    <main className="flex flex-col min-h-screen items-center p-4 bg-black text-white gap-10 w-full">
+    <main className="flex flex-col min-h-screen items-center p-4 bg-black text-white gap-10 w-full overflow-x-hidden">
       <CoreTitle title={t("title")} />
       {/* -------------- DIVIDER --------------*/}
       <div className="flex flex-col items-center gap-4">
@@ -156,6 +159,28 @@ export default function Home() {
           title="Próximas Datas"
           category="masterclass"
           subTitle="14 Masterclasses disponíveis"
+        />
+      </div>
+      <Divider />
+      {/* -------------- BUTTON --------------*/}
+      <div className="flex flex-col items-center gap-4 px-3">
+        <LocalTitle index={7} title="Arrow Title" />
+        <Button
+          category="edition"
+          label="Inscrever"
+          onClick={() => console.log("on click inscrever button")}
+        />
+        <Button
+          category="masterclass"
+          label="Enviar"
+          onClick={() => console.log("on click enviar button")}
+          isDisabled
+        />
+        <Button
+          category="masterclass"
+          label="Enviar..."
+          onClick={() => console.log("on click enviar... button")}
+          isLoading
         />
       </div>
       <Divider />
