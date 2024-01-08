@@ -6,6 +6,7 @@ import BreadcrumbsTitle from "@components/BreadcrumbsTitle/BreadcrumbsTitle";
 import { BreadcrumbsProps } from "@components/BreadcrumbsTitle/BreadcrumbsTitleProps.models";
 import IconTitle from "@components/IconTitle/IconTitle";
 import Title from "@components/Title/Title";
+import CoreTitle from "@components/shared/CoreTitle/CoreTitle";
 import { Instagram } from "@icons/Instagram";
 import { useTranslations } from "next-intl";
 
@@ -26,7 +27,7 @@ export default function Home() {
   ];
   return (
     <main className="flex flex-col min-h-screen items-center p-4 bg-black text-white gap-10 w-full">
-      <Title title={t("title")} />
+      <CoreTitle title={t("title")} />
       {/* -------------- DIVIDER --------------*/}
       <div className="flex flex-col items-center gap-4">
         <LocalTitle index={1} title="Divider horizontal & vertical" />
@@ -114,8 +115,14 @@ export default function Home() {
       <div className="flex flex-col items-center gap-4 px-3">
         <LocalTitle index={5} title="Breadcrumbs Title" />
         <BreadcrumbsTitle
+          title="Editions"
+          category="edition"
+          breadcrumbs={breadcrumbs}
+        />
+        <BreadcrumbsTitle
           title="Creative Workshops"
           category="creative-talks"
+          withIcon
           breadcrumbs={breadcrumbs}
         />
       </div>

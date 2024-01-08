@@ -8,5 +8,6 @@ export interface BreadcrumbsProps {
 export interface BreadcrumbsTitleProps {
   title: string;
   category: Category;
+  withIcon?: boolean;
   breadcrumbs: BreadcrumbsProps[];
 }
