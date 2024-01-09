@@ -7,12 +7,12 @@
     "Mentor": {
       "eventBarSingular": " evento disponível",
       "eventBarPlural": " eventos disponíveis"
+    },
+    "Details": {
+      "entity": "Entidade",
+      "paymentReference": "Referência",
+      "descriptive": "Descritivo",
+      "amount": "Montante"
     }
-  },
-  "Details": {
-    "entity": "Entidade",
-    "paymentReference": "Referência",
-    "descriptive": "Descritivo",
-    "amount": "Montante"
   }
 }
