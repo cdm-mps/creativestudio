@@ -117,6 +117,7 @@ export default function Home() {
           category="masterclass"
         />
       </div>
+      <Divider />
       {/* -------------- TITLE --------------*/}
       <div className="flex flex-col items-center gap-4 px-3">
         <LocalTitle index={5} title="Title" />
