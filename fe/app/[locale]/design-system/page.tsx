@@ -179,7 +179,7 @@ export default function Home() {
       <Divider />
       {/* -------------- Mentor Element --------------*/}
       <div className="flex flex-col items-center gap-4 px-3">
-        <LocalTitle index={8} title="Mentor Element" />
+        <LocalTitle index={9} title="Mentor Element" />
         <div className="flex flex-wrap gap-x-4 w-full">
           <MentorElement
             eventCount={1}
@@ -202,7 +202,7 @@ export default function Home() {
       {/* -------------- BUTTON --------------*/}
       <Divider />
       <div className="flex flex-col items-center gap-4 px-3">
-        <LocalTitle index={8} title="Button" />
+        <LocalTitle index={10} title="Button" />
         <Button
           category="edition"
           label="Inscrever"
