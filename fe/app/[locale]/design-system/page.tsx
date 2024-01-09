@@ -200,6 +200,7 @@ export default function Home() {
         </div>
       </div>
       {/* -------------- BUTTON --------------*/}
+      <Divider />
       <div className="flex flex-col items-center gap-4 px-3">
         <LocalTitle index={8} title="Button" />
         <Button
