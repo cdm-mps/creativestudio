@@ -1,5 +1,8 @@
+"use client";
+
 import ContactInfo from "@/app/components/ContactInfo/ContactInfo";
 import Divider from "@/app/components/Divider/Divider";
+import MentorElement from "@components/Mentor/Mentor";
 import QuoteSlider from "@/app/components/Quote/QuoteSlider";
 import ArrowTitle from "@components/ArrowTitle/ArrowTitle";
 import BreadcrumbsTitle from "@components/BreadcrumbsTitle/BreadcrumbsTitle";
@@ -9,6 +12,7 @@ import Title from "@components/Title/Title";
 import CoreTitle from "@components/shared/CoreTitle/CoreTitle";
 import { Instagram } from "@icons/Instagram";
 import { useTranslations } from "next-intl";
+import BeneditaPereiera from "@assets/images/BeneditaPereira.png";
 
 const LocalTitle = ({ index, title }: { index?: number; title: string }) => {
   return (
@@ -157,6 +161,29 @@ export default function Home() {
           category="masterclass"
           subTitle="14 Masterclasses disponíveis"
         />
+      </div>
+      <Divider />
+      {/* -------------- Mentor Element --------------*/}
+      <div className="flex flex-col items-center gap-4 px-3">
+        <LocalTitle index={8} title="Mentor Element" />
+        <div className="flex flex-wrap gap-x-4 w-full">
+          <MentorElement
+            eventCount={1}
+            name="Benedita Pereira"
+            image={{ src: BeneditaPereiera, alt: "benedita_singular" }}
+          />
+          <MentorElement
+            eventCount={2}
+            category="creative-talks"
+            name="Benedita Pereira"
+            image={{ src: BeneditaPereiera, alt: "benedita_plural" }}
+          />
+          <MentorElement
+            name="Benedita Pereira Very Very Long"
+            image={{ src: BeneditaPereiera, alt: "benedita_none" }}
+            onClick={() => console.log("pressed!")}
+          />
+        </div>
       </div>
       <Divider />
       {/* -------------- FOOTER --------------*/}
