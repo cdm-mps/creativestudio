@@ -1,9 +1,17 @@
 {
-    "Index": {
-      "title": "Hello World!"
-    },
-    "DesignSystem": {
-      "title": "Components",
-      "footer": "And more..."
+  "Index": {
+    "title": "Hello World!"
+  },
+  "DesignSystem": {
+    "title": "Components",
+    "footer": "And more..."
+  },
+  "Components": {
+    "Details": {
+      "entity": "Entity",
+      "paymentReference": "Reference",
+      "descriptive": "Descriptive",
+      "amount": "Amount"
     }
   }
+}
