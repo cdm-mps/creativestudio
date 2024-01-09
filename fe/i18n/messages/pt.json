@@ -1,9 +1,12 @@
 {
-    "Index": {
-      "title": "Olá Mundo!"
-    },
-    "DesignSystem": {
-      "title": "Componentes",
-      "footer": "E mais..."
+  "DesignSystem": {
+    "title": "Componentes",
+    "footer": "E mais..."
+  },
+  "Components": {
+    "Mentor": {
+      "eventBarSingular": " evento disponível",
+      "eventBarPlural": " eventos disponíveis"
     }
   }
+}
