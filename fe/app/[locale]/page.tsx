@@ -2,7 +2,7 @@ import { categoriesDictionary } from "@utils/categoriesDictionary";
 
 export default function Home() {
   return (
-    <main className="flex min-h-[calc(100vh-10vh)] items-center justify-between">
+    <main className="flex min-h-[calc(100vh-26vh)] items-center justify-between">
       {categoriesDictionary["edition"]()}
       {categoriesDictionary["masterclass"]()}
       {categoriesDictionary["artistic-residence"]()}

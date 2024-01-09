@@ -2,6 +2,7 @@ import "../globals.css";
 import { notFound } from "next/navigation";
 import { locales } from "@/config";
 import Footer from "@/app/components/Footer/Footer";
+import Navbar from "@components/Navbar/Navbar";
 
 export default function RootLayout({
   children,
@@ -16,6 +17,7 @@ export default function RootLayout({
   return (
     <html lang={locale} className="text-white bg-black p-6">
       <body>
+        <Navbar />
         {children}
         <Footer />
       </body>
