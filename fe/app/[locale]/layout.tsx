@@ -19,9 +19,11 @@ export default function RootLayout({
   return (
     <html lang={locale} className="text-white bg-black">
       <NextIntlClientProvider messages={messages}>
-        <body className="min-h-screen p-6">
+        <body>
           <Navbar />
-          {children}
+          <div className="md:mt-32 mt-24 mx-6 md:min-h-[calc(100vh-190px)] min-h-[calc(100vh-139px)]">
+            {children}
+          </div>
           <Footer />
         </body>
       </NextIntlClientProvider>

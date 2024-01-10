@@ -26,7 +26,7 @@ export default function Home() {
     { label: "Masterclasses", url: "/example" },
   ];
   return (
-    <main className="flex flex-col min-h-screen items-center p-4 bg-black text-white gap-10 w-full">
+    <main className="flex flex-col items-center my-6 bg-black text-white gap-10 w-full">
       <CoreTitle title={t("title")} />
       {/* -------------- DIVIDER --------------*/}
       <div className="flex flex-col items-center gap-4">
