@@ -17,9 +17,9 @@ export default function RootLayout({
   if (!locales.includes(locale)) notFound();
 
   return (
-    <html lang={locale} className="text-white bg-black p-6">
+    <html lang={locale} className="text-white bg-black">
       <NextIntlClientProvider messages={messages}>
-        <body>
+        <body className="min-h-screen p-6">
           <Navbar />
           {children}
           <Footer />
