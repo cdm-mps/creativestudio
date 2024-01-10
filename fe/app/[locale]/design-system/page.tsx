@@ -35,7 +35,7 @@ export default function Home() {
     { label: "Masterclasses", url: "/example" },
   ];
   return (
-    <main className="flex flex-col min-h-screen items-center p-4 bg-black text-white gap-10 w-full overflow-x-hidden">
+    <main className="flex flex-col items-center my-6 bg-black text-white gap-10 w-full">
       <CoreTitle title={t("title")} />
       {/* -------------- DIVIDER --------------*/}
       <div className="flex flex-col items-center gap-4">
@@ -85,9 +85,9 @@ export default function Home() {
               content: (
                 <span>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod.
+                  do eiusmod. Lorem ipsum dolor sit amet, consectetur adipiscing
+                  elit, sed do eiusmod. Lorem ipsum dolor sit amet, consectetur
+                  adipiscing elit, sed do eiusmod.
                 </span>
               ),
               author: "Person C",
