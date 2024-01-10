@@ -21,9 +21,7 @@ const Mentor = ({
     >
       <div className="relative">
         <ImageElement
-          src={image.src}
-          alt={image.alt}
-          objectPosition={"center"}
+          {...image}
           className="h-[184px] w-[162px] md:w-[362px] md:h-[384px]"
         />
         {eventCount && (
