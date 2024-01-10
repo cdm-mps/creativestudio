@@ -17,6 +17,7 @@ import { useTranslations } from "next-intl";
 import BeneditaPereiera from "@assets/images/BeneditaPereira.png";
 import CarolinaLeite from "@assets/images/CarolinaLeite.png";
 import MentorEventBar from "@components/MentorEventBar/MentorEventBar";
+import MentorIdentifier from "@components/MentorIdentifier/MentorIdentifier";
 
 const LocalTitle = ({ index, title }: { index?: number; title: string }) => {
   return (
@@ -178,10 +179,32 @@ export default function Home() {
           subTitle="14 Masterclasses disponíveis"
         />
       </div>
+      {/* -------------- BUTTON --------------*/}
+      <Divider />
+      <div className="flex flex-col items-center gap-4 px-3">
+        <LocalTitle index={9} title="Button" />
+        <Button
+          category="edition"
+          label="Inscrever"
+          onClick={() => console.log("on click inscrever button")}
+        />
+        <Button
+          category="masterclass"
+          label="Enviar"
+          onClick={() => console.log("on click enviar button")}
+          isDisabled
+        />
+        <Button
+          category="masterclass"
+          label="Enviar..."
+          onClick={() => console.log("on click enviar... button")}
+          isLoading
+        />
+      </div>
       <Divider />
       {/* -------------- Mentor Element --------------*/}
       <div className="flex flex-col items-center gap-4 px-3">
-        <LocalTitle index={9} title="Mentor Element" />
+        <LocalTitle index={10} title="Mentor Element" />
         <div className="flex flex-wrap gap-x-4 w-full">
           <MentorElement
             eventCount={1}
@@ -212,28 +235,6 @@ export default function Home() {
             onClick={() => console.log("pressed!")}
           />
         </div>
-      </div>
-      {/* -------------- BUTTON --------------*/}
-      <Divider />
-      <div className="flex flex-col items-center gap-4 px-3">
-        <LocalTitle index={10} title="Button" />
-        <Button
-          category="edition"
-          label="Inscrever"
-          onClick={() => console.log("on click inscrever button")}
-        />
-        <Button
-          category="masterclass"
-          label="Enviar"
-          onClick={() => console.log("on click enviar button")}
-          isDisabled
-        />
-        <Button
-          category="masterclass"
-          label="Enviar..."
-          onClick={() => console.log("on click enviar... button")}
-          isLoading
-        />
       </div>
       {/* -------------- Mentor Event Bar --------------*/}
       <Divider />
@@ -282,6 +283,30 @@ export default function Home() {
           date={new Date("2024/03/03")}
           onClick={() => console.log("pressed!")}
         />
+      </div>
+      {/* -------------- Mentor Identifier --------------*/}
+      <Divider />
+      <div className="flex flex-col items-center gap-4 px-3">
+        <LocalTitle index={12} title="Mentor Identifier" />
+        <div className="flex flex-wrap items-center gap-4">
+          <MentorIdentifier
+            image={{
+              src: CarolinaLeite,
+              alt: "Carolina",
+              objectPosition: "center",
+            }}
+            name={"Carolina Leite"}
+          />
+          <MentorIdentifier
+            image={{
+              src: CarolinaLeite,
+              alt: "Carolina",
+              objectPosition: "center",
+            }}
+            name={"Carolina Leite Old And Very Long"}
+            past
+          />
+        </div>
       </div>
       <Divider />
       {/* -------------- FOOTER --------------*/}

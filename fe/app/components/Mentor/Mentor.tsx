@@ -26,7 +26,7 @@ const Mentor = ({
         />
         {eventCount && (
           <div
-            className={`items-center justify-center h-[26px] w-[162px] flex absolute bg-${category} bottom-0 md:group-hover:flex md:hidden md:h-[46px] md:w-[362px]`}
+            className={`items-center justify-center h-[26px] w-[162px] flex absolute bg-${category} bottom-0 xl:group-hover:flex xl:hidden md:h-[46px] md:w-[362px]`}
           >
             <span className="font-league-gothic text-xs md:text-2xl">
               {eventCount}

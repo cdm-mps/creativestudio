@@ -1,5 +1,6 @@
 import ImageElement from "@components/ImageElement/ImageElement";
 import { MentorEventBarProps } from "@components/MentorEventBar/MentorEventBar.models";
+import MentorIdentifier from "@components/MentorIdentifier/MentorIdentifier";
 import { categoriesDictionary } from "@utils/categoriesDictionary";
 
 const MentorEventBar = ({
@@ -31,15 +32,7 @@ const MentorEventBar = ({
           <span>{_date.day + "/" + _date.month}</span>
         </div>
       </div>
-
-      <div className="flex items-center font-lato text-xs gap-x-2 md:text-xl md:gap-x-4 ">
-        <ImageElement
-          {...mentor.image}
-          className={`w-6 h-6 md:w-16 md:h-16 ${past && "grayscale"}`}
-          rounded
-        />
-        <span className="line-clamp-2 w-[100px] md:w-[250px]">{mentor.name}</span>
-      </div>
+      <MentorIdentifier image={mentor.image} name={mentor.name} past />
     </div>
   );
 };
