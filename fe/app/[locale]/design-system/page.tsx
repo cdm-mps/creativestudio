@@ -15,6 +15,8 @@ import CoreTitle from "@components/shared/CoreTitle/CoreTitle";
 import { Instagram } from "@icons/Instagram";
 import { useTranslations } from "next-intl";
 import BeneditaPereiera from "@assets/images/BeneditaPereira.png";
+import CarolinaLeite from "@assets/images/CarolinaLeite.png";
+import MentorEventBar from "@components/MentorEventBar/MentorEventBar";
 
 const LocalTitle = ({ index, title }: { index?: number; title: string }) => {
   return (
@@ -184,17 +186,29 @@ export default function Home() {
           <MentorElement
             eventCount={1}
             name="Benedita Pereira"
-            image={{ src: BeneditaPereiera, alt: "benedita_singular" }}
+            image={{
+              src: BeneditaPereiera,
+              alt: "benedita_singular",
+              objectPosition: "center",
+            }}
           />
           <MentorElement
             eventCount={2}
             category="creative-talks"
             name="Benedita Pereira"
-            image={{ src: BeneditaPereiera, alt: "benedita_plural" }}
+            image={{
+              src: BeneditaPereiera,
+              alt: "benedita_plural",
+              objectPosition: "center",
+            }}
           />
           <MentorElement
             name="Benedita Pereira Very Very Long"
-            image={{ src: BeneditaPereiera, alt: "benedita_none" }}
+            image={{
+              src: BeneditaPereiera,
+              alt: "benedita_none",
+              objectPosition: "center",
+            }}
             onClick={() => console.log("pressed!")}
           />
         </div>
@@ -219,6 +233,54 @@ export default function Home() {
           label="Enviar..."
           onClick={() => console.log("on click enviar... button")}
           isLoading
+        />
+      </div>
+      {/* -------------- Mentor Event Bar --------------*/}
+      <Divider />
+      <div className="flex flex-col items-center gap-4 px-3 w-full">
+        <LocalTitle index={11} title="Mentor Event Bar" />
+        <MentorEventBar
+          mentor={{
+            name: "Benedita Pereira",
+            image: {
+              src: BeneditaPereiera,
+              alt: "Benedita",
+              objectPosition: "center",
+            },
+          }}
+          category={"masterclass"}
+          title="Lorem ipsum Dolor"
+          date={new Date("2024/01/29")}
+          onClick={() => console.log("pressed!")}
+        />
+        <MentorEventBar
+          mentor={{
+            name: "Benedita Pereira Very Very Very Very Very Very Very Very Very Very Long",
+            image: {
+              src: BeneditaPereiera,
+              alt: "Benedita",
+              objectPosition: "center",
+            },
+          }}
+          category={"creative-talks"}
+          title="Lorem ipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsumipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsum"
+          date={new Date("2024/03/03")}
+          onClick={() => console.log("pressed!")}
+        />
+        <MentorEventBar
+          mentor={{
+            name: "Carolina Leite",
+            image: {
+              src: CarolinaLeite,
+              alt: "Carolina",
+              objectPosition: "center",
+            },
+          }}
+          category={"creative-talks"}
+          past
+          title="Lorem ipsum"
+          date={new Date("2024/03/03")}
+          onClick={() => console.log("pressed!")}
         />
       </div>
       <Divider />
