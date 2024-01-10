@@ -1,6 +1,7 @@
 import ImageElement from "@components/ImageElement/ImageElement";
 import { MentorEventBarProps } from "@components/MentorEventBar/MentorEventBar.models";
 import MentorIdentifier from "@components/MentorIdentifier/MentorIdentifier";
+import RoundArrowButton from "@components/RoundArrowButton/RoundArrowButton";
 import { categoriesDictionary } from "@utils/categoriesDictionary";
 
 const MentorEventBar = ({
@@ -32,7 +33,10 @@ const MentorEventBar = ({
           <span>{_date.day + "/" + _date.month}</span>
         </div>
       </div>
-      <MentorIdentifier image={mentor.image} name={mentor.name} past />
+      <div className="flex gap-x-1 md:gap-x-7 items-center">
+        <MentorIdentifier image={mentor.image} name={mentor.name} past />
+        <RoundArrowButton arrowDirection="right" />
+      </div>
     </div>
   );
 };
