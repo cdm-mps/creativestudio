@@ -6,6 +6,15 @@
     "title": "Components",
     "footer": "And more..."
   },
+  "Menu": {
+    "CreativeWorkshops": "CREATIVE WORKSHOPS",
+    "BusinessWorkshops": "BUSINESS WORKSHOPS",
+    "Mentors": "MENTORS",
+    "Calendar": "CALENDAR",
+    "AboutUs": "ABOUT US",
+    "Contacts": "CONTACTS",
+    "FollowUs": "FOLLOW US!"
+  },
   "Components": {
     "Details": {
       "entity": "Entity",
