@@ -1,9 +1,13 @@
+"use client";
+
 import ContactInfo from "@/app/components/ContactInfo/ContactInfo";
 import Divider from "@/app/components/Divider/Divider";
 import QuoteSlider from "@/app/components/Quote/QuoteSlider";
 import ArrowTitle from "@components/ArrowTitle/ArrowTitle";
 import BreadcrumbsTitle from "@components/BreadcrumbsTitle/BreadcrumbsTitle";
 import { BreadcrumbsProps } from "@components/BreadcrumbsTitle/BreadcrumbsTitleProps.models";
+import Button from "@components/Button/Button";
+import Details from "@components/Details/Details";
 import IconTitle from "@components/IconTitle/IconTitle";
 import Title from "@components/Title/Title";
 import CoreTitle from "@components/shared/CoreTitle/CoreTitle";
@@ -76,7 +80,9 @@ export default function Home() {
               content: (
                 <span>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod.
+                  do eiusmod. Lorem ipsum dolor sit amet, consectetur adipiscing
+                  elit, sed do eiusmod. Lorem ipsum dolor sit amet, consectetur
+                  adipiscing elit, sed do eiusmod.
                 </span>
               ),
               author: "Person C",
@@ -105,15 +111,27 @@ export default function Home() {
         />
       </div>
       <Divider />
+      {/* -------------- CONTACT INFO --------------*/}
+      <div className="flex flex-col items-center gap-4">
+        <LocalTitle index={4} title="Details" />
+        <Details
+          entity="Creative studio"
+          paymentReference="0000000 0000 00 000 000 00 0 0 00"
+          descriptive="Masterclass 15-Nov"
+          amount={23}
+          category="masterclass"
+        />
+      </div>
+      <Divider />
       {/* -------------- TITLE --------------*/}
       <div className="flex flex-col items-center gap-4 px-3">
-        <LocalTitle index={4} title="Title" />
+        <LocalTitle index={5} title="Title" />
         <Title title="Creative Workshops" category="creative-talks" />
       </div>
       <Divider />
       {/* -------------- BREADCRUMBS TITLE --------------*/}
       <div className="flex flex-col items-center gap-4 px-3">
-        <LocalTitle index={5} title="Breadcrumbs Title" />
+        <LocalTitle index={6} title="Breadcrumbs Title" />
         <BreadcrumbsTitle
           title="Editions"
           category="edition"
@@ -129,7 +147,7 @@ export default function Home() {
       <Divider />
       {/* -------------- ICON TITLE --------------*/}
       <div className="flex flex-col items-center gap-10 px-3">
-        <LocalTitle index={6} title="Icon Title" />
+        <LocalTitle index={7} title="Icon Title" />
         <div className="md:mt-24 md:mb-32 my-12">
           <IconTitle
             title="Sem Filtros"
@@ -151,11 +169,33 @@ export default function Home() {
       <Divider />
       {/* -------------- ARROW TITLE --------------*/}
       <div className="flex flex-col items-center gap-4 px-3">
-        <LocalTitle index={7} title="Arrow Title" />
+        <LocalTitle index={8} title="Arrow Title" />
         <ArrowTitle
           title="Próximas Datas"
           category="masterclass"
           subTitle="14 Masterclasses disponíveis"
+        />
+      </div>
+      <Divider />
+      {/* -------------- BUTTON --------------*/}
+      <div className="flex flex-col items-center gap-4 px-3">
+        <LocalTitle index={8} title="Button" />
+        <Button
+          category="edition"
+          label="Inscrever"
+          onClick={() => console.log("on click inscrever button")}
+        />
+        <Button
+          category="masterclass"
+          label="Enviar"
+          onClick={() => console.log("on click enviar button")}
+          isDisabled
+        />
+        <Button
+          category="masterclass"
+          label="Enviar..."
+          onClick={() => console.log("on click enviar... button")}
+          isLoading
         />
       </div>
       <Divider />

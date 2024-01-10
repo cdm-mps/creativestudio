@@ -12,7 +12,7 @@ const MenuOptions = ({ onClick }: MenuOptionsProps) => {
           href={href}
           aria-label={label}
           onClick={onClick}
-          className="md:hover:underline md:hover:decoration-business-workshop max-md:hover:bg-business-workshop max-md:border-t max-md:border-b max-md:w-full max-md:text-center max-md:py-4"
+          className="lg:hover:underline lg:hover:decoration-business-workshop max-lg:hover:bg-business-workshop max-lg:border-t max-lg:border-b max-lg:w-full max-lg:text-center max-lg:py-4"
         >
           {text}
         </Link>

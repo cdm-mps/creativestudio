@@ -26,15 +26,15 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed top-0 w-full md:pt-6 md:px-6 flex justify-between items-center mb-24 bg-black z-50">
+    <nav className="fixed top-0 w-full lg:pt-6 lg:px-6 flex justify-between items-center mb-24 bg-black z-50">
       <Link
         href="/"
-        className="max-md:absolute max-md:top-6 max-md:left-6 z-30 max-md:w-40"
+        className="max-lg:absolute max-lg:top-6 max-lg:left-6 z-30 max-lg:w-40"
         onClick={closeMenuVisibility}
       >
         <Image src={CreativeStudioLogo} alt="Creative Studio No Filters Logo" />
       </Link>
-      <div className="max-md:hidden flex items-center gap-6">
+      <div className="max-lg:hidden flex items-center gap-6">
         <div className="flex items-center font-league-gothic text-xl gap-6">
           <MenuOptions />
         </div>
@@ -51,9 +51,9 @@ const Navbar = () => {
           <Instagram />
         </div>
       </div>
-      <div className="md:hidden">
+      <div className="lg:hidden h-20 bg-black">
         <MenuIcon
-          className="w-6 max-md:absolute max-md:top-6 max-md:right-6"
+          className="w-6 max-lg:absolute max-lg:top-6 max-lg:right-6"
           onClick={updateMenuVisibility}
         />
         <div
@@ -68,7 +68,7 @@ const Navbar = () => {
           } fixed z-20 top-0 left-0 w-screen h-[472px] border-b border-white bg-black flex flex-col items-center pt-[100px] font-league-gothic text-xl`}
         >
           <CloseIcon
-            className="w-6 max-md:absolute max-md:top-7 max-md:right-6"
+            className="w-6 max-lg:absolute max-lg:top-7 max-lg:right-6"
             onClick={closeMenuVisibility}
           />
           <MenuOptions onClick={closeMenuVisibility} />
