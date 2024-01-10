@@ -9,9 +9,7 @@ const QuoteElement = ({ className, content, author }: QuoteElementProps) => {
     >
       <div className={`flex flex-row `}>
         <text className="text-4xl md:text-7xl font-league-gothic">&ldquo;</text>
-        <div
-          className={`text-[12px] text-center m-3 md:text-xl md:m-5`}
-        >
+        <div className={`text-[12px] text-center m-2 md:text-xl md:m-5`}>
           {content}
         </div>
         <text className="text-4xl md:text-7xl rotate-180 font-league-gothic">
