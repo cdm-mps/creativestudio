@@ -85,6 +85,8 @@ export default function Home() {
               content: (
                 <span>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                   do eiusmod.
                 </span>
               ),

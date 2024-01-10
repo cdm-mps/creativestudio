@@ -13,6 +13,12 @@
       "paymentReference": "Reference",
       "descriptive": "Descriptive",
       "amount": "Amount"
+    },
+    "Acknowledgements": {
+      "title": "Acknowledgements",
+      "subtitle1": "The studio is made up of those who are there and those who will always be there.",
+      "quote": "Those who pass us by don't go alone, they don't leave us alone. They leave a little of themselves behind, they take a little of us with them.",
+      "subtitle2": "To Inês Abreu Guerra, \n and Andreia Fisher de Almeida, \n our Thanks. \n Always."
     }
   }
 }

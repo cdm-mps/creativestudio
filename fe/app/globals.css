@@ -1,5 +1,43 @@
-@import url('https://fonts.googleapis.com/css2?family=League+Gothic&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lato&family=League+Gothic&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=League+Gothic&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato&family=League+Gothic&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@media only screen and (max-width: 1023px) {
+  .quotes::-webkit-scrollbar {
+    height: 10px;
+  }
+
+  .quotes::-webkit-scrollbar-thumb {
+    background: #63cbf8;
+  }
+
+  .quotes::-webkit-scrollbar-track {
+    background: white;
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    margin-left: 15vw;
+    margin-right: 15vw;
+    background-clip: padding-box;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .quotes::-webkit-scrollbar {
+    height: 11px;
+  }
+
+  .quotes::-webkit-scrollbar-thumb {
+    background: #63cbf8;
+  }
+
+  .quotes::-webkit-scrollbar-track {
+    background: white;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    margin-left: 15vw;
+    margin-right: 15vw;
+    background-clip: padding-box;
+  }
+}
