@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { TeamElementProps } from "../TeamElement/TeamElement.models";
 import TeamElement from "../TeamElement/TeamElement";
+import Divider from "@components/Divider/Divider";
 
 const TeamElementRow = ({
   teamElements,
@@ -27,13 +28,13 @@ const TeamElementRow = ({
     <div className="flex flex-col gap-8 md:gap-16">
       {content.map((group, i) => (
         <div className="flex" key={i}>
-          {<div className="h-1 w-full bg-white mr-10 mt-[40px] md:mr-16 md:mt-[100px]" />}
+          <Divider className="h-[2px] w-full bg-white mr-4 mt-10 md:mr-16 md:mt-[100px]" />
           <div className="flex gap-8 md:gap-16">
             {group.map((teamElement) => (
               <TeamElement key={i} {...teamElement} />
             ))}
           </div>
-          <div className="h-1 w-full bg-white ml-10 mt-[40px] md:ml-16 md:mt-[100px]" />
+          <Divider className="h-[2px] w-full bg-white ml-4 mt-10 md:ml-16 md:mt-[100px]" />
         </div>
       ))}
     </div>
