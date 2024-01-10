@@ -2,6 +2,7 @@ import React from "react";
 import DateInfo from "../DateInfo/DateInfo";
 import ImageElement from "../ImageElement/ImageElement";
 import { NewsElementProps } from "./NewsElement.models";
+import { categoriesDictionary } from "@utils/categoriesDictionary";
 
 const NewsElement = ({
   title,
@@ -9,14 +10,19 @@ const NewsElement = ({
   date,
   category,
   image,
+  onClick,
 }: NewsElementProps) => {
   return (
-    <div className="flex w-fit group cursor-pointer mr-[12.75px] mb-[8px] md:mr-[20.5px] md:mb-[15px]">
+    <div
+      className="flex w-fit group cursor-pointer mr-[12.75px] mb-[8px] md:mr-[20.5px] md:mb-[15px]"
+      onClick={onClick}
+    >
       <div className="flex flex-col items-end mr-9">
         <DateInfo date={date} size="lg" category={category} />
         <span className="font-league-gothic uppercase text-3xl w-[134.5px] md:text-5xl md:w-[269px] text-end">
           {title}
         </span>
+        {categoriesDictionary[category]("w-7 h-auto mt-2 md:w-11 md:h-auto md:mt-4")}
       </div>
 
       <div className="flex relative w-fit">

@@ -7,4 +7,5 @@ export interface NewsElementProps {
   date: string;
   category: Category;
   image: ImageProps;
+  onClick?: () => void;
 }
