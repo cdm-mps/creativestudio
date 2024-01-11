@@ -10,6 +10,7 @@ import { BreadcrumbsProps } from "@components/BreadcrumbsTitle/BreadcrumbsTitleP
 import Button from "@components/Button/Button";
 import Details from "@components/Details/Details";
 import IconTitle from "@components/IconTitle/IconTitle";
+import Stepper from "@components/Stepper/Stepper";
 import Title from "@components/Title/Title";
 import CoreTitle from "@components/shared/CoreTitle/CoreTitle";
 import { Instagram } from "@icons/Instagram";
@@ -334,6 +335,15 @@ export default function Home() {
           category={"masterclass"}
           bullet={{ index: 2 }}
         />
+      </div>
+      <Divider />
+      {/* -------------- STEPPER --------------*/}
+      <div className="flex flex-col items-center gap-10 px-3">
+        <LocalTitle index={13} title="Stepper" />
+        <Stepper activeStep={0} category="edition" />
+        <Stepper activeStep={1} category="masterclass" />
+        <Stepper activeStep={2} category="business-workshop" />
+        <Stepper activeStep={3} category="artistic-residence" />{" "}
       </div>
       <Divider />
       {/* -------------- FOOTER --------------*/}
