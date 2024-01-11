@@ -1,5 +1,16 @@
 {
-    "Index": {
-      "title": "Olá Mundo!"
+  "category": {
+    "edition": { "key": "edition", "value": "Edições" },
+    "masterclass": { "key": "masterclass", "value": "Masterclasses" },
+    "workshop": { "key": "workshop", "value": "Workshops" },
+    "creative-talks": { "key": "creative-talks", "value": "Creative Talks" },
+    "artistic-residence": {
+      "key": "artistic-residence",
+      "value": "Residência Artística"
+    },
+    "business-workshop": {
+      "key": "business-workshop",
+      "value": "Business Workshops"
     }
   }
+}
