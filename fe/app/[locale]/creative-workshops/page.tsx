@@ -8,14 +8,7 @@ export default function CreativeWorkshopsPage() {
   return (
     <main className="flex min-h-[calc(100vh-26vh)]">
       <div className="w-fit">
-        <BreadcrumbsTitle
-          title={t("CreativeWorkshops")}
-          category="business-workshop"
-          withIcon
-          breadcrumbs={[
-            { label: "Creative-Workshops", url: "/creative-workshops" },
-          ]}
-        />
+        <Title title={t("CreativeWorkshops")} category="business-workshop" />
       </div>
     </main>
   );
