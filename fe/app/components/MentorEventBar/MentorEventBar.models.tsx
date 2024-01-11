@@ -6,6 +6,6 @@ export interface MentorEventBarProps {
   category: Category;
   title: string;
   past?: boolean;
-  date: Date;
+  date: string;
   onClick: () => void;
 }
