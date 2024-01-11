@@ -37,6 +37,10 @@
       "quote": "Aqueles que passam por nós, não vão sós, não nos deixam sós. Deixam um pouco de si, levam um pouco de nós.",
       "subtitle2": "À Inês Abreu Guerra, \n à Andreia Fisher de Almeida, \n o nosso Obrigado. \n Sempre."
     },
+    "NewsSlider": {
+      "next": "Anterior",
+      "previous": "Próximo"
+    },
     "EventElement": {
       "explore": "Explorar"
     },
