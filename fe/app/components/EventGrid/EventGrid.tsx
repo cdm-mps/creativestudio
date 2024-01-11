@@ -1,10 +1,10 @@
 import RoundArrowButton from "@components/RoundArrowButton/RoundArrowButton";
+import { useTranslations } from "next-intl";
 import { useCallback, useEffect, useState } from "react";
 import EventElement from "../EventElement/EventElement";
-import { EventElementProps } from "../EventElement/EventElement.models";
-import { useTranslations } from "next-intl";
+import { EventGridProps } from "./EventGrid.models";
 
-const EventGrid = ({ events }: { events: EventElementProps[] }) => {
+const EventGrid = ({ events }: EventGridProps) => {
   const t = useTranslations("Components.EventGrid");
 
   const [showAll, setShowAll] = useState(false);
@@ -15,13 +15,15 @@ const EventGrid = ({ events }: { events: EventElementProps[] }) => {
   const getNumberOfElements = useCallback(() => {
     if (innerWidth > 0 && innerWidth < 640) {
       return 4;
-    } else if (innerWidth >= 640 && innerWidth < 768) {
+    } else if (
+      (innerWidth >= 640 && innerWidth < 768) ||
+      (innerWidth >= 768 && innerWidth < 1024)
+    ) {
       return 3;
-    } else if (innerWidth >= 768 && innerWidth < 1024) {
-      return 3;
-    } else if (innerWidth >= 1024 && innerWidth < 1280) {
-      return 5;
-    } else if (innerWidth >= 1280 && innerWidth < 1536) {
+    } else if (
+      (innerWidth >= 1024 && innerWidth < 1280) ||
+      (innerWidth >= 1280 && innerWidth < 1536)
+    ) {
       return 5;
     } else if (innerWidth > 1536) {
       return 9;
@@ -29,7 +31,7 @@ const EventGrid = ({ events }: { events: EventElementProps[] }) => {
     return 0;
   }, [innerWidth]);
 
-  const init = useCallback(() => {
+  const initialState = useCallback(() => {
     const elems = getNumberOfElements();
     if (events.length <= elems + 1) {
       setShowAll(true);
@@ -38,7 +40,7 @@ const EventGrid = ({ events }: { events: EventElementProps[] }) => {
   }, [events.length, getNumberOfElements]);
 
   useEffect(() => {
-    init();
+    initialState();
 
     const handleWindowResize = () => {
       setInnerWidth(window.innerWidth);
@@ -49,7 +51,7 @@ const EventGrid = ({ events }: { events: EventElementProps[] }) => {
     return () => {
       window.removeEventListener("resize", handleWindowResize);
     };
-  }, [init]);
+  }, [initialState]);
 
   return (
     <div className="flex flex-wrap relative ml-auto mr-auto w-[191.47px] sm:w-[382.94px] md:w-[643.98px] lg:w-[965.97px] 2xl:w-[1609.95px] mb-2">
