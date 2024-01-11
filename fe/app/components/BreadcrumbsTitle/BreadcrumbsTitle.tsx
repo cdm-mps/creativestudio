@@ -3,6 +3,7 @@ import Divider from "@components/Divider/Divider";
 import CoreTitle from "@components/shared/CoreTitle/CoreTitle";
 import { categoriesDictionary } from "@utils/categoriesDictionary";
 import clsx from "clsx";
+import { useLocale } from "next-intl";
 import Link from "next/link";
 
 const BreadcrumbsTitle = ({
@@ -11,6 +12,7 @@ const BreadcrumbsTitle = ({
   breadcrumbs,
   withIcon = false,
 }: BreadcrumbsTitleProps) => {
+  const locale = useLocale();
   return (
     <div className="flex gap-3 font-league-gothic">
       <Divider orientation="vertical" category={category} />
@@ -19,7 +21,11 @@ const BreadcrumbsTitle = ({
           {breadcrumbs.map(({ label, url }, index) => (
             <>
               {index !== 0 && <p>&gt;</p>}
-              <Link key={label} href={url} className="hover:underline">
+              <Link
+                key={label}
+                href={`/${locale}${url}`}
+                className="hover:underline"
+              >
                 {label.toUpperCase()}
               </Link>
             </>

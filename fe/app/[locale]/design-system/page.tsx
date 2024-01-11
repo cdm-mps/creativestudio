@@ -2,6 +2,7 @@
 
 import ContactInfo from "@/app/components/ContactInfo/ContactInfo";
 import Divider from "@/app/components/Divider/Divider";
+import MentorElement from "@components/Mentor/Mentor";
 import QuoteSlider from "@/app/components/Quote/QuoteSlider";
 import ArrowTitle from "@components/ArrowTitle/ArrowTitle";
 import BreadcrumbsTitle from "@components/BreadcrumbsTitle/BreadcrumbsTitle";
@@ -9,10 +10,18 @@ import { BreadcrumbsProps } from "@components/BreadcrumbsTitle/BreadcrumbsTitleP
 import Button from "@components/Button/Button";
 import Details from "@components/Details/Details";
 import IconTitle from "@components/IconTitle/IconTitle";
+import Stepper from "@components/Stepper/Stepper";
 import Title from "@components/Title/Title";
 import CoreTitle from "@components/shared/CoreTitle/CoreTitle";
 import { Instagram } from "@icons/Instagram";
 import { useTranslations } from "next-intl";
+import BeneditaPereiera from "@assets/images/BeneditaPereira.png";
+import CarolinaLeite from "@assets/images/CarolinaLeite.png";
+import MentorEventBar from "@components/MentorEventBar/MentorEventBar";
+import MentorIdentifier from "@components/MentorIdentifier/MentorIdentifier";
+import CategoryBarList from "@components/CategoryBar/CategoryBarList";
+import EnumBulletPoint from "@components/EnumBulletPoint/EnumBulletPoint";
+import ScheduleElement from "@components/Schedule/ScheduleElement";
 
 const LocalTitle = ({ index, title }: { index?: number; title: string }) => {
   return (
@@ -176,10 +185,10 @@ export default function Home() {
           subTitle="14 Masterclasses disponíveis"
         />
       </div>
-      <Divider />
       {/* -------------- BUTTON --------------*/}
+      <Divider />
       <div className="flex flex-col items-center gap-4 px-3">
-        <LocalTitle index={8} title="Button" />
+        <LocalTitle index={9} title="Button" />
         <Button
           category="edition"
           label="Inscrever"
@@ -197,6 +206,151 @@ export default function Home() {
           onClick={() => console.log("on click enviar... button")}
           isLoading
         />
+      </div>
+      <Divider />
+      {/* -------------- Mentor Element --------------*/}
+      <div className="flex flex-col items-center gap-4 px-3">
+        <LocalTitle index={10} title="Mentor Element" />
+        <div className="flex flex-wrap gap-x-4 w-full">
+          <MentorElement
+            eventCount={1}
+            name="Benedita Pereira"
+            image={{
+              src: BeneditaPereiera,
+              alt: "benedita_singular",
+              objectPosition: "center",
+            }}
+          />
+          <MentorElement
+            eventCount={2}
+            category="creative-talks"
+            name="Benedita Pereira"
+            image={{
+              src: BeneditaPereiera,
+              alt: "benedita_plural",
+              objectPosition: "center",
+            }}
+          />
+          <MentorElement
+            name="Benedita Pereira Very Very Long"
+            image={{
+              src: BeneditaPereiera,
+              alt: "benedita_none",
+              objectPosition: "center",
+            }}
+            onClick={() => console.log("pressed!")}
+          />
+        </div>
+      </div>
+      {/* -------------- Mentor Event Bar --------------*/}
+      <Divider />
+      <div className="flex flex-col items-center gap-4 px-3 w-full">
+        <LocalTitle index={11} title="Mentor Event Bar" />
+        <MentorEventBar
+          mentor={{
+            name: "Benedita Pereira",
+            image: {
+              src: BeneditaPereiera,
+              alt: "Benedita",
+              objectPosition: "center",
+            },
+          }}
+          category={"masterclass"}
+          title="Lorem ipsum Dolor"
+          date={"2024-01-29"}
+          onClick={() => console.log("pressed!")}
+        />
+        <MentorEventBar
+          mentor={{
+            name: "Benedita Pereira Very Very Very Very Very Very Very Very Very Very Long",
+            image: {
+              src: BeneditaPereiera,
+              alt: "Benedita",
+              objectPosition: "center",
+            },
+          }}
+          category={"creative-talks"}
+          title="Lorem ipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsumipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsum"
+          date={"2024-03-03"}
+          onClick={() => console.log("pressed!")}
+        />
+        <MentorEventBar
+          mentor={{
+            name: "Carolina Leite",
+            image: {
+              src: CarolinaLeite,
+              alt: "Carolina",
+              objectPosition: "center",
+            },
+          }}
+          category={"creative-talks"}
+          previous
+          title="Lorem ipsum"
+          date={"2024-03-03"}
+          onClick={() => console.log("pressed!")}
+        />
+      </div>
+      {/* -------------- Mentor Identifier --------------*/}
+      <Divider />
+      <div className="flex flex-col items-center gap-4 px-3">
+        <LocalTitle index={12} title="Mentor Identifier" />
+        <div className="flex flex-wrap items-center gap-4">
+          <MentorIdentifier
+            image={{
+              src: CarolinaLeite,
+              alt: "Carolina",
+              objectPosition: "center",
+            }}
+            name={"Carolina Leite"}
+          />
+          <MentorIdentifier
+            image={{
+              src: CarolinaLeite,
+              alt: "Carolina",
+              objectPosition: "center",
+            }}
+            name={"Carolina Leite Old And Very Long"}
+            previous
+          />
+        </div>
+      </div>
+      {/* -------------- Category Bar Element and List --------------*/}
+      <Divider />
+      <div className="flex flex-col items-center gap-4 px-3 w-2/3">
+        <LocalTitle index={13} title="Category Bar Element and List" />
+        <CategoryBarList />
+      </div>
+      {/* -------------- Enum Bullet Point --------------*/}
+      <Divider />
+      <div className="flex flex-col items-center gap-4 px-3">
+        <LocalTitle index={14} title="Enum Bullet Point" />
+        <EnumBulletPoint category={"masterclass"} index={1} />
+      </div>
+      {/* -------------- Schedule Element --------------*/}
+      <Divider />
+      <div className="flex flex-col items-center gap-4 px-3 w-full">
+        <LocalTitle index={15} title="Schedule Element" />
+        <ScheduleElement
+          title={"Lorem ipsum dolor sit amet"}
+          duration={"20 min"}
+          category={"masterclass"}
+          bullet={{ index: 1 }}
+        />
+        <ScheduleElement
+          title={"Lorem ipsum dolor"}
+          duration={"1h20min"}
+          category={"masterclass"}
+          bullet={{ index: 2 }}
+        />
+      </div>
+      <Divider />
+      {/* -------------- STEPPER --------------*/}
+      <div className="flex flex-col items-center gap-10 px-3">
+        <LocalTitle index={16} title="Stepper" />
+        <Stepper activeStep={0} category="edition" />
+        <Stepper activeStep={1} category="masterclass" />
+        <Stepper activeStep={2} category="business-workshop" />
+        <Stepper activeStep={3} category="artistic-residence" />{" "}
       </div>
       <Divider />
       {/* -------------- FOOTER --------------*/}
