@@ -18,6 +18,8 @@ import BeneditaPereiera from "@assets/images/BeneditaPereira.png";
 import CarolinaLeite from "@assets/images/CarolinaLeite.png";
 import MentorEventBar from "@components/MentorEventBar/MentorEventBar";
 import MentorIdentifier from "@components/MentorIdentifier/MentorIdentifier";
+import CategoryBarElement from "@components/CategoryBar/CatergoryBarElement";
+import CategoryBarList from "@components/CategoryBar/CategoryBarList";
 
 const LocalTitle = ({ index, title }: { index?: number; title: string }) => {
   return (
@@ -310,7 +312,14 @@ export default function Home() {
           />
         </div>
       </div>
+      {/* -------------- Category Bar Element and List --------------*/}
       <Divider />
+      <div className="flex flex-col items-center gap-4 px-3 w-2/3">
+        <LocalTitle index={13} title="Category Bar Element and List" />
+        <CategoryBarList/>
+      </div>
+      <Divider />
+
       {/* -------------- FOOTER --------------*/}
       <div className="flex flex-col items-center gap-4">
         <LocalTitle title={t("footer")} />

@@ -3,6 +3,14 @@
     "title": "Components",
     "footer": "And more..."
   },
+  "Categories": {
+    "masterclass": "MasterClass",
+    "edition": "Edition",
+    "creative-talks": "Creative Talks",
+    "workshop": "Workshop",
+    "artistic-residence": "Artistic Residence",
+    "business-workshop": "Business Workshop"
+  },
   "Menu": {
     "CreativeWorkshops": "CREATIVE WORKSHOPS",
     "BusinessWorkshops": "BUSINESS WORKSHOPS",
