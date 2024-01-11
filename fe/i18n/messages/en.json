@@ -1,7 +1,4 @@
 {
-  "Index": {
-    "title": "Hello World!"
-  },
   "DesignSystem": {
     "title": "Components",
     "footer": "And more..."
@@ -16,6 +13,10 @@
     "FollowUs": "FOLLOW US!"
   },
   "Components": {
+    "Mentor": {
+      "eventBarSingular": " available event",
+      "eventBarPlural": " available events"
+    },
     "Details": {
       "entity": "Entity",
       "paymentReference": "Reference",
