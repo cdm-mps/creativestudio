@@ -30,6 +30,10 @@
     },
     "EventInfo": {
       "level": "Level:"
+    },
+    "Stepper": {
+      "textOne": "PAYMENT INFO",
+      "textTwo": "PERSONAL INFO"
     }
   }
 }

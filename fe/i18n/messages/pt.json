@@ -30,6 +30,10 @@
     },
     "EventInfo": {
       "level": "Nível:"
+    },
+    "Stepper": {
+      "textOne": "DADOS DE PAGAMENTO",
+      "textTwo": "DADOS PESSOAIS"
     }
   }
 }
