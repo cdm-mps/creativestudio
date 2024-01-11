@@ -19,6 +19,8 @@ import BeneditaPereiera from "@assets/images/BeneditaPereira.png";
 import CarolinaLeite from "@assets/images/CarolinaLeite.png";
 import MentorEventBar from "@components/MentorEventBar/MentorEventBar";
 import MentorIdentifier from "@components/MentorIdentifier/MentorIdentifier";
+import EnumBulletPoint from "@components/EnumBulletPoint/EnumBulletPoint";
+import ScheduleElement from "@components/Schedule/ScheduleElement";
 
 const LocalTitle = ({ index, title }: { index?: number; title: string }) => {
   return (
@@ -310,6 +312,29 @@ export default function Home() {
             previous
           />
         </div>
+      </div>
+      {/* -------------- Enum Bullet Point --------------*/}
+      <Divider />
+      <div className="flex flex-col items-center gap-4 px-3">
+        <LocalTitle index={13} title="Enum Bullet Point" />
+        <EnumBulletPoint category={"masterclass"} index={1} />
+      </div>
+      {/* -------------- Schedule Element --------------*/}
+      <Divider />
+      <div className="flex flex-col items-center gap-4 px-3 w-full">
+        <LocalTitle index={14} title="Schedule Element" />
+        <ScheduleElement
+          title={"Lorem ipsum dolor sit amet"}
+          duration={"20 min"}
+          category={"masterclass"}
+          bullet={{ index: 1 }}
+        />
+        <ScheduleElement
+          title={"Lorem ipsum dolor"}
+          duration={"1h20min"}
+          category={"masterclass"}
+          bullet={{ index: 2 }}
+        />
       </div>
       <Divider />
       {/* -------------- STEPPER --------------*/}
