@@ -1,3 +1,4 @@
+import BreadcrumbsTitle from "@components/BreadcrumbsTitle/BreadcrumbsTitle";
 import Title from "@components/Title/Title";
 import { useTranslations } from "next-intl";
 
@@ -7,7 +8,14 @@ export default function CreativeWorkshopsPage() {
   return (
     <main className="flex min-h-[calc(100vh-26vh)]">
       <div className="w-fit">
-        <Title title={t("CreativeWorkshops")} category="business-workshop" />
+        <BreadcrumbsTitle
+          title={t("CreativeWorkshops")}
+          category="business-workshop"
+          withIcon
+          breadcrumbs={[
+            { label: "Creative-Workshops", url: "/creative-workshops" },
+          ]}
+        />
       </div>
     </main>
   );
