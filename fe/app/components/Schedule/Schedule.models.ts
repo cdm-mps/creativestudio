@@ -5,5 +5,5 @@ export interface ScheduleProps {
   title: string;
   duration: string;
   category: Category;
-  bullet: Pick<EnumBulletPointProps, "num">;
+  bullet: Pick<EnumBulletPointProps, "index">;
 }

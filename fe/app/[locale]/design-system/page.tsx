@@ -316,7 +316,7 @@ export default function Home() {
       <Divider />
       <div className="flex flex-col items-center gap-4 px-3">
         <LocalTitle index={13} title="Enum Bullet Point" />
-        <EnumBulletPoint category={"masterclass"} num={1} />
+        <EnumBulletPoint category={"masterclass"} index={1} />
       </div>
       {/* -------------- Schedule Element --------------*/}
       <Divider />
@@ -326,13 +326,13 @@ export default function Home() {
           title={"Lorem ipsum dolor sit amet"}
           duration={"20 min"}
           category={"masterclass"}
-          bullet={{ num: 1 }}
+          bullet={{ index: 1 }}
         />
         <ScheduleElement
           title={"Lorem ipsum dolor"}
           duration={"1h20min"}
           category={"masterclass"}
-          bullet={{ num: 2 }}
+          bullet={{ index: 2 }}
         />
       </div>
       <Divider />
