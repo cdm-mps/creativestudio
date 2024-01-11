@@ -5,7 +5,7 @@ export interface MentorEventBarProps {
   mentor: Pick<MentorProps, "name" | "image">;
   category: Category;
   title: string;
-  past?: boolean;
+  previous?: boolean;
   date: string;
   onClick: () => void;
 }

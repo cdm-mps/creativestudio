@@ -12,12 +12,12 @@ const MentorEventBar = ({
   date,
   mentor,
   onClick,
-  past = false,
+  previous = false,
 }: MentorEventBarProps) => {
   return (
     <div
       className={`h-[52px] px-3 py-2 gap-x-2 md:gap-x-40 md:h-[92px] md:py-[14px] md:px-8 ${
-        past ? "border md:border-[2px]" : "bg-" + category
+        previous ? "border md:border-[2px]" : "bg-" + category
       } w-full flex justify-between items-center cursor-pointer`}
       onClick={onClick}
     >
