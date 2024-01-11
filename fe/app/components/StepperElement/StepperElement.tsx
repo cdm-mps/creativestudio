@@ -31,7 +31,7 @@ const StepperElement = ({
             >
               {index}
             </div>
-            <p className="text-center text-sm">{text}</p>
+            <p className="text-center text-sm uppercase">{text}</p>
           </>
         )}
       </div>

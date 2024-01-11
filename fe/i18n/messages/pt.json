@@ -7,13 +7,13 @@
     "footer": "E mais..."
   },
   "Menu": {
-    "CreativeWorkshops": "CREATIVE WORKSHOPS",
-    "BusinessWorkshops": "BUSINESS WORKSHOPS",
-    "Mentors": "MENTORES",
-    "Calendar": "CALENDÁRIO",
-    "AboutUs": "SOBRE NÓS",
-    "Contacts": "CONTACTOS",
-    "FollowUs": "SEGUE-NOS!"
+    "CreativeWorkshops": "Creative Workshops",
+    "BusinessWorkshops": "Business Workshops",
+    "Mentors": "Mentores",
+    "Calendar": "Calendário",
+    "AboutUs": "Sobre Nós",
+    "Contacts": "Contactos",
+    "FollowUs": "Segue-nos!"
   },
   "Components": {
     "Details": {
@@ -32,8 +32,8 @@
       "level": "Nível:"
     },
     "Stepper": {
-      "textOne": "DADOS DE PAGAMENTO",
-      "textTwo": "DADOS PESSOAIS"
+      "textOne": "Dados de Pagamento",
+      "textTwo": "Dados Pessoais"
     }
   }
 }
