@@ -4,6 +4,7 @@ export interface ImageProps {
   src: StaticImageData;
   alt: string;
   objectPosition: ObjectPosition;
+  rounded?: boolean;
   className?: string;
 }
 

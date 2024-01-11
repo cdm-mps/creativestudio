@@ -11,7 +11,7 @@ const DateInfo = ({ date, category, size }: DateInfoProps) => {
       <span
         className={clsx(
           "font-league-gothic uppercase",
-          size === "xs" && "text-2xl md:text-3xl",
+          size === "xs" && "text-2xl leading-none md:text-3xl md:leading-9",
           size === "sm" && "text-3xl md:text-4xl",
           size === "lg" && "text-4xl md:text-7xl"
         )}

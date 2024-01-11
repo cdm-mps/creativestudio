@@ -35,6 +35,10 @@
     "FollowUs": "SEGUE-NOS!"
   },
   "Components": {
+    "Mentor": {
+      "eventBarSingular": " evento disponível",
+      "eventBarPlural": " eventos disponíveis"
+    },
     "Details": {
       "entity": "Entidade",
       "paymentReference": "Referência",
