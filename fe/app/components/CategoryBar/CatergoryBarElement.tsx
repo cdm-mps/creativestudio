@@ -14,9 +14,7 @@ const CategoryBarElement = ({ category, onClick }: CategoryBarProps) => {
         <span className="font-league-gothic uppercase md:text-4xl text-base ">
           {t(category)}
         </span>
-        {categoriesDictionary[category](
-          "w-[20px] h-[20px] md:w-[38px] md:h-[38px]  "
-        )}
+        {categoriesDictionary[category]("w-5 h-5 md:w-[38px] md:h-[38px]")}
       </div>
     </div>
   );
