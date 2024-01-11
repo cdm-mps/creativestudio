@@ -1,21 +1,30 @@
 {
-  "Index": {
-    "title": "Hello World!"
-  },
   "DesignSystem": {
     "title": "Components",
     "footer": "And more..."
   },
+  "Categories": {
+    "masterclass": "MasterClass",
+    "edition": "Edition",
+    "creative-talks": "Creative Talks",
+    "workshop": "Workshop",
+    "artistic-residence": "Artistic Residence",
+    "business-workshop": "Business Workshop"
+  },
   "Menu": {
-    "CreativeWorkshops": "CREATIVE WORKSHOPS",
-    "BusinessWorkshops": "BUSINESS WORKSHOPS",
-    "Mentors": "MENTORS",
-    "Calendar": "CALENDAR",
-    "AboutUs": "ABOUT US",
-    "Contacts": "CONTACTS",
-    "FollowUs": "FOLLOW US!"
+    "CreativeWorkshops": "Creative Workshops",
+    "BusinessWorkshops": "Business Workshops",
+    "Mentors": "Mentors",
+    "Calendar": "Calendar",
+    "AboutUs": "About Us",
+    "Contacts": "Contacts",
+    "FollowUs": "Follow Us!"
   },
   "Components": {
+    "Mentor": {
+      "eventBarSingular": " available event",
+      "eventBarPlural": " available events"
+    },
     "Details": {
       "entity": "Entity",
       "paymentReference": "Reference",
@@ -34,6 +43,13 @@
     "EventGrid": {
       "seeMore": "See more",
       "seeLess": "See less"
+    },
+    "EventInfo": {
+      "level": "Level:"
+    },
+    "Stepper": {
+      "textOne": "Payment Info",
+      "textTwo": "Personal Info"
     }
   }
 }

@@ -1,21 +1,30 @@
 {
-  "Index": {
-    "title": "Olá Mundo!"
-  },
   "DesignSystem": {
     "title": "Componentes",
     "footer": "E mais..."
   },
+  "Categories": {
+    "masterclass": "MasterClass",
+    "edition": "Edição",
+    "creative-talks": "Creative Talks",
+    "workshop": "Workshop",
+    "artistic-residence": "Residências Artísticas",
+    "business-workshop": "Business Workshop"
+  },
   "Menu": {
-    "CreativeWorkshops": "CREATIVE WORKSHOPS",
-    "BusinessWorkshops": "BUSINESS WORKSHOPS",
-    "Mentors": "MENTORES",
-    "Calendar": "CALENDÁRIO",
-    "AboutUs": "SOBRE NÓS",
-    "Contacts": "CONTACTOS",
-    "FollowUs": "SEGUE-NOS!"
+    "CreativeWorkshops": "Creative Workshops",
+    "BusinessWorkshops": "Business Workshops",
+    "Mentors": "Mentores",
+    "Calendar": "Calendário",
+    "AboutUs": "Sobre Nós",
+    "Contacts": "Contactos",
+    "FollowUs": "Segue-nos!"
   },
   "Components": {
+    "Mentor": {
+      "eventBarSingular": " evento disponível",
+      "eventBarPlural": " eventos disponíveis"
+    },
     "Details": {
       "entity": "Entidade",
       "paymentReference": "Referência",
@@ -34,6 +43,13 @@
     "EventGrid": {
       "seeMore": "Ver mais",
       "seeLess": "Ver menos"
+    },
+    "EventInfo": {
+      "level": "Nível:"
+    },
+    "Stepper": {
+      "textOne": "Dados de Pagamento",
+      "textTwo": "Dados Pessoais"
     }
   }
 }
