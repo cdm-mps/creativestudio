@@ -1,14 +1,13 @@
-import React from "react";
 import { StickHead } from "@icons/StickHead";
 import clsx from "clsx";
+import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import NewsElement from "../NewsElement/NewsElement";
-import { NewsElementProps } from "../NewsElement/NewsElement.models";
-import { useTranslations } from "next-intl";
+import { NewsSliderProps } from "./NewsSlider.models";
 
 const breakPoint = 1536;
 
-const NewsSlider = ({ news }: { news: NewsElementProps[] }) => {
+const NewsSlider = ({ news }: NewsSliderProps) => {
   const t = useTranslations("Components.NewsSlider");
 
   const [currentIndex, setCurrentIndex] = useState(0);
