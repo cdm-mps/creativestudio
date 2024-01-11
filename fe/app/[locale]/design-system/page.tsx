@@ -18,6 +18,7 @@ import BeneditaPereiera from "@assets/images/BeneditaPereira.png";
 import CarolinaLeite from "@assets/images/CarolinaLeite.png";
 import MentorEventBar from "@components/MentorEventBar/MentorEventBar";
 import MentorIdentifier from "@components/MentorIdentifier/MentorIdentifier";
+import CategoryGrid from "@components/CategoryGrid/CategoryGrid";
 
 const LocalTitle = ({ index, title }: { index?: number; title: string }) => {
   return (
@@ -308,6 +309,15 @@ export default function Home() {
             name={"Carolina Leite Old And Very Long"}
             previous
           />
+        </div>
+      </div>
+      <Divider />
+      {/* -------------- CATEGORY GRID --------------*/}
+      <Divider />
+      <div className="flex flex-col items-center gap-4 px-3">
+        <LocalTitle index={12} title="Category Grid" />
+        <div className="flex flex-wrap items-center gap-4">
+          <CategoryGrid />
         </div>
       </div>
       <Divider />
