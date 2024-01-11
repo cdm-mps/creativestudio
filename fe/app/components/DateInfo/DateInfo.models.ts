@@ -1,6 +1,6 @@
 import { Category } from "@model/Category";
 
-type DateInfoSize = 'sm' | 'lg';
+type DateInfoSize = "xs" | "sm" | "lg";
 
 export interface DateInfoProps {
   date: string;

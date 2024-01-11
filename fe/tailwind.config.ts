@@ -14,6 +14,8 @@ const config: Config = {
     backgroundImage: {
       "banner-gradient":
         "linear-gradient(120deg, rgba(0,0,0,1) 33%, rgba(255,255,255,0) 100%)",
+      "line-gradient":
+        "linear-gradient(0deg, rgba(0,0,0,1) 5%, rgba(255,255,255,0) 100%)",
     },
     extend: {
       colors: {

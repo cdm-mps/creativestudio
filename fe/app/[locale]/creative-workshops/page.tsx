@@ -1,3 +1,4 @@
+import BreadcrumbsTitle from "@components/BreadcrumbsTitle/BreadcrumbsTitle";
 import Title from "@components/Title/Title";
 import { useTranslations } from "next-intl";
 
