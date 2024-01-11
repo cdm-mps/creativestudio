@@ -253,7 +253,7 @@ export default function Home() {
           }}
           category={"masterclass"}
           title="Lorem ipsum Dolor"
-          date={new Date("2024/01/29")}
+          date={"2024-01-29"}
           onClick={() => console.log("pressed!")}
         />
         <MentorEventBar
@@ -267,7 +267,7 @@ export default function Home() {
           }}
           category={"creative-talks"}
           title="Lorem ipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsumipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsum"
-          date={new Date("2024/03/03")}
+          date={"2024-03-03"}
           onClick={() => console.log("pressed!")}
         />
         <MentorEventBar
@@ -280,9 +280,9 @@ export default function Home() {
             },
           }}
           category={"creative-talks"}
-          past
+          previous
           title="Lorem ipsum"
-          date={new Date("2024/03/03")}
+          date={"2024-03-03"}
           onClick={() => console.log("pressed!")}
         />
       </div>
@@ -306,7 +306,7 @@ export default function Home() {
               objectPosition: "center",
             }}
             name={"Carolina Leite Old And Very Long"}
-            past
+            previous
           />
         </div>
       </div>
