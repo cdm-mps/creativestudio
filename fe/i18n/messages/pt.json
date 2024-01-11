@@ -1,7 +1,4 @@
 {
-  "Index": {
-    "title": "Olá Mundo!"
-  },
   "DesignSystem": {
     "title": "Componentes",
     "footer": "E mais..."
@@ -16,6 +13,10 @@
     "FollowUs": "Segue-nos!"
   },
   "Components": {
+    "Mentor": {
+      "eventBarSingular": " evento disponível",
+      "eventBarPlural": " eventos disponíveis"
+    },
     "Details": {
       "entity": "Entidade",
       "paymentReference": "Referência",
