@@ -8,7 +8,7 @@ import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import CreativeStudioLogo from "../../assets/CreativeStudio.png";
+import CreativeStudioLogo from "@assets/images/CreativeStudio.png";
 import MenuOptions from "@components/Navbar/MenuOptions/MenuOptions";
 
 const Navbar = () => {
