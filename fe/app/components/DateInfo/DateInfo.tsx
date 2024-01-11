@@ -11,6 +11,7 @@ const DateInfo = ({ date, category, size }: DateInfoProps) => {
       <span
         className={clsx(
           "font-league-gothic uppercase",
+          size === "xs" && "text-2xl leading-none md:text-3xl md:leading-9",
           size === "sm" && "text-3xl md:text-4xl",
           size === "lg" && "text-4xl md:text-7xl"
         )}
@@ -20,6 +21,7 @@ const DateInfo = ({ date, category, size }: DateInfoProps) => {
       <div
         className={clsx(
           "flex flex-col items-end",
+          size === "xs" && "text-[11px] md:text-sm",
           size === "sm" && "text-sm md:text-base",
           size === "lg" && "text-base md:text-3xl"
         )}
@@ -27,6 +29,7 @@ const DateInfo = ({ date, category, size }: DateInfoProps) => {
         <span
           className={clsx(
             category && `text-${category}`,
+            size === "xs" && "mb-[0.5px] leading-none",
             size === "sm" && "mb-[2px] -mt-[0.09rem] md:mb-[3px]",
             size === "lg" && "md:mb-[3px]"
           )}
@@ -35,7 +38,8 @@ const DateInfo = ({ date, category, size }: DateInfoProps) => {
         </span>
         <span
           className={clsx(
-            "-mt-[0.60rem] md:-mt-3",
+            (size === "sm" || size === "lg") && "-mt-[0.60rem] md:-mt-3",
+            size === "xs" && "-mt-[0.10rem] leading-none",
             category && `text-${category}`
           )}
         >
