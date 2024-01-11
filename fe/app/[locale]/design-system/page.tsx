@@ -22,6 +22,7 @@ import MentorIdentifier from "@components/MentorIdentifier/MentorIdentifier";
 import CategoryBarList from "@components/CategoryBar/CategoryBarList";
 import EnumBulletPoint from "@components/EnumBulletPoint/EnumBulletPoint";
 import ScheduleElement from "@components/Schedule/ScheduleElement";
+import SubmitionStatus from "@components/SubmitionStatus/SubmitionStatus";
 
 const LocalTitle = ({ index, title }: { index?: number; title: string }) => {
   return (
@@ -351,6 +352,12 @@ export default function Home() {
         <Stepper activeStep={1} category="masterclass" />
         <Stepper activeStep={2} category="business-workshop" />
         <Stepper activeStep={3} category="artistic-residence" />{" "}
+      </div>
+      {/* -------------- Submission Status --------------*/}
+      <Divider />
+      <div className="flex flex-col items-center gap-4 px-3 w-full h-fit">
+        <LocalTitle index={13} title="Submission Status" />
+        <SubmitionStatus />
       </div>
       <Divider />
       {/* -------------- FOOTER --------------*/}
