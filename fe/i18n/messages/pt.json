@@ -1,16 +1,54 @@
 {
-  "category": {
-    "edition": { "key": "edition", "value": "Edições" },
-    "masterclass": { "key": "masterclass", "value": "Masterclasses" },
-    "workshop": { "key": "workshop", "value": "Workshops" },
-    "creative-talks": { "key": "creative-talks", "value": "Creative Talks" },
-    "artistic-residence": {
-      "key": "artistic-residence",
-      "value": "Residência Artística"
+  "general": {
+    "CategoryElement": {
+      "category": {
+        "edition": { "key": "edition", "value": "Edições" },
+        "masterclass": { "key": "masterclass", "value": "Masterclasses" },
+        "workshop": { "key": "workshop", "value": "Workshops" },
+        "creative-talks": {
+          "key": "creative-talks",
+          "value": "Creative Talks"
+        },
+        "artistic-residence": {
+          "key": "artistic-residence",
+          "value": "Residência Artística"
+        },
+        "business-workshop": {
+          "key": "business-workshop",
+          "value": "Business Workshops"
+        }
+      }
+    }
+  },
+
+  "DesignSystem": {
+    "title": "Componentes",
+    "footer": "E mais..."
+  },
+  "Menu": {
+    "CreativeWorkshops": "CREATIVE WORKSHOPS",
+    "BusinessWorkshops": "BUSINESS WORKSHOPS",
+    "Mentors": "MENTORES",
+    "Calendar": "CALENDÁRIO",
+    "AboutUs": "SOBRE NÓS",
+    "Contacts": "CONTACTOS",
+    "FollowUs": "SEGUE-NOS!"
+  },
+  "Components": {
+    "Details": {
+      "entity": "Entidade",
+      "paymentReference": "Referência",
+      "descriptive": "Descritivo",
+      "amount": "Montante"
     },
-    "business-workshop": {
-      "key": "business-workshop",
-      "value": "Business Workshops"
+    "Acknowledgements": {
+      "title": "Agradecimentos",
+      "subtitle1": "O estúdio faz-se dos que estão e dos que vão estar sempre.",
+      "quote": "Aqueles que passam por nós, não vão sós, não nos deixam sós. Deixam um pouco de si, levam um pouco de nós.",
+      "subtitle2": "À Inês Abreu Guerra, \n à Andreia Fisher de Almeida, \n o nosso Obrigado. \n Sempre."
+    },
+    "EventInfo": {
+      "level": "Nível:"
     }
   }
 }

@@ -1,16 +1,51 @@
 {
-  "category": {
-    "edition": { "key": "edition", "value": "Editions" },
-    "masterclass": { "key": "masterclass", "value": "Masterclasses" },
-    "workshop": { "key": "workshop", "value": "Workshops" },
-    "creative-talks": { "key": "creative-talks", "value": "Creative Talks" },
-    "artistic-residence": {
-      "key": "artistic-residence",
-      "value": "Artistic Residence"
+  "general": {
+    "category": {
+      "edition": { "key": "edition", "value": "Editions" },
+      "masterclass": { "key": "masterclass", "value": "Masterclasses" },
+      "workshop": { "key": "workshop", "value": "Workshops" },
+      "creative-talks": {
+        "key": "creative-talks",
+        "value": "Creative Talks"
+      },
+      "artistic-residence": {
+        "key": "artistic-residence",
+        "value": "Artistic Residence"
+      },
+      "business-workshop": {
+        "key": "business-workshop",
+        "value": "Business Workshops"
+      }
+    }
+  },
+  "DesignSystem": {
+    "title": "Components",
+    "footer": "And more..."
+  },
+  "Menu": {
+    "CreativeWorkshops": "CREATIVE WORKSHOPS",
+    "BusinessWorkshops": "BUSINESS WORKSHOPS",
+    "Mentors": "MENTORS",
+    "Calendar": "CALENDAR",
+    "AboutUs": "ABOUT US",
+    "Contacts": "CONTACTS",
+    "FollowUs": "FOLLOW US!"
+  },
+  "Components": {
+    "Details": {
+      "entity": "Entity",
+      "paymentReference": "Reference",
+      "descriptive": "Descriptive",
+      "amount": "Amount"
     },
-    "business-workshop": {
-      "key": "business-workshop",
-      "value": "Business Workshops"
+    "Acknowledgements": {
+      "title": "Acknowledgements",
+      "subtitle1": "The studio is made up of those who are there and those who will always be there.",
+      "quote": "Those who pass us by don't go alone, they don't leave us alone. They leave a little of themselves behind, they take a little of us with them.",
+      "subtitle2": "To Inês Abreu Guerra, \n and Andreia Fisher de Almeida, \n our Thanks. \n Always."
+    },
+    "EventInfo": {
+      "level": "Level:"
     }
   }
 }
