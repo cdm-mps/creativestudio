@@ -4,7 +4,6 @@ import { MentorEventBarProps } from "@components/MentorEventBar/MentorEventBar.m
 import MentorIdentifier from "@components/MentorIdentifier/MentorIdentifier";
 import RoundArrowButton from "@components/RoundArrowButton/RoundArrowButton";
 import { categoriesDictionary } from "@utils/categoriesDictionary";
-import { formatDate } from "@utils/date/formatDate";
 
 const MentorEventBar = ({
   category,
@@ -38,7 +37,7 @@ const MentorEventBar = ({
         </div>
       </div>
       <div className="flex gap-1 md:gap-4 items-center ml-auto">
-        <MentorIdentifier image={mentor.image} name={mentor.name} past />
+        <MentorIdentifier image={mentor.image} name={mentor.name} previous />
         <RoundArrowButton arrowDirection="right" />
       </div>
     </div>

@@ -4,7 +4,7 @@ import { MentorIdentifierProps } from "@components/MentorIdentifier/MentorIdenti
 const MentorIdentifier = ({
   image,
   name,
-  past,
+  previous,
   onClick,
 }: MentorIdentifierProps) => {
   return (
@@ -14,7 +14,7 @@ const MentorIdentifier = ({
     >
       <ImageElement
         {...image}
-        className={`w-6 h-6 md:w-16 md:h-16 ${past && "grayscale"}`}
+        className={`w-6 h-6 md:w-16 md:h-16 ${previous && "grayscale"}`}
         rounded
       />
       <span className="line-clamp-2 w-[100px] md:w-[250px]">{name}</span>
