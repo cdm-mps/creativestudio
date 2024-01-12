@@ -5,5 +5,5 @@ export interface EventInfoProps {
   duration: string;
   level?: string;
   category: Category;
-  onClick: () => void;
+  onClick?: () => void;
 }
