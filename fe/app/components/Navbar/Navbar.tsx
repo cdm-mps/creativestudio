@@ -10,6 +10,7 @@ import Link from "next/link";
 import { useState } from "react";
 import CreativeStudioLogo from "@assets/images/CreativeStudio.png";
 import MenuOptions from "@components/Navbar/MenuOptions/MenuOptions";
+import React from "react";
 
 const Navbar = () => {
   const t = useTranslations("Menu");
@@ -26,6 +27,12 @@ const Navbar = () => {
   const updateMenuVisibility = () => {
     setToggleMenuVisibility(!toggleMenuVisibility);
   };
+
+  React.useEffect(() => {
+    toggleMenuVisibility
+      ? document.body.classList.add("overflow-y-hidden")
+      : document.body.classList.remove("overflow-y-hidden");
+  }, [toggleMenuVisibility]);
 
   return (
     <nav className="fixed top-0 w-full lg:pt-6 lg:px-6 flex justify-between items-center mb-24 bg-black z-50">
@@ -70,13 +77,22 @@ const Navbar = () => {
         <div
           className={`${
             toggleMenuVisibility ? "block" : "hidden"
-          } fixed z-20 top-0 left-0 w-screen h-[472px] border-b border-white bg-black flex flex-col items-center pt-[100px] font-league-gothic text-xl`}
+          } fixed z-20 top-0 left-0 w-screen h-fit border-b border-white bg-black flex flex-col items-center pt-[100px] font-league-gothic text-xl`}
         >
           <CloseIcon
             className="w-6 max-lg:absolute max-lg:top-7 max-lg:right-6"
             onClick={closeMenuVisibility}
           />
           <MenuOptions onClick={closeMenuVisibility} />
+          <Link
+            href="https://www.instagram.com/creativestudionofilters/"
+            target="_blank"
+            aria-label="Follow us on Instagram"
+            className=" flex items-center justify-center gap-4 max-lg:hover:bg-business-workshop max-lg:border-t max-lg:border-b max-lg:w-full max-lg:text-center max-lg:py-4 uppercase"
+          >
+            <span className="uppercase">{t("FollowUs")}</span>
+            <Instagram outline />
+          </Link>
         </div>
       </div>
     </nav>
