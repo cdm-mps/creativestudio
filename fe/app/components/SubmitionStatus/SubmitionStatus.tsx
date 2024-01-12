@@ -1,30 +1,26 @@
 import ImageElement from "@components/ImageElement/ImageElement";
 import IconCreativeStud from "@assets/images/IconCreativeStud.png";
 import Divider from "@components/Divider/Divider";
+import { SubmitionStatusProps } from "@components/SubmitionStatus/SubmitionStatus.models";
 
-const SubmitionStatus = () => {
+const SubmitionStatus = ({ title, content }: SubmitionStatusProps) => {
   return (
-    <div className="md:w-[577px] w-[290px]">
+    <div className="md:w-[577px] w-[290px] h-full">
       <div className="w-full text-center">
         <span className="md:text-[78px] text-3xl font-league-gothic">
-          Inscrição Submetida!
+          {title}
         </span>
       </div>
-      <div className="relative text-sm md:text-lg flex flex-col md:gap-5 md:mt-9 gap-3 mt-5">
-        <p>
-          Obrigado por nos teres escolhido. Em breve receberás mais informação
-          sobre este <b>Creative Workshop</b>.
-        </p>
-        <p> Vemos-nos em breve!</p>
-        <p className="italic">Creative Studio</p>
-
-        <Divider className="w-fit mt-3" />
-
+      <div className="relative text-sm md:text-lg flex flex-col md:gap-5 md:mt-9 mt-5">
+        <div className="flex flex-col justify-around min-h-[96px] md:min-h-[176px] md:mb-5 mb-3">
+          {content}
+        </div>
+        <Divider className="w-fit" />
         <div className="absolute right-0">
           <ImageElement
             src={IconCreativeStud}
             objectPosition="center"
-            className="w-24 h-24 md:w-44 md:h-44 md:mt-6 mt-3"
+            className="w-24 h-24 md:w-44 md:h-44"
             alt={"IconCreativeStud"}
           />
         </div>

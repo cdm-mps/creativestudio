@@ -357,7 +357,28 @@ export default function Home() {
       <Divider />
       <div className="flex flex-col items-center gap-4 px-3 w-full h-fit">
         <LocalTitle index={13} title="Submission Status" />
-        <SubmitionStatus />
+        <SubmitionStatus
+          title="Inscrição Submetida!"
+          content={
+            <>
+              <p>
+                Obrigado por nos teres escolhido. Em breve receberás mais
+                informação sobre este <b>Creative Workshop</b>.
+              </p>
+              <p> Vemos-nos em breve!</p>
+              <p className="italic">Creative Studio</p>
+            </>
+          }
+        />
+        <SubmitionStatus
+          title="Ups algo deu errado!"
+          content={
+            <>
+              <p>Tente novamente mais tarde.</p>
+              <p className="italic">Creative Studio</p>
+            </>
+          }
+        />
       </div>
       <Divider />
       {/* -------------- FOOTER --------------*/}
