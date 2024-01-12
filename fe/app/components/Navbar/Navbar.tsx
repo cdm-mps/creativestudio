@@ -17,6 +17,8 @@ const Navbar = () => {
   const [toggleMenuVisibility, setToggleMenuVisibility] =
     useState<boolean>(false);
 
+  const [instagramHovered, setInstagramHovered] = useState<boolean>(false);
+
   const closeMenuVisibility = () => {
     if (toggleMenuVisibility) setToggleMenuVisibility(!toggleMenuVisibility);
   };
@@ -39,17 +41,20 @@ const Navbar = () => {
           <MenuOptions />
         </div>
         <Divider orientation="vertical" />
-        <div className="group hover:cursor-pointer flex items-center font-league-gothic text-xl gap-6">
-          <Link
-            href="https://www.instagram.com/creativestudionofilters/"
-            target="_blank"
-            aria-label="Follow us on Instagram"
-            className="hidden group-hover:flex"
-          >
+        <Link
+          href="https://www.instagram.com/creativestudionofilters/"
+          target="_blank"
+          aria-label="Follow us on Instagram"
+          className="group hover:cursor-pointer flex items-center font-league-gothic text-xl gap-6"
+          onMouseEnter={() => setInstagramHovered(!instagramHovered)}
+          onMouseLeave={() => setInstagramHovered(!instagramHovered)}
+        >
+          <span className="hidden group-hover:flex uppercase">
             {t("FollowUs")}
-          </Link>
-          <Instagram />
-        </div>
+          </span>
+
+          <Instagram outline={instagramHovered} />
+        </Link>
       </div>
       <div className="lg:hidden h-20 bg-black">
         <MenuIcon
