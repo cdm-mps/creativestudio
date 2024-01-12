@@ -12,7 +12,7 @@ export const StickHead = (props: SVGAttributes<HTMLOrSVGElement>) => {
     >
       <path
         d="M1.08203 1.25146L8.3081 6.25146L15.582 1.25146"
-        stroke="white"
+        stroke="currentColor"
         stroke-width="2"
         stroke-linecap="round"
       />
