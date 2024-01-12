@@ -341,7 +341,7 @@ export default function Home() {
       <Divider />
 
       {/* -------------- DATE INFO --------------*/}
-      <LocalTitle title="ContactInfo" />
+      <LocalTitle title="Date Info" />
       <div className="flex flex-wrap items-center justify-center gap-4">
         <div className="flex flex-col items-center ">
           <DateInfo date="2024/01/09" size="xs" category="creative-talks" />
