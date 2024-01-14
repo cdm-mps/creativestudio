@@ -36,6 +36,7 @@ import EventInfo from "@components/EventInfo/EventInfo";
 import EventElement from "@components/EventElement/EventElement";
 import EventGrid from "@components/EventGrid/EventGrid";
 import DateInfo from "@components/DateInfo/DateInfo";
+import SubmitionStatus from "@components/SubmitionStatus/SubmitionStatus";
 
 const bannerGridImages: ImageProps[] = [
   {
@@ -1287,6 +1288,60 @@ export default function Home() {
   activeStep={3} 
   category="artistic-residence" />
 />`}
+        />
+      </div>
+      <Divider />
+
+      {/* -------------- SUBMITION STATUS --------------*/}
+      <LocalTitle title="Submition Status" />
+      <div className="flex flex-col items-center gap-10 px-3">
+        <SubmitionStatus
+          title="Inscrição Submetida!"
+          content={
+            <>
+              <p>
+                Obrigado por nos teres escolhido. Em breve receberás mais
+                informação sobre este <b>Creative Workshop</b>.
+              </p>
+              <p> Vemos-nos em breve!</p>
+              <p className="italic">Creative Studio</p>
+            </>
+          }
+        />
+        <Code
+          text={`<SubmitionStatus
+          title="Inscrição Submetida!"
+          content={
+            <>
+              <p>
+                Obrigado por nos teres escolhido. Em breve receberás mais
+                informação sobre este <b>Creative Workshop</b>.
+              </p>
+              <p> Vemos-nos em breve!</p>
+              <p className="italic">Creative Studio</p>
+            </>
+          }
+        />`}
+        />
+        <SubmitionStatus
+          title="Ups algo deu errado!"
+          content={
+            <>
+              <p>Tente novamente mais tarde.</p>
+              <p className="italic">Creative Studio</p>
+            </>
+          }
+        />
+        <Code
+          text={`<SubmitionStatus
+          title="Ups algo deu errado!"
+          content={
+            <>
+              <p>Tente novamente mais tarde.</p>
+              <p className="italic">Creative Studio</p>
+            </>
+          }
+        />`}
         />
       </div>
       <Divider />
