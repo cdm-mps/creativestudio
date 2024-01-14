@@ -3,6 +3,7 @@
 import { CategoryElementProps } from "@/app/components/CategoryElement/CategoryElement.models";
 import { RoundArrow } from "@icons/RoundArrow";
 import { categoriesDictionary } from "@utils/categoriesDictionary";
+import clsx from "clsx";
 import { useState } from "react";
 
 const CategoryElement = ({
@@ -11,19 +12,31 @@ const CategoryElement = ({
   isDisabled = false,
 }: CategoryElementProps) => {
   const [showDescription, setShowDescription] = useState<boolean>(false);
+
+  const isDeactivated = isDisabled && !showDescription;
+
   return (
-    <div className="relative">
-      {isDisabled && <div className="absolute w-full h-full bg-black/50" />}
+    <div className={clsx("relative", showDescription && "z-50")}>
       <div
         onMouseEnter={() => setShowDescription(true)}
         onMouseLeave={() => setShowDescription(false)}
-        className={`p-3 hover:scale-110 cursor-pointer bg-${category} w-[120px] md:w-[350px] md:h-[350px] flex flex-col items-center justify-center md:gap-6`}
+        className={clsx(
+          `p-3 hover:scale-110 cursor-pointer bg-${category} w-[120px] md:w-[350px] md:h-[350px] flex flex-col items-center justify-center md:gap-6`,
+          isDeactivated && "opacity-50"
+        )}
       >
-        <p className="font-league-gothic text-2xl md:text-5xl text-white">
+        <p
+          className={clsx(
+            "font-league-gothic text-2xl md:text-5xl text-white",
+            isDeactivated && "opacity-50"
+          )}
+        >
           {category.toUpperCase()}
         </p>
         <div className="text-white">
-          {categoriesDictionary[category]("max-md:h-6")}
+          {categoriesDictionary[category](
+            clsx("max-md:h-6", isDeactivated && "opacity-50")
+          )}
         </div>
         {showDescription && description && (
           <div className="flex flex-col justify-center items-center md:gap-6">
