@@ -17,11 +17,7 @@ const CategoryGrid = () => {
     >
       <div className="flex max-md:flex-col">
         {rows.map((category) => (
-          <CategoryElement
-            category={category}
-            isDisabled={hasEnteredGrid}
-            // description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet."
-          />
+          <CategoryElement category={category} isDisabled={hasEnteredGrid} />
         ))}
       </div>
       <div className="flex max-md:flex-col">
