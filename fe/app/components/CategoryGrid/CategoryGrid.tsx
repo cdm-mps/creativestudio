@@ -15,16 +15,16 @@ const CategoryGrid = () => {
       onMouseEnter={() => setHasEnteredGrid(true)}
       onMouseLeave={() => setHasEnteredGrid(false)}
     >
-      <div className="flex">
+      <div className="flex max-md:flex-col">
         {rows.map((category) => (
           <CategoryElement
             category={category}
             isDisabled={hasEnteredGrid}
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet."
+            // description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet."
           />
         ))}
       </div>
-      <div className="flex">
+      <div className="flex max-md:flex-col">
         {cols.map((category) => (
           <CategoryElement
             category={category}
