@@ -1,14 +1,14 @@
 "use client";
 
 import CategoryElement from "@/app/components/CategoryElement/CategoryElement";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { categories } from "@model/Category";
 
 const CategoryGrid = () => {
+  const rows = categories.slice(0, 3);
+  const cols = categories.slice(3, 6);
   const [hasEnteredGrid, setHasEnteredGrid] = useState<boolean>(false);
 
-  useEffect(() => {
-    console.log({ hasEnteredGrid });
-  }, [hasEnteredGrid]);
   return (
     <div
       className="flex-col"
@@ -16,38 +16,22 @@ const CategoryGrid = () => {
       onMouseLeave={() => setHasEnteredGrid(false)}
     >
       <div className="flex">
-        <CategoryElement
-          category="edition"
-          isDisabled={hasEnteredGrid}
-          description="This is a fake text bruh. This is a fake text bruh. This is a fake text bruh. This is a fake text bruh. This is a fake text bruh. This is a fake text bruh. This is a fake text bruh. This is a fake text bruh. This is a fake text bruh. This is a fake text bruh. This is a fake text bruh. This is a fake text bruh. This is a fake text bruh. This is a fake text bruh. This is a fake text bruh."
-        />
-        <CategoryElement
-          category="masterclass"
-          isDisabled={hasEnteredGrid}
-          description="This is a fake text bruh. This is a fake text bruh."
-        />
-        <CategoryElement
-          category="creative-talks"
-          isDisabled={hasEnteredGrid}
-          description="This is a fake text bruh. This is a fake text bruh."
-        />
+        {rows.map((category) => (
+          <CategoryElement
+            category={category}
+            isDisabled={hasEnteredGrid}
+            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet."
+          />
+        ))}
       </div>
       <div className="flex">
-        <CategoryElement
-          category="workshop"
-          isDisabled={hasEnteredGrid}
-          description="This is a fake text bruh. This is a fake text bruh."
-        />
-        <CategoryElement
-          category="artistic-residence"
-          isDisabled={hasEnteredGrid}
-          description="This is a fake text bruh. This is a fake text bruh."
-        />
-        <CategoryElement
-          category="business-workshop"
-          isDisabled={hasEnteredGrid}
-          description="This is a fake text bruh. This is a fake text bruh."
-        />
+        {cols.map((category) => (
+          <CategoryElement
+            category={category}
+            isDisabled={hasEnteredGrid}
+            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet."
+          />
+        ))}
       </div>
     </div>
   );

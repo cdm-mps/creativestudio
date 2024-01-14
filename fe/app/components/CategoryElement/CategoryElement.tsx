@@ -14,6 +14,7 @@ const CategoryElement = ({
   const [showDescription, setShowDescription] = useState<boolean>(false);
 
   const isDeactivated = isDisabled && !showDescription;
+  const hasDescription = showDescription && description;
 
   return (
     <div className={clsx("relative", showDescription && "z-50")}>
@@ -38,7 +39,7 @@ const CategoryElement = ({
             clsx("max-md:h-6", isDeactivated && "opacity-50")
           )}
         </div>
-        {showDescription && description && (
+        {hasDescription && (
           <div className="flex flex-col justify-center items-center md:gap-6">
             <p className="text-center text-sm text-white line-clamp-4">
               {description}
