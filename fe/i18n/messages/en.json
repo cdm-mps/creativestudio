@@ -22,14 +22,22 @@
     "title": "Components",
     "footer": "And more..."
   },
+  "Categories": {
+    "masterclass": "MasterClass",
+    "edition": "Edition",
+    "creative-talks": "Creative Talks",
+    "workshop": "Workshop",
+    "artistic-residence": "Artistic Residence",
+    "business-workshop": "Business Workshop"
+  },
   "Menu": {
-    "CreativeWorkshops": "CREATIVE WORKSHOPS",
-    "BusinessWorkshops": "BUSINESS WORKSHOPS",
-    "Mentors": "MENTORS",
-    "Calendar": "CALENDAR",
-    "AboutUs": "ABOUT US",
-    "Contacts": "CONTACTS",
-    "FollowUs": "FOLLOW US!"
+    "CreativeWorkshops": "Creative Workshops",
+    "BusinessWorkshops": "Business Workshops",
+    "Mentors": "Mentors",
+    "Calendar": "Calendar",
+    "AboutUs": "About Us",
+    "Contacts": "Contacts",
+    "FollowUs": "Follow Us!"
   },
   "Components": {
     "Mentor": {
@@ -48,8 +56,23 @@
       "quote": "Those who pass us by don't go alone, they don't leave us alone. They leave a little of themselves behind, they take a little of us with them.",
       "subtitle2": "To Inês Abreu Guerra, \n and Andreia Fisher de Almeida, \n our Thanks. \n Always."
     },
+    "NewsSlider": {
+      "next": "Next",
+      "previous": "Prev"
+    },
+    "EventElement": {
+      "explore": "Explore"
+    },
+    "EventGrid": {
+      "seeMore": "See more",
+      "seeLess": "See less"
+    },
     "EventInfo": {
       "level": "Level:"
+    },
+    "Stepper": {
+      "textOne": "Payment Info",
+      "textTwo": "Personal Info"
     }
   }
 }
