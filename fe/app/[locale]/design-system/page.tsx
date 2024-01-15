@@ -224,33 +224,6 @@ export default function Home() {
     <main className="flex flex-col bg-black text-white gap-10 w-full">
       <CoreTitle title={t("title")} />
 
-      <Calendar
-        events={[
-          {
-            title: "Lorem ipsum sit",
-            category: "artistic-residence",
-            date: "2024/01/14",
-          },
-          {
-            title: "Lorem ipsum sit dasjdhas dksajh dsakjd hsa",
-            category: "creative-talks",
-            date: "2024/01/14",
-          },
-          {
-            title: "Lorem ipsum sit",
-            category: "business-workshop",
-            date: "2024/01/14",
-          },
-          {
-            title: "Lorem ipsum sit",
-            category: "edition",
-            date: "2024/01/01",
-          },
-        ]}
-        selectedDate={selectedDate}
-        setSelectedDate={setSelectedDate}
-      />
-
       {/* -------------- ACKNOWLEDGEMENTS --------------*/}
       <LocalTitle title="Acknowledgements" />
       <div className="flex flex-col items-center gap-10 px-3">
@@ -366,6 +339,51 @@ export default function Home() {
 />`}
         />
       </div>
+      <Divider />
+
+      {/* -------------- Category Bar Element and List --------------*/}
+      <LocalTitle title="Category Bar Element and List" />
+      <div className="flex flex-col items-center justify-center gap-4 md:px-28">
+        <Calendar
+          events={[
+            {
+              title: "Lorem ipsum sit",
+              category: "artistic-residence",
+              date: "2024/01/14",
+            },
+            {
+              title: "Lorem ipsum sit dasjdhas dksajh dsakjd hsa",
+              category: "creative-talks",
+              date: "2024/01/14",
+            },
+            {
+              title: "Lorem ipsum sit",
+              category: "business-workshop",
+              date: "2024/01/14",
+            },
+            {
+              title: "Lorem ipsum sit",
+              category: "edition",
+              date: "2024/01/01",
+            },
+          ]}
+          selectedDate={selectedDate}
+          setSelectedDate={setSelectedDate}
+        />
+      </div>
+      <Code
+        text={` <Calendar
+  events={[
+    {
+      title: "Lorem ipsum sit",
+      category: "artistic-residence",
+      date: "2024/01/14",
+    },
+  ]}
+  selectedDate={selectedDate}
+  setSelectedDate={setSelectedDate}
+/>`}
+      />
       <Divider />
 
       {/* -------------- Category Bar Element and List --------------*/}
