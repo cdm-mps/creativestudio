@@ -37,6 +37,11 @@ import EventElement from "@components/EventElement/EventElement";
 import EventGrid from "@components/EventGrid/EventGrid";
 import DateInfo from "@components/DateInfo/DateInfo";
 import SubmitionStatus from "@components/SubmitionStatus/SubmitionStatus";
+import Text from "@components/InputField/Text/Text";
+import TextArea from "@components/InputField/TextArea/TextArea";
+import RadioButton from "@components/InputField/RadioButton/RadioButton";
+import Checkbox from "@components/InputField/Checkbox/Checkbox";
+import UploadFile from "@components/InputField/UploadFile/UploadFile";
 
 const bannerGridImages: ImageProps[] = [
   {
@@ -189,6 +194,31 @@ export default function Home() {
   return (
     <main className="flex flex-col bg-black text-white gap-10 w-full">
       <CoreTitle title={t("title")} />
+      {/* -------------- INPUT FIELD --------------*/}
+      <LocalTitle title="Input Field" />
+      <div className="flex items-center justify-center">
+        <div className="w-1/2">
+          <Text title="NOME COMPLETO *" />
+          <TextArea title="RAZÕES PELAS QUAIS TE ESTÁS A INSCREVER" />
+          <RadioButton category="edition" />
+          <Checkbox category="edition" />
+          <UploadFile />
+        </div>
+      </div>
+      <Code
+        text={`
+          <Text title="NOME COMPLETO *" />
+
+          <TextArea title="RAZÕES PELAS QUAIS TE ESTÁS A INSCREVER" />
+
+          <RadioButton category="edition" />
+
+          <Checkbox category="edition" />
+          
+          <UploadFile />
+      `}
+      />
+      <Divider />
 
       {/* -------------- ACKNOWLEDGEMENTS --------------*/}
       <LocalTitle title="Acknowledgements" />
@@ -1538,6 +1568,7 @@ export default function Home() {
   category="creative-talks" 
 />`}
       />
+      <Divider />
 
       {/* -------------- FOOTER --------------*/}
       <div className="flex flex-col items-center gap-4">
