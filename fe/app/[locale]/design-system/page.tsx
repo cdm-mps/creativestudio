@@ -2,42 +2,43 @@
 
 import ContactInfo from "@/app/components/ContactInfo/ContactInfo";
 import Divider from "@/app/components/Divider/Divider";
-import MentorElement from "@components/Mentor/Mentor";
 import QuoteSlider from "@/app/components/Quote/QuoteSlider";
+import BeneditaPereiera from "@assets/images/BeneditaPereira.png";
+import CarolinaLeite from "@assets/images/CarolinaLeite.png";
+import Acknowledgements from "@components/Acknowledgements/Acknowledgements";
 import ArrowTitle from "@components/ArrowTitle/ArrowTitle";
+import BannerGrid from "@components/BannerGrid/BannerGrid";
 import BreadcrumbsTitle from "@components/BreadcrumbsTitle/BreadcrumbsTitle";
 import { BreadcrumbsProps } from "@components/BreadcrumbsTitle/BreadcrumbsTitleProps.models";
 import Button from "@components/Button/Button";
+import Calendar from "@components/Calendar/Calendar";
+import CategoryBarList from "@components/CategoryBar/CategoryBarList";
+import DateInfo from "@components/DateInfo/DateInfo";
 import Details from "@components/Details/Details";
+import EnumBulletPoint from "@components/EnumBulletPoint/EnumBulletPoint";
+import EventElement from "@components/EventElement/EventElement";
+import EventGrid from "@components/EventGrid/EventGrid";
+import EventInfo from "@components/EventInfo/EventInfo";
+import Filters from "@components/Filters/Filters";
+import { Filter } from "@components/Filters/Filters.models";
 import IconTitle from "@components/IconTitle/IconTitle";
+import { ImageProps } from "@components/ImageElement/ImageElement.models";
+import MentorElement from "@components/Mentor/Mentor";
+import MentorEventBar from "@components/MentorEventBar/MentorEventBar";
+import MentorIdentifier from "@components/MentorIdentifier/MentorIdentifier";
+import NewsElement from "@components/NewsElement/NewsElement";
+import NewsSlider from "@components/NewsSlider/NewsSlider";
+import RoundArrowButton from "@components/RoundArrowButton/RoundArrowButton";
+import ScheduleElement from "@components/Schedule/ScheduleElement";
 import Stepper from "@components/Stepper/Stepper";
+import Tabs from "@components/Tabs/Tabs";
+import TeamElement from "@components/TeamElement/TeamElement";
+import TeamElementRow from "@components/TeamElementRow/TeamElementRow";
 import Title from "@components/Title/Title";
 import CoreTitle from "@components/shared/CoreTitle/CoreTitle";
 import { Instagram } from "@icons/Instagram";
 import { useTranslations } from "next-intl";
-import BeneditaPereiera from "@assets/images/BeneditaPereira.png";
-import CarolinaLeite from "@assets/images/CarolinaLeite.png";
-import MentorEventBar from "@components/MentorEventBar/MentorEventBar";
-import MentorIdentifier from "@components/MentorIdentifier/MentorIdentifier";
-import CategoryBarList from "@components/CategoryBar/CategoryBarList";
-import EnumBulletPoint from "@components/EnumBulletPoint/EnumBulletPoint";
-import ScheduleElement from "@components/Schedule/ScheduleElement";
-import NewsSlider from "@components/NewsSlider/NewsSlider";
-import BannerGrid from "@components/BannerGrid/BannerGrid";
-import { ImageProps } from "@components/ImageElement/ImageElement.models";
-import Acknowledgements from "@components/Acknowledgements/Acknowledgements";
-import RoundArrowButton from "@components/RoundArrowButton/RoundArrowButton";
-import Tabs from "@components/Tabs/Tabs";
 import { useState } from "react";
-import NewsElement from "@components/NewsElement/NewsElement";
-import TeamElementRow from "@components/TeamElementRow/TeamElementRow";
-import TeamElement from "@components/TeamElement/TeamElement";
-import EventInfo from "@components/EventInfo/EventInfo";
-import EventElement from "@components/EventElement/EventElement";
-import EventGrid from "@components/EventGrid/EventGrid";
-import DateInfo from "@components/DateInfo/DateInfo";
-import Filters from "@components/Filters/Filters";
-import { Filter } from "@components/Filters/Filters.models";
 
 const bannerGridImages: ImageProps[] = [
   {
@@ -211,15 +212,44 @@ export default function Home() {
   const t = useTranslations("DesignSystem");
 
   const [selectedTab, setSelectedTab] = useState(0);
+  const [selectedDate, setSelectedDate] = useState(new Date());
   const [result, setResult] = useState<Record<string, string | undefined>>({});
 
   const breadcrumbs: BreadcrumbsProps[] = [
     { label: "Calendário", url: "/example" },
     { label: "Masterclasses", url: "/example" },
   ];
+
   return (
     <main className="flex flex-col bg-black text-white gap-10 w-full">
       <CoreTitle title={t("title")} />
+
+      <Calendar
+        events={[
+          {
+            title: "Lorem ipsum sit",
+            category: "artistic-residence",
+            date: "2024/01/14",
+          },
+          {
+            title: "Lorem ipsum sit dasjdhas dksajh dsakjd hsa",
+            category: "creative-talks",
+            date: "2024/01/14",
+          },
+          {
+            title: "Lorem ipsum sit",
+            category: "business-workshop",
+            date: "2024/01/14",
+          },
+          {
+            title: "Lorem ipsum sit",
+            category: "edition",
+            date: "2024/01/01",
+          },
+        ]}
+        selectedDate={selectedDate}
+        setSelectedDate={setSelectedDate}
+      />
 
       {/* -------------- ACKNOWLEDGEMENTS --------------*/}
       <LocalTitle title="Acknowledgements" />

@@ -46,6 +46,19 @@
   color: rgba(255, 255, 255, 0.4);
   padding: 15px;
 }
+.ant-picker-calendar .ant-select .ant-select-arrow {
+  color: rgba(255, 255, 255, 0.4);
+  padding-top: 15px !important;
+  padding-right: 3px !important;
+}
+
+.ant-picker-calendar .ant-picker-calendar-header {
+  padding-bottom: 64px;
+}
+
+.ant-picker-calendar .ant-picker-calendar-header .ant-picker-calendar-mode-switch {
+  display: none;
+}
 
 .ant-select-single:not(.ant-select-customize-input) .ant-select-selector {
   padding-top: 20px;
