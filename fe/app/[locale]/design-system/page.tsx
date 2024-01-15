@@ -36,6 +36,11 @@ import EventInfo from "@components/EventInfo/EventInfo";
 import EventElement from "@components/EventElement/EventElement";
 import EventGrid from "@components/EventGrid/EventGrid";
 import DateInfo from "@components/DateInfo/DateInfo";
+import Sponsors from "@components/Sponsors/Sponsors";
+import fb from "@assets/images/fb.png";
+import nos from "@assets/images/nos.png";
+import vercel from "@assets/images/vercel.png";
+import hbo from "@assets/images/hbo.png";
 import Filters from "@components/Filters/Filters";
 import { Filter } from "@components/Filters/Filters.models";
 import SubmitionStatus from "@components/SubmitionStatus/SubmitionStatus";
@@ -219,7 +224,7 @@ export default function Home() {
     { label: "Masterclasses", url: "/example" },
   ];
   return (
-    <main className="flex flex-col bg-black text-white gap-10 w-full">
+    <main className="flex flex-col bg-black text-white gap-10 w-full overflow-hidden">
       <CoreTitle title={t("title")} />
 
       {/* -------------- ACKNOWLEDGEMENTS --------------*/}
@@ -1601,6 +1606,27 @@ export default function Home() {
   category="creative-talks" 
 />`}
       />
+      <Divider />
+      {/* -------------- Sponsors --------------*/}
+      <LocalTitle title="Sponsors" />
+      <div className="flex flex-col items-center gap-4 px-3 w-full">
+        <Sponsors
+          sponsors={[
+            { src: fb, alt: "fb" },
+            { src: nos, alt: "nos" },
+            { src: vercel, alt: "vercel" },
+            { src: hbo, alt: "hbo" },
+          ]}
+        />
+      </div>
+      <Code text={`<Sponsors
+          sponsors={[
+            { src: fb, alt: "fb" },
+            { src: nos, alt: "nos" },
+            { src: vercel, alt: "vercel" },
+            { src: hbo, alt: "hbo" },
+          ]}
+        />`} />
 
       {/* -------------- FOOTER --------------*/}
       <div className="flex flex-col items-center gap-4">
