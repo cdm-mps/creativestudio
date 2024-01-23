@@ -186,6 +186,8 @@ export default function Home() {
   const t = useTranslations("DesignSystem");
 
   const [selectedTab, setSelectedTab] = useState(0);
+  const [toggleRadioButton, setToggleRadioButton] = useState(false);
+  const [toggleRadioButton2, setToggleRadioButton2] = useState(false);
 
   const breadcrumbs: BreadcrumbsProps[] = [
     { label: "Calendário", url: "/example" },
@@ -200,7 +202,24 @@ export default function Home() {
         <div className="w-1/2">
           <Text title="NOME COMPLETO *" />
           <TextArea title="RAZÕES PELAS QUAIS TE ESTÁS A INSCREVER" />
-          <RadioButton category="edition" />
+          <div className="flex gap-5">
+            <RadioButton
+              category="edition"
+              label="Pagamento a pronto"
+              isChecked={toggleRadioButton2}
+              updateRadioButtonStatus={() =>
+                setToggleRadioButton2(!toggleRadioButton2)
+              }
+            />
+            <RadioButton
+              category="edition"
+              label="Pagamento fazeado"
+              isChecked={toggleRadioButton}
+              updateRadioButtonStatus={() =>
+                setToggleRadioButton(!toggleRadioButton)
+              }
+            />
+          </div>
           <Checkbox category="edition" />
           <UploadFile />
         </div>
