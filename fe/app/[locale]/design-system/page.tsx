@@ -188,6 +188,7 @@ export default function Home() {
   const [selectedTab, setSelectedTab] = useState(0);
   const [toggleRadioButton, setToggleRadioButton] = useState(false);
   const [toggleRadioButton2, setToggleRadioButton2] = useState(false);
+  const [toggleCheckbox, setToggleCheckbox] = useState(false);
 
   const breadcrumbs: BreadcrumbsProps[] = [
     { label: "Calendário", url: "/example" },
@@ -220,7 +221,13 @@ export default function Home() {
               }
             />
           </div>
-          <Checkbox category="edition" />
+          <Checkbox
+            isChecked={toggleCheckbox}
+            category="edition"
+            label="Quero ser adicionado ao grupo de Whatsapp e assim receber os acessos
+          para as sessões"
+            updateCheckboxStatus={() => setToggleCheckbox(!toggleCheckbox)}
+          />
           <UploadFile />
         </div>
       </div>

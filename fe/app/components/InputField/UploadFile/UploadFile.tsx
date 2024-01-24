@@ -1,34 +1,26 @@
 import { UploadIcon } from "@assets/icons/UploadIcon";
-import { ChangeEvent, useRef } from "react";
+import { useTranslations } from "next-intl";
+import { useRef } from "react";
 
 const UploadFile = () => {
+  const t = useTranslations("Components.UploadFile");
   const inputRef = useRef(null);
-
-  const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
-    // 👇️ open file input box on click of another element
-    // inputRef?.current?.onclick();
-    // e;
-  };
-
-  // const fileInput = document.getElementById("input");
-  // fileInput.onchange = () => {
-  //   const selectedFile = fileInput.files[0];
-  //   console.log(selectedFile);
-  // };
 
   return (
     <div>
       <input
-        // style={{ display: "none" }}
         ref={inputRef}
+        id="upload-file-btn"
         type="file"
-        onChange={(e) => console.log(e)}
-        className="border"
+        className="border hidden"
       />
-      <button className="flex my-8 gap-3 px-6 py-3 border border-white rounded-lg w-[192px]">
+      <label
+        htmlFor="upload-file-btn"
+        className="flex my-8 gap-3 px-6 py-3 border border-white rounded-lg w-fit"
+      >
         <UploadIcon className="w-5 h-5" />
-        <p className="text-sm font-lato">Adicionar ficheiro</p>
-      </button>
+        <p className="text-sm font-lato">{t("addFile")}</p>
+      </label>
     </div>
   );
 };

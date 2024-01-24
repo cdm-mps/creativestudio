@@ -55,8 +55,8 @@
       "textOne": "Dados de Pagamento",
       "textTwo": "Dados Pessoais"
     },
-    "InputField": {
-      "UploadFile": "Adicionar ficheiro"
+    "UploadFile": {
+      "addFile": "Adicionar ficheiro"
     }
   }
 }
