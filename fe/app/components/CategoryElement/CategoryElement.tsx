@@ -1,7 +1,7 @@
 "use client";
 
 import { CategoryElementProps } from "@/app/components/CategoryElement/CategoryElement.models";
-import { RoundArrow } from "@icons/RoundArrow";
+import RoundArrowButton from "@components/RoundArrowButton/RoundArrowButton";
 import { categoriesDictionary } from "@utils/categoriesDictionary";
 import clsx from "clsx";
 import { useState } from "react";
@@ -49,7 +49,7 @@ const CategoryElement = ({
               <p className="text-center text-xs text-white line-clamp-4">
                 {description}
               </p>
-              <RoundArrow className="h-7" />
+              <RoundArrowButton arrowDirection="down" size="small" />
             </div>
           </div>
         )}
@@ -63,7 +63,7 @@ const CategoryElement = ({
               <p className="text-center md:text-sm text-xs text-white line-clamp-4">
                 {description}
               </p>
-              <RoundArrow className="h-5" />
+              <RoundArrowButton arrowDirection="down" size="small" />
             </div>
           </div>
         )}

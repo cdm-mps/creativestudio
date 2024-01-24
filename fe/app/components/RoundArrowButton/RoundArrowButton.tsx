@@ -6,26 +6,52 @@ import { RoundArrowButtonProps } from "./RoundArrowButton.models";
 const RoundArrowButton = ({
   arrowDirection,
   onClick,
+  size = "medium",
 }: RoundArrowButtonProps) => {
   return (
     <div
       className={clsx(
-        "flex items-center justify-center w-[25px] h-[25px] md:w-[45px] md:h-[45px] border-[1px] md:border-2 border-white rounded-full",
-        onClick && "cursor-pointer hover:opacity-80"
+        "flex items-center justify-center border-[1px] md:border-2 border-white rounded-full",
+        onClick && "cursor-pointer hover:opacity-80",
+        size === "medium" && "w-[25px] h-[25px] md:w-[45px] md:h-[45px]",
+        size === "small" && "w-[25px] h-[25px] md:w-7 md:h-7"
       )}
       onClick={onClick}
     >
       {arrowDirection === "up" && (
-        <StickHead className={"w-2 h-2 md:w-4 md:h-4 rotate-180"} />
+        <StickHead
+          className={clsx(
+            "rotate-180",
+            size === "medium" && "md:w-4 md:h-4",
+            size === "small" && "md:w-3 md:h-3"
+          )}
+        />
       )}
       {arrowDirection === "down" && (
-        <StickHead className={"w-2 h-2 md:w-4 md:h-4 md:pt-1"} />
+        <StickHead
+          className={clsx(
+            size === "medium" && "md:pt-1 w-2 h-2 md:w-4 md:h-4",
+            size === "small" && "md:pt-0.5 md:w-3 md:h-3"
+          )}
+        />
       )}
       {arrowDirection === "left" && (
-        <StickHead className={"w-2 h-2 md:w-4 md:h-4 rotate-90 pt-[1px]"} />
+        <StickHead
+          className={clsx(
+            "rotate-90 pt-[1px]",
+            size === "medium" && "md:w-4 md:h-4",
+            size === "small" && "md:w-3 md:h-3"
+          )}
+        />
       )}
       {arrowDirection === "right" && (
-        <StickHead className={"w-2 h-2 md:w-4 md:h-4 -rotate-90 pt-[1px]"} />
+        <StickHead
+          className={clsx(
+            "w-2 h-2 -rotate-90 pt-[1px]",
+            size === "medium" && "md:w-4 md:h-4",
+            size === "small" && "md:w-3 md:h-3"
+          )}
+        />
       )}
     </div>
   );
