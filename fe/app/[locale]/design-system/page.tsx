@@ -36,6 +36,13 @@ import EventInfo from "@components/EventInfo/EventInfo";
 import EventElement from "@components/EventElement/EventElement";
 import EventGrid from "@components/EventGrid/EventGrid";
 import DateInfo from "@components/DateInfo/DateInfo";
+import Sponsors from "@components/Sponsors/Sponsors";
+import fb from "@assets/images/fb.png";
+import nos from "@assets/images/nos.png";
+import vercel from "@assets/images/vercel.png";
+import hbo from "@assets/images/hbo.png";
+import Filters from "@components/Filters/Filters";
+import { Filter } from "@components/Filters/Filters.models";
 import SubmitionStatus from "@components/SubmitionStatus/SubmitionStatus";
 import Text from "@components/InputField/Text/Text";
 import TextArea from "@components/InputField/TextArea/TextArea";
@@ -150,6 +157,35 @@ const bannerGridImages: ImageProps[] = [
   },
 ];
 
+const filters = [
+  {
+    placeholder: "Mentor",
+    options: [
+      { value: "Benedita Pereira", label: "Benedita Pereira" },
+      { value: "Vitor da Silva Costa", label: "Vitor da Silva Costa" },
+      {
+        value: "Camané",
+        label: "Camané",
+      },
+      { value: "Carolina Leite", label: "Carolina Leite" },
+      { value: "Margarida Vila Nova", label: "Margarida Vila Nova" },
+    ],
+  },
+  {
+    placeholder: "Categoria",
+    options: [
+      { value: "masterclass", label: "Masterclass" },
+      { value: "business-workshop", label: "Business Workshop" },
+      {
+        value: "edition",
+        label: "Edition",
+      },
+      { value: "creative-talks", label: "Creative Talks" },
+      { value: "workshop", label: "Workshop" },
+    ],
+  },
+];
+
 const LocalTitle = ({
   title,
   showBullet = true,
@@ -189,13 +225,14 @@ export default function Home() {
   const [toggleRadioButton, setToggleRadioButton] = useState(false);
   const [toggleRadioButton2, setToggleRadioButton2] = useState(false);
   const [toggleCheckbox, setToggleCheckbox] = useState(false);
+  const [result, setResult] = useState<Record<string, string | undefined>>({});
 
   const breadcrumbs: BreadcrumbsProps[] = [
     { label: "Calendário", url: "/example" },
     { label: "Masterclasses", url: "/example" },
   ];
   return (
-    <main className="flex flex-col bg-black text-white gap-10 w-full">
+    <main className="flex flex-col bg-black text-white gap-10 w-full overflow-hidden">
       <CoreTitle title={t("title")} />
       {/* -------------- INPUT FIELD --------------*/}
       <LocalTitle title="Input Field" />
@@ -826,6 +863,37 @@ export default function Home() {
   level="iniciante"
   category="business-workshop"
   onClick={()=>{}}
+/>`}
+      />
+      <Divider />
+
+      {/* -------------- Filters --------------*/}
+      <LocalTitle title="Event Info" />
+      <div className="flex flex-col items-center gap-10 px-3">
+        <Filters
+          filters={filters as Filter[]}
+          result={result}
+          setResult={setResult}
+          onClick={() => {
+            console.log("teets");
+          }}
+        />
+      </div>
+      <Code
+        text={`<Filters
+  filters={[ {
+    placeholder: "Mentor",
+    options: [
+    { value: "benedita", 
+      label: "Benedita Pereira" 
+    },
+    { value: "vitor", 
+    label: "Vitor da Silva Costa" 
+  },],
+  }]}
+  result={result}
+  setResult={setResult}
+  onClick={() => {}}
 />`}
       />
       <Divider />
@@ -1607,6 +1675,28 @@ export default function Home() {
 />`}
       />
       <Divider />
+      {/* -------------- Sponsors --------------*/}
+      <LocalTitle title="Sponsors" />
+      <div className="flex flex-col items-center gap-4 px-3 w-full">
+        <Sponsors
+          sponsors={[
+            { src: fb, alt: "fb" },
+            { src: nos, alt: "nos" },
+            { src: vercel, alt: "vercel" },
+            { src: hbo, alt: "hbo" },
+          ]}
+        />
+      </div>
+      <Code
+        text={`<Sponsors
+          sponsors={[
+            { src: fb, alt: "fb" },
+            { src: nos, alt: "nos" },
+            { src: vercel, alt: "vercel" },
+            { src: hbo, alt: "hbo" },
+          ]}
+        />`}
+      />
 
       {/* -------------- FOOTER --------------*/}
       <div className="flex flex-col items-center gap-4">

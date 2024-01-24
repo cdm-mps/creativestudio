@@ -55,6 +55,9 @@
       "textOne": "Dados de Pagamento",
       "textTwo": "Dados Pessoais"
     },
+    "Filters": {
+      "filter": "Filtrar"
+    },
     "UploadFile": {
       "addFile": "Adicionar ficheiro"
     }

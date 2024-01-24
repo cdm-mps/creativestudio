@@ -55,6 +55,9 @@
       "textOne": "Payment Info",
       "textTwo": "Personal Info"
     },
+    "Filters": {
+      "filter": "Filter"
+    },
     "UploadFile": {
       "addFile": "Add file"
     }
