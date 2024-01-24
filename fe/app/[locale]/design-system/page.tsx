@@ -201,23 +201,23 @@ export default function Home() {
       <LocalTitle title="Input Field" />
       <div className="flex items-center justify-center">
         <div className="w-1/2">
-          <Text title="NOME COMPLETO *" />
-          <TextArea title="RAZÕES PELAS QUAIS TE ESTÁS A INSCREVER" />
+          <Text title="Nome Completo *" />
+          <TextArea title="Razões pelas quais te estás a inscrever" />
           <div className="flex gap-5">
             <RadioButton
               category="edition"
               label="Pagamento a pronto"
-              isChecked={toggleRadioButton2}
+              isChecked={toggleRadioButton}
               updateRadioButtonStatus={() =>
-                setToggleRadioButton2(!toggleRadioButton2)
+                setToggleRadioButton(!toggleRadioButton)
               }
             />
             <RadioButton
               category="edition"
               label="Pagamento fazeado"
-              isChecked={toggleRadioButton}
+              isChecked={toggleRadioButton2}
               updateRadioButtonStatus={() =>
-                setToggleRadioButton(!toggleRadioButton)
+                setToggleRadioButton2(!toggleRadioButton2)
               }
             />
           </div>
@@ -233,13 +233,25 @@ export default function Home() {
       </div>
       <Code
         text={`
-          <Text title="NOME COMPLETO *" />
+          <Text title="Nome Completo *" />
 
-          <TextArea title="RAZÕES PELAS QUAIS TE ESTÁS A INSCREVER" />
+          <TextArea title="Razões pelas quais te estás a inscrever" />
 
-          <RadioButton category="edition" />
+          <RadioButton
+              category="edition"
+              label="Pagamento a pronto"
+              isChecked={toggleRadioButton}
+              updateRadioButtonStatus={() =>
+                setToggleRadioButton(!toggleRadioButton)
+              }
+          />
 
-          <Checkbox category="edition" />
+          <Checkbox
+            isChecked={toggleCheckbox}
+            category="edition"
+            label="Quero ser adicionado ao grupo de Whatsapp e assim receber os acessos para as sessões"
+            updateCheckboxStatus={() => setToggleCheckbox(!toggleCheckbox)}
+          />
           
           <UploadFile />
       `}
