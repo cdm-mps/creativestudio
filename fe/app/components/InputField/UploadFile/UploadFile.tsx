@@ -16,10 +16,10 @@ const UploadFile = () => {
       />
       <label
         htmlFor="upload-file-btn"
-        className="flex my-8 gap-3 px-6 py-3 border border-white rounded-lg w-fit"
+        className="flex items-center my-8 gap-3 px-4 sm:px-6 py-3 border border-white rounded-lg w-fit"
       >
         <UploadIcon className="w-5 h-5" />
-        <p className="text-sm font-lato">{t("addFile")}</p>
+        <p className="text-xs sm:text-sm font-lato">{t("addFile")}</p>
       </label>
     </div>
   );
