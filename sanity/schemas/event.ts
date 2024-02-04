@@ -62,7 +62,7 @@ export default {
     {
       name: 'duration',
       title: 'Duration',
-      type: 'text',
+      type: 'string',
       description: 'How long the Event is expected to last (e.g. 90min or 1h30min)',
       validation: (Rule: any) => Rule.required(),
     },
@@ -117,6 +117,7 @@ export default {
       name: 'hasSubmitVideo',
       type: 'boolean',
       title: 'Has Submit Video',
+      initialValue: false,
       description:
         'Indicates whether participants are expected to share content through video submissions. Enable if yes, disable if no.',
     },
@@ -124,6 +125,7 @@ export default {
       name: 'isNew',
       type: 'boolean',
       title: 'Is it new?',
+      initialValue: false,
       description:
         'Indicates whether the Event is an upcoming Event. Enable if yes, disable if no.',
     },
