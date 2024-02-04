@@ -19,6 +19,8 @@ import BeneditaPereiera from "@assets/images/BeneditaPereira.png";
 import CarolinaLeite from "@assets/images/CarolinaLeite.png";
 import MentorEventBar from "@components/MentorEventBar/MentorEventBar";
 import MentorIdentifier from "@components/MentorIdentifier/MentorIdentifier";
+import CategoryGrid from "@components/CategoryGrid/CategoryGrid";
+import CategoryElement from "@components/CategoryElement/CategoryElement";
 import CategoryBarList from "@components/CategoryBar/CategoryBarList";
 import EnumBulletPoint from "@components/EnumBulletPoint/EnumBulletPoint";
 import ScheduleElement from "@components/Schedule/ScheduleElement";
@@ -1357,6 +1359,26 @@ export default function Home() {
   category="artistic-residence" />
 />`}
         />
+      </div>
+      <Divider />
+      {/* -------------- CATEGORY ELEMENT --------------*/}
+      <Divider />
+      <div className="flex flex-col items-center gap-10 px-3">
+        <LocalTitle title="Category Element" />
+        <div className="flex flex-col items-center gap-6">
+          <CategoryElement category="edition" />
+          <Code text={`<CategoryElement category="edition"/>`} />
+        </div>
+      </div>
+      <Divider />
+      {/* -------------- CATEGORY GRID --------------*/}
+      <Divider />
+      <div className="flex flex-col items-center gap-4 px-3">
+        <LocalTitle title="Category Grid" />
+        <div className="flex flex-col items-center gap-4">
+          <CategoryGrid />
+          <Code text={`<CategoryGrid />`} />
+        </div>
       </div>
       <Divider />
 

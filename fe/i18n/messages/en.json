@@ -1,4 +1,23 @@
 {
+  "general": {
+    "category": {
+      "edition": { "key": "edition", "value": "Editions" },
+      "masterclass": { "key": "masterclass", "value": "Masterclasses" },
+      "workshop": { "key": "workshop", "value": "Workshops" },
+      "creative-talks": {
+        "key": "creative-talks",
+        "value": "Creative Talks"
+      },
+      "artistic-residence": {
+        "key": "artistic-residence",
+        "value": "Artistic Residence"
+      },
+      "business-workshop": {
+        "key": "business-workshop",
+        "value": "Business Workshops"
+      }
+    }
+  },
   "DesignSystem": {
     "title": "Components",
     "footer": "And more..."
