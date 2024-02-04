@@ -76,6 +76,9 @@
     },
     "Filters": {
       "filter": "Filter"
+    },
+    "UploadFile": {
+      "addFile": "Add file"
     }
   }
 }

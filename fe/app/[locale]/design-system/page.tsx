@@ -46,6 +46,11 @@ import hbo from "@assets/images/hbo.png";
 import Filters from "@components/Filters/Filters";
 import { Filter } from "@components/Filters/Filters.models";
 import SubmitionStatus from "@components/SubmitionStatus/SubmitionStatus";
+import Text from "@components/InputField/Text/Text";
+import TextArea from "@components/InputField/TextArea/TextArea";
+import RadioButton from "@components/InputField/RadioButton/RadioButton";
+import Checkbox from "@components/InputField/Checkbox/Checkbox";
+import UploadFile from "@components/InputField/UploadFile/UploadFile";
 
 const bannerGridImages: ImageProps[] = [
   {
@@ -219,6 +224,9 @@ export default function Home() {
   const t = useTranslations("DesignSystem");
 
   const [selectedTab, setSelectedTab] = useState(0);
+  const [toggleRadioButton, setToggleRadioButton] = useState(false);
+  const [toggleRadioButton2, setToggleRadioButton2] = useState(false);
+  const [toggleCheckbox, setToggleCheckbox] = useState(false);
   const [result, setResult] = useState<Record<string, string | undefined>>({});
 
   const breadcrumbs: BreadcrumbsProps[] = [
@@ -228,6 +236,66 @@ export default function Home() {
   return (
     <main className="flex flex-col bg-black text-white gap-10 w-full overflow-hidden">
       <CoreTitle title={t("title")} />
+      {/* -------------- INPUT FIELD --------------*/}
+      <LocalTitle title="Input Field" />
+      <div className="flex items-center justify-center">
+        <div className="w-1/2">
+          <Text title="Nome Completo *" />
+          <TextArea title="Razões pelas quais te estás a inscrever" />
+          <div className="flex gap-5">
+            <RadioButton
+              category="edition"
+              label="Pagamento a pronto"
+              isChecked={toggleRadioButton}
+              updateRadioButtonStatus={() =>
+                setToggleRadioButton(!toggleRadioButton)
+              }
+            />
+            <RadioButton
+              category="edition"
+              label="Pagamento fazeado"
+              isChecked={toggleRadioButton2}
+              updateRadioButtonStatus={() =>
+                setToggleRadioButton2(!toggleRadioButton2)
+              }
+            />
+          </div>
+          <Checkbox
+            isChecked={toggleCheckbox}
+            category="edition"
+            label="Quero ser adicionado ao grupo de Whatsapp e assim receber os acessos
+          para as sessões"
+            updateCheckboxStatus={() => setToggleCheckbox(!toggleCheckbox)}
+          />
+          <UploadFile />
+        </div>
+      </div>
+      <Code
+        text={`
+          <Text title="Nome Completo *" />
+
+          <TextArea title="Razões pelas quais te estás a inscrever" />
+
+          <RadioButton
+              category="edition"
+              label="Pagamento a pronto"
+              isChecked={toggleRadioButton}
+              updateRadioButtonStatus={() =>
+                setToggleRadioButton(!toggleRadioButton)
+              }
+          />
+
+          <Checkbox
+            isChecked={toggleCheckbox}
+            category="edition"
+            label="Quero ser adicionado ao grupo de Whatsapp e assim receber os acessos para as sessões"
+            updateCheckboxStatus={() => setToggleCheckbox(!toggleCheckbox)}
+          />
+          
+          <UploadFile />
+      `}
+      />
+      <Divider />
 
       {/* -------------- ACKNOWLEDGEMENTS --------------*/}
       <LocalTitle title="Acknowledgements" />
@@ -1641,14 +1709,16 @@ export default function Home() {
           ]}
         />
       </div>
-      <Code text={`<Sponsors
+      <Code
+        text={`<Sponsors
           sponsors={[
             { src: fb, alt: "fb" },
             { src: nos, alt: "nos" },
             { src: vercel, alt: "vercel" },
             { src: hbo, alt: "hbo" },
           ]}
-        />`} />
+        />`}
+      />
 
       {/* -------------- FOOTER --------------*/}
       <div className="flex flex-col items-center gap-4">
