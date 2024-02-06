@@ -10,7 +10,7 @@ export default function Home() {
   const locale = useLocale();
 
   useEffect(() => {
-    fetch("api/getMentor")
+    fetch("/api/getMentors")
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

@@ -7,7 +7,6 @@ export async function GET(request: Request) {
     "mentor",
     "{name, occupation, bio, image}"
   );
-  console.log(query);
   const res = await client.fetch(query);
 
   return Response.json(res);
