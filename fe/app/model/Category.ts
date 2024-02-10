@@ -6,7 +6,7 @@ export type Category =
   | "artistic-residence"
   | "business-workshop";
 
-export const Categories: Category[] = [
+export const categories: Category[] = [
   "masterclass",
   "edition",
   "creative-talks",
