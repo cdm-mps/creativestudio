@@ -5,9 +5,13 @@ export default {
   fields: [
     {
       name: 'title',
-      type: 'string',
       title: 'Title',
       description: 'Title of the Event',
+      type: 'object',
+      fields: [
+        {name: 'pt', type: 'string', title: 'PT'},
+        {name: 'en', type: 'string', title: 'EN'},
+      ],
       validation: (Rule: any) => Rule.required(),
     },
     {
@@ -46,6 +50,15 @@ export default {
       type: 'string',
       title: 'Subcategory',
       description: 'Subcategory of the Event',
+      options: {
+        list: [
+          {title: 'Edições Foco', value: 'focus-edition'},
+          {title: 'Edições All In One', value: 'all-in-one-edition'},
+          {title: 'Presenciais', value: 'face-to-face-workshop'},
+          {title: 'Curta Duração', value: 'short-duration-workshop'},
+          {title: 'Advanced Worshops', value: 'advanced-workshop'},
+        ],
+      },
     },
     {
       title: 'Date of the Event',
@@ -67,15 +80,49 @@ export default {
       validation: (Rule: any) => Rule.required(),
     },
     {
+      name: 'programation',
+      title: 'Programation',
+      type: 'array',
+      description: 'How long the Event is expected to last (e.g. 90min or 1h30min)',
+      of: [
+        {
+          title: 'Elemento Programação',
+          type: 'object',
+          fields: [
+            {
+              name: 'description',
+              type: 'object',
+              fields: [
+                {name: 'pt', type: 'string', title: 'PT'},
+                {name: 'en', type: 'string', title: 'EN'},
+              ],
+              title: 'Descrição',
+            },
+            {
+              name: 'duration',
+              type: 'string',
+              title: 'Duração',
+              description: '(e.g. 90min or 1h30min)',
+            },
+          ],
+        },
+      ],
+      validation: (Rule: any) => Rule.required(),
+    },
+    {
       name: 'description',
       title: 'Description',
-      type: 'text',
+      type: 'object',
+      fields: [
+        {name: 'pt', type: 'text', title: 'PT'},
+        {name: 'en', type: 'text', title: 'EN'},
+      ],
       description:
         "A brief summary, providing key details about the Event's purpose, agenda, and highlights.",
       validation: (Rule: any) => Rule.required(),
     },
     {
-      name: 'areas_of_interest',
+      name: 'areasOfInterest',
       type: 'array',
       title: 'Areas of Interest',
       description: 'Specifies the main topics or themes covered by an Event',

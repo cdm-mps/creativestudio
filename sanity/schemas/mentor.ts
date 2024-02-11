@@ -25,29 +25,24 @@ export default {
     },
     {
       name: 'occupation',
-      type: 'string',
       title: 'Occupation',
       description: "Mentor's occupation",
-      options: {
-        list: [
-          {title: 'Ator', value: 'actor'},
-          {title: 'Atriz', value: 'actress'},
-          {title: 'Locutor', value: 'male-radio-host'},
-          {title: 'Locutora', value: 'female-radio-host'},
-          {title: 'Comentador de TV', value: 'tv-commentator'},
-          {title: 'Cantor', value: 'male-singer'},
-          {title: 'Cantora', value: 'female-singer'},
-          {title: 'Realizador', value: 'male-director'},
-          {title: 'Realizadora', value: 'female-director'},
-        ],
-      },
+      type: 'object',
+      fields: [
+        {name: 'pt', type: 'string', title: 'PT'},
+        {name: 'en', type: 'string', title: 'EN'},
+      ],
       validation: (Rule: any) => Rule.required(),
     },
     {
       name: 'bio',
       title: 'Bio',
-      type: 'text',
       description: "Mentor's bio",
+      type: 'object',
+      fields: [
+        {name: 'pt', type: 'text', title: 'PT'},
+        {name: 'en', type: 'text', title: 'EN'},
+      ],
       validation: (Rule: any) => Rule.required(),
     },
     {
@@ -58,8 +53,15 @@ export default {
         {
           title: "Mentor's event",
           name: 'mentor_event',
-          type: 'reference',
-          to: [{type: 'event'}],
+          type: 'array',
+          of: [
+            {
+              type: 'reference',
+              to: [
+                {type: 'event'}
+              ]
+            }
+          ]
         },
       ],
     },

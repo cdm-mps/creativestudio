@@ -5,9 +5,13 @@ export default {
   fields: [
     {
       name: 'quote',
-      type: 'text',
       title: 'Quote',
       description: "Specific portion of text in a person's comment",
+      type: 'object',
+      fields: [
+        {name: 'pt', type: 'text', title: 'PT'},
+        {name: 'en', type: 'text', title: 'EN'},
+      ],
       validation: (Rule: any) => Rule.required(),
     },
     {

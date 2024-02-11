@@ -12,9 +12,13 @@ export default {
     },
     {
       name: 'role',
-      type: 'string',
+      type: 'object',
       title: 'Role',
       description: 'Role of the Team Element',
+      fields: [
+        {name: 'pt', type: 'string', title: 'PT'},
+        {name: 'en', type: 'string', title: 'EN'},
+      ],
       validation: (Rule: any) => Rule.required(),
     },
     {
