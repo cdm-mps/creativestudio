@@ -20,8 +20,8 @@ export default {
       type: 'object',
       fields: [
         {
-          title: 'Image of the Mentor associated with the Event',
-          name: 'mentor_image',
+          title: 'Image of the Event',
+          name: 'image',
           type: 'reference',
           to: [{type: 'imageElement'}],
         },
@@ -70,6 +70,20 @@ export default {
         timeStep: 15,
         calendarTodayLabel: 'Today',
       },
+      validation: (Rule: any) => Rule.required(),
+    },
+    {
+      name: 'mentor',
+      title: 'Mentor',
+      type: 'object',
+      fields: [
+        {
+          title: 'The Mentor associated with the Event',
+          name:"mentor",
+          type: 'reference',
+          to: [{type: 'mentor'}],
+        },
+      ],
       validation: (Rule: any) => Rule.required(),
     },
     {
