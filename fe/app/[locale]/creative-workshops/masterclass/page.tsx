@@ -1,15 +1,29 @@
+import { client } from "@/client";
 import BreadcrumbsTitle from "@components/BreadcrumbsTitle/BreadcrumbsTitle";
-import Title from "@components/Title/Title";
+import { getPublishedDataQuery } from "@utils/getPublishedDataQuery";
 import { useTranslations } from "next-intl";
 
-export default function MasterclassPage() {
-  const t = useTranslations("Categories");
+async function getMentor() {
+  const query = getPublishedDataQuery(
+    "mentor",
+    "{name, occupation, bio, image}"
+  );
+  const data = await client.fetch(query);
+
+  return data;
+}
+
+export default async function MasterclassPage() {
+  const data = await getMentor();
+  console.log(data);
+  // const t = useTranslations("Categories");
 
   return (
     <main className="flex min-h-[calc(100vh-26vh)]">
       <div className="w-fit">
         <BreadcrumbsTitle
-          title={t("masterclass")}
+          title={"Masterclass"}
+          // title={t("masterclass")}
           category="masterclass"
           withIcon
           breadcrumbs={[
