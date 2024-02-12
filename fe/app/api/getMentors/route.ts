@@ -1,10 +1,10 @@
 import { client } from "@/client";
 import { getPublishedDataQuery } from "@utils/getPublishedDataQuery";
-import groq from "groq";
 
 export async function GET(request: Request) {
   const query = getPublishedDataQuery(
     "mentor",
+    undefined,
     "{name, occupation, bio, image}"
   );
   const res = await client.fetch(query);
