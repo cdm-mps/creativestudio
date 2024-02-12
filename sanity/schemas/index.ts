@@ -12,6 +12,7 @@ import editions from './pages/editions'
 import enrollForm from './pages/enrollForm'
 import homepage from './pages/homepage'
 import masterclasses from './pages/masterclasses'
+import mentors from './pages/mentors'
 import workshops from './pages/workshops'
 import sponsor from './sponsor'
 import teamElement from './teamElement'
@@ -34,4 +35,5 @@ export const schemaTypes = [
   workshops,
   creativeTalks,
   enrollForm,
+  mentors
 ]
