@@ -176,5 +176,12 @@ export default {
       description:
         'Indicates whether the Event is an upcoming Event. Enable if yes, disable if no.',
     },
+    {
+      name: 'tooltip_levels',
+      title: 'Reference to tooltip describing the event levels',
+      description: 'Reference to tooltip describing the Creative Workshops levels',
+      type: 'reference',
+      to: [{type: 'levels'}],
+    },
   ],
 }
