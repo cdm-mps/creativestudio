@@ -5,6 +5,10 @@ import Divider from "@/app/components/Divider/Divider";
 import QuoteSlider from "@/app/components/Quote/QuoteSlider";
 import BeneditaPereiera from "@assets/images/BeneditaPereira.png";
 import CarolinaLeite from "@assets/images/CarolinaLeite.png";
+import fb from "@assets/images/fb.png";
+import hbo from "@assets/images/hbo.png";
+import nos from "@assets/images/nos.png";
+import vercel from "@assets/images/vercel.png";
 import Acknowledgements from "@components/Acknowledgements/Acknowledgements";
 import ArrowTitle from "@components/ArrowTitle/ArrowTitle";
 import BannerGrid from "@components/BannerGrid/BannerGrid";
@@ -13,6 +17,8 @@ import { BreadcrumbsProps } from "@components/BreadcrumbsTitle/BreadcrumbsTitleP
 import Button from "@components/Button/Button";
 import Calendar from "@components/Calendar/Calendar";
 import CategoryBarList from "@components/CategoryBar/CategoryBarList";
+import CategoryElement from "@components/CategoryElement/CategoryElement";
+import CategoryGrid from "@components/CategoryGrid/CategoryGrid";
 import DateInfo from "@components/DateInfo/DateInfo";
 import Details from "@components/Details/Details";
 import EnumBulletPoint from "@components/EnumBulletPoint/EnumBulletPoint";
@@ -23,6 +29,11 @@ import Filters from "@components/Filters/Filters";
 import { Filter } from "@components/Filters/Filters.models";
 import IconTitle from "@components/IconTitle/IconTitle";
 import { ImageProps } from "@components/ImageElement/ImageElement.models";
+import Checkbox from "@components/InputField/Checkbox/Checkbox";
+import RadioButton from "@components/InputField/RadioButton/RadioButton";
+import Text from "@components/InputField/Text/Text";
+import TextArea from "@components/InputField/TextArea/TextArea";
+import UploadFile from "@components/InputField/UploadFile/UploadFile";
 import MentorElement from "@components/Mentor/Mentor";
 import MentorEventBar from "@components/MentorEventBar/MentorEventBar";
 import MentorIdentifier from "@components/MentorIdentifier/MentorIdentifier";
@@ -30,6 +41,7 @@ import NewsElement from "@components/NewsElement/NewsElement";
 import NewsSlider from "@components/NewsSlider/NewsSlider";
 import RoundArrowButton from "@components/RoundArrowButton/RoundArrowButton";
 import ScheduleElement from "@components/Schedule/ScheduleElement";
+import Sponsors from "@components/Sponsors/Sponsors";
 import Stepper from "@components/Stepper/Stepper";
 import SubmitionStatus from "@components/SubmitionStatus/SubmitionStatus";
 import Tabs from "@components/Tabs/Tabs";
@@ -214,6 +226,9 @@ export default function Home() {
 
   const [selectedTab, setSelectedTab] = useState(0);
   const [selectedDate, setSelectedDate] = useState(new Date());
+  const [toggleRadioButton, setToggleRadioButton] = useState(false);
+  const [toggleRadioButton2, setToggleRadioButton2] = useState(false);
+  const [toggleCheckbox, setToggleCheckbox] = useState(false);
   const [result, setResult] = useState<Record<string, string | undefined>>({});
 
   const breadcrumbs: BreadcrumbsProps[] = [
@@ -222,8 +237,68 @@ export default function Home() {
   ];
 
   return (
-    <main className="flex flex-col bg-black text-white gap-10 w-full">
+    <main className="flex flex-col bg-black text-white gap-10 w-full overflow-hidden">
       <CoreTitle title={t("title")} />
+      {/* -------------- INPUT FIELD --------------*/}
+      <LocalTitle title="Input Field" />
+      <div className="flex items-center justify-center">
+        <div className="w-1/2">
+          <Text title="Nome Completo *" />
+          <TextArea title="Razões pelas quais te estás a inscrever" />
+          <div className="flex gap-5">
+            <RadioButton
+              category="edition"
+              label="Pagamento a pronto"
+              isChecked={toggleRadioButton}
+              updateRadioButtonStatus={() =>
+                setToggleRadioButton(!toggleRadioButton)
+              }
+            />
+            <RadioButton
+              category="edition"
+              label="Pagamento fazeado"
+              isChecked={toggleRadioButton2}
+              updateRadioButtonStatus={() =>
+                setToggleRadioButton2(!toggleRadioButton2)
+              }
+            />
+          </div>
+          <Checkbox
+            isChecked={toggleCheckbox}
+            category="edition"
+            label="Quero ser adicionado ao grupo de Whatsapp e assim receber os acessos
+          para as sessões"
+            updateCheckboxStatus={() => setToggleCheckbox(!toggleCheckbox)}
+          />
+          <UploadFile />
+        </div>
+      </div>
+      <Code
+        text={`
+          <Text title="Nome Completo *" />
+
+          <TextArea title="Razões pelas quais te estás a inscrever" />
+
+          <RadioButton
+              category="edition"
+              label="Pagamento a pronto"
+              isChecked={toggleRadioButton}
+              updateRadioButtonStatus={() =>
+                setToggleRadioButton(!toggleRadioButton)
+              }
+          />
+
+          <Checkbox
+            isChecked={toggleCheckbox}
+            category="edition"
+            label="Quero ser adicionado ao grupo de Whatsapp e assim receber os acessos para as sessões"
+            updateCheckboxStatus={() => setToggleCheckbox(!toggleCheckbox)}
+          />
+          
+          <UploadFile />
+      `}
+      />
+      <Divider />
 
       {/* -------------- ACKNOWLEDGEMENTS --------------*/}
       <LocalTitle title="Acknowledgements" />
@@ -1402,6 +1477,26 @@ export default function Home() {
         />
       </div>
       <Divider />
+      {/* -------------- CATEGORY ELEMENT --------------*/}
+      <Divider />
+      <div className="flex flex-col items-center gap-10 px-3">
+        <LocalTitle title="Category Element" />
+        <div className="flex flex-col items-center gap-6">
+          <CategoryElement category="edition" />
+          <Code text={`<CategoryElement category="edition"/>`} />
+        </div>
+      </div>
+      <Divider />
+      {/* -------------- CATEGORY GRID --------------*/}
+      <Divider />
+      <div className="flex flex-col items-center gap-4 px-3">
+        <LocalTitle title="Category Grid" />
+        <div className="flex flex-col items-center gap-4">
+          <CategoryGrid />
+          <Code text={`<CategoryGrid />`} />
+        </div>
+      </div>
+      <Divider />
 
       {/* -------------- SUBMITION STATUS --------------*/}
       <LocalTitle title="Submition Status" />
@@ -1648,6 +1743,29 @@ export default function Home() {
   title="Creative Workshops" 
   category="creative-talks" 
 />`}
+      />
+      <Divider />
+      {/* -------------- Sponsors --------------*/}
+      <LocalTitle title="Sponsors" />
+      <div className="flex flex-col items-center gap-4 px-3 w-full">
+        <Sponsors
+          sponsors={[
+            { src: fb, alt: "fb" },
+            { src: nos, alt: "nos" },
+            { src: vercel, alt: "vercel" },
+            { src: hbo, alt: "hbo" },
+          ]}
+        />
+      </div>
+      <Code
+        text={`<Sponsors
+          sponsors={[
+            { src: fb, alt: "fb" },
+            { src: nos, alt: "nos" },
+            { src: vercel, alt: "vercel" },
+            { src: hbo, alt: "hbo" },
+          ]}
+        />`}
       />
 
       {/* -------------- FOOTER --------------*/}

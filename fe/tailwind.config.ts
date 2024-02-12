@@ -51,6 +51,10 @@ const config: Config = {
       pattern:
         /border-(artistic-residence|workshop|edition|business-workshop|creative-talks|masterclass)/,
     },
+    {
+      pattern:
+        /accent-(artistic-residence|workshop|edition|business-workshop|creative-talks|masterclass)/,
+    },
   ],
 };
 export default config;

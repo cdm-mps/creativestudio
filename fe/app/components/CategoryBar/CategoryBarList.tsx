@@ -1,5 +1,5 @@
 import CategoryBarElement from "@components/CategoryBar/CatergoryBarElement";
-import { Categories, Category } from "@model/Category";
+import { categories, Category } from "@model/Category";
 import { useLocale } from "next-intl";
 import Link from "next/link";
 import React from "react";
@@ -10,7 +10,7 @@ const CategoryBarList = () => {
 
   return (
     <div className="w-full flex flex-col gap-2 md:gap-6">
-      {Categories.map((category, i) => {
+      {categories.map((category, i) => {
         return (
           <Link
             className={`${
