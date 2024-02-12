@@ -8,7 +8,7 @@ const Sponsors = ({ sponsors }: SponsorsProps) => {
       <Divider />
       <div className="flex justify-center gap-3 h-5 md:gap-14 md:h-[49px] items-center">
         {sponsors.map((sponsor: Sponsor) => (
-          <Image {...sponsor} className=" w-auto" />
+          <Image {...sponsor} className="w-auto" />
         ))}
       </div>
       <Divider />

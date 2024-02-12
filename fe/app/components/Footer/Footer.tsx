@@ -17,7 +17,7 @@ const Footer = () => {
           MADE BY DARWIN
         </Link>
       </div>
-      <p className="font-league-gothic md:text-xl text-xs">
+      <p className="relative -left-6 font-league-gothic md:text-xl text-xs">
         © {year} CREATIVE STUDIO NO FILTERS
       </p>
       <LocaleSwitcher />

@@ -18,7 +18,7 @@ export default function RootLayout({
   if (!locales.includes(locale)) notFound();
 
   return (
-    <html lang={locale} className="text-white bg-black">
+    <html lang={locale} className="text-white bg-black scroll-smooth">
       <NextIntlClientProvider messages={messages}>
         <body>
           <ConfigProvider
@@ -30,7 +30,7 @@ export default function RootLayout({
                 },
                 Select: {
                   optionFontSize: 20,
-                  optionPadding: '10px 22px',
+                  optionPadding: "10px 22px",
                   optionSelectedColor: "white",
                   optionSelectedFontWeight: "normal",
                 },
