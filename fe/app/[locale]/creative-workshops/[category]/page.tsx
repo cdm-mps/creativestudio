@@ -1,6 +1,6 @@
 "use client";
 import { Event } from "@/app/api/models/Event";
-import CarolinaLeite from "@assets/images/CarolinaLeite.png";
+import { urlFor } from "@/client";
 import ArrowTitle from "@components/ArrowTitle/ArrowTitle";
 import BreadcrumbsTitle from "@components/BreadcrumbsTitle/BreadcrumbsTitle";
 import ButtonFilter from "@components/ButtonFilter/ButtonFilter";
@@ -11,14 +11,15 @@ import IconTitle from "@components/IconTitle/IconTitle";
 import Tabs from "@components/Tabs/Tabs";
 import { AreaOfInterest } from "@model/AreaOfInterest";
 import { Category, categories } from "@model/Category";
-import { StructurePages } from "@model/StructurePages";
+import { Locales } from "@model/Locales";
+import { PageContent, PagesStructure } from "@model/PagesStructure";
 import { isDateInPast } from "@utils/date/isDateInPast";
 import clsx from "clsx";
 import { useLocale, useTranslations } from "next-intl";
 import { notFound } from "next/navigation";
 import { useEffect, useState } from "react";
 
-export default function EventsPage({
+export default function CreativeWorkshopPage({
   params,
 }: {
   params: { category: Category };
@@ -29,34 +30,17 @@ export default function EventsPage({
     notFound(); //TODO
   }
 
-  const pageStructure = StructurePages[category];
+  const pageStructure = PagesStructure[category];
   const hasSubCategories = pageStructure.section.length > 1;
 
   const locale = useLocale();
 
   const t_general = useTranslations("general.AreaOfInterest");
   const t_categories = useTranslations("Categories");
-  const t_editions = useTranslations("Editions");
 
-  const [pageContent, setPageContent] = useState<
-    Record<
-      string,
-      {
-        description: {
-          pt: string;
-          en: string;
-        };
-        highlight?: {
-          pt: string;
-          en: string;
-        };
-        label?: {
-          pt: string;
-          en: string;
-        };
-      }
-    >
-  >({});
+  const t = useTranslations("CreativeWorkshop");
+
+  const [pageContent, setPageContent] = useState<PageContent>({});
 
   const [selectedTab, setSelectedTab] = useState(0);
   const [activeFilter, setActiveFilter] = useState(-1);
@@ -85,11 +69,11 @@ export default function EventsPage({
         setEvents({
           events: data.map((event) => {
             return {
-              title: event.title[locale as "pt" | "en"],
+              _id: event._id,
+              title: event.title[locale as Locales],
               date: event.date,
               image: {
-                src: CarolinaLeite,
-                //urlFor(event.image.image.image.asset._ref).url(),
+                src: urlFor(event.image.image.image.asset._ref).url(),
                 alt: event.image.title,
                 objectPosition: event.image.objectPosition,
               },
@@ -126,7 +110,7 @@ export default function EventsPage({
             <div className="pt-14">
               <Tabs
                 tabs={Object.keys(pageContent).map(
-                  (key) => pageContent[key].label?.[locale as "pt" | "en"]!
+                  (key) => pageContent[key].label?.[locale as Locales]!
                 )}
                 category={category}
                 selectedTab={selectedTab}
@@ -139,14 +123,10 @@ export default function EventsPage({
                         {selectedTab === index && (
                           <Header
                             highlight={
-                              pageContent[key]?.highlight?.[
-                                locale as "pt" | "en"
-                              ]
+                              pageContent[key]?.highlight?.[locale as Locales]
                             }
                             description={
-                              pageContent[key]?.description?.[
-                                locale as "pt" | "en"
-                              ]
+                              pageContent[key]?.description?.[locale as Locales]
                             }
                           />
                         )}
@@ -160,12 +140,12 @@ export default function EventsPage({
             <Header
               highlight={
                 pageContent[pageStructure.section[0]]?.highlight?.[
-                  locale as "pt" | "en"
+                  locale as Locales
                 ]
               }
               description={
                 pageContent[pageStructure.section[0]]?.description?.[
-                  locale as "pt" | "en"
+                  locale as Locales
                 ]
               }
             />
@@ -175,7 +155,7 @@ export default function EventsPage({
       {pageStructure.hasAreaOfInsterest && (
         <>
           <div className="font-league-gothic text-4xl mt-16 mb-14">
-            {t_editions("areaOfInterest")}
+            {t("areaOfInterest")}
           </div>
           <ButtonFilter
             category={category}
@@ -188,19 +168,19 @@ export default function EventsPage({
         </>
       )}
       <ArrowTitle
-        title={t_editions("upcomingDates")}
+        title={t("upcomingDates")}
         category={category}
-        subTitle={`${getNextEvents().length} ${t_editions("availableEvents")}`}
+        subTitle={`${getNextEvents().length} ${t("availableEvents")}`}
       />
       <div className="mb-16" />
       {getNextEvents().length > 0 ? (
         <EventGrid events={getNextEvents()} />
       ) : (
-        <EventsNotFound />
+        <NotFound />
       )}
       <div className="mt-44" />
       <IconTitle
-        title={t_editions("previous")}
+        title={t("previous")}
         mode="dots"
         category={category}
       />
@@ -208,13 +188,13 @@ export default function EventsPage({
       {getPreviousEvents().length > 0 ? (
         <EventGrid events={getPreviousEvents()} />
       ) : (
-        <EventsNotFound />
+        <NotFound />
       )}
     </main>
   );
 }
 
-const EventsNotFound = () => (
+const NotFound = () => (
   <div className="flex items-center justify-center h-32 w-full bg-not-found-disclaimer">
     <span className="font-league-gothic text-2xl">Não existem eventos</span>
   </div>

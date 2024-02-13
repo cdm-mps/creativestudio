@@ -100,9 +100,7 @@
       "addFile": "Adicionar ficheiro"
     }
   },
-  "Editions": {
-    "tab1": "Edições Foco",
-    "tab2": "Edições All In One",
+  "CreativeWorkshop": {
     "areaOfInterest": "Área de Interesse",
     "upcomingDates": "Próximas Datas",
     "availableEvents": "eventos disponíveis",

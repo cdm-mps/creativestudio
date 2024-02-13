@@ -98,11 +98,9 @@
       "addFile": "Add file"
     }
   },
-  "Editions": {
-    "tab1": "Focus Editions",
-    "tab2": "All In One Editions",
+  "CreativeWorkshop": {
     "areaOfInterest": "Area Of Interest",
-    "upcomingDates": "Upcoming Datas",
+    "upcomingDates": "Upcoming Dates",
     "availableEvents": "available events",
     "previous": "Previous"
   }

@@ -52,11 +52,11 @@ export default {
       description: 'Subcategory of the Event',
       options: {
         list: [
-          {title: 'Edições Foco', value: 'focus-edition'},
-          {title: 'Edições All In One', value: 'all-in-one-edition'},
-          {title: 'Presenciais', value: 'face-to-face-workshop'},
-          {title: 'Curta Duração', value: 'short-duration-workshop'},
-          {title: 'Advanced Worshops', value: 'advanced-workshop'},
+          {title: 'Edições Foco', value: 'focusEditions'},
+          {title: 'Edições All In One', value: 'allInOneEditions'},
+          {title: 'Presenciais', value: 'onSiteWorkshops'},
+          {title: 'Curta Duração', value: 'shortDurationWorkshops'},
+          {title: 'Advanced Worshops', value: 'advancedWorkshops'},
         ],
       },
     },

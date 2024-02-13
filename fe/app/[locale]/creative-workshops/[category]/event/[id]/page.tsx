@@ -9,7 +9,7 @@ import ScheduleElement from "@components/Schedule/ScheduleElement";
 import MentorIdentifier from "@components/MentorIdentifier/MentorIdentifier";
 import Button from "@components/Button/Button";
 
-export default function BusinessWorkshopPage() {
+export default function EventPage() {
   const t = useTranslations("Categories");
 
   return (
@@ -57,7 +57,11 @@ export default function BusinessWorkshopPage() {
         <Button category="masterclasses" label="Inscrever" onClick={() => {}} />
       </div>
       <div className="pt-[48px] pl-[24px] mx-14 mt-20 mb-16">
-        <IconTitle title="Programação" mode="chevron" category="masterclasses" />
+        <IconTitle
+          title="Programação"
+          mode="chevron"
+          category="masterclasses"
+        />
       </div>
       <div className="flex flex-col gap-8 mx-14">
         <ScheduleElement

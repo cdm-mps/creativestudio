@@ -1,7 +1,7 @@
 import { StaticImageData } from "next/image";
 
 export interface ImageProps {
-  src: StaticImageData;
+  src: StaticImageData | string;
   alt: string;
   objectPosition: ObjectPosition;
   rounded?: boolean;
