@@ -36,47 +36,47 @@ export default defineConfig({
             S.listItem()
               .title('[page] Homepage')
               .id('homepage')
-              .child(S.document().schemaType('homepage').documentId('homepage')),
+              .child(S.document().schemaType('homepage').documentId('homepage').title('Homepage')),
             S.listItem()
               .title('[page] About Us')
               .id('aboutUs')
-              .child(S.document().schemaType('aboutUs').documentId('aboutUs')),
+              .child(S.document().schemaType('aboutUs').documentId('aboutUs').title('About Us')),
             S.listItem()
               .title('[page] Artistic Residences')
               .id('artisticResidences')
-              .child(S.document().schemaType('artisticResidences').documentId('artisticResidences')),
+              .child(S.document().schemaType('artisticResidences').documentId('artisticResidences').title('Artistic Residences')),
             S.listItem()
               .title('[page] Contacts')
               .id('contacts')
-              .child(S.document().schemaType('contacts').documentId('contacts')),
+              .child(S.document().schemaType('contacts').documentId('contacts').title('Contacts')),
             S.listItem()
               .title('[page] Creative talks')
               .id('creativeTalks')
-              .child(S.document().schemaType('creativeTalks').documentId('creativeTalks')),
+              .child(S.document().schemaType('creativeTalks').documentId('creativeTalks').title('Creative talks')),
             S.listItem()
               .title('[page] Creative Workshops')
               .id('creativeWorkshops')
-              .child(S.document().schemaType('creativeWorkshops').documentId('creativeWorkshops')),
+              .child(S.document().schemaType('creativeWorkshops').documentId('creativeWorkshops').title('Creative Workshops')),
             S.listItem()
               .title('[page] Editions')
               .id('editions')
-              .child(S.document().schemaType('editions').documentId('editions')),
+              .child(S.document().schemaType('editions').documentId('editions').title('Editions')),
             S.listItem()
               .title('[page] Enroll Form')
               .id('enrollForm')
-              .child(S.document().schemaType('enrollForm').documentId('enrollForm')),
+              .child(S.document().schemaType('enrollForm').documentId('enrollForm').title('Enroll Form')),
             S.listItem()
               .title('[page] Masterclasses')
               .id('masterclasses')
-              .child(S.document().schemaType('masterclasses').documentId('masterclasses')),
+              .child(S.document().schemaType('masterclasses').documentId('masterclasses').title('Masterclasses')),
             S.listItem()
               .title('[page] Mentors')
               .id('mentors')
-              .child(S.document().schemaType('mentors').documentId('mentors')),
+              .child(S.document().schemaType('mentors').documentId('mentors').title('Mentors')),
             S.listItem()
               .title('[page] Workshops')
               .id('workshops')
-              .child(S.document().schemaType('workshops').documentId('workshops')),
+              .child(S.document().schemaType('workshops').documentId('workshops').title('Workshops')),
 
             S.documentTypeListItem('comment').title('Comment'),
             S.documentTypeListItem('event').title('Event'),
