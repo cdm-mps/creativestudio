@@ -7,6 +7,7 @@ import ButtonFilter from "@components/ButtonFilter/ButtonFilter";
 import { EventElementProps } from "@components/EventElement/EventElement.models";
 import EventGrid from "@components/EventGrid/EventGrid";
 import { EventGridProps } from "@components/EventGrid/EventGrid.models";
+import { Header } from "@components/Header/Header";
 import IconTitle from "@components/IconTitle/IconTitle";
 import Tabs from "@components/Tabs/Tabs";
 import { AreaOfInterest } from "@model/AreaOfInterest";
@@ -179,11 +180,7 @@ export default function CreativeWorkshopPage({
         <NotFound />
       )}
       <div className="mt-44" />
-      <IconTitle
-        title={t("previous")}
-        mode="dots"
-        category={category}
-      />
+      <IconTitle title={t("previous")} mode="dots" category={category} />
       <div className="mb-16" />
       {getPreviousEvents().length > 0 ? (
         <EventGrid events={getPreviousEvents()} />
@@ -197,27 +194,5 @@ export default function CreativeWorkshopPage({
 const NotFound = () => (
   <div className="flex items-center justify-center h-32 w-full bg-not-found-disclaimer">
     <span className="font-league-gothic text-2xl">Não existem eventos</span>
-  </div>
-);
-
-const Header = ({
-  highlight,
-  description,
-}: {
-  highlight?: string;
-  description: string;
-}) => (
-  <div className="flex flex-col py-14">
-    {highlight && (
-      <div className="font-lato italic text-[32px]">{highlight}</div>
-    )}
-    <div
-      className={clsx(
-        "font-lato text-xl whitespace-pre-line",
-        highlight && "pt-12"
-      )}
-    >
-      {description}
-    </div>
   </div>
 );
