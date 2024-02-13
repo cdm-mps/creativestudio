@@ -417,8 +417,8 @@ export default function Home() {
       </div>
       <Divider />
 
-      {/* -------------- Category Bar Element and List --------------*/}
-      <LocalTitle title="Category Bar Element and List" />
+      {/* -------------- Calendar --------------*/}
+      <LocalTitle title="Calendar" />
       <div className="flex flex-col items-center justify-center gap-4 md:px-28">
         <Calendar
           events={[
