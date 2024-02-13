@@ -20,7 +20,7 @@ export default function Home() {
   return (
     <main className="flex flex-col items-center justify-center gap-20 md:pt-20 pt-40 overflow-hidden">
       <ButtonFilter
-        category={"masterclass"}
+        category={"masterclasses"}
         filters={[{ isActive: false, label: "Design System" }]}
         setFilterActiveStatus={() => push(`${locale}/design-system`)}
       />

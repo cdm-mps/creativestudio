@@ -8,7 +8,7 @@ export interface ImageProps {
   className?: string;
 }
 
-type ObjectPosition =
+export type ObjectPosition =
   | "bottom"
   | "center"
   | "center top"

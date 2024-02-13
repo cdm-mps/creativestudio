@@ -1,0 +1,16 @@
+export enum AreaOfInterest {
+  "radio" = "radio",
+  "photography" = "photography",
+  "comedy" = "comedy",
+  "music" = "music",
+  "music-production" = "music-production",
+  "acting" = "acting",
+  "television" = "television",
+  "cinema-directing" = "cinema-directing",
+  "voiceover" = "voiceover",
+  "video-editing" = "video-editing",
+  "poetry" = "poetry",
+  "scriptwriting" = "scriptwriting",
+  "audiovisual-production" = "audiovisual-production",
+  "animation" = "animation",
+}

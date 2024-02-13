@@ -35,12 +35,12 @@ export default {
       description: 'Category of the Event',
       options: {
         list: [
-          {title: 'Edições', value: 'edition'},
-          {title: 'Workshops', value: 'workshop'},
-          {title: 'Masterclasses', value: 'masterclass'},
-          {title: 'Creative Talks', value: 'creative-talks'},
-          {title: 'Business Workshops', value: 'business-workshop'},
-          {title: 'Residências Artísticas', value: 'artistic-residence'},
+          {title: 'Edições', value: 'editions'},
+          {title: 'Workshops', value: 'workshops'},
+          {title: 'Masterclasses', value: 'masterclasses'},
+          {title: 'Creative Talks', value: 'creativeTalks'},
+          {title: 'Business Workshops', value: 'businessWorkshops'},
+          {title: 'Residências Artísticas', value: 'artisticResidences'},
         ],
       },
       validation: (Rule: any) => Rule.required(),

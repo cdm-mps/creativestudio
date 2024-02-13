@@ -10,14 +10,14 @@ export const categoriesDictionary: Record<
   Category,
   (className?: string) => JSX.Element
 > = {
-  edition: (className) => <Edition className={className} />,
-  masterclass: (className) => <Masterclass className={className} />,
-  workshop: (className) => <Workshop className={className} />,
-  "creative-talks": (className) => <CreativeTalks className={className} />,
-  "artistic-residence": (className) => (
+  editions: (className) => <Edition className={className} />,
+  masterclasses: (className) => <Masterclass className={className} />,
+  workshops: (className) => <Workshop className={className} />,
+  "creativeTalks": (className) => <CreativeTalks className={className} />,
+  "artisticResidences": (className) => (
     <ArtisticResidence className={className} />
   ),
-  "business-workshop": (className) => (
+  "businessWorkshops": (className) => (
     <BusinessWorkshop className={className} />
   ),
 };

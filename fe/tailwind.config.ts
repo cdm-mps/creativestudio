@@ -15,16 +15,18 @@ const config: Config = {
       "banner-gradient":
         "linear-gradient(120deg, rgba(0,0,0,1) 33%, rgba(255,255,255,0) 100%)",
       "line-gradient":
-        "linear-gradient(0deg, rgba(0,0,0,1) 5%, rgba(255,255,255,0) 100%)",
+        "linear-gradient(0deg, rgba(0,0,0,1) 5%, rgba(255,255,255,0) 100%)",  
     },
     extend: {
       colors: {
-        masterclass: "#FFA630",
-        edition: "#DC493A",
-        workshop: "#B62356",
-        "creative-talks": "#CC59D2",
-        "artistic-residence": "#5BCD74",
-        "business-workshop": "#63CBF8",
+        masterclasses: "#FFA630",
+        editions: "#DC493A",
+        workshops: "#B62356",
+        "creativeTalks": "#CC59D2",
+        "artisticResidences": "#5BCD74",
+        "businessWorkshops": "#63CBF8",
+        "businessWorkshops-opacity": "rgba(99,203,248,0.20)",
+        "not-found-disclaimer": "rgba(255,255,255,0.10)",
       },
       animation: {
         "autoplay-infinite": "slide 70s linear infinite",
@@ -41,19 +43,19 @@ const config: Config = {
   safelist: [
     {
       pattern:
-        /text-(artistic-residence|workshop|edition|business-workshop|creative-talks|masterclass)/,
+        /text-(artisticResidence|workshop|edition|businessWorkshop|creativeTalks|masterclass)/,
     },
     {
       pattern:
-        /bg-(artistic-residence|workshop|edition|business-workshop|creative-talks|masterclass)/,
+        /bg-(artisticResidence|workshop|edition|businessWorkshop|creativeTalks|masterclass)/,
     },
     {
       pattern:
-        /border-(artistic-residence|workshop|edition|business-workshop|creative-talks|masterclass)/,
+        /border-(artisticResidence|workshop|edition|businessWorkshop|creativeTalks|masterclass)/,
     },
     {
       pattern:
-        /accent-(artistic-residence|workshop|edition|business-workshop|creative-talks|masterclass)/,
+        /accent-(artisticResidence|workshop|edition|businessWorkshop|creativeTalks|masterclass)/,
     },
   ],
 };
