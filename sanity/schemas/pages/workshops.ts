@@ -4,24 +4,24 @@ export default {
   title: '[page] Workshops',
   fields: [
     {
-      name: 'subtitle',
-      title: 'Subtitle',
-      description: 'Text below page name',
-      type: 'object',
-      fields: [
-        {name: 'pt', type: 'string', title: 'PT'},
-        {name: 'en', type: 'string', title: 'EN'},
-      ],
-      validation: (Rule: any) => Rule.required(),
-    },
-    {
-      title: 'Workshops Presenciais',
-      name: 'onSite',
+      title: 'On-Site Workshops',
+      name: 'onSiteWorkshops',
       type: 'object',
       fields: [
         {
-          title: 'Title',
-          name: 'onSite_title',
+          title: 'Label',
+          description:'Tab label',
+          name: 'label',
+          type: 'object',
+          fields: [
+            {name: 'pt', type: 'string', title: 'PT'},
+            {name: 'en', type: 'string', title: 'EN'},
+          ],
+        },
+        {
+          title: 'Highlight',
+          description:'Italic sentence above the description',
+          name: 'heighlight',
           type: 'object',
           fields: [
             {name: 'pt', type: 'string', title: 'PT'},
@@ -30,7 +30,7 @@ export default {
         },
         {
           title: 'Description',
-          name: 'onSite_description',
+          name: 'description',
           type: 'object',
           fields: [
             {name: 'pt', type: 'text', title: 'PT'},
@@ -41,13 +41,24 @@ export default {
       validation: (Rule: any) => Rule.required(),
     },
     {
-      title: 'Workshops Curtos',
-      name: 'short',
+      title: 'Short Duration Workshops',
+      name: 'shortDurationWorkshops',
       type: 'object',
       fields: [
         {
-          title: 'Title',
-          name: 'short_title',
+          title: 'Label',
+          description:'Tab label',
+          name: 'label',
+          type: 'object',
+          fields: [
+            {name: 'pt', type: 'string', title: 'PT'},
+            {name: 'en', type: 'string', title: 'EN'},
+          ],
+        },
+        {
+          title: 'Highlight',
+          name: 'highlight',
+          description:'Italic sentence above the description',
           type: 'object',
           fields: [
             {name: 'pt', type: 'string', title: 'PT'},
@@ -56,7 +67,7 @@ export default {
         },
         {
           title: 'Description',
-          name: 'short_description',
+          name: 'description',
           type: 'object',
           fields: [
             {name: 'pt', type: 'text', title: 'PT'},
@@ -67,13 +78,24 @@ export default {
       validation: (Rule: any) => Rule.required(),
     },
     {
-      title: 'Workshops Avançados',
-      name: 'advance',
+      title: 'Advanced Workshops',
+      name: 'advancedWorkshops',
       type: 'object',
       fields: [
         {
-          title: 'Title',
-          name: 'advance_title',
+          title: 'Label',
+          name: 'label',
+          description:'Tab label',
+          type: 'object',
+          fields: [
+            {name: 'pt', type: 'string', title: 'PT'},
+            {name: 'en', type: 'string', title: 'EN'},
+          ],
+        },
+        {
+          title: 'Highlight',
+          name: 'highlight',
+          description:'Italic sentence above the description',
           type: 'object',
           fields: [
             {name: 'pt', type: 'string', title: 'PT'},
@@ -82,7 +104,7 @@ export default {
         },
         {
           title: 'Description',
-          name: 'advance_description',
+          name: 'description',
           type: 'object',
           fields: [
             {name: 'pt', type: 'text', title: 'PT'},

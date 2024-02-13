@@ -39,9 +39,9 @@ export default {
       validation: (Rule: any) => Rule.required(),
     },
     {
-      name: 'end_title',
-      title: 'End Title',
-      description: 'Sentence at the bottom of the homepage',
+      name: 'highlight',
+      title: 'Highlight',
+      description:'Italic sentence at the bottom of the page above the sponsors',
       type: 'object',
       fields: [
         {name: 'pt', type: 'string', title: 'PT'},

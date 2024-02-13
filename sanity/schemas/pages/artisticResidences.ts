@@ -1,11 +1,11 @@
 export default {
-  name: 'masterclasses',
+  name: 'artisticResidences',
   type: 'document',
-  title: '[page] MasterClasses',
+  title: '[page] Artistic Residences',
   fields: [
     {
-      title: 'Masterclasses',
-      name: 'masterclasses',
+      title: 'Artistic Residences',
+      name: 'artisticResidences',
       type: 'object',
       fields: [
         {

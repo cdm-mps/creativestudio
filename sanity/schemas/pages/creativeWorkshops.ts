@@ -4,9 +4,9 @@ export default {
   title: '[page] Creative Workshops',
   fields: [
     {
-      name: 'subtitle',
-      title: 'Subtitle',
-      description: 'Text below page name',
+      name: 'highlight',
+      title: 'Highlight',
+      description:'Italic sentence above the description',
       type: 'object',
       fields: [
         {name: 'pt', type: 'string', title: 'PT'},

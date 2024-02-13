@@ -4,7 +4,7 @@ import imageElement from './imageElement'
 import levels from './levels'
 import mentor from './mentor'
 import aboutUs from './pages/aboutUs'
-import artisticResidence from './pages/artisticResidence'
+import artisticResidences from './pages/artisticResidences'
 import contacts from './pages/contacts'
 import creativeTalks from './pages/creativeTalks'
 import creativeWorkshops from './pages/creativeWorkshops'
@@ -12,6 +12,7 @@ import editions from './pages/editions'
 import enrollForm from './pages/enrollForm'
 import homepage from './pages/homepage'
 import masterclasses from './pages/masterclasses'
+import mentors from './pages/mentors'
 import workshops from './pages/workshops'
 import sponsor from './sponsor'
 import teamElement from './teamElement'
@@ -29,9 +30,10 @@ export const schemaTypes = [
   creativeWorkshops,
   contacts,
   editions,
-  artisticResidence,
+  artisticResidences,
   masterclasses,
   workshops,
   creativeTalks,
   enrollForm,
+  mentors
 ]
