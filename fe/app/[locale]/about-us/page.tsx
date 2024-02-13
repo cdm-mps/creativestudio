@@ -5,7 +5,7 @@ export default function AboutUsPage() {
   const t = useTranslations("Menu");
   return (
     <main className="flex min-h-[calc(100vh-26vh)]">
-      <Title title={t("AboutUs")} category="business-workshop" />
+      <Title title={t("AboutUs")} category="businessWorkshops" />
     </main>
   );
 }
