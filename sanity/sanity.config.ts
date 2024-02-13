@@ -9,7 +9,7 @@ const singletonActions = new Set(['publish', 'discardChanges', 'restore'])
 const singletonTypes = new Set([
   'homepage',
   'aboutUs',
-  'artisticResidence',
+  'artisticResidences',
   'contacts',
   'creativeTalks',
   'creativeWorkshops',
@@ -42,9 +42,9 @@ export default defineConfig({
               .id('aboutUs')
               .child(S.document().schemaType('aboutUs').documentId('aboutUs')),
             S.listItem()
-              .title('[page] Artistic Residence')
-              .id('artisticResidence')
-              .child(S.document().schemaType('artisticResidence').documentId('artisticResidence')),
+              .title('[page] Artistic Residences')
+              .id('artisticResidences')
+              .child(S.document().schemaType('artisticResidences').documentId('artisticResidences')),
             S.listItem()
               .title('[page] Contacts')
               .id('contacts')

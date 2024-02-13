@@ -4,24 +4,24 @@ export default {
   title: '[page] Editions',
   fields: [
     {
-      name: 'subtitle',
-      title: 'Subtitle',
-      description: 'Text below page name',
-      type: 'object',
-      fields: [
-        {name: 'pt', type: 'string', title: 'PT'},
-        {name: 'en', type: 'string', title: 'EN'},
-      ],
-      validation: (Rule: any) => Rule.required(),
-    },
-    {
-      title: 'Edições Foco',
-      name: 'foco',
+      title: 'Focus Editions',
+      name: 'focusEditions',
       type: 'object',
       fields: [
         {
-          title: 'Title',
-          name: 'foco_title',
+          title: 'Label',
+          name: 'label',
+          description:'Tab label',
+          type: 'object',
+          fields: [
+            {name: 'pt', type: 'string', title: 'PT'},
+            {name: 'en', type: 'string', title: 'EN'},
+          ],
+        },
+        {
+          title: 'Highlight',
+          name: 'highlight',
+          description:'Italic sentence above the description',
           type: 'object',
           fields: [
             {name: 'pt', type: 'string', title: 'PT'},
@@ -30,7 +30,7 @@ export default {
         },
         {
           title: 'Description',
-          name: 'foco_description',
+          name: 'description',
           type: 'object',
           fields: [
             {name: 'pt', type: 'text', title: 'PT'},
@@ -41,13 +41,24 @@ export default {
       validation: (Rule: any) => Rule.required(),
     },
     {
-      title: 'Edições All In One',
-      name: 'allInOne',
+      title: 'All In One Editions',
+      name: 'allInOneEditions',
       type: 'object',
       fields: [
         {
-          title: 'Title',
-          name: 'allInOne_title',
+          title: 'Label',
+          name: 'label',
+          description:'Tab label',
+          type: 'object',
+          fields: [
+            {name: 'pt', type: 'string', title: 'PT'},
+            {name: 'en', type: 'string', title: 'EN'},
+          ],
+        },
+        {
+          title: 'Highlight',
+          name: 'highlight',
+          description:'Italic sentence above the description',
           type: 'object',
           fields: [
             {name: 'pt', type: 'string', title: 'PT'},
@@ -56,7 +67,7 @@ export default {
         },
         {
           title: 'Description',
-          name: 'allInOneo_description',
+          name: 'description',
           type: 'object',
           fields: [
             {name: 'pt', type: 'text', title: 'PT'},

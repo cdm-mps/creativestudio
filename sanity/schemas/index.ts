@@ -4,7 +4,7 @@ import imageElement from './imageElement'
 import levels from './levels'
 import mentor from './mentor'
 import aboutUs from './pages/aboutUs'
-import artisticResidence from './pages/artisticResidence'
+import artisticResidences from './pages/artisticResidences'
 import contacts from './pages/contacts'
 import creativeTalks from './pages/creativeTalks'
 import creativeWorkshops from './pages/creativeWorkshops'
@@ -30,7 +30,7 @@ export const schemaTypes = [
   creativeWorkshops,
   contacts,
   editions,
-  artisticResidence,
+  artisticResidences,
   masterclasses,
   workshops,
   creativeTalks,
