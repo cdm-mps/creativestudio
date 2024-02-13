@@ -5,6 +5,8 @@ import Footer from "@/app/components/Footer/Footer";
 import Navbar from "@components/Navbar/Navbar";
 import { NextIntlClientProvider, useMessages } from "next-intl";
 import { ConfigProvider } from "antd";
+import pt_PT from "antd/lib/locale/pt_PT";
+import en_US from "antd/lib/locale/en_US";
 
 export default function RootLayout({
   children,
@@ -22,6 +24,7 @@ export default function RootLayout({
       <NextIntlClientProvider messages={messages}>
         <body>
           <ConfigProvider
+            locale={locale === "pt" ? pt_PT : en_US}
             theme={{
               components: {
                 Calendar: {
@@ -30,7 +33,7 @@ export default function RootLayout({
                 },
                 Select: {
                   optionFontSize: 20,
-                  optionPadding: '10px 22px',
+                  optionPadding: "10px 22px",
                   optionSelectedColor: "white",
                   optionSelectedFontWeight: "normal",
                 },
