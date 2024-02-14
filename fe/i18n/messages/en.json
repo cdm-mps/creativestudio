@@ -103,5 +103,8 @@
     "upcomingDates": "Upcoming Dates",
     "availableEvents": "available events",
     "previous": "Previous"
+  },
+  "AboutUs":{
+    "team": "Team"
   }
 }
