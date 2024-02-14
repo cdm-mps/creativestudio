@@ -15,7 +15,7 @@ const CategoryCard = ({
   subCategories?: string[];
 }) => {
   return (
-    <div className="flex items-center justify-between cursor-pointer group p-5 hover:bg-business-workshop-opacity">
+    <div className="flex items-center justify-between cursor-pointer group p-5 hover:bg-businessWorkshops-opacity">
       <div className="flex flex-col py-11 pl-11 max-w-[700px]">
         <div className="flex items-center">
           <span className="font-league-gothic text-6xl pr-10 group-hover:underline">

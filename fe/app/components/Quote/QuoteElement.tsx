@@ -18,7 +18,7 @@ const QuoteElement = ({ className, content, author }: QuoteElementProps) => {
       </div>
       {author && (
         <div className="flex flex-row justify-end mt-1 mr-2 text-[10px] font-bold md:mr-9 md:text-lg">
-          <text className="text-business-workshop mr-1">-</text>
+          <text className="text-businessWorkshops mr-1">-</text>
           <text>{author}</text>
         </div>
       )}
