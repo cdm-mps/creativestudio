@@ -606,6 +606,7 @@ export default function Home() {
       <LocalTitle title="Event Element" />
       <div className="flex flex-col items-center gap-10 px-3">
         <EventElement
+          _id=""
           title="Lorem ipsum"
           date="2017-02-12"
           image={{ src: CarolinaLeite, alt: "", objectPosition: "center top" }}
@@ -635,6 +636,7 @@ export default function Home() {
         <EventGrid
           events={[
             {
+              _id: "",
               title: "Tentativa Erro Tentativa",
               date: "2017-11-01",
               image: {
@@ -646,6 +648,7 @@ export default function Home() {
               subtitle: "Nuno Nolasco",
             },
             {
+              _id: "",
               title: "Tentativa Erro Tentativa",
               date: "2017-11-01",
               image: {
@@ -657,6 +660,7 @@ export default function Home() {
               subtitle: "Nuno Nolasco",
             },
             {
+              _id: "",
               title: "Tentativa Erro Tentativa",
               date: "2017-11-01",
               image: {
@@ -668,6 +672,7 @@ export default function Home() {
               subtitle: "Nuno Nolasco",
             },
             {
+              _id: "",
               title: "Tentativa Erro Tentativa",
               date: "2017-11-01",
               image: {
@@ -679,6 +684,7 @@ export default function Home() {
               subtitle: "Nuno Nolasco",
             },
             {
+              _id: "",
               title: "Tentativa Erro Tentativa",
               date: "2017-11-01",
               image: {
@@ -690,6 +696,7 @@ export default function Home() {
               subtitle: "Nuno Nolasco",
             },
             {
+              _id: "",
               title: "Tentativa Erro Tentativa",
               date: "2017-11-01",
               image: {
@@ -701,6 +708,7 @@ export default function Home() {
               subtitle: "Nuno Nolasco",
             },
             {
+              _id: "",
               title: "Tentativa Erro Tentativa",
               date: "2017-11-01",
               image: {
@@ -712,6 +720,7 @@ export default function Home() {
               subtitle: "Nuno Nolasco",
             },
             {
+              _id: "",
               title: "Tentativa Erro Tentativa",
               date: "2017-11-01",
               image: {
@@ -723,6 +732,7 @@ export default function Home() {
               subtitle: "Nuno Nolasco",
             },
             {
+              _id: "",
               title: "Tentativa Erro Tentativa",
               date: "2017-11-01",
               image: {
@@ -734,6 +744,7 @@ export default function Home() {
               subtitle: "Nuno Nolasco",
             },
             {
+              _id: "",
               title: "Tentativa Erro Tentativa",
               date: "2017-11-01",
               image: {
@@ -745,6 +756,7 @@ export default function Home() {
               subtitle: "Nuno Nolasco",
             },
             {
+              _id: "",
               title: "Tentativa Erro Tentativa",
               date: "2017-11-01",
               image: {
@@ -756,6 +768,7 @@ export default function Home() {
               subtitle: "Nuno Nolasco",
             },
             {
+              _id: "",
               title: "Tentativa Erro Tentativa",
               date: "2017-11-01",
               image: {
@@ -767,6 +780,7 @@ export default function Home() {
               subtitle: "Nuno Nolasco",
             },
             {
+              _id: "",
               title: "Tentativa Erro Tentativa",
               date: "2017-11-01",
               image: {
@@ -778,6 +792,7 @@ export default function Home() {
               subtitle: "Nuno Nolasco",
             },
             {
+              _id: "",
               title: "Tentativa Erro Tentativa",
               date: "2017-11-01",
               image: {
@@ -789,6 +804,7 @@ export default function Home() {
               subtitle: "Nuno Nolasco",
             },
             {
+              _id: "",
               title: "Tentativa Erro Tentativa",
               date: "2017-11-01",
               image: {
@@ -800,6 +816,7 @@ export default function Home() {
               subtitle: "Nuno Nolasco",
             },
             {
+              _id: "",
               title: "Tentativa Erro Tentativa",
               date: "2017-11-01",
               image: {
@@ -811,6 +828,7 @@ export default function Home() {
               subtitle: "Nuno Nolasco",
             },
             {
+              _id: "",
               title: "Tentativa Erro Tentativa",
               date: "2017-11-01",
               image: {
@@ -822,6 +840,7 @@ export default function Home() {
               subtitle: "Nuno Nolasco",
             },
             {
+              _id: "",
               title: "Tentativa Erro Tentativa",
               date: "2017-11-01",
               image: {
@@ -833,6 +852,7 @@ export default function Home() {
               subtitle: "Nuno Nolasco",
             },
             {
+              _id: "",
               title: "Tentativa Erro Tentativa",
               date: "2017-11-01",
               image: {
@@ -844,6 +864,7 @@ export default function Home() {
               subtitle: "Nuno Nolasco",
             },
             {
+              _id: "",
               title: "Tentativa Erro Tentativa",
               date: "2017-11-01",
               image: {
@@ -855,6 +876,7 @@ export default function Home() {
               subtitle: "Nuno Nolasco",
             },
             {
+              _id: "",
               title: "Tentativa Erro Tentativa",
               date: "2017-11-01",
               image: {
@@ -866,6 +888,7 @@ export default function Home() {
               subtitle: "Nuno Nolasco",
             },
             {
+              _id: "",
               title: "Tentativa Erro Tentativa",
               date: "2017-11-01",
               image: {
@@ -877,6 +900,7 @@ export default function Home() {
               subtitle: "Nuno Nolasco",
             },
             {
+              _id: "",
               title: "Tentativa Erro Tentativa",
               date: "2017-11-01",
               image: {
