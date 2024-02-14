@@ -3,7 +3,7 @@ import { QuoteElementProps } from "./Quote.models";
 const QuoteElement = ({ className, content, author }: QuoteElementProps) => {
   return (
     <div
-      className={`flex flex-col w-[184px] md:w-[368px] font-lato text-white ${
+      className={`flex flex-col w-[184px] md:w-[368px] font-noto-sans text-white ${
         className ?? ""
       }`}
     >

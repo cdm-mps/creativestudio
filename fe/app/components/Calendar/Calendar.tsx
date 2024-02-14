@@ -33,7 +33,7 @@ const Calendar = ({ events, setSelectedDate }: CalendarProps) => {
             <div
               className={`w-4 h-4 my-0.5 ml-2 rounded-full md:rounded-none md:w-2 md:h-5 bg-${event.category} md:mr-2`}
             />
-            <span className="hidden md:font-lato md:text-base md:line-clamp-1">
+            <span className="hidden md:font-noto-sans md:text-base md:line-clamp-1">
               {event.title}
             </span>
           </div>

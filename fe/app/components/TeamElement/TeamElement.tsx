@@ -13,7 +13,7 @@ const TeamElement = ({ image, name, role }: TeamElementProps) => {
       <span className="font-league-gothic uppercase text-base mt-6 md:text-3xl md:mt-12 text-center">
         {name}
       </span>
-      <span className="font-lato mt-2 text-xs md:text-base md:mt-4">
+      <span className="font-noto-sans mt-2 text-xs md:text-base md:mt-4">
         {role}
       </span>
     </div>
