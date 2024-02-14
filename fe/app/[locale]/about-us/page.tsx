@@ -6,11 +6,25 @@ import Acknowledgements from "@components/Acknowledgements/Acknowledgements";
 import CategoryBarList from "@components/CategoryBar/CategoryBarList";
 import Divider from "@components/Divider/Divider";
 import { Header } from "@components/Header/Header";
+import Skeleton from "@components/Skeleton/Skeleton";
 import TeamElementRow from "@components/TeamElementRow/TeamElementRow";
 import Title from "@components/Title/Title";
 import { Locales } from "@model/Locales";
 import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
+
+const AboutUsPageSkeleton = () => {
+  return (
+    <div className="flex flex-col">
+      <Skeleton className="mb-14" height={72} width={229} />
+      <Skeleton height={42} width={300} />
+      <Skeleton className="my-14" height={476} />
+      <Skeleton height={576} />
+      <Skeleton className="my-14" height={476} />
+      <Skeleton height={490} />
+    </div>
+  );
+};
 
 export default function AboutUsPage() {
   const [pageContent, setPageContent] = useState<AboutUsProps>();
@@ -39,10 +53,10 @@ export default function AboutUsPage() {
   }, []);
 
   return (
-    <main className="flex flex-col min-h-[calc(100vh-26vh)]">
-      <Title title={t("Menu.AboutUs")} category="businessWorkshops" />
-      {pageContent && (
+    <main className="flex flex-col">
+      {pageContent ? (
         <>
+          <Title title={t("Menu.AboutUs")} category="businessWorkshops" />
           <Header
             highlight={pageContent.highlight}
             description={pageContent.description}
@@ -54,13 +68,15 @@ export default function AboutUsPage() {
             </span>
             <TeamElementRow teamElements={pageContent.team} />
           </div>
+          <div className="flex flex-col gap-12">
+            <Divider />
+            <Acknowledgements />
+            <Divider />
+          </div>
         </>
+      ) : (
+        <AboutUsPageSkeleton />
       )}
-      <div className="flex flex-col gap-12">
-        <Divider />
-        <Acknowledgements />
-        <Divider />
-      </div>
     </main>
   );
 }

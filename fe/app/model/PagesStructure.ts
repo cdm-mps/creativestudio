@@ -59,4 +59,7 @@ export const PagesStructure: Record<
   contacts: {
     section: [],
   },
+  homepage: {
+    section: [],
+  }
 };

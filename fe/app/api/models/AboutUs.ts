@@ -1,19 +1,16 @@
-import { ObjectPosition } from "@components/ImageElement/ImageElement.models";
+import { Image } from "@/app/api/models/Image";
+import { Locales } from "@model/Locales";
 
 export interface TeamElement {
   name: string;
-  role: { pt: string; en: string };
+  role: Record<Locales, string>;
   image: {
-    teamElement_image: {
-      src: string;
-      objectPosition: ObjectPosition;
-      title: string;
-    };
+    teamElement_image: Image;
   };
 }
 
 export interface AboutUs {
-  highlight: { pt: string; en: string };
-  description: { pt: string; en: string };
+  highlight: Record<Locales, string>;
+  description: Record<Locales, string>;
   team: TeamElement[];
 }
