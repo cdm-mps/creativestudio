@@ -4,6 +4,7 @@ import { CategoryElementProps } from "@/app/components/CategoryElement/CategoryE
 import RoundArrowButton from "@components/RoundArrowButton/RoundArrowButton";
 import { categoriesDictionary } from "@utils/categoriesDictionary";
 import clsx from "clsx";
+import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -12,29 +13,31 @@ const CategoryElement = ({
   description,
   isDisabled = false,
 }: CategoryElementProps) => {
+  const t = useTranslations("Categories");
   const [showDescription, setShowDescription] = useState<boolean>(false);
 
   const isDeactivated = isDisabled && !showDescription;
 
   return (
-    <div
+    <Link
       className={clsx("relative", showDescription && "z-50")}
+      href={`creative-workshops/${category}`}
     >
       <div
         onMouseEnter={() => setShowDescription(true)}
         onMouseLeave={() => setShowDescription(false)}
         className={clsx(
-          `p-3 md:hover:scale-110 cursor-pointer bg-${category} md:w-[423px] md:h-[423px] w-[250px] h-[200px] flex flex-col items-center justify-center md:gap-4 gap-3`,
+          `p-3 md:hover:scale-110 cursor-pointer bg-${category} md:w-[350px] md:h-[350px] w-[250px] h-[200px] flex flex-col items-center justify-center md:gap-4 gap-3`,
           isDeactivated && "md:opacity-50"
         )}
       >
         <p
           className={clsx(
-            "font-league-gothic text-2xl md:text-7xl text-center uppercase",
+            "font-league-gothic text-2xl md:text-4xl text-center uppercase",
             isDeactivated && "md:opacity-50"
           )}
         >
-          {category.replace("-", " ")}
+          {t(category)}
         </p>
         <div className="text-white">
           {categoriesDictionary[category](
@@ -71,7 +74,7 @@ const CategoryElement = ({
           </div>
         )}
       </div>
-    </div>
+    </Link>
   );
 };
 

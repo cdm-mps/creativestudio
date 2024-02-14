@@ -12,6 +12,7 @@ const EventInfo = ({
   date,
 }: EventInfoProps) => {
   const t = useTranslations("Components.EventInfo");
+  const t_levels = useTranslations("general.Levels");
   return (
     <div className="flex flex-col items-end">
       <DateInfo date={date} category={category} size="lg" />
@@ -22,7 +23,7 @@ const EventInfo = ({
         <div className="flex items-center md:pt-2">
           <div className="flex items-center font-league-gothic text-sm md:text-2xl uppercase border rounded-lg px-2 mr-1 md:mr-2">
             <span className="pr-1">{t("level")}</span>
-            <span className={`text-${category}`}>{level}</span>
+            <span className={`text-${category}`}>{t_levels(level)}</span>
           </div>
           <Info
             className="cursor-pointer w-3 h-3 md:w-5 md:h-5"

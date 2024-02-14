@@ -12,6 +12,12 @@ export type PageContent = Record<
   }
 >;
 
+export interface CreativeWorkshopsPageStructure {
+  highlight: Record<Locales, string>;
+  description: Record<Locales, string>;
+  elementDescription: Record<Category, Record<Locales, string>>;
+}
+
 export const PagesStructure: Record<
   Category | Page,
   { section: (Category | SubCategory | string)[]; hasAreaOfInsterest?: boolean }
