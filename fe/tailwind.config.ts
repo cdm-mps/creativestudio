@@ -32,11 +32,16 @@ const config: Config = {
       },
       animation: {
         "autoplay-infinite": "slide 70s linear infinite",
+        "skeleton-loading": "skeletonLoading 1s linear infinite alternate"
       },
       keyframes: {
         slide: {
           "0%": { transform: "translateX(0)" },
           "100%": { transform: "translateX(-100%)" },
+        },
+        skeletonLoading: {
+          "0%": { backgroundColor: "#ffffff" },
+          "100%": { backgroundColor: "#595959" },
         },
       },
     },
