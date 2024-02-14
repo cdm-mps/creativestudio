@@ -25,7 +25,7 @@ const CategoryCard = ({
             <RoundArrowButton arrowDirection="right" />
           </div>
         </div>
-        <span className="font-lato pt-7">{subtitle}</span>
+        <span className="font-noto-sans pt-7">{subtitle}</span>
         <div className="flex flex-wrap gap-5 mt-12">
           {subCategories?.map((subCategory) => (
             <span className="font-league-gothic text-5xl uppercase">

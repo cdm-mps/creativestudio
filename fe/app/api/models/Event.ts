@@ -2,14 +2,15 @@ import { ObjectPosition } from "@components/ImageElement/ImageElement.models";
 import { AreaOfInterest } from "@model/AreaOfInterest";
 import { Category } from "@model/Category";
 import { Level } from "@model/Level";
+import { Locales } from "@model/Locales";
 import { SubCategory } from "@model/SubCategory";
 
 export interface Event {
   _id: string;
-  title: { pt: string; en: string };
+  title: Record<Locales, string>;
   category: Category;
   subcategory: SubCategory;
-  description: { pt: string; en: string };
+  description: Record<Locales, string>;
   image: {
     image: {
       image: {

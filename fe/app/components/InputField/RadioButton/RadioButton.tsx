@@ -16,7 +16,7 @@ const RadioButton = ({
           onClick={updateRadioButtonStatus}
           className={`accent-${category}`}
         />
-        <label htmlFor={label} className="font-lato text-sm md:text-lg">
+        <label htmlFor={label} className="font-noto-sans text-sm md:text-lg">
           {label}
         </label>
       </div>

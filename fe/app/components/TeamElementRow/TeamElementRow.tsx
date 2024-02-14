@@ -27,8 +27,8 @@ const TeamElementRow = ({ teamElements }: TeamElementRowProps) => {
         <div className="flex" key={i}>
           <Divider className="h-0.5 w-full bg-white mr-4 mt-10 md:mr-16 md:mt-[100px]" />
           <div className="flex gap-8 md:gap-16">
-            {group.map((teamElement) => (
-              <TeamElement key={i} {...teamElement} />
+            {group.map((teamElement, e) => (
+              <TeamElement key={e} {...teamElement} />
             ))}
           </div>
           <Divider className="h-0.5 w-full bg-white ml-4 mt-10 md:ml-16 md:mt-[100px]" />
