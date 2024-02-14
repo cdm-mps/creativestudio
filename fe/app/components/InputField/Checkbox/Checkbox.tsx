@@ -15,7 +15,7 @@ const Checkbox = ({
           checked={isChecked}
           onClick={updateCheckboxStatus}
         />
-        <p className="font-lato text-sm md:text-lg">{label}</p>
+        <p className="font-noto-sans text-sm md:text-lg">{label}</p>
       </div>
     </div>
   );

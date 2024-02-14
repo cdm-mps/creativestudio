@@ -36,7 +36,7 @@ const EventElement = ({
         <span className="font-league-gothic uppercase text-lg md:text-4xl">
           {title}
         </span>
-        <div className="font-lato text-xs md:text-base">{subtitle}</div>
+        <div className="font-noto-sans text-xs md:text-base">{subtitle}</div>
       </div>
       <div className="opacity-0 md:group-hover:opacity-100 transition-opacity">
         <div

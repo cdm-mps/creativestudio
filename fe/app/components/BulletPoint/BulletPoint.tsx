@@ -6,7 +6,7 @@ const BulletPoint = ({ category, text }: BulletPointProps) => {
       <div
         className={`flex-shrink-0 w-2 h-2 md:w-[10px] md:h-[10px] bg-${category}`}
       />
-      <p className="text-xs md:text-base font-lato">{text}</p>
+      <p className="text-xs md:text-base font-noto-sans">{text}</p>
     </div>
   );
 };

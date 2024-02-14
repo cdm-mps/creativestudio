@@ -4,7 +4,7 @@ import Divider from "../Divider/Divider";
 
 const ContactInfo = ({ email, mobilePhone, socials }: ContactInfoProps) => {
   return (
-    <div className="flex flex-col gap-y-2 w-[290px] md:w-[439px] font-lato md:text-xl">
+    <div className="flex flex-col gap-y-2 w-[290px] md:w-[439px] font-noto-sans md:text-xl">
       <span>{email}</span>
       <span>
         <b>+351</b> {mobilePhone}

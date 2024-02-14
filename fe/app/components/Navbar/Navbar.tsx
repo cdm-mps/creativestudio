@@ -35,7 +35,7 @@ const Navbar = () => {
   }, [toggleMenuVisibility]);
 
   return (
-    <nav className="fixed top-0 w-full lg:pt-6 lg:px-6 flex justify-between items-center mb-24 bg-black z-50">
+    <nav className="fixed top-0 w-full lg:py-4 lg:px-6 flex justify-between items-center mb-24 bg-background z-50">
       <Link
         href="/"
         className="max-lg:absolute max-lg:top-6 max-lg:left-6 z-30 max-lg:w-40"
@@ -44,7 +44,7 @@ const Navbar = () => {
         <Image src={CreativeStudioLogo} alt="Creative Studio No Filters Logo" />
       </Link>
       <div className="max-lg:hidden flex items-center gap-6">
-        <div className="flex items-center font-league-gothic text-xl gap-6">
+        <div className="flex items-center font-league-gothic text-2xl gap-6">
           <MenuOptions />
         </div>
         <Divider orientation="vertical" />
