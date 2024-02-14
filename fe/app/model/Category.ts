@@ -1,16 +1,16 @@
 export type Category =
-  | "masterclass"
-  | "edition"
-  | "creative-talks"
-  | "workshop"
-  | "artistic-residence"
-  | "business-workshop";
+  | "masterclasses"
+  | "editions"
+  | "creativeTalks"
+  | "workshops"
+  | "artisticResidences"
+  | "businessWorkshops";
 
 export const categories: Category[] = [
-  "masterclass",
-  "edition",
-  "creative-talks",
-  "workshop",
-  "artistic-residence",
-  "business-workshop",
+  "masterclasses",
+  "editions",
+  "creativeTalks",
+  "workshops",
+  "artisticResidences",
+  "businessWorkshops",
 ];

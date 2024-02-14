@@ -4,11 +4,13 @@ import { DiamondArrowIcon } from "@icons/DiamondLineIcon";
 
 const ArrowTitle = ({ title, category, subTitle }: ArrowTitleProps) => {
   return (
-    <div className="flex gap-3 items-center m-3">
+    <div className="flex gap-3 items-center mr-3 my-3">
       <DiamondArrowIcon className={`text-${category} max-md:h-[110px]`} />
       <div className="flex flex-col">
         <CoreTitle title={title} />
-        {subTitle && <p className="text-sm md:text-xl font-lato">{subTitle}</p>}
+        {subTitle && (
+          <p className="text-sm md:text-xl font-noto-sans">{subTitle}</p>
+        )}
       </div>
     </div>
   );

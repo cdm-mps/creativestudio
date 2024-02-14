@@ -9,18 +9,18 @@ const Acknowledgements = () => {
       <span className="font-league-gothic uppercase text-3xl md:text-7xl">
         {t("title")}
       </span>
-      <span className="font-lato italic text-sm md:text-base mt-8 md:mt-14 text-center">
+      <span className="font-noto-sans italic text-sm md:text-base mt-8 md:mt-14 text-center">
         {t("subtitle1")}
       </span>
       <QuoteElement
         className="w-[300px] md:w-[900px] mt-4"
         content={
-          <div className="font-lato text-lg md:text-3xl italic">
+          <div className="font-noto-sans text-lg md:text-3xl italic">
             {t("quote")}
           </div>
         }
       />
-      <span className="text-center whitespace-pre-line text-sm md:text-base font-lato mt-4">
+      <span className="text-center whitespace-pre-line text-sm md:text-base font-noto-sans mt-4">
         {t("subtitle2")}
       </span>
     </div>

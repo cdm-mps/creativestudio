@@ -6,7 +6,7 @@ export default function ContactsPage() {
 
   return (
     <main className="flex min-h-[calc(100vh-26vh)]">
-      <Title title={t("Contacts")} category="business-workshop" />
+      <Title title={t("Contacts")} category="businessWorkshops" />
     </main>
   );
 }

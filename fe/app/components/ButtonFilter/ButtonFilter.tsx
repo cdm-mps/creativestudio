@@ -16,7 +16,9 @@ const ButtonFilter = ({
           category={category}
           label={label}
           isActive={isActive}
-          onClick={() => setFilterActiveStatus(index)}
+          onClick={() =>
+            isActive ? setFilterActiveStatus(-1) : setFilterActiveStatus(index)
+          }
         />
       ))}
     </div>

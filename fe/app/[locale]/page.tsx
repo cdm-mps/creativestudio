@@ -20,6 +20,7 @@ import CoreTitle from "@components/shared/CoreTitle/CoreTitle";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 export default function Home() {
   const { push } = useRouter();
@@ -141,7 +142,7 @@ export default function Home() {
         alt: "",
         objectPosition: "center top",
       },
-      category: "masterclass",
+      category: "masterclasses",
       highlight: "Pedro Nolasco",
     },
     {
@@ -152,7 +153,7 @@ export default function Home() {
         alt: "",
         objectPosition: "center top",
       },
-      category: "workshop",
+      category: "workshops",
       highlight: "Herman José",
     },
     {
@@ -163,7 +164,7 @@ export default function Home() {
         alt: "",
         objectPosition: "center top",
       },
-      category: "workshop",
+      category: "workshops",
       highlight: "Herman José",
     },
 
@@ -175,7 +176,7 @@ export default function Home() {
         alt: "",
         objectPosition: "center top",
       },
-      category: "workshop",
+      category: "workshops",
       highlight: "Herman José 2",
     },
   ];
@@ -211,13 +212,13 @@ export default function Home() {
         </div>
       </div>
       <div id="news-slider-section" className="flex flex-col gap-14 pt-24">
-        <ArrowTitle title="Novidades" category="business-workshop" />
+        <ArrowTitle title="Novidades" category="businessWorkshops" />
         <NewsSlider news={news} />
       </div>
       <div className="pt-[100px] mt-[139px] w-full">
         <IconTitle
           title={t("noFilters")}
-          category="business-workshop"
+          category="businessWorkshops"
           mode="hashtag"
         />
         <div className="mt-28">

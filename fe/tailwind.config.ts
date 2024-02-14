@@ -10,6 +10,7 @@ const config: Config = {
     fontFamily: {
       "league-gothic": ["League Gothic", "cursive"],
       lato: ["Lato", "cursive"],
+      "noto-sans": ["Noto Sans", "cursive"],
     },
     backgroundImage: {
       "banner-gradient":
@@ -19,20 +20,28 @@ const config: Config = {
     },
     extend: {
       colors: {
-        masterclass: "#FFA630",
-        edition: "#DC493A",
-        workshop: "#B62356",
-        "creative-talks": "#CC59D2",
-        "artistic-residence": "#5BCD74",
-        "business-workshop": "#63CBF8",
+        background: "#0c0c0c",
+        masterclasses: "#FFA630",
+        editions: "#DC493A",
+        workshops: "#B62356",
+        creativeTalks: "#CC59D2",
+        artisticResidences: "#5BCD74",
+        businessWorkshops: "#63CBF8",
+        "businessWorkshops-opacity": "rgba(99,203,248,0.20)",
+        "not-found-disclaimer": "rgba(255,255,255,0.10)",
       },
       animation: {
         "autoplay-infinite": "slide 70s linear infinite",
+        "skeleton-loading": "skeletonLoading 1s linear infinite alternate"
       },
       keyframes: {
         slide: {
           "0%": { transform: "translateX(0)" },
           "100%": { transform: "translateX(-100%)" },
+        },
+        skeletonLoading: {
+          "0%": { backgroundColor: "#ffffff" },
+          "100%": { backgroundColor: "#595959" },
         },
       },
     },
@@ -41,19 +50,19 @@ const config: Config = {
   safelist: [
     {
       pattern:
-        /text-(artistic-residence|workshop|edition|business-workshop|creative-talks|masterclass)/,
+        /text-(artisticResidence|workshop|edition|businessWorkshop|creativeTalks|masterclass)/,
     },
     {
       pattern:
-        /bg-(artistic-residence|workshop|edition|business-workshop|creative-talks|masterclass)/,
+        /bg-(artisticResidence|workshop|edition|businessWorkshop|creativeTalks|masterclass)/,
     },
     {
       pattern:
-        /border-(artistic-residence|workshop|edition|business-workshop|creative-talks|masterclass)/,
+        /border-(artisticResidence|workshop|edition|businessWorkshop|creativeTalks|masterclass)/,
     },
     {
       pattern:
-        /accent-(artistic-residence|workshop|edition|business-workshop|creative-talks|masterclass)/,
+        /accent-(artisticResidence|workshop|edition|businessWorkshop|creativeTalks|masterclass)/,
     },
   ],
 };
