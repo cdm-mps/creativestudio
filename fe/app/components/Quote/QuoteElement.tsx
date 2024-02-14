@@ -8,18 +8,18 @@ const QuoteElement = ({ className, content, author }: QuoteElementProps) => {
       }`}
     >
       <div className={`flex flex-row `}>
-        <text className="text-4xl md:text-7xl font-league-gothic">&ldquo;</text>
+        <span className="text-4xl md:text-7xl font-league-gothic">&ldquo;</span>
         <div className={`text-[12px] text-center m-2 md:text-xl md:m-5`}>
           {content}
         </div>
-        <text className="text-4xl md:text-7xl rotate-180 font-league-gothic">
+        <span className="text-4xl md:text-7xl rotate-180 font-league-gothic">
           &ldquo;
-        </text>
+        </span>
       </div>
       {author && (
         <div className="flex flex-row justify-end mt-1 mr-2 text-[10px] font-bold md:mr-9 md:text-lg">
-          <text className="text-businessWorkshops mr-1">-</text>
-          <text>{author}</text>
+          <span className="text-businessWorkshops mr-1">-</span>
+          <span>{author}</span>
         </div>
       )}
     </div>

@@ -2,7 +2,7 @@ import React from "react";
 import ImageElement from "../ImageElement/ImageElement";
 import { TeamElementProps } from "./TeamElement.models";
 
-const TeamElement = ({ image, title, subtitle }: TeamElementProps) => {
+const TeamElement = ({ image, name, role }: TeamElementProps) => {
   return (
     <div className="flex flex-col items-center">
       <ImageElement
@@ -11,10 +11,10 @@ const TeamElement = ({ image, title, subtitle }: TeamElementProps) => {
         rounded
       />
       <span className="font-league-gothic uppercase text-base mt-6 md:text-3xl md:mt-12 text-center">
-        {title}
+        {name}
       </span>
       <span className="font-noto-sans mt-2 text-xs md:text-base md:mt-4">
-        {subtitle}
+        {role}
       </span>
     </div>
   );

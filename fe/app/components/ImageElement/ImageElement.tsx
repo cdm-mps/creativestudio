@@ -14,9 +14,8 @@ const ImageElement = (props: ImageProps) => {
       <Image
         alt={props.alt}
         src={props.src}
-        layout="fill"
-        objectFit="cover"
-        objectPosition={props.objectPosition}
+        fill
+        style={{ objectFit: "cover", objectPosition: props.objectPosition }}
       />
     </div>
   );
