@@ -1633,8 +1633,8 @@ export default function Home() {
       <LocalTitle title="Team Element" />
       <div className="flex flex-col items-center gap-10 px-3">
         <TeamElement
-          title="ruben amieiro"
-          subtitle="CEO & founder"
+          name="ruben amieiro"
+          role="CEO & founder"
           image={{
             src: BeneditaPereiera,
             alt: "",
@@ -1644,8 +1644,8 @@ export default function Home() {
       </div>
       <Code
         text={`<TeamElement
-  title="Ruben Amieiro"
-  subtitle="CEO & founder"
+  name="Ruben Amieiro"
+  role="CEO & founder"
   image={{
     src: Image,
     alt: "Ruben Amieiro",
@@ -1661,8 +1661,8 @@ export default function Home() {
         <TeamElementRow
           teamElements={[
             {
-              title: "ruben amieiro",
-              subtitle: "CEO & founder",
+              name: "ruben amieiro",
+              role: "CEO & founder",
               image: {
                 src: BeneditaPereiera,
                 alt: "",
@@ -1670,8 +1670,8 @@ export default function Home() {
               },
             },
             {
-              title: "Marta Sousa Vouga ",
-              subtitle: "CEO & founder",
+              name: "Marta Sousa Vouga ",
+              role: "CEO & founder",
               image: {
                 src: CarolinaLeite,
                 alt: "",
@@ -1679,8 +1679,8 @@ export default function Home() {
               },
             },
             {
-              title: "ruben amieiro",
-              subtitle: "CEO & founder",
+              name: "ruben amieiro",
+              role: "CEO & founder",
               image: {
                 src: CarolinaLeite,
                 alt: "",
@@ -1688,8 +1688,8 @@ export default function Home() {
               },
             },
             {
-              title: "ruben teste",
-              subtitle: "CEO & founder",
+              name: "ruben teste",
+              role: "CEO & founder",
               image: {
                 src: CarolinaLeite,
                 alt: "",
@@ -1697,8 +1697,8 @@ export default function Home() {
               },
             },
             {
-              title: "Teste amieiro",
-              subtitle: "CEO & founder",
+              name: "Teste amieiro",
+              role: "CEO & founder",
               image: {
                 src: CarolinaLeite,
                 alt: "",
@@ -1706,8 +1706,8 @@ export default function Home() {
               },
             },
             {
-              title: "Teste amieiro",
-              subtitle: "CEO & founder",
+              name: "Teste amieiro",
+              role: "CEO & founder",
               image: {
                 src: CarolinaLeite,
                 alt: "",
@@ -1715,8 +1715,8 @@ export default function Home() {
               },
             },
             {
-              title: "Teste amieiro",
-              subtitle: "CEO & founder",
+              name: "Teste amieiro",
+              role: "CEO & founder",
               image: {
                 src: CarolinaLeite,
                 alt: "",
@@ -1724,8 +1724,8 @@ export default function Home() {
               },
             },
             {
-              title: "Teste amieiro",
-              subtitle: "CEO & founder",
+              name: "Teste amieiro",
+              role: "CEO & founder",
               image: {
                 src: CarolinaLeite,
                 alt: "",
@@ -1733,8 +1733,8 @@ export default function Home() {
               },
             },
             {
-              title: "Teste amieiro",
-              subtitle: "CEO & founder",
+              name: "Teste amieiro",
+              role: "CEO & founder",
               image: {
                 src: CarolinaLeite,
                 alt: "",
@@ -1742,8 +1742,8 @@ export default function Home() {
               },
             },
             {
-              title: "Teste amieiro",
-              subtitle: "CEO & founder",
+              name: "Teste amieiro",
+              role: "CEO & founder",
               image: {
                 src: CarolinaLeite,
                 alt: "",
@@ -1757,7 +1757,7 @@ export default function Home() {
         text={`<TeamElementRow
   teamElements={[
     {
-      title: "Ruben Amieiro",
+      name: "Ruben Amieiro",
       subtitle: "CEO & founder",
       image: {
         src: Image,
