@@ -1,5 +1,4 @@
 import DateInfo from "@components/DateInfo/DateInfo";
-import ImageElement from "@components/ImageElement/ImageElement";
 import { MentorEventBarProps } from "@components/MentorEventBar/MentorEventBar.models";
 import MentorIdentifier from "@components/MentorIdentifier/MentorIdentifier";
 import RoundArrowButton from "@components/RoundArrowButton/RoundArrowButton";
@@ -37,7 +36,7 @@ const MentorEventBar = ({
         </div>
       </div>
       <div className="flex gap-1 md:gap-4 items-center ml-auto">
-        <MentorIdentifier image={mentor.image} name={mentor.name} previous />
+        <MentorIdentifier  image={mentor.image} name={mentor.name} previous />
         <RoundArrowButton arrowDirection="right" />
       </div>
     </div>
