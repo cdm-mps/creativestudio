@@ -9,7 +9,7 @@ const MentorIdentifier = ({
 }: MentorIdentifierProps) => {
   return (
     <div
-      className="flex items-center font-lato text-xs gap-x-2 md:text-xl md:gap-x-4 cursor-pointer"
+      className="flex items-center font-noto-sans text-xs gap-x-2 md:text-xl md:gap-x-4 cursor-pointer"
       onClick={onClick}
     >
       <ImageElement
