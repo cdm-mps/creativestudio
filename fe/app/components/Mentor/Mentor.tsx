@@ -4,20 +4,21 @@ import React from "react";
 import { MentorProps } from "@components/Mentor/Mentor.models";
 import ImageElement from "@components/ImageElement/ImageElement";
 import { useTranslations } from "next-intl";
+import Link from "next/link";
 
 const Mentor = ({
+  id,
   name,
   image,
   category = "businessWorkshops",
   eventCount,
-  onClick,
 }: MentorProps) => {
   const t = useTranslations("Components.Mentor");
 
   return (
-    <div
+    <Link
       className="flex flex-col gap-y-7 items-center group cursor-pointer max-w-[162px] md:max-w-[362px]"
-      onClick={onClick}
+      href={`mentors/${id}`}
     >
       <div className="relative">
         <ImageElement
@@ -39,7 +40,7 @@ const Mentor = ({
       <span className="font-league-gothic text-3xl text-center md:text-5xl">
         {name}
       </span>
-    </div>
+    </Link>
   );
 };
 
