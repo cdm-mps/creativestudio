@@ -18,7 +18,7 @@ const Button = ({
       <button
         onClick={onClick}
         disabled={isLoading || isDisabled}
-        className={`bg-${category} text-xl md:text-4xl font-league-gothic flex items-center justify-center md:gap-3 gap-2 w-[229px] h-[38px] md:w-[329px] md:h-[63px]`}
+        className={`bg-${category} text-xl md:text-4xl font-league-gothic uppercase flex items-center justify-center md:gap-3 gap-2 w-[229px] h-[38px] md:w-[329px] md:h-[63px]`}
       >
         {label}
         {isLoading && <Loader />}

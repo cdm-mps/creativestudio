@@ -1,21 +1,38 @@
 {
   "general": {
     "category": {
-      "edition": { "key": "edition", "value": "Editions" },
-      "masterclass": { "key": "masterclass", "value": "Masterclasses" },
-      "workshop": { "key": "workshop", "value": "Workshops" },
-      "creative-talks": {
-        "key": "creative-talks",
+      "editions": { "key": "editions", "value": "Editions" },
+      "masterclasses": { "key": "masterclasses", "value": "Masterclasses" },
+      "workshops": { "key": "workshops", "value": "Workshops" },
+      "creativeTalks": {
+        "key": "creativeTalks",
         "value": "Creative Talks"
       },
-      "artistic-residence": {
-        "key": "artistic-residence",
-        "value": "Artistic Residence"
+      "artisticResidences": {
+        "key": "artisticResidences",
+        "value": "Artistic Residences"
       },
-      "business-workshop": {
-        "key": "business-workshop",
+      "businessWorkshops": {
+        "key": "businessWorkshops",
         "value": "Business Workshops"
       }
+    },
+    "AreaOfInterest": {
+      "radio": "Rádio",
+      "photography": "Fotografia",
+      "comedy": "Comédia",
+      "music": "Musica",
+      "music-production": "Produção Musical",
+      "acting": "Acting",
+      "television": "Televisão",
+      "cinema-directing": "Cinema/Realização",
+      "voiceover": "Locução",
+      "dub": "Dobragens",
+      "video-editing": "Edição de Video",
+      "poetry": "Poesia",
+      "scriptwriting": "Guionismo",
+      "audiovisual-production": "Produção Audiovisual",
+      "animation": "Animação"
     }
   },
   "DesignSystem": {
@@ -23,12 +40,12 @@
     "footer": "And more..."
   },
   "Categories": {
-    "masterclass": "MasterClass",
-    "edition": "Edition",
-    "creative-talks": "Creative Talks",
-    "workshop": "Workshop",
-    "artistic-residence": "Artistic Residence",
-    "business-workshop": "Business Workshop"
+    "masterclasses": "MasterClasses",
+    "editions": "Editions",
+    "creativeTalks": "Creative Talks",
+    "workshops": "Workshops",
+    "artisticResidences": "Artistic Residences",
+    "businessWorkshops": "Business Workshops"
   },
   "Menu": {
     "CreativeWorkshops": "Creative Workshops",
@@ -80,5 +97,11 @@
     "UploadFile": {
       "addFile": "Add file"
     }
+  },
+  "CreativeWorkshop": {
+    "areaOfInterest": "Area Of Interest",
+    "upcomingDates": "Upcoming Dates",
+    "availableEvents": "available events",
+    "previous": "Previous"
   }
 }

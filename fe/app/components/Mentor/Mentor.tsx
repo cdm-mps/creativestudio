@@ -8,7 +8,7 @@ import { useTranslations } from "next-intl";
 const Mentor = ({
   name,
   image,
-  category = "business-workshop",
+  category = "businessWorkshops",
   eventCount,
   onClick,
 }: MentorProps) => {

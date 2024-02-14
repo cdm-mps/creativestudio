@@ -1,14 +1,14 @@
 import { StaticImageData } from "next/image";
 
 export interface ImageProps {
-  src: StaticImageData;
+  src: StaticImageData | string;
   alt: string;
   objectPosition: ObjectPosition;
   rounded?: boolean;
   className?: string;
 }
 
-type ObjectPosition =
+export type ObjectPosition =
   | "bottom"
   | "center"
   | "center top"

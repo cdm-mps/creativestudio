@@ -17,6 +17,7 @@ import { BreadcrumbsProps } from "@components/BreadcrumbsTitle/BreadcrumbsTitleP
 import Button from "@components/Button/Button";
 import Calendar from "@components/Calendar/Calendar";
 import CategoryBarList from "@components/CategoryBar/CategoryBarList";
+import CategoryCard from "@components/CategoryCard/CategoryCard";
 import CategoryElement from "@components/CategoryElement/CategoryElement";
 import CategoryGrid from "@components/CategoryGrid/CategoryGrid";
 import DateInfo from "@components/DateInfo/DateInfo";
@@ -177,14 +178,14 @@ const filters = [
   {
     placeholder: "Categoria",
     options: [
-      { value: "masterclass", label: "Masterclass" },
-      { value: "business-workshop", label: "Business Workshop" },
+      { value: "masterclasses", label: "masterclasses" },
+      { value: "businessWorkshops", label: "Business Workshop" },
       {
-        value: "edition",
-        label: "Edition",
+        value: "editions",
+        label: "editions",
       },
-      { value: "creative-talks", label: "Creative Talks" },
-      { value: "workshop", label: "Workshop" },
+      { value: "creativeTalks", label: "Creative Talks" },
+      { value: "workshops", label: "workshops" },
     ],
   },
 ];
@@ -247,7 +248,7 @@ export default function Home() {
           <TextArea title="Razões pelas quais te estás a inscrever" />
           <div className="flex gap-5">
             <RadioButton
-              category="edition"
+              category="editions"
               label="Pagamento a pronto"
               isChecked={toggleRadioButton}
               updateRadioButtonStatus={() =>
@@ -255,7 +256,7 @@ export default function Home() {
               }
             />
             <RadioButton
-              category="edition"
+              category="editions"
               label="Pagamento fazeado"
               isChecked={toggleRadioButton2}
               updateRadioButtonStatus={() =>
@@ -265,7 +266,7 @@ export default function Home() {
           </div>
           <Checkbox
             isChecked={toggleCheckbox}
-            category="edition"
+            category="editions"
             label="Quero ser adicionado ao grupo de Whatsapp e assim receber os acessos
           para as sessões"
             updateCheckboxStatus={() => setToggleCheckbox(!toggleCheckbox)}
@@ -280,7 +281,7 @@ export default function Home() {
           <TextArea title="Razões pelas quais te estás a inscrever" />
 
           <RadioButton
-              category="edition"
+              category="editions"
               label="Pagamento a pronto"
               isChecked={toggleRadioButton}
               updateRadioButtonStatus={() =>
@@ -290,7 +291,7 @@ export default function Home() {
 
           <Checkbox
             isChecked={toggleCheckbox}
-            category="edition"
+            category="editions"
             label="Quero ser adicionado ao grupo de Whatsapp e assim receber os acessos para as sessões"
             updateCheckboxStatus={() => setToggleCheckbox(!toggleCheckbox)}
           />
@@ -299,6 +300,17 @@ export default function Home() {
       `}
       />
       <Divider />
+
+      <CategoryCard
+        title="Title"
+        subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem."
+        image={{ src: CarolinaLeite, alt: "", objectPosition: "center" }}
+        subCategories={[
+          "Edição Foco",
+          "Edições All in One",
+          "Advance Worshops",
+        ]}
+      />
 
       {/* -------------- ACKNOWLEDGEMENTS --------------*/}
       <LocalTitle title="Acknowledgements" />
@@ -313,14 +325,14 @@ export default function Home() {
       <div className="flex flex-col items-center gap-4 px-3">
         <ArrowTitle
           title="Próximas Datas"
-          category="masterclass"
+          category="masterclasses"
           subTitle="14 Masterclasses disponíveis"
         />
       </div>
       <Code
         text={` <ArrowTitle
   title="Próximas Datas"
-  category="masterclass"
+  category="masterclasses"
   subTitle="14 Masterclasses 
   disponíveis"
 />`}
@@ -346,12 +358,12 @@ export default function Home() {
       <div className="flex flex-col items-center gap-4 px-3">
         <BreadcrumbsTitle
           title="Editions"
-          category="edition"
+          category="editions"
           breadcrumbs={breadcrumbs}
         />
         <BreadcrumbsTitle
           title="Creative Workshops"
-          category="creative-talks"
+          category="creativeTalks"
           withIcon
           breadcrumbs={breadcrumbs}
         />
@@ -359,7 +371,7 @@ export default function Home() {
       <Code
         text={`<BreadcrumbsTitle
   title="Creative Workshops"
-  category="creative-talks"
+  category="creativeTalks"
   withIcon
   breadcrumbs={[
     {
@@ -375,40 +387,40 @@ export default function Home() {
       <LocalTitle title="Button" />
       <div className="flex flex-col items-center gap-5 px-3">
         <Button
-          category="edition"
+          category="editions"
           label="Inscrever"
           onClick={() => console.log("on click inscrever button")}
         />
         <Code
           text={`<Button
-  category="edition"
+  category="editions"
   label="Inscrever"
   onClick={() => {}}
 />`}
         />
         <Button
-          category="masterclass"
+          category="masterclasses"
           label="Enviar"
           onClick={() => console.log("on click enviar button")}
           isDisabled
         />
         <Code
           text={`<Button
-  category="masterclass"
+  category="masterclasses"
   label="Enviar"
   onClick={() => {}}
   isDisabled
 />`}
         />
         <Button
-          category="masterclass"
+          category="masterclasses"
           label="Enviar..."
           onClick={() => console.log("on click enviar... button")}
           isLoading
         />
         <Code
           text={`<Button
-  category="masterclass"
+  category="masterclasses"
   label="Enviar..."
   onClick={() => {}}
   isLoading
@@ -424,22 +436,22 @@ export default function Home() {
           events={[
             {
               title: "Lorem ipsum sit",
-              category: "artistic-residence",
+              category: "artisticResidences",
               date: "2024/01/14",
             },
             {
               title: "Lorem ipsum sit dasjdhas dksajh dsakjd hsa",
-              category: "creative-talks",
+              category: "creativeTalks",
               date: "2024/01/14",
             },
             {
               title: "Lorem ipsum sit",
-              category: "business-workshop",
+              category: "businessWorkshops",
               date: "2024/01/14",
             },
             {
               title: "Lorem ipsum sit",
-              category: "edition",
+              category: "editions",
               date: "2024/01/01",
             },
           ]}
@@ -452,7 +464,7 @@ export default function Home() {
   events={[
     {
       title: "Lorem ipsum sit",
-      category: "artistic-residence",
+      category: "artisticResidences",
       date: "2024/01/14",
     },
   ]}
@@ -500,32 +512,32 @@ export default function Home() {
       <LocalTitle title="Date Info" />
       <div className="flex flex-wrap items-center justify-center gap-4">
         <div className="flex flex-col items-center ">
-          <DateInfo date="2024/01/09" size="xs" category="creative-talks" />
+          <DateInfo date="2024/01/09" size="xs" category="creativeTalks" />
           <Code
             text={`DateInfo 
   date="2024/01/09" 
   size="xs" 
-  category="creative-talks" 
+  category="creativeTalks" 
 />`}
           />
         </div>
         <div className="flex flex-col items-center">
-          <DateInfo date="2024/01/09" size="sm" category="creative-talks" />
+          <DateInfo date="2024/01/09" size="sm" category="creativeTalks" />
           <Code
             text={`DateInfo 
   date="2024/01/09" 
   size="sm" 
-  category="creative-talks" 
+  category="creativeTalks" 
 />`}
           />
         </div>
         <div className="flex flex-col items-center">
-          <DateInfo date="2024/01/09" size="lg" category="artistic-residence" />
+          <DateInfo date="2024/01/09" size="lg" category="artisticResidences" />
           <Code
             text={`DateInfo 
   date="2024/01/09" 
   size="lg" 
-  category="artistic-residence" 
+  category="artisticResidences" 
 />`}
           />
         </div>
@@ -541,7 +553,7 @@ export default function Home() {
           paymentReference="0000000 0000 00 000 000 00 0 0 00"
           descriptive="Masterclass 15-Nov"
           amount={23}
-          category="masterclass"
+          category="masterclasses"
         />
       </div>
       <Code
@@ -550,7 +562,7 @@ export default function Home() {
   paymentReference="000 000 000"
   descriptive="Masterclass 15-Nov"
   amount={23}
-  category="masterclass"
+  category="masterclasses"
 />`}
       />
       <Divider />
@@ -558,20 +570,20 @@ export default function Home() {
       <LocalTitle title="Divider horizontal & vertical" />
       <div className="flex flex-col items-center gap-4">
         <div className="flex justify-around w-40 h-40 md:w-80 md:h-80 opacity-50 gap-x-3 md:gap-x-4">
-          <Divider category="workshop" />
-          <Divider category="creative-talks" orientation="vertical" />
+          <Divider category="workshops" />
+          <Divider category="creativeTalks" orientation="vertical" />
         </div>
       </div>
       <div className="flex flex-wrap justify-center gap-10">
         <Code
           text={`<Divider 
-  category="creative-talks" 
+  category="creativeTalks" 
   orientation="vertical" 
 />`}
         />
         <Code
           text={`<Divider 
-  category="workshop"  
+  category="workshops"  
 />`}
         />
       </div>
@@ -580,11 +592,11 @@ export default function Home() {
       {/* -------------- Enum Bullet Point --------------*/}
       <LocalTitle title="Enum Bullet Point" />
       <div className="flex flex-col items-center gap-4 px-3">
-        <EnumBulletPoint category={"masterclass"} index={1} />
+        <EnumBulletPoint category={"masterclasses"} index={1} />
       </div>
       <Code
         text={`<EnumBulletPoint
-  category={"masterclass"}
+  category={"masterclasses"}
   index={1}
 />`}
       />
@@ -594,10 +606,11 @@ export default function Home() {
       <LocalTitle title="Event Element" />
       <div className="flex flex-col items-center gap-10 px-3">
         <EventElement
+          _id=""
           title="Lorem ipsum"
           date="2017-02-12"
           image={{ src: CarolinaLeite, alt: "", objectPosition: "center top" }}
-          category="business-workshop"
+          category="businessWorkshops"
           subtitle="Carolina Leite"
         />
       </div>
@@ -610,7 +623,7 @@ export default function Home() {
     alt: "Carolina Leite", 
     objectPosition: "center top" 
   }}
-  category="business-workshop"
+  category="businessWorkshops"
   subtitle="Carolina Leite"
   onClick={()=>{}}
   disabled
@@ -623,6 +636,7 @@ export default function Home() {
         <EventGrid
           events={[
             {
+              _id: "",
               title: "Tentativa Erro Tentativa",
               date: "2017-11-01",
               image: {
@@ -630,10 +644,11 @@ export default function Home() {
                 alt: "",
                 objectPosition: "center top",
               },
-              category: "creative-talks",
+              category: "creativeTalks",
               subtitle: "Nuno Nolasco",
             },
             {
+              _id: "",
               title: "Tentativa Erro Tentativa",
               date: "2017-11-01",
               image: {
@@ -641,10 +656,11 @@ export default function Home() {
                 alt: "",
                 objectPosition: "center top",
               },
-              category: "creative-talks",
+              category: "creativeTalks",
               subtitle: "Nuno Nolasco",
             },
             {
+              _id: "",
               title: "Tentativa Erro Tentativa",
               date: "2017-11-01",
               image: {
@@ -652,10 +668,11 @@ export default function Home() {
                 alt: "",
                 objectPosition: "center top",
               },
-              category: "creative-talks",
+              category: "creativeTalks",
               subtitle: "Nuno Nolasco",
             },
             {
+              _id: "",
               title: "Tentativa Erro Tentativa",
               date: "2017-11-01",
               image: {
@@ -663,10 +680,11 @@ export default function Home() {
                 alt: "",
                 objectPosition: "center top",
               },
-              category: "creative-talks",
+              category: "creativeTalks",
               subtitle: "Nuno Nolasco",
             },
             {
+              _id: "",
               title: "Tentativa Erro Tentativa",
               date: "2017-11-01",
               image: {
@@ -674,10 +692,11 @@ export default function Home() {
                 alt: "",
                 objectPosition: "center top",
               },
-              category: "creative-talks",
+              category: "creativeTalks",
               subtitle: "Nuno Nolasco",
             },
             {
+              _id: "",
               title: "Tentativa Erro Tentativa",
               date: "2017-11-01",
               image: {
@@ -685,10 +704,11 @@ export default function Home() {
                 alt: "",
                 objectPosition: "center top",
               },
-              category: "creative-talks",
+              category: "creativeTalks",
               subtitle: "Nuno Nolasco",
             },
             {
+              _id: "",
               title: "Tentativa Erro Tentativa",
               date: "2017-11-01",
               image: {
@@ -696,10 +716,11 @@ export default function Home() {
                 alt: "",
                 objectPosition: "center top",
               },
-              category: "creative-talks",
+              category: "creativeTalks",
               subtitle: "Nuno Nolasco",
             },
             {
+              _id: "",
               title: "Tentativa Erro Tentativa",
               date: "2017-11-01",
               image: {
@@ -707,10 +728,11 @@ export default function Home() {
                 alt: "",
                 objectPosition: "center top",
               },
-              category: "creative-talks",
+              category: "creativeTalks",
               subtitle: "Nuno Nolasco",
             },
             {
+              _id: "",
               title: "Tentativa Erro Tentativa",
               date: "2017-11-01",
               image: {
@@ -718,10 +740,11 @@ export default function Home() {
                 alt: "",
                 objectPosition: "center top",
               },
-              category: "creative-talks",
+              category: "creativeTalks",
               subtitle: "Nuno Nolasco",
             },
             {
+              _id: "",
               title: "Tentativa Erro Tentativa",
               date: "2017-11-01",
               image: {
@@ -729,10 +752,11 @@ export default function Home() {
                 alt: "",
                 objectPosition: "center top",
               },
-              category: "creative-talks",
+              category: "creativeTalks",
               subtitle: "Nuno Nolasco",
             },
             {
+              _id: "",
               title: "Tentativa Erro Tentativa",
               date: "2017-11-01",
               image: {
@@ -740,10 +764,11 @@ export default function Home() {
                 alt: "",
                 objectPosition: "center top",
               },
-              category: "creative-talks",
+              category: "creativeTalks",
               subtitle: "Nuno Nolasco",
             },
             {
+              _id: "",
               title: "Tentativa Erro Tentativa",
               date: "2017-11-01",
               image: {
@@ -751,10 +776,11 @@ export default function Home() {
                 alt: "",
                 objectPosition: "center top",
               },
-              category: "creative-talks",
+              category: "creativeTalks",
               subtitle: "Nuno Nolasco",
             },
             {
+              _id: "",
               title: "Tentativa Erro Tentativa",
               date: "2017-11-01",
               image: {
@@ -762,10 +788,11 @@ export default function Home() {
                 alt: "",
                 objectPosition: "center top",
               },
-              category: "creative-talks",
+              category: "creativeTalks",
               subtitle: "Nuno Nolasco",
             },
             {
+              _id: "",
               title: "Tentativa Erro Tentativa",
               date: "2017-11-01",
               image: {
@@ -773,10 +800,11 @@ export default function Home() {
                 alt: "",
                 objectPosition: "center top",
               },
-              category: "creative-talks",
+              category: "creativeTalks",
               subtitle: "Nuno Nolasco",
             },
             {
+              _id: "",
               title: "Tentativa Erro Tentativa",
               date: "2017-11-01",
               image: {
@@ -784,10 +812,11 @@ export default function Home() {
                 alt: "",
                 objectPosition: "center top",
               },
-              category: "creative-talks",
+              category: "creativeTalks",
               subtitle: "Nuno Nolasco",
             },
             {
+              _id: "",
               title: "Tentativa Erro Tentativa",
               date: "2017-11-01",
               image: {
@@ -795,10 +824,11 @@ export default function Home() {
                 alt: "",
                 objectPosition: "center top",
               },
-              category: "creative-talks",
+              category: "creativeTalks",
               subtitle: "Nuno Nolasco",
             },
             {
+              _id: "",
               title: "Tentativa Erro Tentativa",
               date: "2017-11-01",
               image: {
@@ -806,10 +836,11 @@ export default function Home() {
                 alt: "",
                 objectPosition: "center top",
               },
-              category: "creative-talks",
+              category: "creativeTalks",
               subtitle: "Nuno Nolasco",
             },
             {
+              _id: "",
               title: "Tentativa Erro Tentativa",
               date: "2017-11-01",
               image: {
@@ -817,10 +848,11 @@ export default function Home() {
                 alt: "",
                 objectPosition: "center top",
               },
-              category: "creative-talks",
+              category: "creativeTalks",
               subtitle: "Nuno Nolasco",
             },
             {
+              _id: "",
               title: "Tentativa Erro Tentativa",
               date: "2017-11-01",
               image: {
@@ -828,10 +860,11 @@ export default function Home() {
                 alt: "",
                 objectPosition: "center top",
               },
-              category: "creative-talks",
+              category: "creativeTalks",
               subtitle: "Nuno Nolasco",
             },
             {
+              _id: "",
               title: "Tentativa Erro Tentativa",
               date: "2017-11-01",
               image: {
@@ -839,10 +872,11 @@ export default function Home() {
                 alt: "",
                 objectPosition: "center top",
               },
-              category: "creative-talks",
+              category: "creativeTalks",
               subtitle: "Nuno Nolasco",
             },
             {
+              _id: "",
               title: "Tentativa Erro Tentativa",
               date: "2017-11-01",
               image: {
@@ -850,10 +884,11 @@ export default function Home() {
                 alt: "",
                 objectPosition: "center top",
               },
-              category: "creative-talks",
+              category: "creativeTalks",
               subtitle: "Nuno Nolasco",
             },
             {
+              _id: "",
               title: "Tentativa Erro Tentativa",
               date: "2017-11-01",
               image: {
@@ -861,10 +896,11 @@ export default function Home() {
                 alt: "",
                 objectPosition: "center top",
               },
-              category: "creative-talks",
+              category: "creativeTalks",
               subtitle: "Nuno Nolasco",
             },
             {
+              _id: "",
               title: "Tentativa Erro Tentativa",
               date: "2017-11-01",
               image: {
@@ -872,7 +908,7 @@ export default function Home() {
                 alt: "",
                 objectPosition: "center top",
               },
-              category: "creative-talks",
+              category: "creativeTalks",
               subtitle: "Nuno Nolasco",
             },
           ]}
@@ -888,7 +924,7 @@ export default function Home() {
       alt: "Benedita Pereira",
       objectPosition: "center top",
     },
-    category: "creative-talks",
+    category: "creativeTalks",
     subtitle: "Nuno Nolasco",
     onClick={()=>{}}
   ]}
@@ -903,7 +939,7 @@ export default function Home() {
           duration="180 minutos"
           date="2024/01/11"
           level="iniciante"
-          category="business-workshop"
+          category="businessWorkshops"
         />
       </div>
       <Code
@@ -911,7 +947,7 @@ export default function Home() {
   duration="180 minutos"
   date="2024/01/11"
   level="iniciante"
-  category="business-workshop"
+  category="businessWorkshops"
   onClick={()=>{}}
 />`}
       />
@@ -955,38 +991,38 @@ export default function Home() {
           <IconTitle
             title="Sem Filtros"
             mode="hashtag"
-            category="business-workshop"
+            category="businessWorkshops"
           />
         </div>
         <Code
           text={`<IconTitle
   title="Sem Filtros"
   mode="hashtag"
-  category="business-workshop"
+  category="businessWorkshops"
 />`}
         />
         <div className="my-12">
-          <IconTitle title="Anteriores" mode="dots" category="workshop" />
+          <IconTitle title="Anteriores" mode="dots" category="workshops" />
         </div>
         <Code
           text={`<IconTitle
   title="Anteriores"
   mode="dots"
-  category="workshop"
+  category="workshops"
 />`}
         />
         <div className="my-12">
           <IconTitle
             title="Programação"
             mode="chevron"
-            category="masterclass"
+            category="masterclasses"
           />
         </div>
         <Code
           text={`<IconTitle
   title="Programação"
   mode="chevron"
-  category="masterclass"
+  category="masterclasses"
 />`}
         />
       </div>
@@ -1022,7 +1058,7 @@ export default function Home() {
           <div className="flex flex-col items-center gap-3 mt-3">
             <MentorElement
               eventCount={2}
-              category="creative-talks"
+              category="creativeTalks"
               name="Benedita Pereira"
               image={{
                 src: BeneditaPereiera,
@@ -1082,7 +1118,7 @@ export default function Home() {
               objectPosition: "center",
             },
           }}
-          category={"masterclass"}
+          category={"masterclasses"}
           title="Lorem ipsum Dolor"
           date={"2024-01-29"}
           onClick={() => console.log("pressed!")}
@@ -1096,7 +1132,7 @@ export default function Home() {
               objectPosition: "center",
             },
           }}
-          category={"creative-talks"}
+          category={"creativeTalks"}
           title="Lorem ipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsumipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsum ipsum"
           date={"2024-03-03"}
           onClick={() => console.log("pressed!")}
@@ -1111,7 +1147,7 @@ export default function Home() {
       objectPosition: "center",
     },
   }}
-  category={"masterclass"}
+  category={"masterclasses"}
   title="Lorem ipsum Dolor"
   date={"2024-01-29"}
   onClick={() =>{}}
@@ -1126,7 +1162,7 @@ export default function Home() {
               objectPosition: "center",
             },
           }}
-          category={"creative-talks"}
+          category={"creativeTalks"}
           previous
           title="Lorem ipsum"
           date={"2024-03-03"}
@@ -1143,7 +1179,7 @@ export default function Home() {
       objectPosition: "center",
     },
   }}
-  category={"creative-talks"}
+  category={"creativeTalks"}
   previous
   title="Lorem ipsum"
   date={"2024-03-03"}
@@ -1214,7 +1250,7 @@ export default function Home() {
             alt: "",
             objectPosition: "center top",
           }}
-          category="masterclass"
+          category="masterclasses"
           highlight="Pedro Nolasco"
         />
       </div>
@@ -1228,7 +1264,7 @@ export default function Home() {
     alt: "Benedita Pereira",
     objectPosition: "center top",
   }}
-  category="masterclass"
+  category="masterclasses"
   highlight="Pedro Nolasco"
 />`}
       />
@@ -1247,7 +1283,7 @@ export default function Home() {
                 alt: "",
                 objectPosition: "center top",
               },
-              category: "masterclass",
+              category: "masterclasses",
               highlight: "Pedro Nolasco",
             },
             {
@@ -1258,7 +1294,7 @@ export default function Home() {
                 alt: "",
                 objectPosition: "center top",
               },
-              category: "workshop",
+              category: "workshops",
               highlight: "Herman José",
             },
             {
@@ -1269,7 +1305,7 @@ export default function Home() {
                 alt: "",
                 objectPosition: "center top",
               },
-              category: "workshop",
+              category: "workshops",
               highlight: "Herman José",
             },
 
@@ -1281,7 +1317,7 @@ export default function Home() {
                 alt: "",
                 objectPosition: "center top",
               },
-              category: "workshop",
+              category: "workshops",
               highlight: "Herman José",
             },
           ]}
@@ -1298,7 +1334,7 @@ export default function Home() {
     alt: "Benedita Pereira",
     objectPosition: "center top",
   },
-  category: "masterclass",
+  category: "masterclasses",
   highlight: "Pedro Nolasco"}]
 />`}
       />
@@ -1416,21 +1452,21 @@ export default function Home() {
         <ScheduleElement
           title={"Lorem ipsum dolor sit amet"}
           duration={"20 min"}
-          category={"masterclass"}
+          category={"masterclasses"}
           bullet={{ index: 1 }}
         />
         <Code
           text={`<ScheduleElement
   title={"Lorem ipsum dolor sit amet"}
   duration={"20 min"}
-  category={"masterclass"}
+  category={"masterclasses"}
   bullet={{ index: 1 }}
 />`}
         />
         <ScheduleElement
           title={"Lorem ipsum dolor"}
           duration={"1h20min"}
-          category={"masterclass"}
+          category={"masterclasses"}
           bullet={{ index: 2 }}
         />
       </div>
@@ -1438,7 +1474,7 @@ export default function Home() {
         text={`<ScheduleElement
   title={"Lorem ipsum dolor"}
   duration={"1h20min"}
-  category={"masterclass"}
+  category={"masterclasses"}
   bullet={{ index: 2 }}
 />`}
       />
@@ -1447,32 +1483,32 @@ export default function Home() {
       {/* -------------- STEPPER --------------*/}
       <LocalTitle title="Stepper" />
       <div className="flex flex-col items-center gap-10 px-3">
-        <Stepper activeStep={0} category="edition" />
+        <Stepper activeStep={0} category="editions" />
         <Code
           text={`<Stepper 
   activeStep={0} 
-  category="edition" />
+  category="editions" />
 />`}
         />
-        <Stepper activeStep={1} category="masterclass" />
+        <Stepper activeStep={1} category="masterclasses" />
         <Code
           text={`<Stepper 
   activeStep={1} 
-  category="masterclass" />
+  category="masterclasses" />
 />`}
         />
-        <Stepper activeStep={2} category="business-workshop" />
+        <Stepper activeStep={2} category="businessWorkshops" />
         <Code
           text={`<Stepper 
   activeStep={2} 
-  category="business-workshop" />
+  category="businessWorkshops" />
 />`}
         />
-        <Stepper activeStep={3} category="artistic-residence" />
+        <Stepper activeStep={3} category="artisticResidences" />
         <Code
           text={`<Stepper 
   activeStep={3} 
-  category="artistic-residence" />
+  category="artisticResidences" />
 />`}
         />
       </div>
@@ -1482,8 +1518,8 @@ export default function Home() {
       <div className="flex flex-col items-center gap-10 px-3">
         <LocalTitle title="Category Element" />
         <div className="flex flex-col items-center gap-6">
-          <CategoryElement category="edition" />
-          <Code text={`<CategoryElement category="edition"/>`} />
+          <CategoryElement category="editions" />
+          <Code text={`<CategoryElement category="editions"/>`} />
         </div>
       </div>
       <Divider />
@@ -1557,7 +1593,7 @@ export default function Home() {
       <div className="flex flex-col items-center gap-10 px-3">
         <Tabs
           tabs={["Edições Foco", "Edições all in one", "Edições presenciais"]}
-          category="creative-talks"
+          category="creativeTalks"
           selectedTab={selectedTab}
           setSelectedTab={setSelectedTab}
         >
@@ -1585,7 +1621,7 @@ export default function Home() {
     "Edições all in one", 
     "Edições presenciais"
   ]}
-  category="creative-talks"
+  category="creativeTalks"
   selectedTab={selectedTab}
   setSelectedTab={setSelectedTab}>
     {children}
@@ -1736,12 +1772,12 @@ export default function Home() {
       {/* -------------- TITLE --------------*/}
       <LocalTitle title="Title" />
       <div className="flex flex-col items-center gap-4 px-3">
-        <Title title="Creative Workshops" category="creative-talks" />
+        <Title title="Creative Workshops" category="creativeTalks" />
       </div>
       <Code
         text={`<Title 
   title="Creative Workshops" 
-  category="creative-talks" 
+  category="creativeTalks" 
 />`}
       />
       <Divider />

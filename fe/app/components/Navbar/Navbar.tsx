@@ -88,7 +88,7 @@ const Navbar = () => {
             href="https://www.instagram.com/creativestudionofilters/"
             target="_blank"
             aria-label="Follow us on Instagram"
-            className=" flex items-center justify-center gap-4 max-lg:hover:bg-business-workshop max-lg:border-t max-lg:border-b max-lg:w-full max-lg:text-center max-lg:py-4 uppercase"
+            className=" flex items-center justify-center gap-4 max-lg:hover:bg-businessWorkshops max-lg:border-t max-lg:border-b max-lg:w-full max-lg:text-center max-lg:py-4 uppercase"
           >
             <span className="uppercase">{t("FollowUs")}</span>
             <Instagram outline />
