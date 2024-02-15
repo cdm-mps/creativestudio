@@ -341,7 +341,7 @@ export default function Home() {
 
       {/* -------------- BANNER GRID --------------*/}
       <LocalTitle title="Banner Grid" />
-      <BannerGrid images={bannerGridImages} />
+      <BannerGrid images={bannerGridImages} title="Example title" />
       <Code
         text={`<BannerGrid
   images=[{
@@ -1346,51 +1346,30 @@ export default function Home() {
         <QuoteSlider
           quotes={[
             {
-              content: (
-                <span>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </span>
-              ),
+              content:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
               author: "Person A",
             },
             {
-              content: (
-                <span>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore.
-                </span>
-              ),
+              content:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo eiusmod tempor incididunt ut labore et dolore.",
             },
             {
-              content: (
-                <span>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod. Lorem ipsum dolor sit amet, consectetur adipiscing
-                  elit, sed do eiusmod. Lorem ipsum dolor sit amet, consectetur
-                  adipiscing elit, sed do eiusmod.
-                </span>
-              ),
+              content:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
               author: "Person C",
             },
             {
-              content: (
-                <span>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt.
-                </span>
-              ),
+              content:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo eiusmod tempor incididunt ut labore et dolore.",
             },
             {
-              content: (
-                <span>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                </span>
-              ),
+              content:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, seddo eiusmod tempor incididunt ut labore et dolore.",
               author: "Person E",
             },
             {
-              content: <span>Lorem ipsum dolor sit amet.</span>,
+              content: "Lorem ipsum dolor sit amet.",
               author: "Person F",
             },
           ]}
@@ -1786,10 +1765,30 @@ export default function Home() {
       <div className="flex flex-col items-center gap-4 px-3 w-full">
         <Sponsors
           sponsors={[
-            { src: fb, alt: "fb" },
-            { src: nos, alt: "nos" },
-            { src: vercel, alt: "vercel" },
-            { src: hbo, alt: "hbo" },
+            {
+              src: "https://cdn.sanity.io/images/ct1bypkh/production/e14274e32c617684b4551e435610f6ac9968c2f7-130x30.png",
+              alt: "fb",
+              width: 45,
+              height: 45,
+            },
+            {
+              src: "https://cdn.sanity.io/images/ct1bypkh/production/e14274e32c617684b4551e435610f6ac9968c2f7-130x30.png",
+              alt: "nos",
+              width: 45,
+              height: 45,
+            },
+            {
+              src: "https://cdn.sanity.io/images/ct1bypkh/production/e14274e32c617684b4551e435610f6ac9968c2f7-130x30.png",
+              alt: "vercel",
+              width: 45,
+              height: 45,
+            },
+            {
+              src: "https://cdn.sanity.io/images/ct1bypkh/production/e14274e32c617684b4551e435610f6ac9968c2f7-130x30.png",
+              alt: "hbo",
+              width: 45,
+              height: 45,
+            },
           ]}
         />
       </div>
