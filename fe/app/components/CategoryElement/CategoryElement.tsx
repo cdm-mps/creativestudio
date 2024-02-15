@@ -4,6 +4,7 @@ import { CategoryElementProps } from "@/app/components/CategoryElement/CategoryE
 import RoundArrowButton from "@components/RoundArrowButton/RoundArrowButton";
 import { categoriesDictionary } from "@utils/categoriesDictionary";
 import clsx from "clsx";
+import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -13,6 +14,7 @@ const CategoryElement = ({
   isDisabled = false,
   size = "medium",
 }: CategoryElementProps) => {
+  const t = useTranslations("Categories");
   const [showDescription, setShowDescription] = useState<boolean>(false);
 
   const isDeactivated = isDisabled && !showDescription;
@@ -39,7 +41,7 @@ const CategoryElement = ({
               : "text-sm md:text-base lowercase font-noto-sans"
           )}
         >
-          {category.replace("-", " ")}
+          {t(category)}
         </p>
         <div className="text-white">
           {categoriesDictionary[category](
