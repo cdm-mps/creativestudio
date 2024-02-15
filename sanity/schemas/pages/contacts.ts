@@ -7,7 +7,7 @@ export default {
       name: 'contacts',
       title: 'contacts',
       description:
-        'List of contacts (e.g. email "hello@creativestudionofilters.io" and phone number "+351 910 000 000")',
+        'List of contacts (e.g. email "hello@creativestudionofilters.io" and phone number "910 000 000")',
       type: 'array',
       of: [
         {

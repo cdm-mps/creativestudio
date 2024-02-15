@@ -104,7 +104,11 @@
     "availableEvents": "available events",
     "previous": "Previous"
   },
-  "AboutUs":{
+  "AboutUs": {
     "team": "Team"
+  },
+  "Contacts": {
+    "firstHighlight": "Want to know more? Talk to us!",
+    "secondHighlight": "Or find out more by exploring our “house”..."
   }
 }

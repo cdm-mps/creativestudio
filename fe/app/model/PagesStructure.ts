@@ -57,9 +57,9 @@ export const PagesStructure: Record<
     ],
   },
   contacts: {
-    section: [],
+    section: ["contacts"],
   },
   homepage: {
     section: [],
-  }
+  },
 };

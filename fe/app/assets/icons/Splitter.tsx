@@ -14,8 +14,8 @@ export const Splitter = (props: SVGAttributes<HTMLOrSVGElement>) => {
         id="Vector 11"
         d="M1.14551 1.39453H30.1455"
         stroke="white"
-        stroke-width="2"
-        stroke-linecap="round"
+        strokeWidth="2"
+        strokeLinecap="round"
         stroke-dasharray="4 4"
       />
     </svg>
