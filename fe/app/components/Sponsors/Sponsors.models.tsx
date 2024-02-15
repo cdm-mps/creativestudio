@@ -1,7 +1,13 @@
-import { ImageProps } from "@components/ImageElement/ImageElement.models";
-
-export type Sponsor = Pick<ImageProps, "src" | "alt">;
+export interface Sponsor {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+}
 
 export interface SponsorsProps {
-  sponsors: Sponsor[];
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
 }

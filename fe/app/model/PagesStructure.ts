@@ -60,6 +60,12 @@ export const PagesStructure: Record<
     section: [],
   },
   homepage: {
-    section: [],
-  }
+    section: [
+      "highlight",
+      "title",
+      `news[] ->{title, date, category, mentor {mentor -> {name, image {mentor_image -> { "src":image.asset._ref, objectPosition, "alt":title}}}}}`,
+      `sponsors[] -> {"alt":name, "src": image.asset->url, "dimensions": image.asset->{metadata {dimensions}}}`,
+      "comments[] ->{quote, author}",
+    ],
+  },
 };

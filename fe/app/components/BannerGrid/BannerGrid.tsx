@@ -1,26 +1,26 @@
 import React from "react";
 import ImageElement from "../ImageElement/ImageElement";
-import { BannerGridProps } from "./BannerGrid.models";
+import { BannerGridContentProps, BannerGridProps } from "./BannerGrid.models";
 
-const BannerGrid = ({ images }: BannerGridProps) => {
+const BannerGrid = ({ images, title }: BannerGridProps) => {
   return (
     <div className="flex relative overflow-hidden">
-      <div className="flex items-center justify-ceneter min-w-max overflow-hidden gap-3 animate-autoplay-infinite">
+      <div className="flex items-center justify-center min-w-max overflow-hidden gap-3 animate-autoplay-infinite">
         <BannerGridContent images={images} />
       </div>
       <div className="flex items-center justify-end min-w-max overflow-hidden gap-3 animate-autoplay-infinite ml-3">
         <BannerGridContent images={images} />
       </div>
       <div className="flex absolute h-full w-full bg-banner-gradient items-center p-9 md:p-12">
-        <div className="font-league-gothic whitespace-pre-line text-white uppercase text-4xl md:text-7xl">
-          {"Create your own art by\n exchanging ideas with\n other artists"}
+        <div className="max-w-[40%] font-league-gothic whitespace-pre-line text-white uppercase text-4xl md:text-7xl">
+          {title}
         </div>
       </div>
     </div>
   );
 };
 
-const BannerGridContent = ({ images }: BannerGridProps) => (
+const BannerGridContent = ({ images }: BannerGridContentProps) => (
   <div className="flex flex-col">
     <div className="flex gap-3">
       {images
