@@ -11,34 +11,43 @@ const CategoryElement = ({
   category,
   description,
   isDisabled = false,
+  size = "medium",
 }: CategoryElementProps) => {
   const [showDescription, setShowDescription] = useState<boolean>(false);
 
   const isDeactivated = isDisabled && !showDescription;
 
   return (
-    <div
-      className={clsx("relative", showDescription && "z-50")}
-    >
+    <div className={clsx("relative", showDescription && "z-50")}>
       <div
         onMouseEnter={() => setShowDescription(true)}
         onMouseLeave={() => setShowDescription(false)}
         className={clsx(
-          `p-3 md:hover:scale-110 cursor-pointer bg-${category} md:w-[423px] md:h-[423px] w-[250px] h-[200px] flex flex-col items-center justify-center md:gap-4 gap-3`,
-          isDeactivated && "md:opacity-50"
+          `p-3 md:hover:scale-110 cursor-pointer bg-${category} flex flex-col items-center justify-center md:gap-4 gap-3`,
+          isDeactivated && "md:opacity-50",
+          size === "medium"
+            ? "md:w-[423px] md:h-[423px] w-[250px] h-[200px]"
+            : "md:w-[137px] md:h-[137px] w-[250px] h-[200px]"
         )}
       >
         <p
           className={clsx(
-            "font-league-gothic text-2xl md:text-7xl text-center uppercase",
-            isDeactivated && "md:opacity-50"
+            "font-league-gothic text-center",
+            isDeactivated && "md:opacity-50",
+            size === "medium"
+              ? "text-2xl md:text-7xl uppercase"
+              : "text-sm md:text-base lowercase font-noto-sans"
           )}
         >
           {category.replace("-", " ")}
         </p>
         <div className="text-white">
           {categoriesDictionary[category](
-            clsx("h-6 md:h-14", isDeactivated && "md:opacity-50")
+            clsx(
+              "h-6 md:h-14",
+              isDeactivated && "md:opacity-50",
+              size === "medium" ? "h-6 md:h-14" : "h-3 md:h-7"
+            )
           )}
         </div>
 
