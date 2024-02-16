@@ -54,19 +54,19 @@ const EventGrid = ({ events }: EventGridProps) => {
   }, [initialState]);
 
   return (
-    <div className="flex flex-wrap relative ml-auto mr-auto w-[191.47px] sm:w-[382.94px] md:w-[643.98px] lg:w-[965.97px] 2xl:w-[1609.95px] mb-2">
+    <div className="relative mb-2 ml-auto mr-auto flex w-[191.47px] flex-wrap sm:w-[382.94px] md:w-[643.98px] lg:w-[965.97px] 2xl:w-[1609.95px]">
       {events
         .filter((_e, index) => index <= numOfElems)
         .map((event, i) => (
           <EventElement key={i} {...event} />
         ))}
       {!showAll && !loadMore && (
-        <div className="flex items-end justify-center h-28 w-full absolute bottom-0 bg-line-gradient">
+        <div className="absolute bottom-0 flex h-28 w-full items-end justify-center bg-line-gradient">
           <div
-            className="flex flex-col items-center cursor-pointer  hover:opacity-80"
+            className="flex cursor-pointer flex-col items-center  hover:opacity-80"
             onClick={() => setLoadMore(true)}
           >
-            <span className="font-league-gothic text-sm md:text-xl uppercase">
+            <span className="font-league-gothic text-sm uppercase md:text-xl">
               {t("seeMore")}
             </span>
             <RoundArrowButton arrowDirection="down" />
@@ -81,12 +81,12 @@ const EventGrid = ({ events }: EventGridProps) => {
               <EventElement key={i} {...event} />
             ))}
 
-          <div className="flex items-end justify-center h-28 w-full absolute bottom-0 bg-line-gradient">
+          <div className="absolute bottom-0 flex h-28 w-full items-end justify-center bg-line-gradient">
             <div
-              className="flex flex-col items-center cursor-pointer hover:opacity-80"
+              className="flex cursor-pointer flex-col items-center hover:opacity-80"
               onClick={() => setLoadMore(false)}
             >
-              <span className="font-league-gothic text-sm md:text-xl uppercase">
+              <span className="font-league-gothic text-sm uppercase md:text-xl">
                 {t("seeLess")}
               </span>
               <RoundArrowButton arrowDirection="up" />

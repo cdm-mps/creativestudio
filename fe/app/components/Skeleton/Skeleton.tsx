@@ -4,7 +4,7 @@ import { SkeletonProps } from "./Skeleton.models";
 const Skeleton = ({ width, height, className = "" }: SkeletonProps) => {
   return (
     <div
-      className={`rounded opacity-10 w-fit h-fit animate-skeleton-loading ${className} ${
+      className={`h-fit w-fit animate-skeleton-loading rounded opacity-10 ${className} ${
         !width && "w-full"
       }`}
     >

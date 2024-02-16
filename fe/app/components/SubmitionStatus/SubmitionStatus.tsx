@@ -5,14 +5,14 @@ import { SubmitionStatusProps } from "@components/SubmitionStatus/SubmitionStatu
 
 const SubmitionStatus = ({ title, content }: SubmitionStatusProps) => {
   return (
-    <div className="md:w-[577px] w-[290px] h-full">
+    <div className="h-full w-[290px] md:w-[577px]">
       <div className="w-full text-center">
-        <span className="md:text-[78px] text-3xl font-league-gothic">
+        <span className="font-league-gothic text-3xl md:text-[78px]">
           {title}
         </span>
       </div>
-      <div className="relative text-sm md:text-lg flex flex-col md:gap-5 md:mt-9 mt-5">
-        <div className="flex flex-col justify-around min-h-[96px] md:min-h-[176px] md:mb-5 mb-3">
+      <div className="relative mt-5 flex flex-col text-sm md:mt-9 md:gap-5 md:text-lg">
+        <div className="mb-3 flex min-h-[96px] flex-col justify-around md:mb-5 md:min-h-[176px]">
           {content}
         </div>
         <Divider className="w-fit" />
@@ -20,7 +20,7 @@ const SubmitionStatus = ({ title, content }: SubmitionStatusProps) => {
           <ImageElement
             src={IconCreativeStud}
             objectPosition="center"
-            className="w-24 h-24 md:w-44 md:h-44"
+            className="h-24 w-24 md:h-44 md:w-44"
             alt={"IconCreativeStud"}
           />
         </div>

@@ -10,20 +10,24 @@ const ScheduleElement = ({
   bullet,
 }: ScheduleProps) => {
   return (
-    <div className="flex w-full items-center md:gap-8 gap-4">
-      <div className="w-8 h-8 md:w-[52px] md:h-[52px]">
+    <div className="flex w-full items-center gap-4 md:gap-8">
+      <div className="h-8 w-8 md:h-[52px] md:w-[52px]">
         <EnumBulletPoint category={category} {...bullet} />
       </div>
 
-      <span className="font-noto-sans md:text-xl md:w-[290px] min-w-[94px] flex-wrap">{title}</span>
+      <span className="min-w-[94px] flex-wrap font-noto-sans md:w-[290px] md:text-xl">
+        {title}
+      </span>
       <div className="w-full">
         <Divider category={category} />
       </div>
-      <div className="flex gap-2 md:gap-3 items-center w-[150px]">
-        <div className="md:w-7 md:h-27 w-5 h-15">
-          <Clock className="md:w-7 md:h-27 w-5 h-15"/>
+      <div className="flex w-[150px] items-center gap-2 md:gap-3">
+        <div className="md:h-27 h-15 w-5 md:w-7">
+          <Clock className="md:h-27 h-15 w-5 md:w-7" />
         </div>
-        <span className="font-league-gothic md:text-3xl text-xl">{duration}</span>
+        <span className="font-league-gothic text-xl md:text-3xl">
+          {duration}
+        </span>
       </div>
     </div>
   );

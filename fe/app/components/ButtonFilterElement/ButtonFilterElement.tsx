@@ -13,10 +13,10 @@ const ButtonFilterElement = ({
     <button
       onClick={onClick}
       className={clsx(
-        `border-[1.5px] border-${category} md:px-6 md:py-[10px] font-league-gothic rounded-lg md:text-xl text-base px-5 py-2 md:m-4 m-3`,
+        `border-[1.5px] border-${category} m-3 rounded-lg px-5 py-2 font-league-gothic text-base md:m-4 md:px-6 md:py-[10px] md:text-xl`,
         isActive
           ? `bg-${category} text-white`
-          : `text-white hover:text-${category}`
+          : `text-white hover:text-${category}`,
       )}
     >
       {label?.toUpperCase()}

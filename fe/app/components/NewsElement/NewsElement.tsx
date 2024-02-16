@@ -14,29 +14,31 @@ const NewsElement = ({
 }: NewsElementProps) => {
   return (
     <div
-      className="flex w-fit group cursor-pointer mr-[12.75px] mb-2 md:mr-[20.5px] md:mb-[15px]"
+      className="group mb-2 mr-[12.75px] flex w-fit cursor-pointer md:mb-[15px] md:mr-[20.5px]"
       onClick={onClick}
     >
-      <div className="flex flex-col items-end mr-9">
+      <div className="mr-9 flex flex-col items-end">
         <DateInfo date={date} size="lg" category={category} />
-        <span className="font-league-gothic uppercase text-3xl w-[134.5px] md:text-5xl md:w-[269px] text-end">
+        <span className="w-[134.5px] text-end font-league-gothic text-3xl uppercase md:w-[269px] md:text-5xl">
           {title}
         </span>
-        {categoriesDictionary[category]("w-7 h-auto mt-2 md:w-11 md:h-auto md:mt-4")}
+        {categoriesDictionary[category](
+          "w-7 h-auto mt-2 md:w-11 md:h-auto md:mt-4",
+        )}
       </div>
 
-      <div className="flex relative w-fit">
+      <div className="relative flex w-fit">
         <div
-          className={`opacity-0 group-hover:opacity-30 absolute w-[175px] h-[190px] top-2 left-2 md:w-[360px] md:h-[384px] md:top-[15px] md:left-[15px] bg-${category}`}
+          className={`absolute left-2 top-2 h-[190px] w-[175px] opacity-0 group-hover:opacity-30 md:left-[15px] md:top-[15px] md:h-[384px] md:w-[360px] bg-${category}`}
         />
         <ImageElement
           {...image}
-          className="w-[175px] h-[190px] md:w-[360px] md:h-[384px]"
+          className="h-[190px] w-[175px] md:h-[384px] md:w-[360px]"
         />
         <div
-          className={`flex items-center absolute justify-center w-[200.5px] h-10 bottom-2.5 -right-[12.9px] md:w-[401px] md:h-[76px] md:bottom-5 md:-right-[20.5px] bg-${category}`}
+          className={`absolute -right-[12.9px] bottom-2.5 flex h-10 w-[200.5px] items-center justify-center md:-right-[20.5px] md:bottom-5 md:h-[76px] md:w-[401px] bg-${category}`}
         >
-          <span className="font-league-gothic uppercase text-2xl md:text-4xl">
+          <span className="font-league-gothic text-2xl uppercase md:text-4xl">
             {highlight}
           </span>
         </div>

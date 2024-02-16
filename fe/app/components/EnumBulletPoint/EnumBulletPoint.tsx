@@ -3,9 +3,11 @@ import { EnumBulletPointProps } from "@components/EnumBulletPoint/EnumBulletPoin
 const EnumBulletPoint = ({ index, category }: EnumBulletPointProps) => {
   return (
     <div
-      className={`w-8 h-8 border-[2px] md:w-[52px] md:h-[52px] md:border-[3px] border-${category} flex justify-center items-center`}
+      className={`h-8 w-8 border-[2px] md:h-[52px] md:w-[52px] md:border-[3px] border-${category} flex items-center justify-center`}
     >
-      <span className={`font-noto-sans font-extrabold text-${category} md:text-2xl`}>
+      <span
+        className={`font-noto-sans font-extrabold text-${category} md:text-2xl`}
+      >
         {index}
       </span>
     </div>
