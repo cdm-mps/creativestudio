@@ -1,10 +1,17 @@
 "use client";
-
 import CategoryElement from "@/app/components/CategoryElement/CategoryElement";
+import { Category, categories } from "@model/Category";
+import { Locales } from "@model/Locales";
+import { useLocale } from "next-intl";
 import { useState } from "react";
-import { categories } from "@model/Category";
 
-const CategoryGrid = () => {
+const CategoryGrid = ({
+  elementDescription,
+}: {
+  elementDescription?: Record<Category, Record<Locales, string>>;
+}) => {
+  const locale = useLocale();
+
   const rows = categories.slice(0, 3);
   const cols = categories.slice(3, 6);
   const [hasEnteredGrid, setHasEnteredGrid] = useState<boolean>(false);
@@ -17,7 +24,11 @@ const CategoryGrid = () => {
     >
       <div className="flex max-md:flex-col">
         {rows.map((category) => (
-          <CategoryElement category={category} isDisabled={hasEnteredGrid} />
+          <CategoryElement
+            category={category}
+            isDisabled={hasEnteredGrid}
+            description={elementDescription?.[category][locale as Locales]}
+          />
         ))}
       </div>
       <div className="flex max-md:flex-col">
@@ -25,7 +36,7 @@ const CategoryGrid = () => {
           <CategoryElement
             category={category}
             isDisabled={hasEnteredGrid}
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet."
+            description={elementDescription?.[category][locale as Locales]}
           />
         ))}
       </div>

@@ -1,1 +1,1 @@
-export type Level = "beginner" | "intermediate" | "advanced";
+export type Level = "beginner" | "intermediate";

@@ -1,16 +1,17 @@
 import ImageElement from "@components/ImageElement/ImageElement";
 import { MentorIdentifierProps } from "@components/MentorIdentifier/MentorIdentifierProps.models";
+import Link from "next/link";
 
 const MentorIdentifier = ({
+  _id,
   image,
   name,
   previous,
-  onClick,
 }: MentorIdentifierProps) => {
   return (
-    <div
-      className="flex cursor-pointer items-center gap-x-2 font-noto-sans text-xs md:gap-x-4 md:text-xl"
-      onClick={onClick}
+    <Link
+      className="flex items-center font-noto-sans text-xs gap-x-2 md:text-xl md:gap-x-4 cursor-pointer hover:opacity-80"
+      href={`/mentors/${_id}`}
     >
       <ImageElement
         {...image}
@@ -18,7 +19,7 @@ const MentorIdentifier = ({
         rounded
       />
       <span className="line-clamp-2 w-[100px] md:w-[250px]">{name}</span>
-    </div>
+    </Link>
   );
 };
 
