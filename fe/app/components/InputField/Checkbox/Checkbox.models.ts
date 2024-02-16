@@ -2,7 +2,7 @@ import { Category } from "@model/Category";
 
 export interface CheckboxProps {
   category: Category;
-  label: string;
+  option: { label: string; value: string };
   isChecked: boolean;
-  updateCheckboxStatus: () => void;
+  onClick: (value: string) => void;
 }

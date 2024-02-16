@@ -65,12 +65,6 @@
       "eventBarSingular": " available event",
       "eventBarPlural": " available events"
     },
-    "Details": {
-      "entity": "Entity",
-      "paymentReference": "Reference",
-      "descriptive": "Descriptive",
-      "amount": "Amount"
-    },
     "Acknowledgements": {
       "title": "Acknowledgements",
       "subtitle1": "The studio is made up of those who are there and those who will always be there.",
@@ -100,6 +94,9 @@
     },
     "UploadFile": {
       "addFile": "Add file"
+    },
+    "Input": {
+      "writeHere": "Text here"
     }
   },
   "CreativeWorkshop": {
@@ -118,5 +115,11 @@
   "Event": {
     "enrol": "Enrol",
     "schedule": "Schedule"
+  },
+  "Form": {
+    "required": "*Mandatory field",
+    "previous": "Previous",
+    "next": "Next",
+    "regulations": "Regulations"
   }
 }

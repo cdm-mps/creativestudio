@@ -2,22 +2,24 @@ import { RadioButtonProps } from "./RadioButton.models";
 
 const RadioButton = ({
   category,
+  option,
   isChecked = false,
-  label,
-  updateRadioButtonStatus,
+  onClick,
 }: RadioButtonProps) => {
   return (
-    <div className="my-8 flex">
+    <div className="flex">
       <div className="flex gap-2">
         <input
           type="radio"
-          value={label}
           checked={isChecked}
-          onClick={updateRadioButtonStatus}
+          onClick={() => onClick(option.value)}
           className={`accent-${category}`}
         />
-        <label htmlFor={label} className="font-noto-sans text-sm md:text-lg">
-          {label}
+        <label
+          htmlFor={option.value}
+          className="font-noto-sans text-sm md:text-base"
+        >
+          {option.label}
         </label>
       </div>
     </div>

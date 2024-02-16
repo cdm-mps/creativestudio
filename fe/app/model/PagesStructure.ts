@@ -18,6 +18,14 @@ export interface CreativeWorkshopsPageStructure {
   elementDescription: Record<Category, Record<Locales, string>>;
 }
 
+export interface FormPageStructure {
+  regulations: Record<Locales, string>;
+  paymentDetails: {
+    label: Record<Locales, string>;
+    value: Record<Locales, string>;
+  }[];
+}
+
 export const PagesStructure: Record<
   Category | Page,
   { section: (Category | SubCategory | string)[]; hasAreaOfInsterest?: boolean }

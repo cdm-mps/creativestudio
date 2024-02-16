@@ -14,6 +14,7 @@ import Skeleton from "@components/Skeleton/Skeleton";
 import { Category } from "@model/Category";
 import { Locales } from "@model/Locales";
 import { useLocale, useTranslations } from "next-intl";
+import { redirect, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function EventPage({ params }: { params: { id: string } }) {
@@ -21,6 +22,7 @@ export default function EventPage({ params }: { params: { id: string } }) {
   const t = useTranslations("Event");
 
   const locale = useLocale();
+  const { push } = useRouter();
 
   const [event, setEvent] = useState<Event | undefined>();
   const [showModal, setShowModal] = useState(false);
@@ -53,7 +55,7 @@ export default function EventPage({ params }: { params: { id: string } }) {
   }
 
   return (
-    <main className="flex flex-col min-h-[calc(100vh-26vh)]">
+    <main className="flex min-h-[calc(100vh-26vh)] flex-col">
       {showModal && (
         <Modal onCloseModal={() => setShowModal(false)}>
           <div className="flex flex-col px-7 pb-9">
@@ -93,7 +95,7 @@ export default function EventPage({ params }: { params: { id: string } }) {
           </div>
         </Modal>
       )}
-      <div className="flex justify-between w-full h-fit">
+      <div className="flex h-fit w-full justify-between">
         <BreadcrumbsTitle
           title={event?.title[locale as Locales] || ""}
           category={event?.category as Category}
@@ -122,18 +124,18 @@ export default function EventPage({ params }: { params: { id: string } }) {
       <ImageElement
         src={urlFor(event.image.image.image.asset._ref).url()}
         alt={event.image.title}
-        className="h-[500px] w-full mt-16"
+        className="mt-16 h-[500px] w-full"
         objectPosition={event.image.objectPosition}
       />
-      <div className="font-noto-sans text-lg mt-16 px-14">
+      <div className="mt-16 px-14 font-noto-sans text-lg">
         {event?.description[locale as Locales]}
       </div>
-      <div className="flex items-center justify-between px-14 mt-16">
+      <div className="mt-16 flex items-center justify-between px-14">
         <MentorIdentifier
           _id={event.mentor.mentor._id}
           image={{
             src: urlFor(
-              event.mentor.mentor.image.mentor_image.image.asset._ref
+              event.mentor.mentor.image.mentor_image.image.asset._ref,
             ).url(),
             alt: event?.mentor.mentor.image.mentor_image.title,
             objectPosition:
@@ -144,17 +146,19 @@ export default function EventPage({ params }: { params: { id: string } }) {
         <Button
           category={event?.category}
           label={t("enrol")}
-          onClick={() => {}} //TODO: Página formulário
+          onClick={() => {
+            push(`${event?._id}/form`);
+          }}
         />
       </div>
-      <div className="pt-[48px] pl-[24px] mx-14 mt-20 mb-16">
+      <div className="mx-14 mb-16 mt-20 pl-[24px] pt-[48px]">
         <IconTitle
           title={t("schedule")}
           mode="chevron"
           category={event.category}
         />
       </div>
-      <div className="flex flex-col gap-8 mx-14">
+      <div className="mx-14 flex flex-col gap-8">
         {event.programation.map((scheduleElement, index) => (
           <ScheduleElement
             title={scheduleElement.description[locale as Locales]}
@@ -192,23 +196,23 @@ const PageSkeleton = () => (
       </div>
     </div>
     <Skeleton height={500} className="mt-16" />
-    <Skeleton height={150} width={1130} className="mt-16 mx-14" />
-    <div className="flex justify-between mx-14 mt-16">
+    <Skeleton height={150} width={1130} className="mx-14 mt-16" />
+    <div className="mx-14 mt-16 flex justify-between">
       <div className="flex items-center">
-        <Skeleton height={63} width={63} className="rounded-[50%] mr-4" />
+        <Skeleton height={63} width={63} className="mr-4 rounded-[50%]" />
         <Skeleton height={27} width={249} />
       </div>
       <Skeleton height={62} width={328} />
     </div>
-    <Skeleton height={83} width={350} className="mt-20 mx-14 mb-16" />
+    <Skeleton height={83} width={350} className="mx-14 mb-16 mt-20" />
     <div className="flex flex-col gap-8">
       {Array(3)
         .fill(null)
         .map(() => (
-          <div className="flex items-center justify-between mx-14 mt-1">
+          <div className="mx-14 mt-1 flex items-center justify-between">
             <Skeleton height={52} width={52} className="mr-8" />
             <Skeleton height={28} width={193} className="mr-8" />
-            <Skeleton height={2}  className="mr-8" />
+            <Skeleton height={2} className="mr-8" />
             <Skeleton height={35} width={100} />
           </div>
         ))}

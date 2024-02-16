@@ -67,12 +67,6 @@
       "eventBarSingular": " evento disponível",
       "eventBarPlural": " eventos disponíveis"
     },
-    "Details": {
-      "entity": "Entidade",
-      "paymentReference": "Referência",
-      "descriptive": "Descritivo",
-      "amount": "Montante"
-    },
     "Acknowledgements": {
       "title": "Agradecimentos",
       "subtitle1": "O estúdio faz-se dos que estão e dos que vão estar sempre.",
@@ -102,6 +96,9 @@
     },
     "UploadFile": {
       "addFile": "Adicionar ficheiro"
+    },
+    "Input": {
+      "writeHere": "Escreva aqui"
     }
   },
   "CreativeWorkshop": {
@@ -120,5 +117,11 @@
   "Event": {
     "enrol": "Inscrever",
     "schedule": "Programação"
+  },
+  "Form": {
+    "required": "*Preenchimento Obrigatório",
+    "previous": "Anterior",
+    "next": "Seguinte",
+    "regulations": "Regulamento"
   }
 }

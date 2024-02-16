@@ -2,7 +2,7 @@ import { Category } from "@model/Category";
 
 export interface RadioButtonProps {
   category: Category;
-  label: string;
+  option: { label: string; value: string };
   isChecked: boolean;
-  updateRadioButtonStatus: () => void;
+  onClick: (value: string) => void;
 }
