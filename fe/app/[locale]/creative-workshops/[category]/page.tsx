@@ -92,10 +92,10 @@ export default function CreativeWorkshopPage({
       <div className="flex flex-col">
         <Skeleton height={103} width={300} />
         <Skeleton height={42} width={400} className=" mt-14 mb-12" />
-        <Skeleton height={300} width={1435} />
+        <Skeleton height={300} />
         <Skeleton height={39} width={380} className="mt-16 mb-14" />
         <div className="flex items-center justify-center">
-          <Skeleton height={163} width={1350} className="mb-3" />
+          <Skeleton height={163} className="mb-3" />
         </div>
         <Skeleton height={100} width={380} className="mt-20 mb-16" />
         <div className="flex gap-8 mb-9">

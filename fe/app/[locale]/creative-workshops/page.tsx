@@ -28,7 +28,7 @@ export default function CreativeWorkshopsPage() {
       <div className="flex flex-col">
         <Skeleton height={72} width={440} />
         <Skeleton height={42} width={300} className="mt-14" />
-        <Skeleton height={355} width={1435} className="mt-12 mb-14" />
+        <Skeleton height={355} className="mt-12 mb-14" />
         <div className="flex flex-col items-center">
           <Skeleton height={72} width={414} className="mt-6 mb-14"/>
           <Skeleton height={699} width={1049} className="mt-12 mb-14" />

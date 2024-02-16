@@ -191,8 +191,8 @@ const PageSkeleton = () => (
         <Skeleton height={34} width={156} className="mt-2" />
       </div>
     </div>
-    <Skeleton height={500} width={1435} className="mt-16" />
-    <Skeleton height={150} width={1320} className="mt-16 mx-14" />
+    <Skeleton height={500} className="mt-16" />
+    <Skeleton height={150} width={1130} className="mt-16 mx-14" />
     <div className="flex justify-between mx-14 mt-16">
       <div className="flex items-center">
         <Skeleton height={63} width={63} className="rounded-[50%] mr-4" />
@@ -208,7 +208,7 @@ const PageSkeleton = () => (
           <div className="flex items-center justify-between mx-14 mt-1">
             <Skeleton height={52} width={52} className="mr-8" />
             <Skeleton height={28} width={193} className="mr-8" />
-            <Skeleton height={2} width={881} className="mr-8" />
+            <Skeleton height={2}  className="mr-8" />
             <Skeleton height={35} width={100} />
           </div>
         ))}
