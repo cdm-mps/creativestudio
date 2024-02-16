@@ -244,34 +244,46 @@ export default function Home() {
       <LocalTitle title="Input Field" />
       <div className="flex items-center justify-center">
         <div className="w-1/2">
-          <Text title="Nome Completo *" />
-          <TextArea title="Razões pelas quais te estás a inscrever" />
+          <Text
+            title="Nome Completo *"
+            category="artisticResidences"
+            value=""
+            onChangeValue={() => {}}
+          />
+          <TextArea
+            title="Razões pelas quais te estás a inscrever"
+            category="artisticResidences"
+            value=""
+            onChangeValue={() => {}}
+          />
           <div className="flex gap-5">
             <RadioButton
               category="editions"
-              label="Pagamento a pronto"
               isChecked={toggleRadioButton}
-              updateRadioButtonStatus={() =>
-                setToggleRadioButton(!toggleRadioButton)
-              }
+              onClick={() => setToggleRadioButton(!toggleRadioButton)}
+              option={{ label: "A pronto", value: "test" }}
             />
             <RadioButton
               category="editions"
-              label="Pagamento fazeado"
+              option={{ label: "Pagamento fazeado", value: "test" }}
               isChecked={toggleRadioButton2}
-              updateRadioButtonStatus={() =>
-                setToggleRadioButton2(!toggleRadioButton2)
-              }
+              onClick={() => setToggleRadioButton2(!toggleRadioButton2)}
             />
           </div>
           <Checkbox
             isChecked={toggleCheckbox}
             category="editions"
-            label="Quero ser adicionado ao grupo de Whatsapp e assim receber os acessos
-          para as sessões"
-            updateCheckboxStatus={() => setToggleCheckbox(!toggleCheckbox)}
+            option={{
+              label:
+                "Quero ser adicionado ao grupo de Whatsapp e assim receber os acessos para as sessões",
+              value: "test",
+            }}
+            onClick={() => setToggleCheckbox(!toggleCheckbox)}
           />
-          <UploadFile />
+          <UploadFile
+            title="Comprovativo de Transferencia"
+            category="artisticResidences"
+          />
         </div>
       </div>
       <Code
