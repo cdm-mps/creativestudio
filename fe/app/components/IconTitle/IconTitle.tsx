@@ -10,19 +10,19 @@ const IconTitle = ({ title, category, mode }: IconTitleProps) => {
       case "hashtag":
         return (
           <HashtagIcon
-            className={`absolute md:-top-24 md:left-0 text-${category} max-md:max-h-24 -left-14 -top-8`}
+            className={`absolute md:-top-24 md:left-0 text-${category} -left-14 -top-8 max-md:max-h-24`}
           />
         );
       case "dots":
         return (
           <DotsIcon
-            className={`absolute -top-6 -left-6 text-${category} max-md:w-[74px]`}
+            className={`absolute -left-6 -top-6 text-${category} max-md:w-[74px]`}
           />
         );
       case "chevron":
         return (
           <ChevronIcon
-            className={`absolute -top-32 -left-6 w-20 text-${category} max-md:w-11`}
+            className={`absolute -left-6 -top-32 w-20 text-${category} max-md:w-11`}
           />
         );
     }

@@ -61,5 +61,5 @@ export const PagesStructure: Record<
   },
   homepage: {
     section: [],
-  }
+  },
 };

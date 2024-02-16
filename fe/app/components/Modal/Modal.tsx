@@ -11,12 +11,12 @@ const Modal = ({
 }: PropsWithChildren & ModalProps) => {
   return (
     <div className={className ?? ""}>
-      <div className="fixed left-0 top-0 z-[60] flex h-screen w-screen items-center justify-center bg-black/50"/>
-      <div className="fixed left-1/2 top-1/2 z-[99] w-2/3 p-5 -translate-x-1/2 -translate-y-1/2 rounded-[8px] border-[1.5px] border-white bg-black text-white ">
-        <div className="w-full flex justify-end mb-3">
+      <div className="fixed left-0 top-0 z-[60] flex h-screen w-screen items-center justify-center bg-black/50" />
+      <div className="fixed left-1/2 top-1/2 z-[99] w-2/3 -translate-x-1/2 -translate-y-1/2 rounded-[8px] border-[1.5px] border-white bg-black p-5 text-white ">
+        <div className="mb-3 flex w-full justify-end">
           <CloseIcon
             onClick={closeModal}
-            className="cursor-pointer w-6 h-6 sm:w-7 sm:h-7"
+            className="h-6 w-6 cursor-pointer sm:h-7 sm:w-7"
           />
         </div>
         <div className=" max-h-[50vh] overflow-y-auto">{children}</div>

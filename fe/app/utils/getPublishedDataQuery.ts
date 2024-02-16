@@ -4,7 +4,7 @@ export const getPublishedDataQuery = (
   type: string,
   condition?: string,
   projection?: string,
-  other?: string
+  other?: string,
 ) => {
   return groq`*[_type == \"${type}\" ${
     condition ? `&& ${condition}` : ""
