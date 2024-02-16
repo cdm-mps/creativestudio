@@ -120,5 +120,9 @@
   "Event": {
     "enrol": "Inscrever",
     "schedule": "Programação"
+  },
+  "BusinessWorkshops": {
+    "title": "Business Workshops",
+    "workInProgress": "Work In Progress"
   }
 }
