@@ -15,20 +15,20 @@ const MentorEventBar = ({
 }: MentorEventBarProps) => {
   return (
     <div
-      className={`h-[52px] px-3 py-2 gap-x-2 md:gap-x-40 md:h-[92px] md:py-[14px] md:px-8 ${
+      className={`h-[52px] gap-x-2 px-3 py-2 md:h-[92px] md:gap-x-40 md:px-8 md:py-[14px] ${
         previous ? "border md:border-[2px]" : "bg-" + category
-      } w-full flex justify-between items-center cursor-pointer`}
+      } flex w-full cursor-pointer items-center justify-between`}
       onClick={onClick}
     >
-      <div className="flex items-center gap-2 md:gap-5 mr-auto">
-        <div className="w-[20px] h-[30px] md:w-[43px] md:h-[39.5px]">
+      <div className="mr-auto flex items-center gap-2 md:gap-5">
+        <div className="h-[30px] w-[20px] md:h-[39.5px] md:w-[43px]">
           {categoriesDictionary[category](
-            "w-[20px] h-[30px] md:w-[43px] md:h-[39.5px]"
+            "w-[20px] h-[30px] md:w-[43px] md:h-[39.5px]",
           )}
         </div>
 
         <div className="flex flex-col">
-          <span className="font-league-gothic text-base md:text-3xl line-clamp-1 leading-none md:leading-9">
+          <span className="line-clamp-1 font-league-gothic text-base leading-none md:text-3xl md:leading-9">
             {title}
           </span>
           <div className="mr-auto">
@@ -36,7 +36,7 @@ const MentorEventBar = ({
           </div>
         </div>
       </div>
-      <div className="flex gap-1 md:gap-4 items-center ml-auto">
+      <div className="ml-auto flex items-center gap-1 md:gap-4">
         <MentorIdentifier image={mentor.image} name={mentor.name} previous />
         <RoundArrowButton arrowDirection="right" />
       </div>

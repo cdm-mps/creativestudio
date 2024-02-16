@@ -9,12 +9,12 @@ const MentorIdentifier = ({
 }: MentorIdentifierProps) => {
   return (
     <div
-      className="flex items-center font-noto-sans text-xs gap-x-2 md:text-xl md:gap-x-4 cursor-pointer"
+      className="flex cursor-pointer items-center gap-x-2 font-noto-sans text-xs md:gap-x-4 md:text-xl"
       onClick={onClick}
     >
       <ImageElement
         {...image}
-        className={`w-6 h-6 md:w-16 md:h-16 ${previous && "grayscale"}`}
+        className={`h-6 w-6 md:h-16 md:w-16 ${previous && "grayscale"}`}
         rounded
       />
       <span className="line-clamp-2 w-[100px] md:w-[250px]">{name}</span>

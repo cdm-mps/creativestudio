@@ -22,17 +22,17 @@ const LocaleSwitcher = (props: LocaleSwitcherProps) => {
   };
 
   return (
-    <div className={`flex flex-row" ${props.className} font-league-gothic `}>
+    <div className={`flex-row" flex ${props.className} font-league-gothic `}>
       {locales.map((cur: string, i, locales) => (
         <div
           key={cur}
-          className="uppercase flex flex-row items-center text-xs md:text-lg"
+          className="flex flex-row items-center text-xs uppercase md:text-lg"
         >
           <span
             className={clsx(
               "cursor-pointer select-none",
               locale === cur && "underline",
-              isPending && "pointer-events-none text-opacity-50"
+              isPending && "pointer-events-none text-opacity-50",
             )}
             onClick={() => onLocaleSelect(cur)}
           >

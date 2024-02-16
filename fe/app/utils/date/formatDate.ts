@@ -1,5 +1,5 @@
 export const formatDate = (
-  value: string
+  value: string,
 ): { day: string; month: string; year: string } => {
   const date = new Date(value);
   return {

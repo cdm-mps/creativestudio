@@ -5,8 +5,8 @@ const CoreTitle = ({ title, category }: CoreTitleProps) => {
   return (
     <h2
       className={clsx(
-        "relative text-3xl md:text-7xl font-league-gothic",
-        category && `text-${category}`
+        "relative font-league-gothic text-3xl md:text-7xl",
+        category && `text-${category}`,
       )}
     >
       {title.toUpperCase()}
