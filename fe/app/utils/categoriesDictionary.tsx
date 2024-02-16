@@ -13,11 +13,9 @@ export const categoriesDictionary: Record<
   editions: (className) => <Edition className={className} />,
   masterclasses: (className) => <Masterclass className={className} />,
   workshops: (className) => <Workshop className={className} />,
-  "creativeTalks": (className) => <CreativeTalks className={className} />,
-  "artisticResidences": (className) => (
+  creativeTalks: (className) => <CreativeTalks className={className} />,
+  artisticResidences: (className) => (
     <ArtisticResidence className={className} />
   ),
-  "businessWorkshops": (className) => (
-    <BusinessWorkshop className={className} />
-  ),
+  businessWorkshops: (className) => <BusinessWorkshop className={className} />,
 };

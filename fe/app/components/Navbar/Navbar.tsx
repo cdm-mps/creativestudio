@@ -35,16 +35,16 @@ const Navbar = () => {
   }, [toggleMenuVisibility]);
 
   return (
-    <nav className="fixed top-0 w-full lg:py-4 lg:px-6 flex justify-between items-center mb-24 bg-background z-50">
+    <nav className="fixed top-0 z-50 mb-24 flex w-full items-center justify-between bg-background lg:px-6 lg:py-4">
       <Link
         href="/"
-        className="max-lg:absolute max-lg:top-6 max-lg:left-6 z-30 max-lg:w-40"
+        className="z-30 max-lg:absolute max-lg:left-6 max-lg:top-6 max-lg:w-40"
         onClick={closeMenuVisibility}
       >
         <Image src={CreativeStudioLogo} alt="Creative Studio No Filters Logo" />
       </Link>
-      <div className="max-lg:hidden flex items-center gap-6">
-        <div className="flex items-center font-league-gothic text-2xl gap-6">
+      <div className="flex items-center gap-6 max-lg:hidden">
+        <div className="flex items-center gap-6 font-league-gothic text-2xl">
           <MenuOptions />
         </div>
         <Divider orientation="vertical" />
@@ -52,35 +52,35 @@ const Navbar = () => {
           href="https://www.instagram.com/creativestudionofilters/"
           target="_blank"
           aria-label="Follow us on Instagram"
-          className="group hover:cursor-pointer flex items-center font-league-gothic text-xl gap-6"
+          className="group flex items-center gap-6 font-league-gothic text-xl hover:cursor-pointer"
           onMouseEnter={() => setInstagramHovered(!instagramHovered)}
           onMouseLeave={() => setInstagramHovered(!instagramHovered)}
         >
-          <span className="hidden group-hover:flex uppercase">
+          <span className="hidden uppercase group-hover:flex">
             {t("FollowUs")}
           </span>
 
           <Instagram outline={instagramHovered} />
         </Link>
       </div>
-      <div className="lg:hidden h-20 bg-black">
+      <div className="h-20 bg-black lg:hidden">
         <MenuIcon
-          className="w-6 max-lg:absolute max-lg:top-6 max-lg:right-6"
+          className="w-6 max-lg:absolute max-lg:right-6 max-lg:top-6"
           onClick={updateMenuVisibility}
         />
         <div
           className={`${
             toggleMenuVisibility ? "block" : "hidden"
-          } fixed z-10 top-0 left-0 w-screen h-screen bg-black/60 flex flex-col items-center pt-[100px] font-league-gothic text-xl`}
+          } fixed left-0 top-0 z-10 flex h-screen w-screen flex-col items-center bg-black/60 pt-[100px] font-league-gothic text-xl`}
           onClick={closeMenuVisibility}
         />
         <div
           className={`${
             toggleMenuVisibility ? "block" : "hidden"
-          } fixed z-20 top-0 left-0 w-screen h-fit border-b border-white bg-black flex flex-col items-center pt-[100px] font-league-gothic text-xl`}
+          } fixed left-0 top-0 z-20 flex h-fit w-screen flex-col items-center border-b border-white bg-black pt-[100px] font-league-gothic text-xl`}
         >
           <CloseIcon
-            className="w-6 max-lg:absolute max-lg:top-7 max-lg:right-6"
+            className="w-6 max-lg:absolute max-lg:right-6 max-lg:top-7"
             onClick={closeMenuVisibility}
           />
           <MenuOptions onClick={closeMenuVisibility} />
@@ -88,7 +88,7 @@ const Navbar = () => {
             href="https://www.instagram.com/creativestudionofilters/"
             target="_blank"
             aria-label="Follow us on Instagram"
-            className=" flex items-center justify-center gap-4 max-lg:hover:bg-businessWorkshops max-lg:border-t max-lg:border-b max-lg:w-full max-lg:text-center max-lg:py-4 uppercase"
+            className=" flex items-center justify-center gap-4 uppercase max-lg:w-full max-lg:border-b max-lg:border-t max-lg:py-4 max-lg:text-center max-lg:hover:bg-businessWorkshops"
           >
             <span className="uppercase">{t("FollowUs")}</span>
             <Instagram outline />

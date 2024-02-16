@@ -12,8 +12,8 @@ const TabElement = ({
   return (
     <span
       className={clsx(
-        `text-xs text-center md:text-2xl lg:text-5xl uppercase font-league-gothic cursor-pointer hover:opacity-80 ${className}`,
-        selected && `text-${category}`
+        `cursor-pointer text-center font-league-gothic text-xs uppercase hover:opacity-80 md:text-2xl lg:text-5xl ${className}`,
+        selected && `text-${category}`,
       )}
       onClick={onClick}
     >

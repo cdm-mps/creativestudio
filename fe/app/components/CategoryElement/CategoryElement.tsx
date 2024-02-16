@@ -41,7 +41,7 @@ const CategoryElement = ({
         </p>
         <div className="text-white">
           {categoriesDictionary[category](
-            clsx("h-6 md:h-14", isDeactivated && "md:opacity-50")
+            clsx("h-6 md:h-14", isDeactivated && "md:opacity-50"),
           )}
         </div>
 
@@ -49,10 +49,10 @@ const CategoryElement = ({
           <div className="max-md:hidden">
             <div
               className={clsx(
-                "flex flex-col justify-center items-center md:gap-4 gap-3"
+                "flex flex-col items-center justify-center gap-3 md:gap-4",
               )}
             >
-              <p className="text-center text-xs md:text-base text-white line-clamp-4">
+              <p className="line-clamp-4 text-center text-xs text-white md:text-base">
                 {description}
               </p>
               <RoundArrowButton arrowDirection="right" size="medium" />
@@ -63,10 +63,10 @@ const CategoryElement = ({
           <div className="md:hidden">
             <div
               className={clsx(
-                "flex flex-col justify-center items-center md:gap-6 gap-3"
+                "flex flex-col items-center justify-center gap-3 md:gap-6",
               )}
             >
-              <p className="text-center md:text-sm text-xs text-white line-clamp-4">
+              <p className="line-clamp-4 text-center text-xs text-white md:text-sm">
                 {description}
               </p>
               <RoundArrowButton arrowDirection="right" size="small" />
