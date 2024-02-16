@@ -57,7 +57,7 @@ const Navbar = () => {
           onMouseLeave={() => setInstagramHovered(!instagramHovered)}
         >
           <span className="hidden group-hover:flex uppercase">
-            {t("FollowUs")}
+            {t("followUs")}
           </span>
 
           <Instagram outline={instagramHovered} />

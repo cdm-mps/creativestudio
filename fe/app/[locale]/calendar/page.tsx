@@ -6,7 +6,7 @@ export default function CalendarPage() {
 
   return (
     <main className="flex min-h-[calc(100vh-26vh)]">
-      <Title title={t("Calendar")} category="businessWorkshops" />
+      <Title title={t("calendar")} category="businessWorkshops" />
     </main>
   );
 }

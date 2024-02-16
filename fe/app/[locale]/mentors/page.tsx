@@ -6,7 +6,7 @@ export default function MentorsPage() {
 
   return (
     <main className="flex mx-20">
-      <Title title={t("Mentors")} category="businessWorkshops" />
+      <Title title={t("mentors")} category="businessWorkshops" />
     </main>
   );
 }

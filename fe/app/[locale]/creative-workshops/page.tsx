@@ -9,7 +9,7 @@ export default function CreativeWorkshopsPage() {
   return (
     <main className="flex mx-14 pt-11">
       <div className="w-fit">
-        <Title title={t("CreativeWorkshops")} category="businessWorkshops" />
+        <Title title={t("creativeWorkshops")} category="businessWorkshops" />
         <div className="font-lato text-xl mt-10">
           Quando seguimos uma área, um curso, ou um caminho específico na nossa
           vida, corremos o risco de nos limitarmos a esse universo, sem sair da

@@ -224,6 +224,7 @@ const Code = ({ text }: { text: string }) => {
 
 export default function Home() {
   const t = useTranslations("DesignSystem");
+  const _t = useTranslations("Components.Mentor");
 
   const [selectedTab, setSelectedTab] = useState(0);
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -231,6 +232,9 @@ export default function Home() {
   const [toggleRadioButton2, setToggleRadioButton2] = useState(false);
   const [toggleCheckbox, setToggleCheckbox] = useState(false);
   const [result, setResult] = useState<Record<string, string | undefined>>({});
+
+  const eventCount = 1;
+  const eventCount2 = 2;
 
   const breadcrumbs: BreadcrumbsProps[] = [
     { label: "Calendário", url: "/example" },
@@ -1034,7 +1038,9 @@ export default function Home() {
         <div className="flex flex-wrap justify-center gap-x-4 w-full">
           <div className="flex flex-col items-center gap-3">
             <MentorElement
-              eventCount={1}
+              descriptionLabel={`${eventCount}${
+                eventCount === 1 ? _t("eventBarSingular") : _t("eventBarPlural")
+              }`}
               name="Benedita Pereira"
               image={{
                 src: BeneditaPereiera,
@@ -1057,7 +1063,12 @@ export default function Home() {
           </div>
           <div className="flex flex-col items-center gap-3 mt-3">
             <MentorElement
-              eventCount={2}
+              descriptionLabel={`${eventCount2}${
+                //@ts-expect-error
+                eventCount2 === 1
+                  ? _t("eventBarSingular")
+                  : _t("eventBarPlural")
+              }`}
               category="creativeTalks"
               name="Benedita Pereira"
               image={{
