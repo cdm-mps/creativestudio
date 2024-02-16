@@ -4,15 +4,31 @@ import { Mentors } from "@/app/api/models/Mentors";
 import { urlFor } from "@/client";
 import { Header } from "@components/Header/Header";
 import Mentor from "@components/Mentor/Mentor";
+import Skeleton from "@components/Skeleton/Skeleton";
 import Title from "@components/Title/Title";
 import { Locales } from "@model/Locales";
 import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 
+const MentorsPageSkeleton = () => {
+  let arr = Array.from({ length: 12 }, () => (
+    <Skeleton height={460} width={362} />
+  ));
+  return (
+    <div className="flex flex-col">
+      <Skeleton height={72} width={229} />
+      <Skeleton height={140} className="my-14" />
+      <div className="flex flex-wrap justify-center gap-24">
+        {arr.map((skeleton) => skeleton)}
+      </div>
+    </div>
+  );
+};
+
 export default function MentorsPage() {
   const [pageContent, setPageContent] = useState<MentorsProps>();
   const locale = useLocale();
-  const t = useTranslations("Menu");
+  const t = useTranslations();
 
   useEffect(() => {
     fetch("/api/getPages/mentors")
@@ -28,7 +44,10 @@ export default function MentorsPage() {
               alt: element.image.mentor_image.title,
               objectPosition: element.image.mentor_image.objectPosition,
             },
-            eventCount: element.event?.eventCount,
+            label:
+              element.event?.eventCount === 1
+                ? t("Components.Mentor.eventBarSingular")
+                : t("Components.Mentor.eventBarPlural"),
             id: element._id,
           })),
         } as MentorsProps);
@@ -36,18 +55,24 @@ export default function MentorsPage() {
   }, []);
 
   return (
-    <main className="flex flex-col min-h-[calc(100vh-26vh)]">
-      <Title title={t("Mentors")} category="businessWorkshops" />
-      {pageContent && (
+    <main className="flex min-h-[calc(100vh-26vh)] flex-col">
+      {pageContent ? (
         <>
+          <Title title={t("Menu.Mentors")} category="businessWorkshops" />
           <Header description={pageContent.description} />
-          <div className="flex flex-wrap gap-24 justify-center">
+          <div className="flex flex-wrap justify-center gap-24">
             {pageContent.mentors.map((element, i) => (
               <Mentor key={"mentor_" + i} {...element} />
             ))}
           </div>
         </>
+      ) : (
+        <MentorsPageSkeleton />
       )}
     </main>
   );
 }
+
+//  {
+//    eventCount === 1 ? t("eventBarSingular") : t("eventBarPlural");
+//  }

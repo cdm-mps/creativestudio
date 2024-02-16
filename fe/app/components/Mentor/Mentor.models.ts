@@ -6,5 +6,5 @@ export interface MentorProps {
   name: string;
   image: ImageProps;
   category?: Category;
-  eventCount?: number;
+  label?: string;
 }
