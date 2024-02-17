@@ -1,10 +1,8 @@
 import { Category } from "@model/Category";
 
-export interface TextAreaProps {
+export interface UploadFileProps {
   title: string;
   description?: string;
-  value: string;
   category: Category;
   required?: boolean;
-  onChangeValue: (value: string) => void;
 }

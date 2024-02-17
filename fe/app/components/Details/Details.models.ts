@@ -1,9 +1,7 @@
 import { Category } from "@model/Category";
+import { Locales } from "@model/Locales";
 
 export interface DetailsProps {
-  entity: string;
-  paymentReference: string;
-  descriptive: string;
-  amount: number;
+  content: { label: string; value: string }[];
   category: Category;
 }

@@ -60,24 +60,18 @@
     "businessWorkshops": "Business Workshops"
   },
   "Menu": {
-    "CreativeWorkshops": "Creative Workshops",
-    "BusinessWorkshops": "Business Workshops",
-    "Mentors": "Mentors",
-    "Calendar": "Calendar",
-    "AboutUs": "About Us",
-    "Contacts": "Contacts",
-    "FollowUs": "Follow Us !"
+    "creativeWorkshops": "Creative Workshops",
+    "businessWorkshops": "Business Workshops",
+    "mentors": "Mentors",
+    "calendar": "Calendar",
+    "aboutUs": "About Us",
+    "contacts": "Contacts",
+    "followUs": "Follow Us !"
   },
   "Components": {
     "Mentor": {
       "eventBarSingular": " available event",
       "eventBarPlural": " available events"
-    },
-    "Details": {
-      "entity": "Entity",
-      "paymentReference": "Reference",
-      "descriptive": "Descriptive",
-      "amount": "Amount"
     },
     "Acknowledgements": {
       "title": "Acknowledgements",
@@ -108,7 +102,11 @@
     },
     "UploadFile": {
       "addFile": "Add file"
-    }
+    },
+    "Input": {
+      "writeHere": "Text here"
+    },
+    "NotFound": { "noEvents": "No events" }
   },
   "CreativeWorkshop": {
     "areaOfInterest": "Area Of Interest",
@@ -119,6 +117,10 @@
   "AboutUs": {
     "team": "Team"
   },
+  "Contacts": {
+    "firstHighlight": "Want to know more? Talk to us!",
+    "secondHighlight": "Or find out more by exploring our “house”..."
+  },
   "CreativeWorkshops": {
     "title": "Creative Workshops",
     "ourServices": "Our Services"
@@ -126,6 +128,12 @@
   "Event": {
     "enrol": "Enrol",
     "schedule": "Schedule"
+  },
+  "Form": {
+    "required": "*Mandatory field",
+    "previous": "Previous",
+    "next": "Next",
+    "regulations": "Regulations"
   },
   "BusinessWorkshops": {
     "title": "Business Workshops",

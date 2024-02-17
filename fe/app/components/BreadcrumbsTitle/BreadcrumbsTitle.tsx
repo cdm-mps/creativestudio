@@ -19,15 +19,15 @@ const BreadcrumbsTitle = ({
         <Divider orientation="vertical" category={category} />
         <div className="flex flex-col items-start">
           <div className="flex gap-2 items-center md:text-2xl text-sm">
-            {breadcrumbs.map(({ label, url }, index) => (
+            {breadcrumbs?.map(({ label, url }, index) => (
               <>
                 {index !== 0 && <p>&gt;</p>}
                 <Link
                   key={label}
                   href={`/${locale}${url}`}
-                  className="hover:underline"
+                  className="hover:underline uppercase"
                 >
-                  {label.toUpperCase()}
+                  {label}
                 </Link>
               </>
             ))}
