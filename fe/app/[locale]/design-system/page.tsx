@@ -200,9 +200,9 @@ const LocalTitle = ({
   return (
     <div className="flex items-center">
       {showBullet && (
-        <div className="h-5 w-5 mr-4" style={{ backgroundColor: "#19313c" }} />
+        <div className="mr-4 h-5 w-5" style={{ backgroundColor: "#19313c" }} />
       )}
-      <p className="text-white font-league-gothic text-2xl md:text-5xl">
+      <p className="font-league-gothic text-2xl text-white md:text-5xl">
         {title}
       </p>
     </div>
@@ -213,7 +213,7 @@ const Code = ({ text }: { text: string }) => {
   return (
     <div className="flex items-center justify-center">
       <pre
-        className="rounded-md language-javascript px-3 py-2 md:px-8 md:py-5 "
+        className="language-javascript rounded-md px-3 py-2 md:px-8 md:py-5 "
         style={{ backgroundColor: "#19313c" }}
       >
         <code className="language-javascript">{text}</code>
@@ -238,7 +238,7 @@ export default function Home() {
   ];
 
   return (
-    <main className="flex flex-col bg-black text-white gap-10 w-full overflow-hidden">
+    <main className="flex w-full flex-col gap-10 overflow-hidden bg-black text-white">
       <CoreTitle title={t("title")} />
       {/* -------------- INPUT FIELD --------------*/}
       <LocalTitle title="Input Field" />
@@ -569,7 +569,7 @@ export default function Home() {
       {/* -------------- DIVIDER --------------*/}
       <LocalTitle title="Divider horizontal & vertical" />
       <div className="flex flex-col items-center gap-4">
-        <div className="flex justify-around w-40 h-40 md:w-80 md:h-80 opacity-50 gap-x-3 md:gap-x-4">
+        <div className="flex h-40 w-40 justify-around gap-x-3 opacity-50 md:h-80 md:w-80 md:gap-x-4">
           <Divider category="workshops" />
           <Divider category="creativeTalks" orientation="vertical" />
         </div>
@@ -987,7 +987,7 @@ export default function Home() {
       {/* -------------- ICON TITLE --------------*/}
       <LocalTitle title="Icon Title" />
       <div className="flex flex-col items-center gap-10 px-3">
-        <div className="md:mt-24 md:mb-32 my-12">
+        <div className="my-12 md:mb-32 md:mt-24">
           <IconTitle
             title="Sem Filtros"
             mode="hashtag"
@@ -1031,10 +1031,11 @@ export default function Home() {
       {/* -------------- Mentor Element --------------*/}
       <LocalTitle title="Mentor Element" />
       <div className="flex flex-col items-center gap-4 px-3">
-        <div className="flex flex-wrap justify-center gap-x-4 w-full">
+        <div className="flex w-full flex-wrap justify-center gap-x-4">
           <div className="flex flex-col items-center gap-3">
             <MentorElement
-              eventCount={1}
+              id={""}
+              label={1 + " " + t("Components.Mentor.eventBarSingular")}
               name="Benedita Pereira"
               image={{
                 src: BeneditaPereiera,
@@ -1055,9 +1056,10 @@ export default function Home() {
 />`}
             />
           </div>
-          <div className="flex flex-col items-center gap-3 mt-3">
+          <div className="mt-3 flex flex-col items-center gap-3">
             <MentorElement
-              eventCount={2}
+              id={""}
+              label={2 + " " + t("Components.Mentor.eventBarPlural")}
               category="creativeTalks"
               name="Benedita Pereira"
               image={{
@@ -1079,15 +1081,15 @@ export default function Home() {
 />`}
             />
           </div>
-          <div className="flex flex-col items-center gap-3  mt-3">
+          <div className="mt-3 flex flex-col items-center  gap-3">
             <MentorElement
+              id="s"
               name="Benedita Pereira Very Very Long"
               image={{
                 src: BeneditaPereiera,
                 alt: "benedita_none",
                 objectPosition: "center",
               }}
-              onClick={() => console.log("pressed!")}
             />
             <Code
               text={`<MentorElement
@@ -1108,7 +1110,7 @@ export default function Home() {
 
       {/* -------------- Mentor Event Bar --------------*/}
       <LocalTitle title="Mentor Event Bar" />
-      <div className="flex flex-col items-center justify-center md:px-32 gap-4">
+      <div className="flex flex-col items-center justify-center gap-4 md:px-32">
         <MentorEventBar
           mentor={{
             name: "Benedita Pereira",
@@ -1192,7 +1194,7 @@ export default function Home() {
       <LocalTitle title="Mentor Identifier" />
       <div className="flex flex-col items-center gap-4 px-3">
         <div className="flex flex-wrap items-center gap-4">
-          <div className="flex flex-col items-center gap-3  mt-3">
+          <div className="mt-3 flex flex-col items-center  gap-3">
             <MentorIdentifier
               image={{
                 src: CarolinaLeite,
@@ -1212,7 +1214,7 @@ export default function Home() {
 />`}
             />
           </div>
-          <div className="flex flex-col items-center gap-3  mt-3">
+          <div className="mt-3 flex flex-col items-center  gap-3">
             <MentorIdentifier
               image={{
                 src: CarolinaLeite,
@@ -1448,7 +1450,7 @@ export default function Home() {
 
       {/* -------------- Schedule Element --------------*/}
       <LocalTitle title="Schedule Element" />
-      <div className="flex flex-col items-center gap-4 px-3 w-full">
+      <div className="flex w-full flex-col items-center gap-4 px-3">
         <ScheduleElement
           title={"Lorem ipsum dolor sit amet"}
           duration={"20 min"}
@@ -1598,17 +1600,17 @@ export default function Home() {
           setSelectedTab={setSelectedTab}
         >
           {selectedTab === 0 && (
-            <div className="flex justify-center font-league-gothic uppercase text-xl">
+            <div className="flex justify-center font-league-gothic text-xl uppercase">
               Children Edições Foco
             </div>
           )}
           {selectedTab === 1 && (
-            <div className="flex justify-center font-league-gothic uppercase text-xl">
+            <div className="flex justify-center font-league-gothic text-xl uppercase">
               Children Edições all in one
             </div>
           )}
           {selectedTab === 2 && (
-            <div className="flex justify-center font-league-gothic uppercase text-xl">
+            <div className="flex justify-center font-league-gothic text-xl uppercase">
               Children Edições presenciais
             </div>
           )}
@@ -1783,7 +1785,7 @@ export default function Home() {
       <Divider />
       {/* -------------- Sponsors --------------*/}
       <LocalTitle title="Sponsors" />
-      <div className="flex flex-col items-center gap-4 px-3 w-full">
+      <div className="flex w-full flex-col items-center gap-4 px-3">
         <Sponsors
           sponsors={[
             { src: fb, alt: "fb" },
