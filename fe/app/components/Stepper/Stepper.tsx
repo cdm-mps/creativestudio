@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 const Stepper = ({ activeStep, category }: StepperProps) => {
   const t = useTranslations("Components.Stepper");
   return (
-    <div className="flex justify-center items-start font-league-gothic text-center md:gap-3 gap-1">
+    <div className="flex items-start justify-center gap-1 text-center font-league-gothic md:gap-3">
       <StepperElement
         index={1}
         text={t("textOne")}

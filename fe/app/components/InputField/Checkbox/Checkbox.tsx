@@ -7,7 +7,7 @@ const Checkbox = ({
   updateCheckboxStatus,
 }: CheckboxProps) => {
   return (
-    <div className="flex my-8">
+    <div className="my-8 flex">
       <div className="flex items-baseline gap-2">
         <input
           type="checkbox"

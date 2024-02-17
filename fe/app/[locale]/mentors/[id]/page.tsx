@@ -96,7 +96,7 @@ export default function MentorPage() {
 
           <div className="flex gap-20">
             <MentorElement
-              descriptionLabel={t(pageContent.occupation)}
+              label={t(pageContent.occupation)}
               name={pageContent.name}
               image={{
                 src: pageContent.image.src,

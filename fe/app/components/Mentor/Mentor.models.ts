@@ -5,7 +5,7 @@ export interface MentorProps {
   name: string;
   image: ImageProps;
   category?: Category;
-  descriptionLabel?: string;
+  label?: string;
   onClick?: () => void;
   showName?: boolean;
 }

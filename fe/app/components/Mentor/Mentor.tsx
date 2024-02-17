@@ -9,7 +9,7 @@ const Mentor = ({
   name,
   image,
   category = "businessWorkshops",
-  descriptionLabel,
+  label: descriptionLabel,
   onClick,
   showName = true,
 }: MentorProps) => {
@@ -31,8 +31,6 @@ const Mentor = ({
           >
             <span className="font-league-gothic text-xs md:text-2xl">
               {descriptionLabel}
-              {/* {eventCount}
-              {eventCount === 1 ? t("eventBarSingular") : t("eventBarPlural")} */}
             </span>
           </div>
         )}
