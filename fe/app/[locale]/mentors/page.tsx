@@ -10,16 +10,18 @@ import { Locales } from "@model/Locales";
 import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 
+//TODO: update query to get future events
+
 const MentorsPageSkeleton = () => {
-  let arr = Array.from({ length: 12 }, () => (
-    <Skeleton height={460} width={362} />
-  ));
+  let arr = Array.from({ length: 12 }, () => ({ height: 460, width: 362 }));
   return (
     <div className="flex flex-col">
       <Skeleton height={72} width={229} />
       <Skeleton height={140} className="my-14" />
       <div className="flex flex-wrap justify-center gap-24">
-        {arr.map((skeleton) => skeleton)}
+        {arr.map((skeleton, index) => (
+          <Skeleton {...skeleton} key={"skl_" + index} />
+        ))}
       </div>
     </div>
   );
@@ -44,10 +46,15 @@ export default function MentorsPage() {
               alt: element.image.mentor_image.title,
               objectPosition: element.image.mentor_image.objectPosition,
             },
-            label:
-              element.event?.eventCount === 1
-                ? t("Components.Mentor.eventBarSingular")
-                : t("Components.Mentor.eventBarPlural"),
+            label: element.event
+              ? element.event.eventCount === 1
+                ? element.event.eventCount +
+                  " " +
+                  t("Components.Mentor.eventBarSingular")
+                : element.event.eventCount +
+                  " " +
+                  t("Components.Mentor.eventBarPlural")
+              : null,
             id: element._id,
           })),
         } as MentorsProps);
@@ -72,7 +79,3 @@ export default function MentorsPage() {
     </main>
   );
 }
-
-//  {
-//    eventCount === 1 ? t("eventBarSingular") : t("eventBarPlural");
-//  }

@@ -1,4 +1,5 @@
 import { ObjectPosition } from "@components/ImageElement/ImageElement.models";
+import { Locales } from "@model/Locales";
 
 export interface MentorElement {
   name: string;
@@ -14,7 +15,6 @@ export interface MentorElement {
 }
 
 export interface Mentors {
-    description: { pt: string; en: string };
-    mentors: MentorElement[];
-  }
-  
+  description: Record<Locales, string>;
+  mentors: MentorElement[];
+}

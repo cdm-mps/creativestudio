@@ -13,7 +13,7 @@ const Mentor = ({
 }: MentorProps) => {
   return (
     <Link
-      className="group flex max-w-[162px] cursor-pointer flex-col items-center gap-y-7 md:max-w-[362px]"
+      className="flex max-w-[162px] cursor-pointer flex-col items-center gap-y-7 md:max-w-[362px]"
       href={`mentors/${id}`}
     >
       <div className="relative">
@@ -23,7 +23,7 @@ const Mentor = ({
         />
         {label && (
           <div
-            className={`absolute flex h-[26px] w-[162px] items-center justify-center bg-${category} bottom-0 md:h-[46px] md:w-[362px] xl:hidden xl:group-hover:flex`}
+            className={`absolute flex h-[26px] w-[162px] items-center justify-center bg-${category} bottom-0 md:h-[46px] md:w-[362px]`}
           >
             <span className="font-league-gothic text-xs md:text-2xl">
               {label}
