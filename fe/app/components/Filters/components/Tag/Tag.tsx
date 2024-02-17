@@ -9,11 +9,11 @@ export const Tag = ({
   onClick: () => void;
 }) => (
   <div
-    className="flex items-center justify-center border border-businessWorkshops text-businessWorkshops
-      rounded-lg px-3 py-1 md:px-4 md:py-2 cursor-pointer hover:opacity-80"
+    className="flex cursor-pointer items-center justify-center rounded-lg border
+      border-businessWorkshops px-3 py-1 text-businessWorkshops hover:opacity-80 md:px-4 md:py-2"
     onClick={onClick}
   >
-    <span className="text-businessWorkshops font-league-gothic text-base md:text-xl uppercase pr-2 md:pr-4">
+    <span className="pr-2 font-league-gothic text-base uppercase text-businessWorkshops md:pr-4 md:text-xl">
       {label}
     </span>
     <Times />

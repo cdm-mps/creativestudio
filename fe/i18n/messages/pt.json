@@ -1,4 +1,12 @@
 {
+  "pages": {
+    "home": {
+      "findOut": "Descubra as novidades",
+      "news": "Novidades",
+      "noFilters": "Sem filtros",
+      "question": "...E tu? Juntas-te a nós?"
+    }
+  },
   "general": {
     "CategoryElement": {
       "category": {
@@ -18,6 +26,10 @@
           "value": "Business Workshops"
         }
       }
+    },
+    "Levels": {
+      "beginner": "Iniciante",
+      "intermediate": "Intermédio"
     },
     "AreaOfInterest": {
       "radio": "Rádio",
@@ -42,7 +54,7 @@
     "footer": "E mais..."
   },
   "Categories": {
-    "masterclasses": "MasterClasses",
+    "masterclasses": "Masterclasses",
     "editions": "Edições",
     "creativeTalks": "Creative Talks",
     "workshops": "Workshops",
@@ -112,5 +124,17 @@
   "Contacts": {
     "firstHighlight": "Queres saber mais? Fala connosco!",
     "secondHighlight": "Ou descobre mais explorando a nossa “casa”..."
+  },
+  "CreativeWorkshops": {
+    "title": "Creative Workshops",
+    "ourServices": "Os nossos serviços"
+  },
+  "Event": {
+    "enrol": "Inscrever",
+    "schedule": "Programação"
+  },
+  "BusinessWorkshops": {
+    "title": "Business Workshops",
+    "workInProgress": "Work In Progress"
   }
 }

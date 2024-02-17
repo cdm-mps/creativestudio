@@ -13,6 +13,7 @@ const singletonTypes = new Set([
   'contacts',
   'creativeTalks',
   'creativeWorkshops',
+  'businessWorkshops',
   'editions',
   'enrollForm',
   'masterclasses',
@@ -71,6 +72,15 @@ export default defineConfig({
                   .schemaType('creativeWorkshops')
                   .documentId('creativeWorkshops')
                   .title('Creative Workshops'),
+              ),
+            S.listItem()
+              .title('[page] Business Workshops')
+              .id('businessWorkshops')
+              .child(
+                S.document()
+                  .schemaType('businessWorkshops')
+                  .documentId('businessWorkshops')
+                  .title('Business Workshops'),
               ),
             S.listItem()
               .title('[page] Editions')

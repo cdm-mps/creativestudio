@@ -1,4 +1,4 @@
 export interface ModalProps {
   className?: string;
-  closeModal: () => void;
+  onCloseModal: () => void;
 }

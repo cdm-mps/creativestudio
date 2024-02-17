@@ -16,7 +16,7 @@ export const Splitter = (props: SVGAttributes<HTMLOrSVGElement>) => {
         stroke="white"
         strokeWidth="2"
         strokeLinecap="round"
-        stroke-dasharray="4 4"
+        strokeDasharray="4 4"
       />
     </svg>
   );

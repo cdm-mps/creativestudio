@@ -9,7 +9,7 @@ const CategoryBarList = () => {
   const [hovered, setHovered] = React.useState<Category | undefined>(undefined);
 
   return (
-    <div className="w-full flex flex-col gap-2 md:gap-6">
+    <div className="flex w-full flex-col gap-2 md:gap-6">
       {categories.map((category, i) => {
         return (
           <Link

@@ -7,15 +7,15 @@ import { PropsWithChildren } from "react";
 const Modal = ({
   children,
   className,
-  closeModal,
+  onCloseModal,
 }: PropsWithChildren & ModalProps) => {
   return (
     <div className={className ?? ""}>
       <div className="fixed left-0 top-0 z-[60] flex h-screen w-screen items-center justify-center bg-black/50"/>
-      <div className="fixed left-1/2 top-1/2 z-[99] w-2/3 p-5 -translate-x-1/2 -translate-y-1/2 rounded-[8px] border-[1.5px] border-white bg-black text-white ">
+      <div className="fixed left-1/2 top-1/2 z-[99] w-2/3 p-5 -translate-x-1/2 -translate-y-1/2 rounded-[8px] border-[1.5px] border-white bg-background text-white ">
         <div className="w-full flex justify-end mb-3">
           <CloseIcon
-            onClick={closeModal}
+            onClick={onCloseModal}
             className="cursor-pointer w-6 h-6 sm:w-7 sm:h-7"
           />
         </div>

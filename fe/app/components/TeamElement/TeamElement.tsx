@@ -10,10 +10,10 @@ const TeamElement = ({ image, name, role }: TeamElementProps) => {
         className="h-20 w-20 md:h-[200px] md:w-[200px]"
         rounded
       />
-      <span className="font-league-gothic uppercase text-base mt-6 md:text-3xl md:mt-12 text-center">
+      <span className="mt-6 text-center font-league-gothic text-base uppercase md:mt-12 md:text-3xl">
         {name}
       </span>
-      <span className="font-noto-sans mt-2 text-xs md:text-base md:mt-4">
+      <span className="mt-2 font-noto-sans text-xs md:mt-4 md:text-base">
         {role}
       </span>
     </div>

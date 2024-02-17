@@ -8,6 +8,7 @@ import artisticResidences from './pages/artisticResidences'
 import contacts from './pages/contacts'
 import creativeTalks from './pages/creativeTalks'
 import creativeWorkshops from './pages/creativeWorkshops'
+import businessWorkshops from './pages/businessWorkshops'
 import editions from './pages/editions'
 import enrollForm from './pages/enrollForm'
 import homepage from './pages/homepage'
@@ -28,6 +29,7 @@ export const schemaTypes = [
   homepage,
   aboutUs,
   creativeWorkshops,
+  businessWorkshops,
   contacts,
   editions,
   artisticResidences,
@@ -35,5 +37,5 @@ export const schemaTypes = [
   workshops,
   creativeTalks,
   enrollForm,
-  mentors
+  mentors,
 ]

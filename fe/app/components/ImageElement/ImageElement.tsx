@@ -8,7 +8,7 @@ const ImageElement = (props: ImageProps) => {
     <div
       className={clsx(
         `relative ${props.className}`,
-        props.rounded && "rounded-[50%] overflow-hidden"
+        props.rounded && "overflow-hidden rounded-[50%]",
       )}
     >
       <Image

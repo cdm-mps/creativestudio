@@ -31,9 +31,9 @@ const Calendar = ({ events, setSelectedDate }: CalendarProps) => {
             className="flex items-center justify-center md:justify-start"
           >
             <div
-              className={`w-4 h-4 my-0.5 ml-2 rounded-full md:rounded-none md:w-2 md:h-5 bg-${event.category} md:mr-2`}
+              className={`my-0.5 ml-2 h-4 w-4 rounded-full md:h-5 md:w-2 md:rounded-none bg-${event.category} md:mr-2`}
             />
-            <span className="hidden md:font-noto-sans md:text-base md:line-clamp-1">
+            <span className="hidden md:line-clamp-1 md:font-noto-sans md:text-base">
               {event.title}
             </span>
           </div>

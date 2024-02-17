@@ -12,7 +12,7 @@ const Tabs = ({
 }: PropsWithChildren<TabsProps>) => {
   return (
     <>
-      <div className="flex items-center justify-center my-3">
+      <div className="my-3 flex items-center justify-center">
         {tabs.map((e, i) => (
           <TabElement
             key={i}

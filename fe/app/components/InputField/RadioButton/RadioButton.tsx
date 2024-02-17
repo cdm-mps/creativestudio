@@ -7,7 +7,7 @@ const RadioButton = ({
   updateRadioButtonStatus,
 }: RadioButtonProps) => {
   return (
-    <div className="flex my-8">
+    <div className="my-8 flex">
       <div className="flex gap-2">
         <input
           type="radio"

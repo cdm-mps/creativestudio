@@ -6,12 +6,13 @@ import { getPublishedDataQuery } from "@utils/getPublishedDataQuery";
 
 export async function GET(request: Request, context: any) {
   const { params } = context;
-  const sections = PagesStructure[params.category as Category | Page].section;
+  const sections = PagesStructure[params.category as Category | Page]?.section;
   const query = getPublishedDataQuery(
     params.category,
     undefined,
-    `{${sections.join(",")}}`
+    sections?.length ? `{${sections?.join(",")}}` : undefined,
   );
+
   const res = await client.fetch(query);
 
   return Response.json(res);
