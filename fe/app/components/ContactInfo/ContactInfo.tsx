@@ -10,9 +10,9 @@ const ContactInfo = ({ email, mobilePhone, socials }: ContactInfoProps) => {
         <b>+351</b> {mobilePhone}
       </span>
       <Divider />
-      <div className="grid grid-cols-2 items-center font-semibold md:grid-cols-3 md:text-base">
+      <div className="flex items-center gap-6 font-semibold md:text-base">
         {socials.map((social) => (
-          <div key={social.text} className="flex items-center gap-x-2">
+          <div key={social.text} className="flex items-center gap-[6px]">
             {social.icon}
             <span>{social.text}</span>
           </div>

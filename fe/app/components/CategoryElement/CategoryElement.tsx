@@ -12,6 +12,7 @@ const CategoryElement = ({
   category,
   description,
   isDisabled = false,
+  size = "medium",
 }: CategoryElementProps) => {
   const t = useTranslations("Categories");
   const [showDescription, setShowDescription] = useState<boolean>(false);
@@ -27,21 +28,31 @@ const CategoryElement = ({
         onMouseEnter={() => setShowDescription(true)}
         onMouseLeave={() => setShowDescription(false)}
         className={clsx(
-          `p-3 md:hover:scale-110 cursor-pointer bg-${category} md:w-[350px] md:h-[350px] w-[250px] h-[200px] flex flex-col items-center justify-center md:gap-4 gap-3`,
-          isDeactivated && "md:opacity-50"
+          `cursor-pointer p-3 md:hover:scale-110 bg-${category} flex flex-col items-center justify-center gap-3 md:gap-4`,
+          isDeactivated && "md:opacity-50",
+          size === "medium"
+            ? "h-[200px] w-[250px] md:h-[423px] md:w-[423px]"
+            : "h-[200px] w-[250px] md:h-[137px] md:w-[137px]",
         )}
       >
         <p
           className={clsx(
-            "font-league-gothic text-2xl md:text-4xl text-center uppercase",
-            isDeactivated && "md:opacity-50"
+            "text-center font-league-gothic",
+            isDeactivated && "md:opacity-50",
+            size === "medium"
+              ? "text-2xl uppercase md:text-7xl"
+              : "font-noto-sans text-sm lowercase md:text-base",
           )}
         >
           {t(category)}
         </p>
         <div className="text-white">
           {categoriesDictionary[category](
-            clsx("h-6 md:h-14", isDeactivated && "md:opacity-50"),
+            clsx(
+              "h-6 md:h-14",
+              isDeactivated && "md:opacity-50",
+              size === "medium" ? "h-6 md:h-14" : "h-3 md:h-7",
+            ),
           )}
         </div>
 

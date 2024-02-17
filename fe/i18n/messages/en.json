@@ -120,6 +120,10 @@
   "AboutUs": {
     "team": "Team"
   },
+  "Contacts": {
+    "firstHighlight": "Want to know more? Talk to us!",
+    "secondHighlight": "Or find out more by exploring our “house”..."
+  },
   "CreativeWorkshops": {
     "title": "Creative Workshops",
     "ourServices": "Our Services"
