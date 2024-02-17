@@ -158,10 +158,8 @@ export default function Home() {
             content: element.quote[locale as Locales],
           })),
           sponsors: content.sponsors.map((element) => ({
-            src: element.src,
+            src: urlFor(element.src).url(),
             alt: element.alt,
-            width: element.dimensions.metadata.dimensions.width,
-            height: element.dimensions.metadata.dimensions.height,
           })),
         });
       });
@@ -170,7 +168,7 @@ export default function Home() {
   return (
     <main className="flex flex-col md:pt-20 pt-40">
       <div className="h-[calc(76vh)] flex flex-col justify-between pb-7">
-        <BannerGrid images={bannerGridImages} title={pageContent?.title!} />
+        <BannerGrid images={bannerGridImages} />
         <div className="flex flex-col items-center gap-4">
           <p className="w-fit uppercase font-league-gothic">{t("findOut")}</p>
           <Link href="#news-slider-section" className="scroll-smooth">
@@ -180,22 +178,24 @@ export default function Home() {
       </div>
       <div
         id="news-slider-section"
-        className="mx-14 flex flex-col gap-14 pt-24"
+        className="mx-40 flex flex-col gap-14 pt-24"
       >
-        <ArrowTitle title="Novidades" category="businessWorkshops" />
+        <ArrowTitle title={t("news")} category="businessWorkshops" />
         <NewsSlider news={pageContent?.news!} />
       </div>
       <div className="pt-[100px] mt-[139px] w-full">
-        <IconTitle
-          title={t("noFilters")}
-          category="businessWorkshops"
-          mode="hashtag"
-        />
-        <div className="mt-28">
+        <div className="mx-40">
+          <IconTitle
+            title={t("noFilters")}
+            category="businessWorkshops"
+            mode="hashtag"
+          />
+        </div>
+        <div className="pt-48 mx-40">
           <QuoteSlider quotes={pageContent?.quotes!} />
         </div>
       </div>
-      <div className="my-16 text-center">
+      <div className="my-48 text-center">
         <CoreTitle title={t("question")} />
       </div>
       <div className="mb-[104px]">

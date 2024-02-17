@@ -6,6 +6,9 @@ export interface HomePageProps {
   title: string;
   highlight: string;
   quotes: QuoteElementProps[];
-  sponsors: SponsorsProps[];
+  sponsors: {
+    src: string;
+    alt: string;
+  }[];
   news: NewsElementProps[];
 }

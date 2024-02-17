@@ -64,7 +64,7 @@ export const PagesStructure: Record<
       "highlight",
       "title",
       `news[] ->{title, date, category, mentor {mentor -> {name, image {mentor_image -> { "src":image.asset._ref, objectPosition, "alt":title}}}}}`,
-      `sponsors[] -> {"alt":name, "src": image.asset->url, "dimensions": image.asset->{metadata {dimensions}}}`,
+      `sponsors[] -> {"alt":name, "src": image.asset._ref}`,
       "comments[] ->{quote, author}",
     ],
   },

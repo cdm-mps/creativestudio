@@ -12,6 +12,8 @@ const Sponsors = ({ sponsors }: { sponsors: SponsorsProps[] }) => {
             key={`sponsor-${sponsor.alt}`}
             {...sponsor}
             className="w-auto"
+            width={45}
+            height={45}
           />
         ))}
       </div>

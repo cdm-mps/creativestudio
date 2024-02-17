@@ -18,15 +18,6 @@ export interface NewsElement {
 export interface SponsorsElement {
   alt: string;
   src: string;
-  dimensions: {
-    metadata: {
-      dimensions: {
-        width: number;
-        aspectRatio: number;
-        height: number;
-      };
-    };
-  };
 }
 export interface CommentsElement {
   quote: Record<Locales, string>;
