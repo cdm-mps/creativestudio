@@ -3,6 +3,7 @@ import { Category } from "@model/Category";
 import { Locales } from "@model/Locales";
 
 export interface Mentor {
+  _id: string;
   bio: Record<Locales, string>;
   image: {
     mentor_image: {
@@ -12,6 +13,7 @@ export interface Mentor {
   };
   event: {
     mentor_event: {
+      _id: string;
       category: Category;
       date: string;
       title: Record<Locales, string>;

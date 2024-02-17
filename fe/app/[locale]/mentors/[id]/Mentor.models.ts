@@ -7,14 +7,16 @@ interface Image {
 }
 
 interface Event {
+  _id: string;
   category: Category;
   date: string;
   title: string;
 }
 
 export interface MentorProps {
+  _id: string;
   bio: string;
-  image: { src: string; objectPosition: ObjectPosition };
+  image: Image;
   name: string;
   occupation: string;
   previousEvents?: Event[];

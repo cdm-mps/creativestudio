@@ -12,7 +12,7 @@ import { NotFoundBanner } from "@components/shared/NotFoundBanner/NotFoundBanner
 import { Locales } from "@model/Locales";
 import { isDateInPast } from "@utils/date/isDateInPast";
 import { useLocale, useTranslations } from "next-intl";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const MentorPageSkeleton = () => {
@@ -40,6 +40,7 @@ const MentorPageSkeleton = () => {
 };
 
 export default function MentorPage() {
+  const { push } = useRouter();
   const t = useTranslations();
   const locale = useLocale();
   const params = useParams();
@@ -51,6 +52,7 @@ export default function MentorPage() {
       .then((data: Mentor[]) => {
         const content = data[0];
         setPageContent({
+          _id: content._id,
           bio: content.bio[locale as Locales],
           name: content.name,
           occupation: content.occupation[locale as Locales],
@@ -63,6 +65,7 @@ export default function MentorPage() {
             .map((event) => {
               if (isDateInPast(event.date))
                 return {
+                  _id: event._id,
                   category: event.category,
                   date: event.date,
                   title: event.title[locale as Locales],
@@ -74,6 +77,7 @@ export default function MentorPage() {
             .map((event) => {
               if (!isDateInPast(event.date))
                 return {
+                  _id: event._id,
                   category: event.category,
                   date: event.date,
                   title: event.title[locale as Locales],
@@ -129,7 +133,12 @@ export default function MentorPage() {
                     category={event.category}
                     title={event.title}
                     date={event.date}
-                    onClick={() => {}}
+                    disabled
+                    onClick={() =>
+                      push(
+                        `/${locale}/creative-workshops/${event.category}/event/${event._id}`,
+                      )
+                    }
                   />
                 ))
               ) : (
@@ -159,7 +168,12 @@ export default function MentorPage() {
                     category={event.category}
                     title={event.title}
                     date={event.date}
-                    onClick={() => {}}
+                    disabled
+                    onClick={() =>
+                      push(
+                        `/${locale}/creative-workshops/${event.category}/event/${event._id}`,
+                      )
+                    }
                   />
                 ))
               ) : (
