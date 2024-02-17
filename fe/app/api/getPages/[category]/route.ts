@@ -10,8 +10,9 @@ export async function GET(request: Request, context: any) {
   const query = getPublishedDataQuery(
     params.category,
     undefined,
-    sections?.length ? `{${sections?.join(",")}}` : undefined
+    sections?.length ? `{${sections?.join(",")}}` : undefined,
   );
+
   const res = await client.fetch(query);
 
   return Response.json(res);
