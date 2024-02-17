@@ -1,6 +1,6 @@
 export interface QuoteElementProps {
   className?: string;
-  content: React.JSX.Element;
+  content: string | JSX.Element;
   author?: string;
 }
 export interface QuoteSliderProps {
