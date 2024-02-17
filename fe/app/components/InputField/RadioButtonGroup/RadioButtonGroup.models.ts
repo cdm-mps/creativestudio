@@ -1,10 +1,11 @@
 import { Category } from "@model/Category";
 
-export interface TextAreaProps {
+export interface RadioButtonGroupProps {
   title: string;
   description?: string;
-  value: string;
   category: Category;
+  options: { label: string; value: string }[];
+  value: string;
   required?: boolean;
   onChangeValue: (value: string) => void;
 }
