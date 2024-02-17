@@ -62,13 +62,13 @@
     "businessWorkshops": "Business Workshop"
   },
   "Menu": {
-    "CreativeWorkshops": "Creative Workshops",
-    "BusinessWorkshops": "Business Workshops",
-    "Mentors": "Mentores",
-    "Calendar": "Calendário",
-    "AboutUs": "Sobre Nós",
-    "Contacts": "Contactos",
-    "FollowUs": "Segue-nos !"
+    "creativeWorkshops": "Creative Workshops",
+    "businessWorkshops": "Business Workshops",
+    "mentors": "Mentores",
+    "calendar": "Calendário",
+    "aboutUs": "Sobre Nós",
+    "contacts": "Contactos",
+    "followUs": "Segue-nos !"
   },
   "Components": {
     "Mentor": {
@@ -110,7 +110,8 @@
     },
     "UploadFile": {
       "addFile": "Adicionar ficheiro"
-    }
+    },
+    "NotFound": { "noEvents": "Não existem eventos" }
   },
   "CreativeWorkshop": {
     "areaOfInterest": "Área de Interesse",

@@ -5,4 +5,5 @@ export interface MentorIdentifierProps {
   image: ImageProps;
   name: string;
   previous?: boolean;
+  disabled?: boolean;
 }

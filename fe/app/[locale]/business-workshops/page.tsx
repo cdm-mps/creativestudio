@@ -1,6 +1,5 @@
 "use client";
 import { urlFor } from "@/client";
-import BeneditaPereiera from "@assets/images/BeneditaPereira.png";
 import CategoryCard from "@components/CategoryCard/CategoryCard";
 import Divider from "@components/Divider/Divider";
 import { Header } from "@components/Header/Header";
@@ -27,15 +26,21 @@ export default function BusinessWorkshopsPage() {
   }, []);
 
   if (!pageStructure) {
-    return (<div className="flex flex-col">
-    <Skeleton height={72} width={540} />
-    <Skeleton height={42} width={300} className="mt-14" />
-    <Skeleton height={250} className="mt-12 mb-14" />
-    {Array(4).fill(null).map(()=> <div className="flex flex-col">
-      <Skeleton height={300}/>
-      <Skeleton height={2} className="my-4"/>
-    </div>)}
-  </div>);
+    return (
+      <div className="flex flex-col">
+        <Skeleton height={72} width={540} />
+        <Skeleton height={42} width={300} className="mt-14" />
+        <Skeleton height={250} className="mb-14 mt-12" />
+        {Array(4)
+          .fill(null)
+          .map(() => (
+            <div className="flex flex-col">
+              <Skeleton height={300} />
+              <Skeleton height={2} className="my-4" />
+            </div>
+          ))}
+      </div>
+    );
   }
 
   return (
@@ -46,7 +51,7 @@ export default function BusinessWorkshopsPage() {
           {categoriesDictionary["businessWorkshops"]("max-md:w-4 h-auto")}
         </div>
         {pageStructure.isWIP && (
-          <div className="flex h-fit border-2 p-2 rounded-lg border-businessWorkshops">
+          <div className="flex h-fit rounded-lg border-2 border-businessWorkshops p-2">
             <span className="font-league-gothic text-xl uppercase text-businessWorkshops">
               {t("workInProgress")}
             </span>
@@ -69,7 +74,7 @@ export default function BusinessWorkshopsPage() {
             title={workshop.title[locale as Locales]}
             disabled={pageStructure.isWIP}
             subCategories={workshop.subcategories?.map(
-              (subcategory) => subcategory[locale as Locales]
+              (subcategory) => subcategory[locale as Locales],
             )}
           />
           <Divider category="businessWorkshops" className="my-4 opacity-50" />

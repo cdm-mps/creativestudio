@@ -11,6 +11,7 @@ import { Header } from "@components/Header/Header";
 import IconTitle from "@components/IconTitle/IconTitle";
 import Skeleton from "@components/Skeleton/Skeleton";
 import Tabs from "@components/Tabs/Tabs";
+import { NotFoundBanner } from "@components/shared/NotFoundBanner/NotFoundBanner";
 import { AreaOfInterest } from "@model/AreaOfInterest";
 import { Category, categories } from "@model/Category";
 import { Locales } from "@model/Locales";
@@ -63,7 +64,7 @@ export default function CreativeWorkshopPage({
         activeFilter > -1
           ? `/areaOfInterest/${Object.keys(AreaOfInterest)[activeFilter]}`
           : ""
-      }`
+      }`,
     )
       .then((res) => res.json())
       .then((data: Event[]) => {
@@ -91,21 +92,21 @@ export default function CreativeWorkshopPage({
     return (
       <div className="flex flex-col">
         <Skeleton height={103} width={300} />
-        <Skeleton height={42} width={400} className=" mt-14 mb-12" />
+        <Skeleton height={42} width={400} className=" mb-12 mt-14" />
         <Skeleton height={300} />
-        <Skeleton height={39} width={380} className="mt-16 mb-14" />
+        <Skeleton height={39} width={380} className="mb-14 mt-16" />
         <div className="flex items-center justify-center">
           <Skeleton height={163} className="mb-3" />
         </div>
-        <Skeleton height={100} width={380} className="mt-20 mb-16" />
-        <div className="flex gap-8 mb-9">
+        <Skeleton height={100} width={380} className="mb-16 mt-20" />
+        <div className="mb-9 flex gap-8">
           {Array(3)
             .fill(null)
             .map(() => (
               <Skeleton height={320} width={290} />
             ))}
         </div>
-        <Skeleton height={100} width={380} className="mt-20 mb-16" />
+        <Skeleton height={100} width={380} className="mb-16 mt-20" />
         <div className="flex gap-8">
           {Array(3)
             .fill(null)
@@ -141,7 +142,7 @@ export default function CreativeWorkshopPage({
             <div className="pt-14">
               <Tabs
                 tabs={Object.keys(pageContent).map(
-                  (key) => pageContent[key].label?.[locale as Locales]!
+                  (key) => pageContent[key].label?.[locale as Locales]!,
                 )}
                 category={category}
                 selectedTab={selectedTab}
@@ -185,7 +186,7 @@ export default function CreativeWorkshopPage({
       }
       {pageStructure.hasAreaOfInsterest && (
         <>
-          <div className="font-league-gothic text-4xl mt-16 mb-14">
+          <div className="mb-14 mt-16 font-league-gothic text-4xl">
             {t("areaOfInterest")}
           </div>
           <ButtonFilter
@@ -207,7 +208,7 @@ export default function CreativeWorkshopPage({
       {getNextEvents().length > 0 ? (
         <EventGrid events={getNextEvents()} />
       ) : (
-        <NotFound />
+        <NotFoundBanner />
       )}
       <div className="mt-44" />
       <IconTitle title={t("previous")} mode="dots" category={category} />
@@ -215,16 +216,8 @@ export default function CreativeWorkshopPage({
       {getPreviousEvents().length > 0 ? (
         <EventGrid events={getPreviousEvents()} />
       ) : (
-        <NotFound />
+        <NotFoundBanner />
       )}
     </main>
   );
 }
-
-const NotFound = () => (
-  <div className="flex items-center justify-center h-32 w-full bg-not-found-disclaimer">
-    <span className="font-league-gothic text-2xl uppercase">
-      Não existem eventos
-    </span>
-  </div>
-);

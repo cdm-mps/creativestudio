@@ -23,9 +23,9 @@ export default function ContactsPage() {
   return (
     <main className="flex flex-col">
       <div className="flex">
-        <div className="ml-20 w-[calc(50vw-80px)] h-fit">
+        <div className="ml-20 h-fit w-[calc(50vw-80px)]">
           <Title title={t("Menu.Contacts")} category="businessWorkshops" />
-          <div className="font-noto-sans italic text-[28px] my-12">
+          <div className="my-12 font-noto-sans text-[28px] italic">
             {t("Contacts.firstHighlight")}
           </div>
           {pageContent.length > 0 ? (
@@ -40,7 +40,7 @@ export default function ContactsPage() {
           ) : (
             <Skeleton className="mt-12" height={105} />
           )}
-          <div className="font-noto-sans italic text-[28px] my-12">
+          <div className="my-12 font-noto-sans text-[28px] italic">
             {t("Contacts.secondHighlight")}
           </div>
           <div className="flex ">
