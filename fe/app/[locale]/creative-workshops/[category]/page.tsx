@@ -9,13 +9,13 @@ import EventGrid from "@components/EventGrid/EventGrid";
 import { EventGridProps } from "@components/EventGrid/EventGrid.models";
 import { Header } from "@components/Header/Header";
 import IconTitle from "@components/IconTitle/IconTitle";
+import Skeleton from "@components/Skeleton/Skeleton";
 import Tabs from "@components/Tabs/Tabs";
 import { AreaOfInterest } from "@model/AreaOfInterest";
 import { Category, categories } from "@model/Category";
 import { Locales } from "@model/Locales";
 import { PageContent, PagesStructure } from "@model/PagesStructure";
 import { isDateInPast } from "@utils/date/isDateInPast";
-import clsx from "clsx";
 import { useLocale, useTranslations } from "next-intl";
 import { notFound } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -41,11 +41,11 @@ export default function CreativeWorkshopPage({
 
   const t = useTranslations("CreativeWorkshop");
 
-  const [pageContent, setPageContent] = useState<PageContent>({});
+  const [pageContent, setPageContent] = useState<PageContent | undefined>();
 
   const [selectedTab, setSelectedTab] = useState(0);
   const [activeFilter, setActiveFilter] = useState(-1);
-  const [events, setEvents] = useState<EventGridProps>({ events: [] });
+  const [events, setEvents] = useState<EventGridProps | undefined>();
 
   useEffect(() => {
     fetch(`/api/getPages/${category}`)
@@ -87,6 +87,36 @@ export default function CreativeWorkshopPage({
       });
   }, [selectedTab, activeFilter]);
 
+  if (!pageContent || !events) {
+    return (
+      <div className="flex flex-col">
+        <Skeleton height={103} width={300} />
+        <Skeleton height={42} width={400} className=" mt-14 mb-12" />
+        <Skeleton height={300} />
+        <Skeleton height={39} width={380} className="mt-16 mb-14" />
+        <div className="flex items-center justify-center">
+          <Skeleton height={163} className="mb-3" />
+        </div>
+        <Skeleton height={100} width={380} className="mt-20 mb-16" />
+        <div className="flex gap-8 mb-9">
+          {Array(3)
+            .fill(null)
+            .map(() => (
+              <Skeleton height={320} width={290} />
+            ))}
+        </div>
+        <Skeleton height={100} width={380} className="mt-20 mb-16" />
+        <div className="flex gap-8">
+          {Array(3)
+            .fill(null)
+            .map(() => (
+              <Skeleton height={320} width={290} />
+            ))}
+        </div>
+      </div>
+    );
+  }
+
   const getPreviousEvents = () => {
     return events.events.filter((event) => event.disabled);
   };
@@ -96,7 +126,7 @@ export default function CreativeWorkshopPage({
   };
 
   return (
-    <main className="flex flex-col min-h-[calc(100vh-26vh)] py-11">
+    <main className="flex flex-col">
       <BreadcrumbsTitle
         title={t_categories(category)}
         category={category}
@@ -193,6 +223,8 @@ export default function CreativeWorkshopPage({
 
 const NotFound = () => (
   <div className="flex items-center justify-center h-32 w-full bg-not-found-disclaimer">
-    <span className="font-league-gothic text-2xl">Não existem eventos</span>
+    <span className="font-league-gothic text-2xl uppercase">
+      Não existem eventos
+    </span>
   </div>
 );

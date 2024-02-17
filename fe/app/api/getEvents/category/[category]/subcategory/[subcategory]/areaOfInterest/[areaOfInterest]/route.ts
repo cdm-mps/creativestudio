@@ -6,7 +6,7 @@ export async function GET(request: Request, context: any) {
   const query = getPublishedDataQuery(
     "event",
     `category == "${params.category}" && subcategory == "${params.subcategory}" && "${params.areaOfInterest}" in areasOfInterest`,
-    `{ _id, category, subcategory, title, description, image { image-> { image, objectPosition, title } }, mentor {mentor -> {name, image{ mentor_image -> { image, objectPosition, title }} }}, duration, date, level, programation, areasOfInterest, isNew, hasSubmitVideo }`
+    `{ _id, category, subcategory, title, description, image { image-> { image, objectPosition, title } }, mentor {mentor -> {_id, name, image{ mentor_image -> { image, objectPosition, title }} }}, duration, date, level, programation, areasOfInterest, isNew, hasSubmitVideo }`
   );
   const res = await client.fetch(query);
 

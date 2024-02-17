@@ -26,6 +26,7 @@ export interface Event {
   };
   mentor: {
     mentor: {
+      _id: string;
       name: string;
       image: {
         mentor_image: {
@@ -44,9 +45,9 @@ export interface Event {
   };
   date: string;
   duration: string;
-  level: Level;
+  level?: Level;
   programation: {
-    description: string;
+    description: Record<Locales, string>;
     duration: string;
   }[];
   areaOfInterest: AreaOfInterest;
