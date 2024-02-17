@@ -3,11 +3,13 @@ import { Category } from "@model/Category";
 import { Locales } from "@model/Locales";
 
 export interface NewsElement {
+  _id: string;
   title: Record<Locales, string>;
   date: string;
   category: Category;
   mentor: {
     mentor: {
+      _id: string;
       name: string;
       image: {
         mentor_image: ImageProps;

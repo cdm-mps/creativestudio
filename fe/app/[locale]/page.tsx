@@ -12,6 +12,7 @@ import { ImageProps } from "@components/ImageElement/ImageElement.models";
 import NewsSlider from "@components/NewsSlider/NewsSlider";
 import QuoteSlider from "@components/Quote/QuoteSlider";
 import RoundArrowButton from "@components/RoundArrowButton/RoundArrowButton";
+import Skeleton from "@components/Skeleton/Skeleton";
 import Sponsors from "@components/Sponsors/Sponsors";
 import CoreTitle from "@components/shared/CoreTitle/CoreTitle";
 import { Locales } from "@model/Locales";
@@ -19,6 +20,34 @@ import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+
+const HomePageSkeleton = () => {
+  return (
+    <>
+      <div
+        id="news-slider-section"
+        className="mx-40 flex flex-col gap-14 pt-24"
+      >
+        <Skeleton width={250} height={206} />
+        <Skeleton height={384} />
+      </div>
+      <div className="pt-[100px] mt-[139px] w-full">
+        <div className="mx-40">
+          <Skeleton width={250} height={206} />
+        </div>
+        <div className="pt-48 mx-40">
+          <Skeleton height={494} />
+        </div>
+      </div>
+      <div className="mx-40 my-48 text-center">
+        <Skeleton height={72} />
+      </div>
+      <div className="mx-40 mb-[104px]">
+        <Skeleton height={115} />
+      </div>
+    </>
+  );
+};
 
 export default function Home() {
   const { push } = useRouter();
@@ -151,7 +180,10 @@ export default function Home() {
               ...element.mentor.mentor.image.mentor_image,
               src: urlFor(element.mentor.mentor.image.mentor_image.src).url(),
             },
-            onClick: () => console.log("pressed"),
+            onClick: () =>
+              push(
+                `${locale}/creative-workshops/${element.category}/event/${element._id}`
+              ),
           })),
           quotes: content.comments.map((element) => ({
             author: element.author,
@@ -176,31 +208,37 @@ export default function Home() {
           </Link>
         </div>
       </div>
-      <div
-        id="news-slider-section"
-        className="mx-40 flex flex-col gap-14 pt-24"
-      >
-        <ArrowTitle title={t("news")} category="businessWorkshops" />
-        <NewsSlider news={pageContent?.news!} />
-      </div>
-      <div className="pt-[100px] mt-[139px] w-full">
-        <div className="mx-40">
-          <IconTitle
-            title={t("noFilters")}
-            category="businessWorkshops"
-            mode="hashtag"
-          />
-        </div>
-        <div className="pt-48 mx-40">
-          <QuoteSlider quotes={pageContent?.quotes!} />
-        </div>
-      </div>
-      <div className="my-48 text-center">
-        <CoreTitle title={t("question")} />
-      </div>
-      <div className="mb-[104px]">
-        <Sponsors sponsors={pageContent?.sponsors!} />
-      </div>
+      {pageContent ? (
+        <>
+          <div
+            id="news-slider-section"
+            className="mx-40 flex flex-col gap-14 pt-24"
+          >
+            <ArrowTitle title={t("news")} category="businessWorkshops" />
+            <NewsSlider news={pageContent?.news!} />
+          </div>
+          <div className="pt-[100px] mt-[139px] w-full">
+            <div className="mx-40">
+              <IconTitle
+                title={t("noFilters")}
+                category="businessWorkshops"
+                mode="hashtag"
+              />
+            </div>
+            <div className="pt-48 mx-40">
+              <QuoteSlider quotes={pageContent?.quotes!} />
+            </div>
+          </div>
+          <div className="my-48 text-center">
+            <CoreTitle title={t("question")} />
+          </div>
+          <div className="mb-[104px]">
+            <Sponsors sponsors={pageContent?.sponsors!} />
+          </div>
+        </>
+      ) : (
+        <HomePageSkeleton />
+      )}
     </main>
   );
 }
