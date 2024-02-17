@@ -13,6 +13,7 @@ import ScheduleElement from "@components/Schedule/ScheduleElement";
 import Skeleton from "@components/Skeleton/Skeleton";
 import { Category } from "@model/Category";
 import { Locales } from "@model/Locales";
+import { ModalPageStructure } from "@model/PagesStructure";
 import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 
@@ -24,17 +25,7 @@ export default function EventPage({ params }: { params: { id: string } }) {
 
   const [event, setEvent] = useState<Event | undefined>();
   const [showModal, setShowModal] = useState(false);
-  const [modalContent, setModalContent] = useState<{
-    title: Record<Locales, string>;
-    beginner: {
-      level_title: Record<Locales, string>;
-      level_description: Record<Locales, string>;
-    };
-    intermediate: {
-      level_title: Record<Locales, string>;
-      level_description: Record<Locales, string>;
-    };
-  }>();
+  const [modalContent, setModalContent] = useState<ModalPageStructure>();
 
   useEffect(() => {
     fetch(`/api/getEvents/${params.id}`)

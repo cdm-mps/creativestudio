@@ -1,4 +1,12 @@
 {
+  "pages": {
+    "home": {
+      "findOut": "Descubra as novidades",
+      "news": "Novidades",
+      "noFilters": "Sem filtros",
+      "question": "...E tu? Juntas-te a nós?"
+    }
+  },
   "general": {
     "CategoryElement": {
       "category": {
@@ -121,5 +129,9 @@
   "Event": {
     "enrol": "Inscrever",
     "schedule": "Programação"
+  },
+  "BusinessWorkshops": {
+    "title": "Business Workshops",
+    "workInProgress": "Work In Progress"
   }
 }

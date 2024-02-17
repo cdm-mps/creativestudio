@@ -1,4 +1,12 @@
 {
+  "pages": {
+    "home": {
+      "findOut": "Find out what's new",
+      "news": "News",
+      "noFilters": "No filters",
+      "question": "...And you? Will you join us?"
+    }
+  },
   "general": {
     "category": {
       "editions": { "key": "editions", "value": "Editions" },
@@ -119,5 +127,9 @@
   "Event": {
     "enrol": "Enrol",
     "schedule": "Schedule"
+  },
+  "BusinessWorkshops": {
+    "title": "Business Workshops",
+    "workInProgress": "Work In Progress"
   }
 }

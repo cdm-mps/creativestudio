@@ -20,7 +20,7 @@ export default function RootLayout({
   if (!locales.includes(locale)) notFound();
 
   return (
-    <html lang={locale} className="bg-background text-white">
+    <html lang={locale} className="scroll-smooth bg-background text-white">
       <NextIntlClientProvider messages={messages}>
         <body className="overflow-x-hidden">
           <ConfigProvider
@@ -53,7 +53,7 @@ export default function RootLayout({
             }}
           >
             <Navbar />
-            <div className="mt-24 min-h-[calc(100vh-139px)] md:mt-32 md:min-h-[calc(100vh-190px)]">
+            <div className="my-24 min-h-[calc(100vh-139px)] md:mt-32 md:min-h-[calc(100vh-190px)]">
               {children}
             </div>
             <Footer />

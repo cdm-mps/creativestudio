@@ -17,7 +17,7 @@ const NewsSlider = ({ news }: NewsSliderProps) => {
 
   useEffect(() => {
     setElemsToRender(
-      news.reduce((prev, _current, index) => {
+      news?.reduce((prev, _current, index) => {
         if (smallScreen) {
           prev.push([index]);
         } else {
@@ -34,16 +34,18 @@ const NewsSlider = ({ news }: NewsSliderProps) => {
     );
   }, [news, smallScreen]);
 
-  const arrayLength = smallScreen ? news.length - 1 : elemsToRender.length - 1;
+  const arrayLength = smallScreen
+    ? news?.length - 1
+    : elemsToRender?.length - 1;
 
-  const numberOfDots = elemsToRender.length <= 2 ? elemsToRender.length : 3;
+  const numberOfDots = elemsToRender?.length <= 2 ? elemsToRender?.length : 3;
 
   const getActiveDot = () => {
     if (numberOfDots < 3) {
       return currentIndex;
     } else {
       const percentage = Math.round(
-        ((currentIndex + 1) * 100) / elemsToRender.length,
+        ((currentIndex + 1) * 100) / elemsToRender?.length,
       );
       return percentage <= 33 ? 0 : percentage <= 67 ? 1 : 2;
     }
@@ -64,23 +66,23 @@ const NewsSlider = ({ news }: NewsSliderProps) => {
     <div className="m-3 flex flex-col">
       {smallScreen ? (
         <div className={`flex items-center justify-center`}>
-          {news.map((_new, i) => (
-            <>
+          {news?.map((_new, i) => (
+            <div key={i}>
               {currentIndex === i && (
-                <div key={i} className="flex items-center justify-center">
+                <div className="flex items-center justify-center">
                   <NewsElement {..._new} />
                 </div>
               )}
-            </>
+            </div>
           ))}
         </div>
       ) : (
         <div className={`flex items-center justify-center 2xl:mr-[200px]`}>
-          {elemsToRender.map((elemToRender, i) => (
+          {elemsToRender?.map((elemToRender, i) => (
             <>
               {currentIndex === i && (
                 <div key={i} className="flex items-center justify-center">
-                  {elemToRender.map((position, i) => (
+                  {elemToRender?.map((position, i) => (
                     <NewsElement key={i} {...news[position]} />
                   ))}
                 </div>
@@ -89,7 +91,7 @@ const NewsSlider = ({ news }: NewsSliderProps) => {
           ))}
         </div>
       )}
-      {elemsToRender.length > 1 && (
+      {elemsToRender?.length > 1 && (
         <div className="mt-10 flex items-center justify-center">
           <div
             className={clsx(

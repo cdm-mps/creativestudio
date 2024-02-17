@@ -18,6 +18,36 @@ export interface CreativeWorkshopsPageStructure {
   elementDescription: Record<Category, Record<Locales, string>>;
 }
 
+export interface BusinessWorkshopsPageStructure {
+  isWIP?: boolean;
+  highlight: Record<Locales, string>;
+  description: Record<Locales, string>;
+  workshops: {
+    title: Record<Locales, string>;
+    description: Record<Locales, string>;
+    image: {
+      _type: string;
+      asset: {
+        _ref: string;
+        _type: string;
+      };
+    };
+    subcategories?: Record<Locales, string>[];
+  }[];
+}
+
+export interface ModalPageStructure {
+  title: Record<Locales, string>;
+  beginner: {
+    level_title: Record<Locales, string>;
+    level_description: Record<Locales, string>;
+  };
+  intermediate: {
+    level_title: Record<Locales, string>;
+    level_description: Record<Locales, string>;
+  };
+}
+
 export const PagesStructure: Record<
   Category | Page,
   { section: (Category | SubCategory | string)[]; hasAreaOfInsterest?: boolean }
@@ -66,6 +96,12 @@ export const PagesStructure: Record<
     section: [],
   },
   homepage: {
-    section: [],
+    section: [
+      "highlight",
+      "title",
+      `news[] ->{_id, title, date, category, mentor {mentor -> {_id, name, image {mentor_image -> { "src":image.asset._ref, objectPosition, "alt":title}}}}}`,
+      `sponsors[] -> {"alt":name, "src": image.asset._ref}`,
+      "comments[] ->{quote, author}",
+    ],
   },
 };
