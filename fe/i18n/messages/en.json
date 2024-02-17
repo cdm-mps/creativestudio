@@ -118,5 +118,9 @@
   "Event": {
     "enrol": "Enrol",
     "schedule": "Schedule"
+  },
+  "BusinessWorkshops": {
+    "title": "Business Workshops",
+    "workInProgress": "Work In Progress"
   }
 }
