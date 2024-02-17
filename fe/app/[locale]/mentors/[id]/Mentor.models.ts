@@ -2,9 +2,8 @@ import { ObjectPosition } from "@components/ImageElement/ImageElement.models";
 import { Category } from "@model/Category";
 
 interface Image {
-  category: Category;
-  date: string;
-  title: string;
+  src: string;
+  objectPosition: ObjectPosition;
 }
 
 interface Event {
@@ -15,7 +14,7 @@ interface Event {
 
 export interface MentorProps {
   bio: string;
-  image: Image;
+  image: { src: string; objectPosition: ObjectPosition };
   name: string;
   occupation: string;
   previousEvents?: Event[];
