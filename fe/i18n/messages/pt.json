@@ -121,6 +121,10 @@
   "AboutUs": {
     "team": "Equipa"
   },
+  "Contacts": {
+    "firstHighlight": "Queres saber mais? Fala connosco!",
+    "secondHighlight": "Ou descobre mais explorando a nossa “casa”..."
+  },
   "CreativeWorkshops": {
     "title": "Creative Workshops",
     "ourServices": "Os nossos serviços"
