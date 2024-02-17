@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang={locale} className="text-white bg-background scroll-smooth">
       <NextIntlClientProvider messages={messages}>
-        <body>
+        <body className="overflow-x-hidden">
           <ConfigProvider
             locale={locale === "pt" ? pt_PT : en_US}
             theme={{

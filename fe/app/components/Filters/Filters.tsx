@@ -9,9 +9,12 @@ const Filters = ({ filters, result, setResult, onClick }: FiltersProps) => {
 
   useEffect(() => {
     setResult(
-      filters.reduce((prev, current) => {
-        return { ...prev, [current.placeholder]: undefined };
-      }, {} as Record<string, string | undefined>)
+      filters.reduce(
+        (prev, current) => {
+          return { ...prev, [current.placeholder]: undefined };
+        },
+        {} as Record<string, string | undefined>,
+      ),
     );
   }, []);
 
@@ -30,14 +33,14 @@ const Filters = ({ filters, result, setResult, onClick }: FiltersProps) => {
             optionFilterProp="children"
             onChange={(value) => handleChange(value, filter.placeholder)}
             value={result[filter.placeholder]}
-            className="w-80 md:w-96 uppercase mb-3"
+            className="mb-3 w-80 uppercase md:w-96"
             popupClassName="uppercase"
             popupMatchSelectWidth={false}
             {...filter}
           />
         ))}
       </div>
-      <div className="flex flex-wrap justify-end gap-4 mt-8 mb-6">
+      <div className="mb-6 mt-8 flex flex-wrap justify-end gap-4">
         {Object.keys(result).map((placeholder) => (
           <React.Fragment>
             {result[placeholder] && (
@@ -55,7 +58,7 @@ const Filters = ({ filters, result, setResult, onClick }: FiltersProps) => {
         ))}
       </div>
       <span
-        className="font-league-gothic text-xl uppercase underline cursor-pointer hover:opacity-80"
+        className="cursor-pointer font-league-gothic text-xl uppercase underline hover:opacity-80"
         onClick={onClick}
       >
         {t("filter")}

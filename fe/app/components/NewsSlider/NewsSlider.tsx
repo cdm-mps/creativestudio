@@ -30,7 +30,7 @@ const NewsSlider = ({ news }: NewsSliderProps) => {
           }
         }
         return prev;
-      }, [] as number[][])
+      }, [] as number[][]),
     );
   }, [news, smallScreen]);
 
@@ -45,7 +45,7 @@ const NewsSlider = ({ news }: NewsSliderProps) => {
       return currentIndex;
     } else {
       const percentage = Math.round(
-        ((currentIndex + 1) * 100) / elemsToRender?.length
+        ((currentIndex + 1) * 100) / elemsToRender?.length,
       );
       return percentage <= 33 ? 0 : percentage <= 67 ? 1 : 2;
     }
@@ -63,13 +63,13 @@ const NewsSlider = ({ news }: NewsSliderProps) => {
   };
 
   return (
-    <div className="flex flex-col m-3">
+    <div className="m-3 flex flex-col">
       {smallScreen ? (
-        <div className={`flex justify-center items-center`}>
+        <div className={`flex items-center justify-center`}>
           {news?.map((_new, i) => (
             <div key={i}>
               {currentIndex === i && (
-                <div className="flex justify-center items-center">
+                <div className="flex items-center justify-center">
                   <NewsElement {..._new} />
                 </div>
               )}
@@ -77,11 +77,11 @@ const NewsSlider = ({ news }: NewsSliderProps) => {
           ))}
         </div>
       ) : (
-        <div className={`flex justify-center items-center 2xl:mr-[200px]`}>
+        <div className={`flex items-center justify-center 2xl:mr-[200px]`}>
           {elemsToRender?.map((elemToRender, i) => (
             <>
               {currentIndex === i && (
-                <div key={i} className="flex justify-center items-center">
+                <div key={i} className="flex items-center justify-center">
                   {elemToRender?.map((position, i) => (
                     <NewsElement key={i} {...news[position]} />
                   ))}
@@ -92,18 +92,18 @@ const NewsSlider = ({ news }: NewsSliderProps) => {
         </div>
       )}
       {elemsToRender?.length > 1 && (
-        <div className="flex items-center justify-center mt-10">
+        <div className="mt-10 flex items-center justify-center">
           <div
             className={clsx(
-              `flex items-center mr-9`,
+              `mr-9 flex items-center`,
               currentIndex === 0
                 ? "opacity-40"
-                : "cursor-pointer hover:opacity-80"
+                : "cursor-pointer hover:opacity-80",
             )}
             {...(!(currentIndex === 0) && { onClick: () => goToPrevious() })}
           >
-            <StickHead className="w-7 h-7 md:w-9 md:h-9 rotate-90" />
-            <span className="font-league-gothic md:text-xl uppercase pl-4">
+            <StickHead className="h-7 w-7 rotate-90 md:h-9 md:w-9" />
+            <span className="pl-4 font-league-gothic uppercase md:text-xl">
               {t("previous")}
             </span>
           </div>
@@ -116,27 +116,27 @@ const NewsSlider = ({ news }: NewsSliderProps) => {
                   className={clsx(
                     " bg-white",
                     getActiveDot() === i
-                      ? "opacity-100 h-2 w-2 md:h-3 md:w-3"
-                      : "opacity-40 h-1 w-1 md:h-2 md:w-2 "
+                      ? "h-2 w-2 opacity-100 md:h-3 md:w-3"
+                      : "h-1 w-1 opacity-40 md:h-2 md:w-2 ",
                   )}
                 />
               ))}
           </div>
           <div
             className={clsx(
-              `flex items-center ml-9`,
+              `ml-9 flex items-center`,
               currentIndex === arrayLength
                 ? "opacity-40"
-                : "cursor-pointer hover:opacity-80"
+                : "cursor-pointer hover:opacity-80",
             )}
             {...(!(currentIndex === arrayLength) && {
               onClick: () => goToNext(),
             })}
           >
-            <span className="font-league-gothic md:text-xl uppercase pr-4">
+            <span className="pr-4 font-league-gothic uppercase md:text-xl">
               {t("next")}
             </span>
-            <StickHead className="w-7 h-7 md:w-9 md:h-9 -rotate-90" />
+            <StickHead className="h-7 w-7 -rotate-90 md:h-9 md:w-9" />
           </div>
         </div>
       )}

@@ -3,5 +3,5 @@ export type Page =
   | "contacts"
   | "mentors"
   | "creativeWorkshops"
-  | "calendar" 
+  | "calendar"
   | "homepage";

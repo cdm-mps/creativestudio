@@ -11,10 +11,10 @@ const RoundArrowButton = ({
   return (
     <div
       className={clsx(
-        "flex items-center justify-center border-[1px] md:border-2 border-white rounded-full",
+        "flex items-center justify-center rounded-full border-[1px] border-white md:border-2",
         onClick && "cursor-pointer hover:opacity-80",
-        size === "medium" && "w-[25px] h-[25px] md:w-[45px] md:h-[45px]",
-        size === "small" && "w-[25px] h-[25px] md:w-7 md:h-7"
+        size === "medium" && "h-[25px] w-[25px] md:h-[45px] md:w-[45px]",
+        size === "small" && "h-[25px] w-[25px] md:h-7 md:w-7",
       )}
       onClick={onClick}
     >
@@ -22,16 +22,16 @@ const RoundArrowButton = ({
         <StickHead
           className={clsx(
             "rotate-180",
-            size === "medium" && "md:w-4 md:h-4",
-            size === "small" && "md:w-3 md:h-3"
+            size === "medium" && "md:h-4 md:w-4",
+            size === "small" && "md:h-3 md:w-3",
           )}
         />
       )}
       {arrowDirection === "down" && (
         <StickHead
           className={clsx(
-            size === "medium" && "md:pt-1 w-2 h-2 md:w-4 md:h-4",
-            size === "small" && "md:pt-0.5 md:w-3 md:h-3"
+            size === "medium" && "h-2 w-2 md:h-4 md:w-4 md:pt-1",
+            size === "small" && "md:h-3 md:w-3 md:pt-0.5",
           )}
         />
       )}
@@ -39,17 +39,17 @@ const RoundArrowButton = ({
         <StickHead
           className={clsx(
             "rotate-90 pt-[1px]",
-            size === "medium" && "md:w-4 md:h-4",
-            size === "small" && "md:w-3 md:h-3"
+            size === "medium" && "md:h-4 md:w-4",
+            size === "small" && "md:h-3 md:w-3",
           )}
         />
       )}
       {arrowDirection === "right" && (
         <StickHead
           className={clsx(
-            "w-2 h-2 -rotate-90 pt-[1px]",
-            size === "medium" && "md:w-4 md:h-4",
-            size === "small" && "md:w-3 md:h-3"
+            "h-2 w-2 -rotate-90 pt-[1px]",
+            size === "medium" && "md:h-4 md:w-4",
+            size === "small" && "md:h-3 md:w-3",
           )}
         />
       )}

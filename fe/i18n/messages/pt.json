@@ -27,6 +27,10 @@
         }
       }
     },
+    "Levels": {
+      "beginner": "Iniciante",
+      "intermediate": "Intermédio"
+    },
     "AreaOfInterest": {
       "radio": "Rádio",
       "photography": "Fotografia",
@@ -50,7 +54,7 @@
     "footer": "E mais..."
   },
   "Categories": {
-    "masterclasses": "MasterClasses",
+    "masterclasses": "Masterclasses",
     "editions": "Edições",
     "creativeTalks": "Creative Talks",
     "workshops": "Workshops",
@@ -116,5 +120,13 @@
   },
   "AboutUs": {
     "team": "Equipa"
+  },
+  "CreativeWorkshops": {
+    "title": "Creative Workshops",
+    "ourServices": "Os nossos serviços"
+  },
+  "Event": {
+    "enrol": "Inscrever",
+    "schedule": "Programação"
   }
 }

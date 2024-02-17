@@ -25,6 +25,10 @@
         "value": "Business Workshops"
       }
     },
+    "Levels": {
+      "beginner": "Beginner",
+      "intermediate": "Intermediate"
+    },
     "AreaOfInterest": {
       "radio": "Rádio",
       "photography": "Fotografia",
@@ -112,7 +116,15 @@
     "availableEvents": "available events",
     "previous": "Previous"
   },
-  "AboutUs":{
+  "AboutUs": {
     "team": "Team"
+  },
+  "CreativeWorkshops": {
+    "title": "Creative Workshops",
+    "ourServices": "Our Services"
+  },
+  "Event": {
+    "enrol": "Enrol",
+    "schedule": "Schedule"
   }
 }
