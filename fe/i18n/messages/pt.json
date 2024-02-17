@@ -98,7 +98,8 @@
     },
     "UploadFile": {
       "addFile": "Adicionar ficheiro"
-    }
+    },
+    "NotFound": { "noEvents": "Não existem eventos" }
   },
   "CreativeWorkshop": {
     "areaOfInterest": "Área de Interesse",

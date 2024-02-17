@@ -96,7 +96,8 @@
     },
     "UploadFile": {
       "addFile": "Add file"
-    }
+    },
+    "NotFound": { "noEvents": "No events" }
   },
   "CreativeWorkshop": {
     "areaOfInterest": "Area Of Interest",

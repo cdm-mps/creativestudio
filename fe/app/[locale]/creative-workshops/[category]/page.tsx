@@ -10,6 +10,7 @@ import { EventGridProps } from "@components/EventGrid/EventGrid.models";
 import { Header } from "@components/Header/Header";
 import IconTitle from "@components/IconTitle/IconTitle";
 import Tabs from "@components/Tabs/Tabs";
+import { NotFoundBanner } from "@components/shared/NotFoundBanner/NotFoundBanner";
 import { AreaOfInterest } from "@model/AreaOfInterest";
 import { Category, categories } from "@model/Category";
 import { Locales } from "@model/Locales";
@@ -63,7 +64,7 @@ export default function CreativeWorkshopPage({
         activeFilter > -1
           ? `/areaOfInterest/${Object.keys(AreaOfInterest)[activeFilter]}`
           : ""
-      }`
+      }`,
     )
       .then((res) => res.json())
       .then((data: Event[]) => {
@@ -96,7 +97,7 @@ export default function CreativeWorkshopPage({
   };
 
   return (
-    <main className="flex flex-col min-h-[calc(100vh-26vh)] py-11">
+    <main className="flex min-h-[calc(100vh-26vh)] flex-col py-11">
       <BreadcrumbsTitle
         title={t_categories(category)}
         category={category}
@@ -111,7 +112,7 @@ export default function CreativeWorkshopPage({
             <div className="pt-14">
               <Tabs
                 tabs={Object.keys(pageContent).map(
-                  (key) => pageContent[key].label?.[locale as Locales]!
+                  (key) => pageContent[key].label?.[locale as Locales]!,
                 )}
                 category={category}
                 selectedTab={selectedTab}
@@ -155,7 +156,7 @@ export default function CreativeWorkshopPage({
       }
       {pageStructure.hasAreaOfInsterest && (
         <>
-          <div className="font-league-gothic text-4xl mt-16 mb-14">
+          <div className="mb-14 mt-16 font-league-gothic text-4xl">
             {t("areaOfInterest")}
           </div>
           <ButtonFilter
@@ -177,7 +178,7 @@ export default function CreativeWorkshopPage({
       {getNextEvents().length > 0 ? (
         <EventGrid events={getNextEvents()} />
       ) : (
-        <NotFound />
+        <NotFoundBanner />
       )}
       <div className="mt-44" />
       <IconTitle title={t("previous")} mode="dots" category={category} />
@@ -185,14 +186,8 @@ export default function CreativeWorkshopPage({
       {getPreviousEvents().length > 0 ? (
         <EventGrid events={getPreviousEvents()} />
       ) : (
-        <NotFound />
+        <NotFoundBanner />
       )}
     </main>
   );
 }
-
-const NotFound = () => (
-  <div className="flex items-center justify-center h-32 w-full bg-not-found-disclaimer">
-    <span className="font-league-gothic text-2xl">Não existem eventos</span>
-  </div>
-);
