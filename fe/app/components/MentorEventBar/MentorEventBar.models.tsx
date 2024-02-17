@@ -7,5 +7,6 @@ export interface MentorEventBarProps {
   title: string;
   previous?: boolean;
   date: string;
+  disabled?: boolean;
   onClick: () => void;
 }

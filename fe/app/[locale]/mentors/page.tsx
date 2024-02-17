@@ -5,8 +5,8 @@ export default function MentorsPage() {
   const t = useTranslations("Menu");
 
   return (
-    <main className="flex min-h-[calc(100vh-26vh)]">
-      <Title title={t("Mentors")} category="businessWorkshops" />
+    <main className="flex mx-20">
+      <Title title={t("mentors")} category="businessWorkshops" />
     </main>
   );
 }

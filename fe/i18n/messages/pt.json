@@ -1,4 +1,12 @@
 {
+  "pages": {
+    "home": {
+      "findOut": "Descubra as novidades",
+      "news": "Novidades",
+      "noFilters": "Sem filtros",
+      "question": "...E tu? Juntas-te a nós?"
+    }
+  },
   "general": {
     "CategoryElement": {
       "category": {
@@ -54,13 +62,13 @@
     "businessWorkshops": "Business Workshop"
   },
   "Menu": {
-    "CreativeWorkshops": "Creative Workshops",
-    "BusinessWorkshops": "Business Workshops",
-    "Mentors": "Mentores",
-    "Calendar": "Calendário",
-    "AboutUs": "Sobre Nós",
-    "Contacts": "Contactos",
-    "FollowUs": "Segue-nos !"
+    "creativeWorkshops": "Creative Workshops",
+    "businessWorkshops": "Business Workshops",
+    "mentors": "Mentores",
+    "calendar": "Calendário",
+    "aboutUs": "Sobre Nós",
+    "contacts": "Contactos",
+    "followUs": "Segue-nos !"
   },
   "Components": {
     "Mentor": {
@@ -99,7 +107,8 @@
     },
     "Input": {
       "writeHere": "Escreva aqui"
-    }
+    },
+    "NotFound": { "noEvents": "Não existem eventos" }
   },
   "CreativeWorkshop": {
     "areaOfInterest": "Área de Interesse",
@@ -109,6 +118,10 @@
   },
   "AboutUs": {
     "team": "Equipa"
+  },
+  "Contacts": {
+    "firstHighlight": "Queres saber mais? Fala connosco!",
+    "secondHighlight": "Ou descobre mais explorando a nossa “casa”..."
   },
   "CreativeWorkshops": {
     "title": "Creative Workshops",
@@ -123,5 +136,9 @@
     "previous": "Anterior",
     "next": "Seguinte",
     "regulations": "Regulamento"
+  },
+  "BusinessWorkshops": {
+    "title": "Business Workshops",
+    "workInProgress": "Work In Progress"
   }
 }

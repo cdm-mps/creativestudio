@@ -57,7 +57,7 @@ const Navbar = () => {
           onMouseLeave={() => setInstagramHovered(!instagramHovered)}
         >
           <span className="hidden uppercase group-hover:flex">
-            {t("FollowUs")}
+            {t("followUs")}
           </span>
 
           <Instagram outline={instagramHovered} />
@@ -90,7 +90,7 @@ const Navbar = () => {
             aria-label="Follow us on Instagram"
             className=" flex items-center justify-center gap-4 uppercase max-lg:w-full max-lg:border-b max-lg:border-t max-lg:py-4 max-lg:text-center max-lg:hover:bg-businessWorkshops"
           >
-            <span className="uppercase">{t("FollowUs")}</span>
+            <span className="uppercase">{t("followUs")}</span>
             <Instagram outline />
           </Link>
         </div>

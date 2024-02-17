@@ -1,4 +1,12 @@
 {
+  "pages": {
+    "home": {
+      "findOut": "Find out what's new",
+      "news": "News",
+      "noFilters": "No filters",
+      "question": "...And you? Will you join us?"
+    }
+  },
   "general": {
     "category": {
       "editions": { "key": "editions", "value": "Editions" },
@@ -52,13 +60,13 @@
     "businessWorkshops": "Business Workshops"
   },
   "Menu": {
-    "CreativeWorkshops": "Creative Workshops",
-    "BusinessWorkshops": "Business Workshops",
-    "Mentors": "Mentors",
-    "Calendar": "Calendar",
-    "AboutUs": "About Us",
-    "Contacts": "Contacts",
-    "FollowUs": "Follow Us !"
+    "creativeWorkshops": "Creative Workshops",
+    "businessWorkshops": "Business Workshops",
+    "mentors": "Mentors",
+    "calendar": "Calendar",
+    "aboutUs": "About Us",
+    "contacts": "Contacts",
+    "followUs": "Follow Us !"
   },
   "Components": {
     "Mentor": {
@@ -97,7 +105,8 @@
     },
     "Input": {
       "writeHere": "Text here"
-    }
+    },
+    "NotFound": { "noEvents": "No events" }
   },
   "CreativeWorkshop": {
     "areaOfInterest": "Area Of Interest",
@@ -107,6 +116,10 @@
   },
   "AboutUs": {
     "team": "Team"
+  },
+  "Contacts": {
+    "firstHighlight": "Want to know more? Talk to us!",
+    "secondHighlight": "Or find out more by exploring our “house”..."
   },
   "CreativeWorkshops": {
     "title": "Creative Workshops",
@@ -121,5 +134,9 @@
     "previous": "Previous",
     "next": "Next",
     "regulations": "Regulations"
+  },
+  "BusinessWorkshops": {
+    "title": "Business Workshops",
+    "workInProgress": "Work In Progress"
   }
 }

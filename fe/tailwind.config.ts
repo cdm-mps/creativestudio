@@ -14,9 +14,9 @@ const config: Config = {
     },
     backgroundImage: {
       "banner-gradient":
-        "linear-gradient(120deg, rgba(0,0,0,1) 33%, rgba(255,255,255,0) 100%)",
+        "linear-gradient(120deg, rgba(12, 12, 12,1) 33%, rgba(255,255,255,0) 100%)",
       "line-gradient":
-        "linear-gradient(0deg, rgba(0,0,0,1) 5%, rgba(255,255,255,0) 100%)",
+        "linear-gradient(0deg, rgba(12, 12, 12,1) 5%, rgba(255,255,255,0) 100%)",
     },
     extend: {
       colors: {
@@ -32,7 +32,7 @@ const config: Config = {
       },
       animation: {
         "autoplay-infinite": "slide 70s linear infinite",
-        "skeleton-loading": "skeletonLoading 1s linear infinite alternate"
+        "skeleton-loading": "skeletonLoading 1s linear infinite alternate",
       },
       keyframes: {
         slide: {

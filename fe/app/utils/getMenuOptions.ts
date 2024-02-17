@@ -12,32 +12,32 @@ export const getMenuOptions = () => {
 
   const options: OptionProps[] = [
     {
-      text: t("CreativeWorkshops"),
+      text: t("creativeWorkshops"),
       label: "Go to Creative Workshops page",
       href: `/${locale}/creative-workshops`,
     },
     {
-      text: t("BusinessWorkshops"),
+      text: t("businessWorkshops"),
       label: "Go to Business Workshops page",
       href: `/${locale}/business-workshops`,
     },
     {
-      text: t("Mentors"),
+      text: t("mentors"),
       label: "Go to Mentors page",
       href: `/${locale}/mentors`,
     },
     {
-      text: t("Calendar"),
+      text: t("calendar"),
       label: "Go to Calendar page",
       href: `/${locale}/calendar`,
     },
     {
-      text: t("AboutUs"),
+      text: t("aboutUs"),
       label: "Go to About us page",
       href: `/${locale}/about-us`,
     },
     {
-      text: t("Contacts"),
+      text: t("contacts"),
       label: "Go to Contacts page",
       href: `/${locale}/contacts`,
     },

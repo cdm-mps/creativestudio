@@ -8,7 +8,9 @@ const ArrowTitle = ({ title, category, subTitle }: ArrowTitleProps) => {
       <DiamondArrowIcon className={`text-${category} max-md:h-[110px]`} />
       <div className="flex flex-col">
         <CoreTitle title={title} />
-        <p className="text-sm md:text-xl font-noto-sans">{subTitle}</p>
+        {subTitle && (
+          <p className="text-sm md:text-xl font-noto-sans">{subTitle}</p>
+        )}
       </div>
     </div>
   );

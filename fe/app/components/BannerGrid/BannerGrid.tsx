@@ -1,11 +1,10 @@
-import React from "react";
 import ImageElement from "../ImageElement/ImageElement";
 import { BannerGridProps } from "./BannerGrid.models";
 
 const BannerGrid = ({ images }: BannerGridProps) => {
   return (
     <div className="flex relative overflow-hidden">
-      <div className="flex items-center justify-ceneter min-w-max overflow-hidden gap-3 animate-autoplay-infinite">
+      <div className="flex items-center justify-center min-w-max overflow-hidden gap-3 animate-autoplay-infinite">
         <BannerGridContent images={images} />
       </div>
       <div className="flex items-center justify-end min-w-max overflow-hidden gap-3 animate-autoplay-infinite ml-3">

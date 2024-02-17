@@ -1,6 +1,7 @@
 import ImageElement from "@components/ImageElement/ImageElement";
 import { ImageProps } from "@components/ImageElement/ImageElement.models";
 import RoundArrowButton from "@components/RoundArrowButton/RoundArrowButton";
+import clsx from "clsx";
 import React from "react";
 
 const CategoryCard = ({
@@ -8,15 +9,24 @@ const CategoryCard = ({
   subtitle,
   image,
   subCategories,
+  disabled,
 }: {
   title: string;
   subtitle: string;
   image: ImageProps;
   subCategories?: string[];
+  disabled?: boolean;
 }) => {
   return (
-    <div className="group flex cursor-pointer items-center justify-between p-5 hover:bg-businessWorkshops-opacity">
-      <div className="flex max-w-[700px] flex-col py-11 pl-11">
+    <div
+      className={clsx(
+        `flex items-center justify-between p-5 `,
+        disabled
+          ? "opacity-50"
+          : "cursor-pointer group hover:bg-businessWorkshops-opacity"
+      )}
+    >
+      <div className="flex flex-col py-11 pl-11 max-w-[700px]">
         <div className="flex items-center">
           <span className="pr-10 font-league-gothic text-6xl group-hover:underline">
             {title}
