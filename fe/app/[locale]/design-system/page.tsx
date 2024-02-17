@@ -341,7 +341,7 @@ export default function Home() {
 
       {/* -------------- BANNER GRID --------------*/}
       <LocalTitle title="Banner Grid" />
-      <BannerGrid images={bannerGridImages} title="Example title" />
+      <BannerGrid images={bannerGridImages} />
       <Code
         text={`<BannerGrid
   images=[{
