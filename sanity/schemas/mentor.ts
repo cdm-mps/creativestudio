@@ -45,25 +45,5 @@ export default {
       ],
       validation: (Rule: any) => Rule.required(),
     },
-    {
-      name: 'event',
-      title: 'Event',
-      type: 'object',
-      fields: [
-        {
-          title: "Mentor's event",
-          name: 'mentor_event',
-          type: 'array',
-          of: [
-            {
-              type: 'reference',
-              to: [
-                {type: 'event'}
-              ]
-            }
-          ]
-        },
-      ],
-    },
   ],
 }

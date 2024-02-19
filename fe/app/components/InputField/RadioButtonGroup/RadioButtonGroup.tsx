@@ -20,7 +20,7 @@ const RadioButtonGroup = ({
         required={required}
         category={category}
       />
-      <div className="mt-4 flex justify-between">
+      <div className="mt-4 flex gap-10">
         {options.map((option) => (
           <RadioButton
             category={category}

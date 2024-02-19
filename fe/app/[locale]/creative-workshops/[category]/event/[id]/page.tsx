@@ -46,7 +46,7 @@ export default function EventPage({ params }: { params: { id: string } }) {
   }
 
   return (
-    <main className="flex min-h-[calc(100vh-26vh)] flex-col">
+    <main className="mx-40 flex flex-col">
       {showModal && (
         <Modal onCloseModal={() => setShowModal(false)}>
           <div className="flex flex-col px-7 pb-9">
@@ -174,7 +174,7 @@ const ModalSkeleton = () => (
 );
 
 const PageSkeleton = () => (
-  <div className="flex flex-col">
+  <div className="mx-40 flex flex-col">
     <div className="flex justify-between">
       <div>
         <Skeleton height={32} width={229} />

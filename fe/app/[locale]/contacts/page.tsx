@@ -21,10 +21,10 @@ export default function ContactsPage() {
   }, []);
 
   return (
-    <main className="flex flex-col">
+    <main className="mx-40 flex flex-col">
       <div className="flex">
-        <div className="ml-20 h-fit w-[calc(50vw-80px)]">
-          <Title title={t("Menu.Contacts")} category="businessWorkshops" />
+        <div className="h-fit w-[calc(50vw-80px)]">
+          <Title title={t("Menu.contacts")} category="businessWorkshops" />
           <div className="my-12 font-noto-sans text-[28px] italic">
             {t("Contacts.firstHighlight")}
           </div>

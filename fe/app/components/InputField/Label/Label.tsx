@@ -9,7 +9,7 @@ const Label = ({ title, description, category, required }: LabelProps) => {
         {required && <span className={`text-${category} pl-1`}>*</span>}
       </div>
       {description && (
-        <span className="font-noto-sans text-sm">{description}</span>
+        <span className="font-noto-sans text-sm opacity-50">{description}</span>
       )}
     </div>
   );

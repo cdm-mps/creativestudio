@@ -63,10 +63,9 @@ export default {
     {
       title: 'Date of the Event',
       name: 'date',
-      type: 'datetime',
+      type: 'date',
       options: {
         dateFormat: 'YYYY-MM-DD',
-        timeFormat: 'HH:mm',
         timeStep: 15,
         calendarTodayLabel: 'Today',
       },
@@ -79,7 +78,7 @@ export default {
       fields: [
         {
           title: 'The Mentor associated with the Event',
-          name:"mentor",
+          name: 'mentor',
           type: 'reference',
           to: [{type: 'mentor'}],
         },
@@ -181,21 +180,6 @@ export default {
       initialValue: false,
       description:
         'Indicates whether participants are expected to share content through video submissions. Enable if yes, disable if no.',
-    },
-    {
-      name: 'isNew',
-      type: 'boolean',
-      title: 'Is it new?',
-      initialValue: false,
-      description:
-        'Indicates whether the Event is an upcoming Event. Enable if yes, disable if no.',
-    },
-    {
-      name: 'tooltip_levels',
-      title: 'Reference to tooltip describing the event levels',
-      description: 'Reference to tooltip describing the Creative Workshops levels',
-      type: 'reference',
-      to: [{type: 'levels'}],
     },
   ],
 }

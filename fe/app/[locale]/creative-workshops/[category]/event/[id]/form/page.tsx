@@ -167,7 +167,7 @@ export default function FormPage({
 
   if (!event) {
     return (
-      <div className="flex flex-col">
+      <div className="mx-40 flex flex-col">
         <div className="flex items-center justify-between">
           <div>
             <Skeleton height={32} width={350} />
@@ -198,7 +198,7 @@ export default function FormPage({
   }
 
   return (
-    <main className="flex flex-col">
+    <main className="mx-40 flex flex-col">
       <div className="flex h-fit w-full justify-between">
         <BreadcrumbsTitle
           title={"Formulário de Inscrição"}

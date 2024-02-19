@@ -25,7 +25,7 @@ export default function CreativeWorkshopsPage() {
 
   if (!pageStructure) {
     return (
-      <div className="flex flex-col">
+      <div className="mx-40 flex flex-col">
         <Skeleton height={72} width={440} />
         <Skeleton height={42} width={300} className="mt-14" />
         <Skeleton height={355} className="mb-14 mt-12" />
@@ -38,7 +38,7 @@ export default function CreativeWorkshopsPage() {
   }
 
   return (
-    <main className="flex">
+    <main className="mx-40 flex">
       <div className="w-fit">
         <Title title={t("title")} category="businessWorkshops" />
         <Header
