@@ -90,7 +90,7 @@ export default function CreativeWorkshopPage({
 
   if (!pageContent || !events) {
     return (
-      <div className="flex flex-col">
+      <div className="mx-40 flex flex-col">
         <Skeleton height={103} width={300} />
         <Skeleton height={42} width={400} className=" mb-12 mt-14" />
         <Skeleton height={300} />
@@ -127,7 +127,7 @@ export default function CreativeWorkshopPage({
   };
 
   return (
-    <main className="flex flex-col">
+    <main className="mx-40 flex flex-col">
       <BreadcrumbsTitle
         title={t_categories(category)}
         category={category}

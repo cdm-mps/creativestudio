@@ -1,48 +1,57 @@
 "use client";
-
 import React from "react";
-import { MentorProps } from "@components/Mentor/Mentor.models";
 import ImageElement from "@components/ImageElement/ImageElement";
-import { useTranslations } from "next-intl";
+import { MentorProps } from "@components/Mentor/Mentor.models";
+import Link from "next/link";
+import clsx from "clsx";
 
-const Mentor = ({
-  name,
-  image,
-  category = "businessWorkshops",
-  label: descriptionLabel,
-  onClick,
-  showName = true,
-}: MentorProps) => {
-  const t = useTranslations("Components.Mentor");
-
+const Mentor = ({ _id, redirectOnClick, ...rest }: MentorProps) => {
+  const className = clsx(
+    "flex max-w-[162px] flex-col items-center gap-y-7 md:max-w-[362px]",
+    redirectOnClick && "cursor-pointer",
+  );
   return (
-    <div
-      className="group flex max-w-[162px] cursor-pointer flex-col items-center gap-y-7 md:max-w-[362px]"
-      onClick={onClick}
-    >
-      <div className="relative">
-        <ImageElement
-          {...image}
-          className="h-[184px] w-[162px] md:h-[384px] md:w-[362px]"
-        />
-        {descriptionLabel && (
-          <div
-            className={`absolute flex h-[26px] w-[162px] items-center justify-center bg-${category} bottom-0 md:h-[46px] md:w-[362px]`}
-          >
-            <span className="font-league-gothic text-xs md:text-2xl">
-              {descriptionLabel}
-            </span>
-          </div>
-        )}
-      </div>
-
-      {showName && (
-        <span className="text-center font-league-gothic text-3xl md:text-5xl">
-          {name}
-        </span>
+    <React.Fragment>
+      {redirectOnClick ? (
+        <Link className={className} href={`mentors/${_id}`}>
+          <Content {...rest} />
+        </Link>
+      ) : (
+        <div className={className}>
+          <Content {...rest} />
+        </div>
       )}
-    </div>
+    </React.Fragment>
   );
 };
+
+const Content = ({
+  name,
+  image,
+  label,
+}: Pick<MentorProps, "name" | "image" | "label">) => (
+  <>
+    <div className="relative">
+      <ImageElement
+        {...image}
+        className="h-[184px] w-[162px] md:h-[384px] md:w-[362px]"
+      />
+      {label && (
+        <div
+          className={`absolute bottom-0 flex h-[26px] w-[162px] items-center justify-center bg-businessWorkshops md:h-[46px] md:w-[362px]`}
+        >
+          <span className="font-league-gothic text-xs md:text-2xl">
+            {label}
+          </span>
+        </div>
+      )}
+    </div>
+    {name && (
+      <span className="text-center font-league-gothic text-3xl md:text-5xl">
+        {name}
+      </span>
+    )}
+  </>
+);
 
 export default Mentor;

@@ -15,7 +15,7 @@ import { useEffect, useState } from "react";
 
 const AboutUsPageSkeleton = () => {
   return (
-    <div className="flex flex-col">
+    <div className="mx-40 flex flex-col">
       <Skeleton className="mb-14" height={72} width={229} />
       <Skeleton height={42} width={300} />
       <Skeleton className="my-14" height={476} />
@@ -52,31 +52,29 @@ export default function AboutUsPage() {
       });
   }, []);
 
+  if (!pageContent) {
+    return <AboutUsPageSkeleton />;
+  }
+
   return (
-    <main className="flex flex-col">
-      {pageContent ? (
-        <>
-          <Title title={t("Menu.AboutUs")} category="businessWorkshops" />
-          <Header
-            highlight={pageContent.highlight}
-            description={pageContent.description}
-          />
-          <CategoryBarList />
-          <div className="flex flex-col gap-10 py-52">
-            <span className="font-league-gothic uppercase text-3xl md:text-7xl pb-14 text-center">
-              {t("AboutUs.team")}
-            </span>
-            <TeamElementRow teamElements={pageContent.team} />
-          </div>
-          <div className="flex flex-col gap-12">
-            <Divider />
-            <Acknowledgements />
-            <Divider />
-          </div>
-        </>
-      ) : (
-        <AboutUsPageSkeleton />
-      )}
+    <main className="mx-40 flex flex-col">
+      <Title title={t("Menu.aboutUs")} category="businessWorkshops" />
+      <Header
+        highlight={pageContent.highlight}
+        description={pageContent.description}
+      />
+      <CategoryBarList />
+      <div className="flex flex-col gap-10 py-52">
+        <span className="pb-14 text-center font-league-gothic text-3xl uppercase md:text-7xl">
+          {t("AboutUs.team")}
+        </span>
+        <TeamElementRow teamElements={pageContent.team} />
+      </div>
+      <div className="flex flex-col gap-12">
+        <Divider />
+        <Acknowledgements />
+        <Divider />
+      </div>
     </main>
   );
 }

@@ -13,17 +13,5 @@ export default {
       ],
       validation: (Rule: any) => Rule.required(),
     },
-    {
-      title: 'Mentors',
-      name: 'mentors',
-      type: 'array',
-      of: [
-        {
-          type: 'reference',
-          to: [{type: 'mentor'}],
-        },
-      ],
-      validation: (Rule: any) => Rule.required(),
-    },
   ],
 }

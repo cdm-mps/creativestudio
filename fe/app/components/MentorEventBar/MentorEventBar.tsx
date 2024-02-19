@@ -39,7 +39,7 @@ const MentorEventBar = ({
       <div className="ml-auto flex items-center gap-1 md:gap-4">
         <MentorIdentifier
           image={mentor.image}
-          name={mentor.name}
+          name={mentor.name || ""}
           previous
           disabled={disabled}
         />

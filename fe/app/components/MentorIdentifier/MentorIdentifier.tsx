@@ -1,5 +1,6 @@
 import ImageElement from "@components/ImageElement/ImageElement";
 import { MentorIdentifierProps } from "@components/MentorIdentifier/MentorIdentifierProps.models";
+import { useLocale } from "next-intl";
 import Link from "next/link";
 
 const Content = ({ image, name, previous }: MentorIdentifierProps) => {
@@ -20,6 +21,7 @@ const MentorIdentifier = ({
   disabled = false,
   ...props
 }: MentorIdentifierProps) => {
+  const locale = useLocale();
   return (
     <>
       {disabled ? (
@@ -29,7 +31,7 @@ const MentorIdentifier = ({
       ) : (
         <Link
           className="flex cursor-pointer items-center gap-x-2 font-noto-sans text-xs hover:opacity-80 md:gap-x-4 md:text-xl"
-          href={`/mentors/${_id}`}
+          href={`/${locale}//mentors/${_id}`}
         >
           <Content {...props} />
         </Link>

@@ -357,7 +357,7 @@ export default function Home() {
 
       {/* -------------- BANNER GRID --------------*/}
       <LocalTitle title="Banner Grid" />
-      <BannerGrid images={bannerGridImages} />
+      <BannerGrid />
       <Code
         text={`<BannerGrid
   images=[{
@@ -1044,9 +1044,8 @@ export default function Home() {
         <div className="flex w-full flex-wrap justify-center gap-x-4">
           <div className="flex flex-col items-center gap-3">
             <MentorElement
-              label={`${eventCount}${
-                eventCount === 1 ? _t("eventBarSingular") : _t("eventBarPlural")
-              }`}
+              _id={""}
+              label={1 + " " + t("Components.Mentor.eventBarSingular")}
               name="Benedita Pereira"
               image={{
                 src: BeneditaPereiera,
@@ -1069,13 +1068,8 @@ export default function Home() {
           </div>
           <div className="mt-3 flex flex-col items-center gap-3">
             <MentorElement
-              label={`${eventCount2}${
-                //@ts-expect-error
-                eventCount2 === 1
-                  ? _t("eventBarSingular")
-                  : _t("eventBarPlural")
-              }`}
-              category="creativeTalks"
+              _id={""}
+              label={2 + " " + t("Components.Mentor.eventBarPlural")}
               name="Benedita Pereira"
               image={{
                 src: BeneditaPereiera,
@@ -1098,13 +1092,13 @@ export default function Home() {
           </div>
           <div className="mt-3 flex flex-col items-center  gap-3">
             <MentorElement
+              _id={""}
               name="Benedita Pereira Very Very Long"
               image={{
                 src: BeneditaPereiera,
                 alt: "benedita_none",
                 objectPosition: "center",
               }}
-              onClick={() => console.log("pressed!")}
             />
             <Code
               text={`<MentorElement

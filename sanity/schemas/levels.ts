@@ -63,30 +63,5 @@ export default {
         },
       ],
     },
-    {
-      name: 'advanced',
-      title: 'Advanced',
-      type: 'object',
-      fields: [
-        {
-          name: 'level_title',
-          title: 'Level name',
-          type: 'object',
-          fields: [
-            {name: 'pt', type: 'string', title: 'PT'},
-            {name: 'en', type: 'string', title: 'EN'},
-          ],
-        },
-        {
-          name: 'level_description',
-          title: 'Level description',
-          type: 'object',
-          fields: [
-            {name: 'pt', type: 'text', title: 'PT'},
-            {name: 'en', type: 'text', title: 'EN'},
-          ],
-        },
-      ],
-    },
   ],
 }

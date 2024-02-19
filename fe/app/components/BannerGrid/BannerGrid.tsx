@@ -1,17 +1,18 @@
 import ImageElement from "../ImageElement/ImageElement";
 import { BannerGridProps } from "./BannerGrid.models";
+import { bannerGridImages } from "./BannerGridContent";
 
-const BannerGrid = ({ images }: BannerGridProps) => {
+const BannerGrid = () => {
   return (
-    <div className="flex relative overflow-hidden">
-      <div className="flex items-center justify-center min-w-max overflow-hidden gap-3 animate-autoplay-infinite">
-        <BannerGridContent images={images} />
+    <div className="relative flex overflow-hidden">
+      <div className="flex min-w-max animate-autoplay-infinite items-center justify-center gap-3 overflow-hidden">
+        <BannerGridContent images={bannerGridImages} />
       </div>
-      <div className="flex items-center justify-end min-w-max overflow-hidden gap-3 animate-autoplay-infinite ml-3">
-        <BannerGridContent images={images} />
+      <div className="ml-3 flex min-w-max animate-autoplay-infinite items-center justify-end gap-3 overflow-hidden">
+        <BannerGridContent images={bannerGridImages} />
       </div>
-      <div className="flex absolute h-full w-full bg-banner-gradient items-center p-9 md:p-12">
-        <div className="font-league-gothic whitespace-pre-line text-white uppercase text-4xl md:text-7xl">
+      <div className="absolute flex h-full w-full items-center bg-banner-gradient p-9 md:p-12">
+        <div className="whitespace-pre-line font-league-gothic text-4xl uppercase text-white md:text-7xl">
           {"Create your own art by\n exchanging ideas with\n other artists"}
         </div>
       </div>
@@ -30,11 +31,11 @@ const BannerGridContent = ({ images }: BannerGridProps) => (
             src={e.src}
             alt={e.alt}
             objectPosition={e.objectPosition}
-            className="rounded-lg overflow-hidden h-[98.5px] w-[150px] md:h-[197px] md:w-[300px]"
+            className="h-[98.5px] w-[150px] overflow-hidden rounded-lg md:h-[197px] md:w-[300px]"
           />
         ))}
     </div>
-    <div className="flex gap-3 mt-3">
+    <div className="mt-3 flex gap-3">
       {images
         .filter((_e, i) => i % 2 !== 0)
         .map((e, i) => (
@@ -43,7 +44,7 @@ const BannerGridContent = ({ images }: BannerGridProps) => (
             src={e.src}
             alt={e.alt}
             objectPosition={e.objectPosition}
-            className="rounded-lg overflow-hidden h-[98.5px] w-[150px] md:h-[197px] md:w-[300px]"
+            className="h-[98.5px] w-[150px] overflow-hidden rounded-lg md:h-[197px] md:w-[300px]"
           />
         ))}
     </div>
