@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
 import { Calendar as CalendarAntd } from "antd";
-import { CalendarProps } from "./Calendar.models";
 import * as dayjs from "dayjs";
+import React, { useEffect } from "react";
+import { CalendarProps } from "./Calendar.models";
 
 const Calendar = ({ events, setSelectedDate }: CalendarProps) => {
   useEffect(() => {

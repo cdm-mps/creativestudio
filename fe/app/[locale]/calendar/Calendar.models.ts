@@ -1,12 +1,16 @@
 import { MentorProps } from "@components/Mentor/Mentor.models";
 import { Category } from "@model/Category";
 
-export interface MentorEventBarProps {
+export type CalendarElementProps = {
   mentor: Pick<MentorProps, "name" | "image">;
   category: Category;
   title: string;
   previous?: boolean;
-  date?: string;
+  date: string;
   disabled?: boolean;
-  eventId: string;
+  _id: string;
+};
+
+export interface CalendarProps {
+  events: CalendarElementProps[];
 }
