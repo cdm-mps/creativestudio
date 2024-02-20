@@ -1,26 +1,25 @@
 "use client";
-import { Contacts } from "@/app/api/models/Contacts";
+import { GetContactsPageOutputDto } from "@/app/api/models/GetContactsPage.models";
 import { Instagram } from "@assets/icons/Instagram";
-import { Youtube } from "@assets/icons/Youtube";
 import { Map } from "@assets/images/Map";
 import CategoryElement from "@components/CategoryElement/CategoryElement";
 import ContactInfo from "@components/ContactInfo/ContactInfo";
-import Skeleton from "@components/Skeleton/Skeleton";
 import Title from "@components/Title/Title";
 import { useTranslations } from "next-intl";
-import { useEffect, useState } from "react";
+import { PropsWithChildren, useEffect, useState } from "react";
+import { ContactsPageSkeleton } from "./skeleton";
 
 export default function ContactsPage() {
   const t = useTranslations();
-  const [pageContent, setPageContent] = useState<string[]>([]);
+  const [pageContent, setPageContent] = useState<GetContactsPageOutputDto>();
 
   useEffect(() => {
     fetch(`/api/getPages/contacts`)
       .then((res) => res.json())
-      .then((data: Contacts[]) => setPageContent(data[0].contacts));
+      .then((data: GetContactsPageOutputDto) => setPageContent(data));
   }, []);
 
-  return (
+  const PageStructure = ({ children }: PropsWithChildren) => (
     <main className="mx-40 flex flex-col">
       <div className="flex">
         <div className="h-fit w-[calc(50vw-80px)]">
@@ -28,18 +27,7 @@ export default function ContactsPage() {
           <div className="my-12 font-noto-sans text-[28px] italic">
             {t("Contacts.firstHighlight")}
           </div>
-          {pageContent.length > 0 ? (
-            <ContactInfo
-              email={pageContent[0]}
-              mobilePhone={pageContent[1]}
-              socials={[
-                { icon: <Instagram />, text: "@creativestudio" },
-                { icon: <Youtube />, text: "/creativestudio" },
-              ]}
-            />
-          ) : (
-            <Skeleton className="mt-12" height={105} />
-          )}
+          {children}
           <div className="my-12 font-noto-sans text-[28px] italic">
             {t("Contacts.secondHighlight")}
           </div>
@@ -56,5 +44,23 @@ export default function ContactsPage() {
         </div>
       </div>
     </main>
+  );
+
+  if (!pageContent) {
+    return (
+      <PageStructure>
+        <ContactsPageSkeleton />
+      </PageStructure>
+    );
+  }
+
+  return (
+    <PageStructure>
+      <ContactInfo
+        email={pageContent?.email}
+        mobilePhone={pageContent.phone}
+        socials={[{ icon: <Instagram />, text: pageContent.instagram }]}
+      />
+    </PageStructure>
   );
 }

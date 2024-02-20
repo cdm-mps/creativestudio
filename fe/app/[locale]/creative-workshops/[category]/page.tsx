@@ -1,25 +1,28 @@
 "use client";
-import { Event } from "@/app/api/models/Event";
-import { urlFor } from "@/client";
-import ArrowTitle from "@components/ArrowTitle/ArrowTitle";
+import {
+  CategoriesWithAreasOfInterest,
+  CategoryPageProjection,
+  EventThumbnail,
+  GetCategoryPageOutputDto,
+} from "@/app/api/models/GetCategoryPage.models";
 import BreadcrumbsTitle from "@components/BreadcrumbsTitle/BreadcrumbsTitle";
 import ButtonFilter from "@components/ButtonFilter/ButtonFilter";
-import { EventElementProps } from "@components/EventElement/EventElement.models";
-import EventGrid from "@components/EventGrid/EventGrid";
-import { EventGridProps } from "@components/EventGrid/EventGrid.models";
 import { Header } from "@components/Header/Header";
-import IconTitle from "@components/IconTitle/IconTitle";
-import Skeleton from "@components/Skeleton/Skeleton";
 import Tabs from "@components/Tabs/Tabs";
-import { NotFoundBanner } from "@components/shared/NotFoundBanner/NotFoundBanner";
 import { AreaOfInterest } from "@model/AreaOfInterest";
 import { Category, categories } from "@model/Category";
 import { Locales } from "@model/Locales";
-import { PageContent, PagesStructure } from "@model/PagesStructure";
-import { isDateInPast } from "@utils/date/isDateInPast";
+import { SubCategory } from "@model/SubCategory";
 import { useLocale, useTranslations } from "next-intl";
 import { notFound } from "next/navigation";
 import { useEffect, useState } from "react";
+import { CategoryPageSkeleton } from "./skeleton";
+import ArrowTitle from "@components/ArrowTitle/ArrowTitle";
+import React from "react";
+import { NotFoundBanner } from "@components/shared/NotFoundBanner/NotFoundBanner";
+import IconTitle from "@components/IconTitle/IconTitle";
+import EventGrid from "@components/EventGrid/EventGrid";
+import { urlFor } from "@/client";
 
 export default function CreativeWorkshopPage({
   params,
@@ -27,103 +30,66 @@ export default function CreativeWorkshopPage({
   params: { category: Category };
 }) {
   const category = params.category;
+  const t = useTranslations("CreativeWorkshop");
+  const t_general = useTranslations("general.AreaOfInterest");
+  const t_categories = useTranslations("Categories");
+  const locale = useLocale();
 
   if (!categories.includes(category)) {
     notFound(); //TODO
   }
 
-  const pageStructure = PagesStructure[category];
-  const hasSubCategories = pageStructure.section.length > 1;
-
-  const locale = useLocale();
-
-  const t_general = useTranslations("general.AreaOfInterest");
-  const t_categories = useTranslations("Categories");
-
-  const t = useTranslations("CreativeWorkshop");
-
-  const [pageContent, setPageContent] = useState<PageContent | undefined>();
-
+  const [categoryPage, setCategoryPage] = useState<GetCategoryPageOutputDto>();
   const [selectedTab, setSelectedTab] = useState(0);
   const [activeFilter, setActiveFilter] = useState(-1);
-  const [events, setEvents] = useState<EventGridProps | undefined>();
 
-  useEffect(() => {
-    fetch(`/api/getPages/${category}`)
-      .then((res) => res.json())
-      .then((data: any) => setPageContent(data[0]));
-  }, []);
+  const subcategories = CategoryPageProjection[category].split(", ") as (
+    | Category
+    | SubCategory
+  )[];
+  const hasSubCategories = subcategories.length > 1;
+  const hasAreasOfInsterest = CategoriesWithAreasOfInterest.includes(category);
 
   useEffect(() => {
     fetch(
-      `/api/getEvents/category/${category}/${
-        hasSubCategories
-          ? `/subcategory/${pageStructure.section[selectedTab]}`
-          : ""
+      `/api/getPages/${category}${
+        hasSubCategories ? `/${subcategories[selectedTab]}` : ""
       }${
-        activeFilter > -1
-          ? `/areaOfInterest/${Object.keys(AreaOfInterest)[activeFilter]}`
-          : ""
+        activeFilter > -1 ? `/${Object.keys(AreaOfInterest)[activeFilter]}` : ""
       }`,
     )
       .then((res) => res.json())
-      .then((data: Event[]) => {
-        setEvents({
-          events: data.map((event) => {
-            return {
-              _id: event._id,
-              title: event.title[locale as Locales],
-              date: event.date,
-              image: {
-                src: urlFor(event.image.image.image.asset._ref).url(),
-                alt: event.image.title,
-                objectPosition: event.image.objectPosition,
-              },
-              category: event.category,
-              subtitle: event.mentor.mentor.name,
-              disabled: isDateInPast(event.date),
-            };
-          }) as EventElementProps[],
-        });
-      });
+      .then((data: GetCategoryPageOutputDto) => setCategoryPage(data));
   }, [selectedTab, activeFilter]);
 
-  if (!pageContent || !events) {
-    return (
-      <div className="mx-40 flex flex-col">
-        <Skeleton height={103} width={300} />
-        <Skeleton height={42} width={400} className=" mb-12 mt-14" />
-        <Skeleton height={300} />
-        <Skeleton height={39} width={380} className="mb-14 mt-16" />
-        <div className="flex items-center justify-center">
-          <Skeleton height={163} className="mb-3" />
-        </div>
-        <Skeleton height={100} width={380} className="mb-16 mt-20" />
-        <div className="mb-9 flex gap-8">
-          {Array(3)
-            .fill(null)
-            .map(() => (
-              <Skeleton height={320} width={290} />
-            ))}
-        </div>
-        <Skeleton height={100} width={380} className="mb-16 mt-20" />
-        <div className="flex gap-8">
-          {Array(3)
-            .fill(null)
-            .map(() => (
-              <Skeleton height={320} width={290} />
-            ))}
-        </div>
-      </div>
-    );
+  if (!categoryPage) {
+    return <CategoryPageSkeleton />;
   }
 
-  const getPreviousEvents = () => {
-    return events.events.filter((event) => event.disabled);
-  };
-
-  const getNextEvents = () => {
-    return events.events.filter((event) => !event.disabled);
+  const EventsList = (events: EventThumbnail[], disabled?: boolean) => {
+    return (
+      <React.Fragment>
+        {events.length ? (
+          <EventGrid
+            events={events.map((event) => ({
+              _id: event._id,
+              title: event.title[locale as Locales],
+              subtitle: event.mentor.mentor.name,
+              date: event.date,
+              category,
+              image: {
+                src: urlFor(event.image.image.src).url(),
+                alt: event.image.image.title,
+                objectPosition: event.image.image.objectPosition,
+              },
+              disabled,
+            }))}
+          />
+        ) : (
+          <NotFoundBanner />
+        )}
+      </React.Fragment>
+    );
   };
 
   return (
@@ -138,45 +104,50 @@ export default function CreativeWorkshopPage({
       />
       {
         <div className="flex flex-col">
-          {hasSubCategories ? (
+          {hasSubCategories && (
             <div className="pt-14">
               <Tabs
-                tabs={Object.keys(pageContent).map(
-                  (key) => pageContent[key].label?.[locale as Locales]!,
+                tabs={subcategories.map(
+                  (subcategory) =>
+                    categoryPage.pageContent[subcategory].label?.[
+                      locale as Locales
+                    ]!,
                 )}
                 category={category}
                 selectedTab={selectedTab}
                 setSelectedTab={setSelectedTab}
               >
                 <>
-                  {pageStructure?.section.map((key, index) => {
-                    return (
-                      <>
-                        {selectedTab === index && (
-                          <Header
-                            highlight={
-                              pageContent[key]?.highlight?.[locale as Locales]
-                            }
-                            description={
-                              pageContent[key]?.description?.[locale as Locales]
-                            }
-                          />
-                        )}
-                      </>
-                    );
-                  })}
+                  {subcategories.map(
+                    (key, index) =>
+                      selectedTab === index && (
+                        <Header
+                          highlight={
+                            categoryPage.pageContent[key].highlight?.[
+                              locale as Locales
+                            ]
+                          }
+                          description={
+                            categoryPage.pageContent[key].description[
+                              locale as Locales
+                            ]
+                          }
+                        />
+                      ),
+                  )}
                 </>
               </Tabs>
             </div>
-          ) : (
+          )}
+          {!hasSubCategories && (
             <Header
               highlight={
-                pageContent[pageStructure.section[0]]?.highlight?.[
+                categoryPage.pageContent[category].highlight?.[
                   locale as Locales
                 ]
               }
               description={
-                pageContent[pageStructure.section[0]]?.description?.[
+                categoryPage.pageContent[category].description[
                   locale as Locales
                 ]
               }
@@ -184,8 +155,8 @@ export default function CreativeWorkshopPage({
           )}
         </div>
       }
-      {pageStructure.hasAreaOfInsterest && (
-        <>
+      {hasAreasOfInsterest && (
+        <React.Fragment>
           <div className="mb-14 mt-16 font-league-gothic text-4xl">
             {t("areaOfInterest")}
           </div>
@@ -197,27 +168,19 @@ export default function CreativeWorkshopPage({
             }))}
             setFilterActiveStatus={(index) => setActiveFilter(index)}
           />
-        </>
+        </React.Fragment>
       )}
       <ArrowTitle
         title={t("upcomingDates")}
         category={category}
-        subTitle={`${getNextEvents().length} ${t("availableEvents")}`}
+        subTitle={`${categoryPage.futureEvents.length} ${t("availableEvents")}`}
       />
       <div className="mb-16" />
-      {getNextEvents().length > 0 ? (
-        <EventGrid events={getNextEvents()} />
-      ) : (
-        <NotFoundBanner />
-      )}
+      {EventsList(categoryPage.futureEvents)}
       <div className="mt-44" />
       <IconTitle title={t("previous")} mode="dots" category={category} />
       <div className="mb-16" />
-      {getPreviousEvents().length > 0 ? (
-        <EventGrid events={getPreviousEvents()} />
-      ) : (
-        <NotFoundBanner />
-      )}
+      {EventsList(categoryPage.previousEvents, true)}
     </main>
   );
 }

@@ -5,7 +5,7 @@ export default function CalendarPage() {
   const t = useTranslations("Menu");
 
   return (
-    <main className="flex min-h-[calc(100vh-26vh)]">
+    <main className="mx-40 flex flex-col">
       <Title title={t("calendar")} category="businessWorkshops" />
     </main>
   );

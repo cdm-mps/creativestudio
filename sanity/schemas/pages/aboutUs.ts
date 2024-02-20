@@ -6,7 +6,7 @@ export default {
     {
       name: 'highlight',
       title: 'Highlight',
-      description:'Italic sentence above the description',
+      description: 'Italic sentence above the description',
       type: 'object',
       fields: [
         {name: 'pt', type: 'string', title: 'PT'},
@@ -21,18 +21,6 @@ export default {
       fields: [
         {name: 'pt', type: 'text', title: 'PT'},
         {name: 'en', type: 'text', title: 'EN'},
-      ],
-      validation: (Rule: any) => Rule.required(),
-    },
-    {
-      title: 'Team',
-      name: 'team',
-      type: 'array',
-      of: [
-        {
-          type: 'reference',
-          to: [{type: 'teamElement'}],
-        },
       ],
       validation: (Rule: any) => Rule.required(),
     },

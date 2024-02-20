@@ -4,16 +4,21 @@ export default {
   title: '[page] Contacts',
   fields: [
     {
-      name: 'contacts',
-      title: 'contacts',
-      description:
-        'List of contacts (e.g. email "hello@creativestudionofilters.io" and phone number "910 000 000")',
-      type: 'array',
-      of: [
-        {
-          type: 'string',
-        },
-      ],
+      name: 'email',
+      title: 'Email',
+      type: 'string',
+      validation: (Rule: any) => Rule.required(),
+    },
+    {
+      name: 'phone',
+      title: 'Phone',
+      type: 'string',
+      validation: (Rule: any) => Rule.required(),
+    },
+    {
+      name: 'instagram',
+      title: 'Instagram',
+      type: 'string',
       validation: (Rule: any) => Rule.required(),
     },
   ],
