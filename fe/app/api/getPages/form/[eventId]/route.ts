@@ -1,36 +1,8 @@
-import { Locales } from "./Locales";
+import { FieldType, FormStructure } from "@/app/api/models/GetForm.models";
+import { client } from "@/client";
+import groq from "groq";
 
-export interface FormStructure {
-  personalData: Fields[];
-  form: Fields[];
-  paymentDetails: Fields[];
-}
-
-export interface Fields {
-  key: string;
-  label: Record<Locales, string>;
-  description?: Record<Locales, string>;
-  type: FieldType;
-  options?: Options[];
-  required?: boolean;
-}
-
-export enum FieldType {
-  Radio = "radio",
-  Check = "check",
-  TextArea = "textArea",
-  Input = "input",
-  File = "file",
-}
-
-export interface Options {
-  label: Record<Locales, string>;
-  value: string;
-}
-
-export type FormAnswers = Record<string, string | undefined>;
-
-export const Form: FormStructure = {
+const form: FormStructure = {
   personalData: [
     {
       key: "name",
@@ -160,3 +132,14 @@ export const Form: FormStructure = {
     },
   ],
 };
+
+export async function GET(
+  request: Request,
+  context: { params: { eventId: string } },
+) {
+  const { params } = context;
+  const query = groq`*[_type == "enrollForm" && !(_id in path("drafts.**"))][0]{paymentDetails[] {label, value}, regulations, "event": *[_type == "event" && !(_id in path("drafts.**")) && _id == "${params.eventId}"][0]{ title, category, date, duration, hasSubmitVideo, mentor {mentor -> {_id, name, image {mentor_image -> {title, objectPosition, "src": image.asset._ref}} } } }}`;
+  const res = await client.fetch(query);
+
+  return Response.json({ ...res, form });
+}

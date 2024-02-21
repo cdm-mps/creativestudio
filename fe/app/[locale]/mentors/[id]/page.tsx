@@ -37,7 +37,7 @@ export default function MentorPage() {
     return <MentorPageSkeleton />;
   }
 
-  const EventsList = (events: EventBase[]) => {
+  const EventsList = (events: EventBase[], previous?: boolean) => {
     return (
       <React.Fragment>
         {events.length ? (
@@ -54,6 +54,7 @@ export default function MentorPage() {
               }}
               category={event.category}
               date={event.date}
+              previous={previous}
               disabled
               eventId={event._id}
             />
@@ -105,7 +106,7 @@ export default function MentorPage() {
             category="businessWorkshops"
           />
           <div className="flex flex-col gap-10">
-            {EventsList(mentor.previousEvents)}
+            {EventsList(mentor.previousEvents, true)}
           </div>
         </div>
       </>

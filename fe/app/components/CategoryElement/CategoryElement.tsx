@@ -37,11 +37,9 @@ const CategoryElement = ({
       >
         <p
           className={clsx(
-            "text-center font-league-gothic",
+            "text-center font-league-gothic uppercase",
             isDeactivated && "md:opacity-50",
-            size === "medium"
-              ? "text-2xl uppercase md:text-7xl"
-              : "font-noto-sans text-sm lowercase md:text-base",
+            size === "medium" ? "text-2xl md:text-7xl" : "text-sm md:text-xl",
           )}
         >
           {t(category)}

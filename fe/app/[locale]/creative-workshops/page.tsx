@@ -1,40 +1,30 @@
 "use client";
 import CategoryGrid from "@components/CategoryGrid/CategoryGrid";
 import { Header } from "@components/Header/Header";
-import Skeleton from "@components/Skeleton/Skeleton";
 import Title from "@components/Title/Title";
 import { Locales } from "@model/Locales";
-import { CreativeWorkshopsPageStructure } from "@model/PagesStructure";
 import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
+import { CreativeWorkshopsSkeleton } from "./skeleton";
+import { GetCreativeWorkshopsPageOutputDto } from "@/app/api/models/GetCreativeWorkshopsPage.models";
 
 export default function CreativeWorkshopsPage() {
   const t = useTranslations("CreativeWorkshops");
-
-  const [pageStructure, setPageStructure] = useState<
-    CreativeWorkshopsPageStructure | undefined
-  >(undefined);
-
   const locale = useLocale();
+
+  const [pageStructure, setPageStructure] =
+    useState<GetCreativeWorkshopsPageOutputDto>();
 
   useEffect(() => {
     fetch(`/api/getPages/creativeWorkshops`)
       .then((res) => res.json())
-      .then((data: any) => setPageStructure(data[0]));
+      .then((data: GetCreativeWorkshopsPageOutputDto) =>
+        setPageStructure(data),
+      );
   }, []);
 
   if (!pageStructure) {
-    return (
-      <div className="mx-40 flex flex-col">
-        <Skeleton height={72} width={440} />
-        <Skeleton height={42} width={300} className="mt-14" />
-        <Skeleton height={355} className="mb-14 mt-12" />
-        <div className="flex flex-col items-center">
-          <Skeleton height={72} width={414} className="mb-14 mt-6" />
-          <Skeleton height={699} width={1049} className="mb-14 mt-12" />
-        </div>
-      </div>
-    );
+    return <CreativeWorkshopsSkeleton />;
   }
 
   return (

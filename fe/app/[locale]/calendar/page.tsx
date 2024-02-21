@@ -14,7 +14,6 @@ import Title from "@components/Title/Title";
 import { NotFoundBanner } from "@components/shared/NotFoundBanner/NotFoundBanner";
 import { Locales } from "@model/Locales";
 import { formatDate } from "@utils/date/formatDate";
-import { isDateInPast } from "@utils/date/isDateInPast";
 import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 
@@ -46,6 +45,12 @@ export default function CalendarPage() {
     count === 1
       ? t("Components.Mentor.eventBarSingular")
       : t("Components.Mentor.eventBarPlural");
+
+  const isDateInPast = (value: string): boolean => {
+    const date = new Date(value);
+    const currentDate = new Date();
+    return date < currentDate;
+  };
 
   function getSelectedDateEvents() {
     if (!pageContent) return [];
@@ -130,4 +135,7 @@ export default function CalendarPage() {
       )}
     </main>
   );
+}
+function isDateInPast(date: string): any {
+  throw new Error("Function not implemented.");
 }
