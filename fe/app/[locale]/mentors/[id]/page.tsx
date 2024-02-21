@@ -1,24 +1,22 @@
 "use client";
-import React from "react";
 import {
   EventBase,
   GetMentorPageOutputDto,
 } from "@/app/api/models/GetMentorPage.models";
+import { urlFor } from "@/client";
 import ArrowTitle from "@components/ArrowTitle/ArrowTitle";
 import BreadcrumbsTitle from "@components/BreadcrumbsTitle/BreadcrumbsTitle";
 import IconTitle from "@components/IconTitle/IconTitle";
 import MentorElement from "@components/Mentor/Mentor";
 import MentorEventBar from "@components/MentorEventBar/MentorEventBar";
 import { NotFoundBanner } from "@components/shared/NotFoundBanner/NotFoundBanner";
-import { useLocale, useTranslations } from "next-intl";
-import { useParams, useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
-import { MentorPageSkeleton } from "./skeleton";
-import { urlFor } from "@/client";
 import { Locales } from "@model/Locales";
+import { useLocale, useTranslations } from "next-intl";
+import { useParams } from "next/navigation";
+import React, { useEffect, useState } from "react";
+import { MentorPageSkeleton } from "./skeleton";
 
 export default function MentorPage() {
-  const { push } = useRouter();
   const t = useTranslations();
   const locale = useLocale();
   const params = useParams();
@@ -29,6 +27,11 @@ export default function MentorPage() {
       .then((res) => res.json())
       .then((data: GetMentorPageOutputDto) => setMentor(data));
   }, []);
+
+  const buildLabel = (count: number) =>
+    count === 1
+      ? t("Components.Mentor.eventBarSingular")
+      : t("Components.Mentor.eventBarPlural");
 
   if (!mentor) {
     return <MentorPageSkeleton />;
@@ -52,11 +55,7 @@ export default function MentorPage() {
               category={event.category}
               date={event.date}
               disabled
-              onClick={() =>
-                push(
-                  `/${locale}/creative-workshops/${event.category}/event/${event._id}`,
-                )
-              }
+              eventId={event._id}
             />
           ))
         ) : (
@@ -93,7 +92,7 @@ export default function MentorPage() {
           <ArrowTitle
             title={t("CreativeWorkshop.upcomingDates")}
             category="businessWorkshops"
-            subTitle={`${mentor.futureEvents?.length} ${mentor.futureEvents?.length === 1 ? t("Components.Mentor.eventBarSingular") : t("Components.Mentor.eventBarPlural")}`}
+            subTitle={`${mentor.futureEvents?.length} ${buildLabel(mentor.futureEvents?.length)}`}
           />
           <div className="mb-20 flex flex-col gap-10">
             {EventsList(mentor.futureEvents)}

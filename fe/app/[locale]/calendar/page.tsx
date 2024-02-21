@@ -1,4 +1,5 @@
 "use client";
+
 import {
   CalendarElementProps,
   CalendarProps,
@@ -17,7 +18,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 
 export default function CalendarPage() {
-  const t = useTranslations("Menu");
+  const t = useTranslations();
   const locale = useLocale();
 
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -26,7 +27,13 @@ export default function CalendarPage() {
   const [selectDateEvents, setSelectedDateEvents] = useState<
     CalendarElementProps[]
   >([]);
+
   const date = formatDate(selectedDate.toDateString(), "2-digit");
+
+  const buildLabel = (count: number) =>
+    count === 1
+      ? t("Components.Mentor.eventBarSingular")
+      : t("Components.Mentor.eventBarPlural");
 
   function getSelectedDateEvents() {
     if (!pageContent) return [];
@@ -80,7 +87,7 @@ export default function CalendarPage() {
 
   return (
     <main className="mx-40 flex flex-col gap-14">
-      <Title title={t("Calendar")} category="businessWorkshops" />
+      <Title title={t("Menu.calendar")} category="businessWorkshops" />
       <div className="mx-20">
         <Calendar
           events={pageContent.events}
@@ -91,13 +98,14 @@ export default function CalendarPage() {
       <ArrowTitle
         title={date.day + "/" + date.month}
         category={"businessWorkshops"}
-        subTitle={`${selectDateEvents.length} ${t("availableEvents")}`}
+        subTitle={`${selectDateEvents.length} ${buildLabel(selectDateEvents.length)}`}
       />
       {selectDateEvents.length > 0 ? (
         selectDateEvents.map(
-          (event) =>
+          (event, index) =>
             event && (
               <MentorEventBar
+                key={"event_" + index}
                 mentor={event.mentor}
                 category={event.category}
                 title={event.title}
@@ -110,33 +118,4 @@ export default function CalendarPage() {
       )}
     </main>
   );
-}
-
-{
-  /* <Calendar
-          events={[
-            {
-              title: "Lorem ipsum sit",
-              category: "artisticResidences",
-              date: "2024/01/14",
-            },
-            {
-              title: "Lorem ipsum sit dasjdhas dksajh dsakjd hsa",
-              category: "creativeTalks",
-              date: "2024/01/14",
-            },
-            {
-              title: "Lorem ipsum sit",
-              category: "businessWorkshops",
-              date: "2024/01/14",
-            },
-            {
-              title: "Lorem ipsum sit",
-              category: "editions",
-              date: "2024/01/01",
-            },
-          ]}
-          selectedDate={selectedDate}
-          setSelectedDate={setSelectedDate}
-        /> */
 }
