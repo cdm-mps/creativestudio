@@ -100,7 +100,10 @@
       "textTwo": "Dados Pessoais"
     },
     "Filters": {
-      "filter": "Filtrar"
+      "filter": "Filtrar",
+      "eventType": "Tipo de Evento",
+      "areaOfInterest": "Área de Interesse",
+      "mentor": "Mentor"
     },
     "UploadFile": {
       "addFile": "Adicionar ficheiro"

@@ -98,7 +98,10 @@
       "textTwo": "Personal Info"
     },
     "Filters": {
-      "filter": "Filter"
+      "filter": "Filter",
+      "eventType": "Event Type",
+      "areaOfInterest": "Area Of Interest",
+      "mentor": "Mentor"
     },
     "UploadFile": {
       "addFile": "Add file"
