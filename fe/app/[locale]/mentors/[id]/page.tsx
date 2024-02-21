@@ -12,7 +12,7 @@ import MentorEventBar from "@components/MentorEventBar/MentorEventBar";
 import { NotFoundBanner } from "@components/shared/NotFoundBanner/NotFoundBanner";
 import { Locales } from "@model/Locales";
 import { useLocale, useTranslations } from "next-intl";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { MentorPageSkeleton } from "./skeleton";
 
@@ -20,6 +20,7 @@ export default function MentorPage() {
   const t = useTranslations();
   const locale = useLocale();
   const params = useParams();
+  const { push } = useRouter();
   const [mentor, setMentor] = useState<GetMentorPageOutputDto>();
 
   useEffect(() => {
@@ -45,6 +46,7 @@ export default function MentorPage() {
             <MentorEventBar
               title={event.title[locale as Locales]}
               mentor={{
+                _id: mentor._id,
                 name: mentor.name,
                 image: {
                   src: urlFor(mentor.image.mentor_image.src).url(),
@@ -56,7 +58,9 @@ export default function MentorPage() {
               date={event.date}
               previous={previous}
               disabled
-              eventId={event._id}
+              onClick={() =>
+                push(`creative-workshops/${event.category}/event/${event._id}`)
+              }
             />
           ))
         ) : (
