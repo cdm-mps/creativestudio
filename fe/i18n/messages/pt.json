@@ -114,7 +114,8 @@
   "CreativeWorkshop": {
     "areaOfInterest": "Área de Interesse",
     "upcomingDates": "Próximas Datas",
-    "availableEvents": "eventos disponíveis",
+    "availableEventsSingular": "evento disponível",
+    "availableEventsPlural": "eventos disponíveis",
     "previous": "Anteriores"
   },
   "AboutUs": {
