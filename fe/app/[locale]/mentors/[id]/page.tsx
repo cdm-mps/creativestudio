@@ -59,7 +59,9 @@ export default function MentorPage() {
               previous={previous}
               disabled
               onClick={() =>
-                push(`creative-workshops/${event.category}/event/${event._id}`)
+                push(
+                  `/${locale}/creative-workshops/${event.category}/event/${event._id}`,
+                )
               }
             />
           ))
