@@ -1122,6 +1122,7 @@ export default function Home() {
       <div className="flex flex-col items-center justify-center gap-4 md:px-32">
         <MentorEventBar
           mentor={{
+            _id: "id",
             name: "Benedita Pereira",
             image: {
               src: BeneditaPereiera,
@@ -1136,6 +1137,7 @@ export default function Home() {
         />
         <MentorEventBar
           mentor={{
+            _id: "id",
             name: "Benedita Pereira Very Very Very Very Very Very Very Very Very Very Long",
             image: {
               src: BeneditaPereiera,
@@ -1166,6 +1168,7 @@ export default function Home() {
         />
         <MentorEventBar
           mentor={{
+            _id: "id",
             name: "Carolina Leite",
             image: {
               src: CarolinaLeite,
