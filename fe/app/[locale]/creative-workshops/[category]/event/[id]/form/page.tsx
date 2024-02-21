@@ -8,7 +8,7 @@ import {
 } from "@/app/api/models/GetForm.models";
 import { urlFor } from "@/client";
 import BreadcrumbsTitle from "@components/BreadcrumbsTitle/BreadcrumbsTitle";
-import Details from "@components/Details/Details";
+import Button from "@components/Button/Button";
 import EventInfo from "@components/EventInfo/EventInfo";
 import CheckboxGroup from "@components/InputField/CheckboxGroup/CheckboxGroup";
 import RadioButtonGroup from "@components/InputField/RadioButtonGroup/RadioButtonGroup";
@@ -37,8 +37,11 @@ export default function FormPage({
   const [activeStep, setActiveStep] = useState(0);
   const [pageContent, setPageContent] = useState<GetFormOutputDto>();
   const [formAnswers, setFormAnswers] = useState<FormAnswers>();
-
-  const hasSubmitReceipt = formAnswers?.["paymentMethod"] === "promptPayment";
+  const [fieldsWithError, setFieldsWithError] = useState<string[]>();
+  const [submissionStatus, setSubmissionStatus] = useState<{
+    label: string;
+    content: JSX.Element;
+  }>();
 
   const buildFormAnswers = (form: FormStructure) =>
     setFormAnswers(
@@ -57,6 +60,10 @@ export default function FormPage({
       });
   }, []);
 
+  useEffect(() => {
+    setFieldsWithError([]);
+  }, [formAnswers]);
+
   if (!pageContent) {
     return <FormPageSkeleton />;
   }
@@ -71,6 +78,7 @@ export default function FormPage({
             category={params.category}
             required={field.required}
             value={formAnswers?.[field.key] || ""}
+            hasError={fieldsWithError?.includes(field.key)}
             onChangeValue={(value) =>
               setFormAnswers((prev) => ({ ...prev, ...{ [field.key]: value } }))
             }
@@ -85,6 +93,7 @@ export default function FormPage({
             category={params.category}
             required={field.required}
             value={formAnswers?.[field.key] || ""}
+            hasError={fieldsWithError?.includes(field.key)}
             onChangeValue={(value) =>
               setFormAnswers((prev) => ({ ...prev, ...{ [field.key]: value } }))
             }
@@ -98,6 +107,7 @@ export default function FormPage({
             description={field.description?.[locale as Locales]}
             category={params.category}
             required={field.required}
+            hasError={fieldsWithError?.includes(field.key)}
             options={
               field.options?.map((option) => ({
                 ...option,
@@ -118,6 +128,7 @@ export default function FormPage({
             description={field.description?.[locale as Locales]}
             category={params.category}
             required={field.required}
+            hasError={fieldsWithError?.includes(field.key)}
             options={
               field.options?.map((option) => ({
                 ...option,
@@ -132,24 +143,88 @@ export default function FormPage({
         );
 
       case FieldType.File:
-        if (
-          (field.key === "video" && !pageContent.event.hasSubmitVideo) ||
-          (field.key === "receipt" && !hasSubmitReceipt)
-        ) {
-          return;
-        }
-
         return (
           <UploadFile
             title={field.label[locale as Locales]}
             description={field.description?.[locale as Locales]}
+            hasError={fieldsWithError?.includes(field.key)}
             category={params.category}
             required={field.required}
+            onChangeValue={(value) =>
+              setFormAnswers((prev) => ({
+                ...prev,
+                ...{ [field.key]: value },
+              }))
+            }
           />
         );
     }
   };
 
+  const validateForm = () => {
+    let fields: string[] = [];
+    if (activeStep === 0) {
+      pageContent.form.personalData.forEach((field) => {
+        if (!formAnswers?.[field.key] && field.required) {
+          fields.push(field.key);
+        }
+      });
+    } else if (activeStep === 1) {
+      pageContent.form.form.forEach((field) => {
+        if (!formAnswers?.[field.key] && field.required) {
+          fields.push(field.key);
+        }
+      });
+    } else {
+      pageContent.form.paymentDetails.forEach((field) => {
+        if (!formAnswers?.[field.key] && field.required) {
+          fields.push(field.key);
+        }
+      });
+    }
+    setFieldsWithError(fields);
+    return fields;
+  };
+
+  const send = () => {
+    if (!validateForm().length) {
+      fetch("/api/sendEmail", {
+        method: "post",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          form: formAnswers,
+          event: pageContent.event,
+        }),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          const success = (
+            <div className="flex flex-col gap-4 font-noto-sans">
+              <p className="whitespace-pre-line">{t("success")}</p>
+            </div>
+          );
+
+          const error = (
+            <div className="flex flex-col gap-4 font-noto-sans">
+              <p className="whitespace-pre-line">{t("error")}</p>
+            </div>
+          );
+
+          if (data.error) {
+            setSubmissionStatus({ label: t("error_label"), content: error });
+          } else {
+            setSubmissionStatus({
+              label: t("success_label"),
+              content: success,
+            });
+          }
+          setActiveStep(activeStep + 1);
+        });
+    }
+  };
   return (
     <main className="mx-40 flex flex-col">
       <div className="flex h-fit w-full justify-between">
@@ -210,24 +285,14 @@ export default function FormPage({
               {pageContent.form.paymentDetails.map((field) =>
                 getFieldType(field),
               )}
-              {hasSubmitReceipt && (
-                <div className="mb-8">
-                  <Details
-                    content={
-                      pageContent?.paymentDetails.map((paymentDetail) => ({
-                        label: paymentDetail.label[locale as Locales],
-                        value: paymentDetail.value[locale as Locales],
-                      })) || []
-                    }
-                    category={params.category}
-                  />
-                </div>
-              )}
             </div>
           )}
           {activeStep === 3 && (
             <div className="my-auto flex items-center justify-center">
-              <SubmitionSuccess />
+              <SubmitionStatus
+                title={submissionStatus?.label!}
+                content={submissionStatus?.content!}
+              />
             </div>
           )}
           {activeStep < 3 && (
@@ -238,7 +303,7 @@ export default function FormPage({
             </span>
           )}
 
-          <div className="mt-3 flex justify-between">
+          <div className="mt-5 flex justify-between">
             {activeStep !== 0 && activeStep < 3 && (
               <div
                 className="flex cursor-pointer items-center gap-3 hover:opacity-80"
@@ -250,10 +315,12 @@ export default function FormPage({
                 </span>
               </div>
             )}
-            {activeStep < 3 && (
+            {activeStep < 2 && (
               <div
                 className="ml-auto flex cursor-pointer items-center gap-3 hover:opacity-80"
-                onClick={() => setActiveStep(activeStep + 1)}
+                onClick={() => {
+                  if (!validateForm().length) setActiveStep(activeStep + 1);
+                }}
               >
                 <span className="font-league-gothic text-2xl uppercase">
                   {t("next")}
@@ -262,6 +329,17 @@ export default function FormPage({
               </div>
             )}
           </div>
+
+          {activeStep === 2 && (
+            <div className="item-center mt-auto flex justify-center">
+              <Button
+                category={params.category}
+                label={t("submit")}
+                isDisabled={fieldsWithError?.length! > 0}
+                onClick={() => send()}
+              />
+            </div>
+          )}
         </div>
         <div className="mt-4 flex w-1/3 flex-col">
           <span
@@ -277,25 +355,3 @@ export default function FormPage({
     </main>
   );
 }
-
-/*TODO: Deixar o componente neste momento assim para apresentação. 
-Mas futuramente deve ser alterado porque as traduções 
-não estão a funcionar com a passagem do "content"*/
-
-const SubmitionSuccess = () => (
-  <SubmitionStatus
-    title="Inscrição Submetida"
-    content={
-      <div className="flex flex-col gap-4 font-noto-sans">
-        <p>
-          Obrigada por nos ter escolhido. Em breve receberá mais informações
-          sobre este Creative Workshop
-        </p>
-        <p>Vemos nos em breve!</p>
-        <p>
-          <i>Creative Studio</i>
-        </p>
-      </div>
-    }
-  />
-);

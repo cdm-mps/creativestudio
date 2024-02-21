@@ -96,8 +96,9 @@
       "level": "Nível:"
     },
     "Stepper": {
-      "textOne": "Dados de Pagamento",
-      "textTwo": "Dados Pessoais"
+      "textOne": "Dados Pessoais",
+      "textTwo": "Formulário",
+      "textThree": "Dados de Pagamento"
     },
     "Filters": {
       "filter": "Filtrar"
@@ -135,7 +136,12 @@
     "required": "*Preenchimento Obrigatório",
     "previous": "Anterior",
     "next": "Seguinte",
-    "regulations": "Regulamento"
+    "regulations": "Regulamento",
+    "submit": "Submeter",
+    "error_label": "Ups... Algo correu mal",
+    "success_label": "Inscrição Submetida!",
+    "successs": "A sua incrição foi submetida com sucesso, obrigada por nos ter escolhido. \n Em breve será contactado(a) pelo Creative Studio para proceder ao pagemento. \n\n\n Creative Studio",
+    "error": "Neste momento não estamos a conseguir submeter a sua inscrição. \n Por favor, tente mais tarde. \n\n\n Creative Studio"
   },
   "BusinessWorkshops": {
     "title": "Business Workshops",

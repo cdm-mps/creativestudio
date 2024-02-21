@@ -12,7 +12,7 @@ const StepperElement = ({
   withIcon = false,
 }: StepperElementProps) => {
   return (
-    <div className="flex items-start gap-2 md:gap-[14px]">
+    <div className="flex cursor-default items-start gap-2 md:gap-[14px]">
       <div
         className={clsx(
           "flex flex-col items-center justify-center gap-2.5",
@@ -25,13 +25,15 @@ const StepperElement = ({
           <>
             <div
               className={clsx(
-                `flex h-10 w-10 items-center justify-center rounded-full text-lg md:text-2xl`,
+                `flex h-10 w-10 cursor-default items-center justify-center rounded-full text-lg md:text-2xl`,
                 isActive && `bg-${category}`,
               )}
             >
               {index}
             </div>
-            <p className="text-center text-sm uppercase">{text}</p>
+            <p className="cursor-default text-center text-sm uppercase">
+              {text}
+            </p>
           </>
         )}
       </div>

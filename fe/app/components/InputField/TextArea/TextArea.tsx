@@ -8,6 +8,7 @@ const TextArea = ({
   value,
   required,
   category,
+  hasError,
   onChangeValue,
 }: TextAreaProps) => {
   const t = useTranslations("Components.Input");
@@ -18,6 +19,7 @@ const TextArea = ({
         description={description}
         required={required}
         category={category}
+        hasError={hasError}
       />
       <textarea
         className="h-[118px] w-full border border-white bg-transparent p-3 font-noto-sans outline-none"

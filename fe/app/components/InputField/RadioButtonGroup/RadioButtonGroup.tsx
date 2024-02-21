@@ -10,6 +10,7 @@ const RadioButtonGroup = ({
   options,
   value,
   required,
+  hasError,
   onChangeValue,
 }: RadioButtonGroupProps) => {
   return (
@@ -19,6 +20,7 @@ const RadioButtonGroup = ({
         description={description}
         required={required}
         category={category}
+        hasError={hasError}
       />
       <div className="mt-4 flex gap-10">
         {options.map((option) => (

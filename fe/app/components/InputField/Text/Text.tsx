@@ -8,6 +8,7 @@ const Text = ({
   value,
   required,
   category,
+  hasError,
   onChangeValue,
 }: TextProps) => {
   const t = useTranslations("Components.Input");
@@ -18,6 +19,7 @@ const Text = ({
         description={description}
         category={category}
         required={required}
+        hasError={hasError}
       />
       <input
         type="text"
