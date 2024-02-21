@@ -1,4 +1,4 @@
-import { form as FormStructure } from "@/app/api/getPages/form/[eventId]/route";
+import { form as FormStructure } from "@/app/api/getPages/form/[eventId]/formStructure";
 import { formatDate } from "@utils/date/formatDate";
 import * as React from "react";
 import { EmailTemplateProps } from "./EmailTemplate.models";
