@@ -22,7 +22,7 @@ import SubmitionStatus from "@components/SubmitionStatus/SubmitionStatus";
 import { Category } from "@model/Category";
 import { Locales } from "@model/Locales";
 import { useLocale, useTranslations } from "next-intl";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FormPageSkeleton } from "./skeleton";
 
 export default function FormPage({
@@ -42,6 +42,8 @@ export default function FormPage({
     label: string;
     content: JSX.Element;
   }>();
+
+  const ref = useRef<any>(null);
 
   const buildFormAnswers = (form: FormStructure) =>
     setFormAnswers(
@@ -63,6 +65,12 @@ export default function FormPage({
   useEffect(() => {
     setFieldsWithError([]);
   }, [formAnswers]);
+
+  useEffect(() => {
+    scrollToTop();
+  }, [activeStep]);
+
+  const scrollToTop = () => ref.current?.scrollIntoView({ behavior: "smooth" });
 
   if (!pageContent) {
     return <FormPageSkeleton />;
@@ -263,7 +271,7 @@ export default function FormPage({
           name={pageContent.event.mentor.mentor.name}
         />
       </div>
-      <div className="mt-9 flex justify-center">
+      <div ref={ref} className="mt-9 flex justify-center">
         <Stepper activeStep={activeStep} category={params.category} />
       </div>
       <div className="mt-6 flex gap-28">
@@ -335,7 +343,7 @@ export default function FormPage({
               <Button
                 category={params.category}
                 label={t("submit")}
-                isDisabled={fieldsWithError?.length! > 0}
+                isDisabled={formAnswers?.["paymentMethod"] === undefined}
                 onClick={() => send()}
               />
             </div>

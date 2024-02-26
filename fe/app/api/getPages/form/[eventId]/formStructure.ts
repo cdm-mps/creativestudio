@@ -80,19 +80,6 @@ export const form: FormStructure = {
       ],
       required: true,
     },
-    {
-      key: "video",
-      label: {
-        pt: "video / voice track / videotape",
-        en: "video / voice track / videotape",
-      },
-      description: {
-        pt: "Este workshop tem uma pré-seleção das candidaturas. Para te candidatares, terás de submeter um vídeo, voice track ou videotape teu, que será analisado para que sejas colocado no nível mais adequado para ti.",
-        en: "This workshop has a pre-selection of applications. To apply, you'll need to submit a video, voice track or videotape of yourself, which will be analysed so that you can be placed in the most suitable level for you.",
-      },
-      type: FieldType.File,
-      required: true,
-    },
   ],
   paymentDetails: [
     {
@@ -119,12 +106,6 @@ export const form: FormStructure = {
           value: "instalments",
         },
       ],
-      required: true,
-    },
-    {
-      key: "receipt",
-      label: { pt: "Comprovativo de Transferência", en: "Proof of Transfer" },
-      type: FieldType.File,
       required: true,
     },
   ],
