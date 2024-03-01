@@ -14,11 +14,11 @@ const Mentor = ({ _id, redirectOnClick, ...rest }: MentorProps) => {
     <React.Fragment>
       {redirectOnClick ? (
         <Link className={className} href={`mentors/${_id}`}>
-          <Content {...rest} />
+          <Content redirectOnClick={redirectOnClick} {...rest} />
         </Link>
       ) : (
         <div className={className}>
-          <Content {...rest} />
+          <Content redirectOnClick={redirectOnClick} {...rest} />
         </div>
       )}
     </React.Fragment>
@@ -29,12 +29,16 @@ const Content = ({
   name,
   image,
   label,
-}: Pick<MentorProps, "name" | "image" | "label">) => (
+  redirectOnClick,
+}: Pick<MentorProps, "name" | "image" | "label" | "redirectOnClick">) => (
   <>
     <div className="relative">
       <ImageElement
         {...image}
-        className="h-[184px] w-[162px] md:h-[384px] md:w-[362px]"
+        className={clsx(
+          "h-[184px] w-[162px] md:h-[384px] md:w-[362px]",
+          redirectOnClick && "opacity-70 hover:opacity-100",
+        )}
       />
       {label && (
         <div

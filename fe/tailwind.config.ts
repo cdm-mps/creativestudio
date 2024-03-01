@@ -51,18 +51,22 @@ const config: Config = {
     {
       pattern:
         /text-(artisticResidence|workshop|edition|businessWorkshop|creativeTalks|masterclass)/,
+      variants: ["hover"],
     },
     {
       pattern:
         /bg-(artisticResidence|workshop|edition|businessWorkshop|creativeTalks|masterclass)/,
+      variants: ["hover"],
     },
     {
       pattern:
         /border-(artisticResidence|workshop|edition|businessWorkshop|creativeTalks|masterclass)/,
+      variants: ["hover"],
     },
     {
       pattern:
         /accent-(artisticResidence|workshop|edition|businessWorkshop|creativeTalks|masterclass)/,
+      variants: ["hover"],
     },
   ],
 };

@@ -17,7 +17,7 @@ const MentorEventBar = ({
     <div
       className={`h-[52px] gap-x-2 px-3 py-2 md:h-[92px] md:gap-x-40 md:px-8 md:py-[14px] ${
         previous ? "border md:border-[2px]" : "bg-" + category
-      } flex w-full cursor-pointer items-center justify-between`}
+      } flex w-full cursor-pointer items-center justify-between opacity-80 hover:opacity-100`}
       onClick={onClick}
     >
       <div className="mr-auto flex items-center gap-2 md:gap-5">
