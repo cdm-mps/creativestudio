@@ -44,9 +44,11 @@ export default function CalendarPage() {
   };
 
   const buildLabel = (count: number) =>
-    count === 1
-      ? t("Components.Mentor.eventBarSingular")
-      : t("Components.Mentor.eventBarPlural");
+    count === 0
+      ? t("Components.NotFound.noEvents")
+      : count === 1
+        ? `${count} ${t("Components.Mentor.eventBarSingular")}`
+        : `${count} ${t("Components.Mentor.eventBarPlural")}`;
 
   function buildFilters(mentors: { name: string }[]) {
     const filters: Filter[] = [
@@ -57,13 +59,13 @@ export default function CalendarPage() {
           return { value: mentor.name, label: mentor.name };
         }),
       },
-      // {
-      //   placeholder: t(`Components.Filters.areaOfInterest`),
-      //   _key: "areaOfInterest",
-      //   options: areasOfInterest.map((area) => {
-      //     return { value: area, label: t(`general.AreaOfInterest.${area}`) };
-      //   }),
-      // },
+      {
+        placeholder: t(`Components.Filters.areaOfInterest`),
+        _key: "areaOfInterest",
+        options: areasOfInterest.map((area) => {
+          return { value: area, label: t(`general.AreaOfInterest.${area}`) };
+        }),
+      },
       {
         placeholder: t(`Components.Filters.eventType`),
         _key: "eventType",
@@ -177,12 +179,14 @@ export default function CalendarPage() {
   return (
     <main className="mx-40 flex flex-col gap-10">
       <Title title={t("Menu.calendar")} category="businessWorkshops" />
-      <div className="mx-20 flex flex-col gap-10">
-        <Filters
-          filters={filters as Filter[]}
-          result={result}
-          setResult={setResult}
-        />
+      <div className="mx-20 flex flex-col">
+        <div className="h-[150px]">
+          <Filters
+            filters={filters as Filter[]}
+            result={result}
+            setResult={setResult}
+          />
+        </div>
         <Calendar
           events={filteredEvents}
           selectedDate={selectedDate}
@@ -192,7 +196,7 @@ export default function CalendarPage() {
       <ArrowTitle
         title={date.day + "/" + date.month}
         category={"businessWorkshops"}
-        subTitle={`${getSelectedDateEvents().length} ${buildLabel(getSelectedDateEvents().length)}`}
+        subTitle={buildLabel(getSelectedDateEvents().length)}
       />
       {getSelectedDateEvents().length > 0 ? (
         getSelectedDateEvents().map(

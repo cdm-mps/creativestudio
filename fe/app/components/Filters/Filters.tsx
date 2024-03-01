@@ -1,11 +1,13 @@
+"use client";
+
 import { Select } from "antd";
 import React, { useEffect } from "react";
+import { FiltersProps } from "./Filters.models";
 import { Tag } from "./components/Tag/Tag";
 import { useTranslations } from "next-intl";
-import { FiltersProps } from "./Filters.models";
 
 const Filters = ({ filters, result, setResult }: FiltersProps) => {
-  const t = useTranslations("Components.Filters");
+  const t = useTranslations();
 
   useEffect(() => {
     setResult(
@@ -18,10 +20,21 @@ const Filters = ({ filters, result, setResult }: FiltersProps) => {
     );
   }, []);
 
-  const handleChange = (value: string, _key: string) => {
+  function formatFilterResult(label: string, _key: string) {
+    switch (_key) {
+      case "eventType":
+        return t(`Categories.${label}`);
+      case "areaOfInterest":
+        return t(`general.AreaOfInterest.${label}`);
+      default:
+        return label;
+    }
+  }
+
+  const handleChange = (label: string, _key: string) => {
     setResult((prev: Record<string, string | undefined>) => ({
       ...prev,
-      [_key]: value,
+      [_key]: formatFilterResult(label, _key),
     }));
   };
   return (
@@ -40,7 +53,7 @@ const Filters = ({ filters, result, setResult }: FiltersProps) => {
           />
         ))}
       </div>
-      <div className="mb-6 mt-8 flex flex-wrap justify-end gap-4">
+      <div className="mt-8 flex flex-wrap justify-end gap-4">
         {Object.keys(result).map((_key) => (
           <React.Fragment key={"result_" + _key}>
             {result[_key] && (
@@ -57,9 +70,9 @@ const Filters = ({ filters, result, setResult }: FiltersProps) => {
           </React.Fragment>
         ))}
       </div>
-      <span className="cursor-pointer font-league-gothic text-xl uppercase underline hover:opacity-80">
+      {/* <span className="cursor-pointer font-league-gothic text-xl uppercase underline hover:opacity-80">
         {t("filter")}
-      </span>
+      </span> */}
     </div>
   );
 };
