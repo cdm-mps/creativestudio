@@ -1,4 +1,5 @@
 import { ObjectPosition } from "@components/ImageElement/ImageElement.models";
+import { AreaOfInterest } from "@model/AreaOfInterest";
 import { Category } from "@model/Category";
 import { Locales } from "@model/Locales";
 
@@ -19,5 +20,6 @@ export interface Calendar {
   title: Record<Locales, string>;
   date: string;
   category: Category;
+  areasOfInterest: AreaOfInterest[];
   _id: string;
 }

@@ -20,23 +20,24 @@ const Filters = ({ filters, result, setResult }: FiltersProps) => {
     );
   }, []);
 
-  function formatFilterResult(label: string, _key: string) {
+  function formatFilterResult(_key: string) {
     switch (_key) {
       case "eventType":
-        return t(`Categories.${label}`);
+        return t(`Categories.${result[_key]}`);
       case "areaOfInterest":
-        return t(`general.AreaOfInterest.${label}`);
+        return t(`general.AreaOfInterest.${result[_key]}`);
       default:
-        return label;
+        return result[_key];
     }
   }
 
-  const handleChange = (label: string, _key: string) => {
+  const handleChange = (value: string, _key: string) => {
     setResult((prev: Record<string, string | undefined>) => ({
       ...prev,
-      [_key]: formatFilterResult(label, _key),
+      [_key]: value,
     }));
   };
+
   return (
     <div className="flex flex-col items-end">
       <div className="flex flex-wrap items-center justify-end gap-4">
@@ -58,7 +59,7 @@ const Filters = ({ filters, result, setResult }: FiltersProps) => {
           <React.Fragment key={"result_" + _key}>
             {result[_key] && (
               <Tag
-                label={result[_key]!}
+                label={formatFilterResult(_key)!}
                 onClick={() => {
                   setResult((prev: Record<string, string | undefined>) => ({
                     ...prev,

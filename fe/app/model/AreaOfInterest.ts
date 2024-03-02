@@ -14,36 +14,3 @@ export enum AreaOfInterest {
   "audiovisual-production" = "audiovisual-production",
   "animation" = "animation",
 }
-
-export type AreasOfInterest =
-  | "radio"
-  | "photography"
-  | "comedy"
-  | "music"
-  | "music-production"
-  | "acting"
-  | "television"
-  | "cinema-directing"
-  | "voiceover"
-  | "video-editing"
-  | "poetry"
-  | "scriptwriting"
-  | "audiovisual-production"
-  | "animation";
-
-export const areasOfInterest: AreasOfInterest[] = [
-  "radio",
-  "photography",
-  "comedy",
-  "music",
-  "music-production",
-  "acting",
-  "television",
-  "cinema-directing",
-  "voiceover",
-  "video-editing",
-  "poetry",
-  "scriptwriting",
-  "audiovisual-production",
-  "animation",
-];

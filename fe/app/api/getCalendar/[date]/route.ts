@@ -6,7 +6,7 @@ export async function GET(request: Request, context: any) {
   const query = getPublishedDataQuery(
     "event",
     `(date match "${params.date}*")`,
-    `{_id, date, title, category, mentor {mentor -> {_id, name, image{ mentor_image -> {"src":image.asset._ref, objectPosition, title }} }}}`,
+    `{_id, date, title, category, areasOfInterest, mentor {mentor -> {_id, name, image{ mentor_image -> {"src":image.asset._ref, objectPosition, title }} }}}`,
   );
   const res = await client.fetch(query);
 

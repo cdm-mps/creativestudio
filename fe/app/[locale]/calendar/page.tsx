@@ -14,7 +14,7 @@ import { Filter } from "@components/Filters/Filters.models";
 import MentorEventBar from "@components/MentorEventBar/MentorEventBar";
 import Title from "@components/Title/Title";
 import { NotFoundBanner } from "@components/shared/NotFoundBanner/NotFoundBanner";
-import { areasOfInterest } from "@model/AreaOfInterest";
+import { AreaOfInterest } from "@model/AreaOfInterest";
 import { categories } from "@model/Category";
 import { Locales } from "@model/Locales";
 import { formatDate } from "@utils/date/formatDate";
@@ -62,7 +62,7 @@ export default function CalendarPage() {
       {
         placeholder: t(`Components.Filters.areaOfInterest`),
         _key: "areaOfInterest",
-        options: areasOfInterest.map((area) => {
+        options: Object.keys(AreaOfInterest).map((area) => {
           return { value: area, label: t(`general.AreaOfInterest.${area}`) };
         }),
       },
@@ -99,8 +99,15 @@ export default function CalendarPage() {
 
       if (result["mentor"] !== undefined)
         res = res && _event.mentor.name === result["mentor"];
-      else if (result["eventType"] !== undefined)
+      if (result["eventType"] !== undefined)
         res = res && _event.category === result["eventType"];
+      if (result["areaOfInterest"] !== undefined) {
+        res =
+          res &&
+          _event.areasOfInterest?.includes(
+            result["areaOfInterest"] as AreaOfInterest,
+          );
+      }
 
       return res;
     };
@@ -133,6 +140,7 @@ export default function CalendarPage() {
               return {
                 _id: event._id,
                 category: event.category,
+                areasOfInterest: event.areasOfInterest,
                 date: event.date,
                 title: event.title[locale as Locales],
                 disabled: isDateInPast(event.date),
