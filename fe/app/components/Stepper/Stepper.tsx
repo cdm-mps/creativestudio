@@ -20,7 +20,7 @@ const Stepper = ({ activeStep, category }: StepperProps) => {
       />
       <StepperElement
         index={3}
-        text={t("textOne")}
+        text={t("textThree")}
         category={category}
         isActive={activeStep === 2}
       />

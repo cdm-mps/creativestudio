@@ -173,7 +173,7 @@ export default function CreativeWorkshopPage({
       <ArrowTitle
         title={t("upcomingDates")}
         category={category}
-        subTitle={`${categoryPage.futureEvents.length} ${t("availableEvents")}`}
+        subTitle={`${categoryPage.futureEvents.length} ${categoryPage.futureEvents.length === 1 ? t("availableEventsSingular") : t("availableEventsPlural")}`}
       />
       <div className="mb-16" />
       {EventsList(categoryPage.futureEvents)}

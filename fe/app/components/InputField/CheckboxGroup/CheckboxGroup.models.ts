@@ -7,5 +7,6 @@ export interface CheckboxGroupProps {
   options: { label: string; value: string }[];
   value: string;
   required?: boolean;
+  hasError?: boolean;
   onChangeValue: (value: string) => void;
 }
