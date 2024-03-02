@@ -133,6 +133,7 @@
     "ourServices": "Os nossos serviços"
   },
   "Event": {
+    "previousEvent": "Evento Ocorrido",
     "enrol": "Inscrever",
     "schedule": "Programação"
   },

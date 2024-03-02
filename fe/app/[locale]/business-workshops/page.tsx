@@ -11,6 +11,7 @@ import { categoriesDictionary } from "@utils/categoriesDictionary";
 import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import { BusinessWorkshopsSkeleton } from "./skeleton";
+import { Tag } from "@components/Tag/Tag";
 
 export default function BusinessWorkshopsPage() {
   const t = useTranslations("BusinessWorkshops");
@@ -39,11 +40,7 @@ export default function BusinessWorkshopsPage() {
           {categoriesDictionary["businessWorkshops"]("max-md:w-4 h-auto")}
         </div>
         {pageStructure.isWIP && (
-          <div className="flex h-fit rounded-lg border-2 border-businessWorkshops p-2">
-            <span className="font-league-gothic text-xl uppercase text-businessWorkshops">
-              {t("workInProgress")}
-            </span>
-          </div>
+          <Tag label={t("workInProgress")} category="businessWorkshops" />
         )}
       </div>
       <Header

@@ -113,59 +113,53 @@ export default function CreativeWorkshopPage({
           { label: "Creative Workshops", url: "/creative-workshops" },
         ]}
       />
-      {
-        <div className="flex flex-col">
-          {hasSubCategories && (
-            <div className="pt-14">
-              <Tabs
-                tabs={subcategories.map(
-                  (subcategory) =>
-                    categoryPage.pageContent[subcategory].label?.[
-                      locale as Locales
-                    ]!,
+      <div className="flex flex-col">
+        {hasSubCategories && (
+          <div className="pt-14">
+            <Tabs
+              tabs={subcategories.map(
+                (subcategory) =>
+                  categoryPage.pageContent[subcategory].label?.[
+                    locale as Locales
+                  ]!,
+              )}
+              category={category}
+              selectedTab={selectedTab}
+              setSelectedTab={setSelectedTab}
+            >
+              <>
+                {subcategories.map(
+                  (key, index) =>
+                    selectedTab === index && (
+                      <Header
+                        highlight={
+                          categoryPage.pageContent[key].highlight?.[
+                            locale as Locales
+                          ]
+                        }
+                        description={
+                          categoryPage.pageContent[key].description[
+                            locale as Locales
+                          ]
+                        }
+                      />
+                    ),
                 )}
-                category={category}
-                selectedTab={selectedTab}
-                setSelectedTab={setSelectedTab}
-              >
-                <>
-                  {subcategories.map(
-                    (key, index) =>
-                      selectedTab === index && (
-                        <Header
-                          highlight={
-                            categoryPage.pageContent[key].highlight?.[
-                              locale as Locales
-                            ]
-                          }
-                          description={
-                            categoryPage.pageContent[key].description[
-                              locale as Locales
-                            ]
-                          }
-                        />
-                      ),
-                  )}
-                </>
-              </Tabs>
-            </div>
-          )}
-          {!hasSubCategories && (
-            <Header
-              highlight={
-                categoryPage.pageContent[category].highlight?.[
-                  locale as Locales
-                ]
-              }
-              description={
-                categoryPage.pageContent[category].description[
-                  locale as Locales
-                ]
-              }
-            />
-          )}
-        </div>
-      }
+              </>
+            </Tabs>
+          </div>
+        )}
+        {!hasSubCategories && (
+          <Header
+            highlight={
+              categoryPage.pageContent[category].highlight?.[locale as Locales]
+            }
+            description={
+              categoryPage.pageContent[category].description[locale as Locales]
+            }
+          />
+        )}
+      </div>
       {hasAreasOfInsterest && (
         <React.Fragment>
           <div className="mb-14 mt-16 font-league-gothic text-4xl">

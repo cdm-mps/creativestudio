@@ -131,6 +131,7 @@
     "ourServices": "Our Services"
   },
   "Event": {
+    "previousEvent": "Event Occured",
     "enrol": "Enrol",
     "schedule": "Schedule"
   },

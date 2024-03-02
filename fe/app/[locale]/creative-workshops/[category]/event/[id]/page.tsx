@@ -16,9 +16,12 @@ import { useLocale, useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { EventPageSkeleton } from "./skeleton";
+import { isDateInPast } from "@utils/date/isDateInPast";
+import { Tag } from "@components/Tag/Tag";
 
 export default function EventPage({ params }: { params: { id: string } }) {
   const t_categories = useTranslations("Categories");
+  const t_general = useTranslations("general.AreaOfInterest");
   const t = useTranslations("Event");
   const locale = useLocale();
 
@@ -37,21 +40,30 @@ export default function EventPage({ params }: { params: { id: string } }) {
     return <EventPageSkeleton />;
   }
 
+  const isPreviousEvent = isDateInPast(event?.date);
+
   return (
     <main className="mx-40 flex flex-col">
-      <div className="flex h-fit w-full justify-between">
-        <BreadcrumbsTitle
-          title={event?.title[locale as Locales] || ""}
-          category={event?.category as Category}
-          withIcon
-          breadcrumbs={[
-            { label: "Creative Workshops", url: "/creative-workshops" },
-            {
-              label: t_categories(event.category),
-              url: `/creative-workshops/${event.category}`,
-            },
-          ]}
-        />
+      <div className="flex h-fit w-full items-start justify-between">
+        <div className="flex items-end">
+          <BreadcrumbsTitle
+            title={event?.title[locale as Locales] || ""}
+            category={event?.category as Category}
+            withIcon
+            breadcrumbs={[
+              { label: "Creative Workshops", url: "/creative-workshops" },
+              {
+                label: t_categories(event.category),
+                url: `/creative-workshops/${event.category}`,
+              },
+            ]}
+          />
+          {isPreviousEvent && (
+            <div className="mb-3 ml-10">
+              <Tag label={t("previousEvent")} category={event.category} />
+            </div>
+          )}
+        </div>
         <EventInfo
           duration={event.duration || ""}
           date={event.date}
@@ -68,6 +80,11 @@ export default function EventPage({ params }: { params: { id: string } }) {
       />
       <div className="mt-16 px-14 font-noto-sans text-lg">
         {event?.description[locale as Locales]}
+      </div>
+      <div className="mt-6 flex gap-4 px-14">
+        {event.areasOfInterest?.map((area) => (
+          <Tag label={t_general(area)} category={event.category} />
+        ))}
       </div>
       <div className="mt-16 flex items-center justify-between px-14">
         <MentorIdentifier
@@ -86,6 +103,7 @@ export default function EventPage({ params }: { params: { id: string } }) {
           onClick={() => {
             push(`${event?._id}/form`);
           }}
+          isDisabled={isPreviousEvent}
         />
       </div>
       {event.schedule?.length && (
