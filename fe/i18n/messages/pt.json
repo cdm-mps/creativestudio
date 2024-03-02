@@ -73,7 +73,9 @@
   "Components": {
     "Mentor": {
       "eventBarSingular": " evento disponível",
-      "eventBarPlural": " eventos disponíveis"
+      "eventBarPlural": " eventos disponíveis",
+      "eventBarSingularPrevious": " evento ocorrido",
+      "eventBarPluralPrevious": " eventos ocorridos"
     },
     "Acknowledgements": {
       "title": "Agradecimentos",
@@ -97,7 +99,10 @@
       "textThree": "Dados de Pagamento"
     },
     "Filters": {
-      "filter": "Filtrar"
+      "filter": "Filtrar",
+      "eventType": "Tipo de Evento",
+      "areaOfInterest": "Área de Interesse",
+      "mentor": "Mentor"
     },
     "UploadFile": {
       "addFile": "Adicionar ficheiro"
@@ -105,7 +110,9 @@
     "Input": {
       "writeHere": "Escreva aqui"
     },
-    "NotFound": { "noEvents": "Não existem eventos" }
+    "NotFound": {
+      "noEvents": "Não existem eventos"
+    }
   },
   "CreativeWorkshop": {
     "areaOfInterest": "Área de Interesse",

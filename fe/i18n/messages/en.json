@@ -30,21 +30,21 @@
       "intermediate": "Intermediate"
     },
     "AreaOfInterest": {
-      "radio": "Rádio",
-      "photography": "Fotografia",
-      "comedy": "Comédia",
-      "music": "Musica",
-      "music-production": "Produção Musical",
+      "radio": "Radio",
+      "photography": "Photography",
+      "comedy": "Comedy",
+      "music": "Music",
+      "music-production": "Music Production",
       "acting": "Acting",
-      "television": "Televisão",
-      "cinema-directing": "Cinema/Realização",
-      "voiceover": "Locução",
-      "dub": "Dobragens",
-      "video-editing": "Edição de Video",
-      "poetry": "Poesia",
-      "scriptwriting": "Guionismo",
-      "audiovisual-production": "Produção Audiovisual",
-      "animation": "Animação"
+      "television": "Television",
+      "cinema-directing": "Cinema/Directing",
+      "voiceover": "Voiceover",
+      "dub": "Dub",
+      "video-editing": "Video Editing",
+      "poetry": "Poetry",
+      "scriptwriting": "Scriptwriting",
+      "audiovisual-production": "Audiovisual Production",
+      "animation": "Animation"
     }
   },
   "DesignSystem": {
@@ -71,7 +71,9 @@
   "Components": {
     "Mentor": {
       "eventBarSingular": " available event",
-      "eventBarPlural": " available events"
+      "eventBarPlural": " available events",
+      "eventBarSingularPrevious": " event occured",
+      "eventBarPluralPrevious": " events occured"
     },
     "Acknowledgements": {
       "title": "Acknowledgements",
@@ -95,7 +97,10 @@
       "textThree": "Payment Info"
     },
     "Filters": {
-      "filter": "Filter"
+      "filter": "Filter",
+      "eventType": "Event Type",
+      "areaOfInterest": "Area Of Interest",
+      "mentor": "Mentor"
     },
     "UploadFile": {
       "addFile": "Add file"
@@ -103,7 +108,9 @@
     "Input": {
       "writeHere": "Text here"
     },
-    "NotFound": { "noEvents": "No events" }
+    "NotFound": {
+      "noEvents": "No events"
+    }
   },
   "CreativeWorkshop": {
     "areaOfInterest": "Area Of Interest",

@@ -1,38 +1,52 @@
+"use client";
+
 import { Select } from "antd";
 import React, { useEffect } from "react";
+import { FiltersProps } from "./Filters.models";
 import { Tag } from "./components/Tag/Tag";
 import { useTranslations } from "next-intl";
-import { FiltersProps } from "./Filters.models";
 
-const Filters = ({ filters, result, setResult, onClick }: FiltersProps) => {
-  const t = useTranslations("Components.Filters");
+const Filters = ({ filters, result, setResult }: FiltersProps) => {
+  const t = useTranslations();
 
   useEffect(() => {
     setResult(
       filters.reduce(
         (prev, current) => {
-          return { ...prev, [current.placeholder]: undefined };
+          return { ...prev, [current._key]: undefined };
         },
         {} as Record<string, string | undefined>,
       ),
     );
   }, []);
 
-  const handleChange = (value: string, placeholder: string) => {
+  function formatFilterResult(_key: string) {
+    switch (_key) {
+      case "eventType":
+        return t(`Categories.${result[_key]}`);
+      case "areaOfInterest":
+        return t(`general.AreaOfInterest.${result[_key]}`);
+      default:
+        return result[_key];
+    }
+  }
+
+  const handleChange = (value: string, _key: string) => {
     setResult((prev: Record<string, string | undefined>) => ({
       ...prev,
-      [placeholder]: value,
+      [_key]: value,
     }));
   };
+
   return (
     <div className="flex flex-col items-end">
       <div className="flex flex-wrap items-center justify-end gap-4">
         {filters.map((filter, i) => (
           <Select
-            key={i}
+            key={"filter_" + i}
             optionFilterProp="children"
-            onChange={(value) => handleChange(value, filter.placeholder)}
-            value={result[filter.placeholder]}
+            onChange={(value) => handleChange(value, filter._key)}
+            value={result[filter._key]}
             className="mb-3 w-80 uppercase md:w-96"
             popupClassName="uppercase"
             popupMatchSelectWidth={false}
@@ -40,16 +54,16 @@ const Filters = ({ filters, result, setResult, onClick }: FiltersProps) => {
           />
         ))}
       </div>
-      <div className="mb-6 mt-8 flex flex-wrap justify-end gap-4">
-        {Object.keys(result).map((placeholder) => (
-          <React.Fragment>
-            {result[placeholder] && (
+      <div className="mt-8 flex flex-wrap justify-end gap-4">
+        {Object.keys(result).map((_key) => (
+          <React.Fragment key={"result_" + _key}>
+            {result[_key] && (
               <Tag
-                label={result[placeholder]!}
+                label={formatFilterResult(_key)!}
                 onClick={() => {
                   setResult((prev: Record<string, string | undefined>) => ({
                     ...prev,
-                    [placeholder]: undefined,
+                    [_key]: undefined,
                   }));
                 }}
               />
@@ -57,12 +71,9 @@ const Filters = ({ filters, result, setResult, onClick }: FiltersProps) => {
           </React.Fragment>
         ))}
       </div>
-      <span
-        className="cursor-pointer font-league-gothic text-xl uppercase underline hover:opacity-80"
-        onClick={onClick}
-      >
+      {/* <span className="cursor-pointer font-league-gothic text-xl uppercase underline hover:opacity-80">
         {t("filter")}
-      </span>
+      </span> */}
     </div>
   );
 };
