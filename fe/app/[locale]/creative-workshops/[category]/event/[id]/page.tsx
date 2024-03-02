@@ -88,13 +88,15 @@ export default function EventPage({ params }: { params: { id: string } }) {
           }}
         />
       </div>
-      <div className="mx-14 mb-16 mt-20 pl-[24px] pt-[48px]">
-        <IconTitle
-          title={t("schedule")}
-          mode="chevron"
-          category={event.category}
-        />
-      </div>
+      {event.schedule?.length && (
+        <div className="mx-14 mb-16 mt-20 pl-[24px] pt-[48px]">
+          <IconTitle
+            title={t("schedule")}
+            mode="chevron"
+            category={event.category}
+          />
+        </div>
+      )}
       <div className="mx-14 flex flex-col gap-8">
         {event.schedule?.map((scheduleElement, index) => (
           <ScheduleElement

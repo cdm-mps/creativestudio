@@ -4,6 +4,13 @@ export default {
   title: 'Event',
   fields: [
     {
+      name: 'nameToDisplay',
+      type: 'string',
+      title: 'Name To Display',
+      description: 'Name to display on sanity',
+      validation: (Rule: any) => Rule.required(),
+    },
+    {
       name: 'title',
       title: 'Title',
       description: 'Title of the Event',
@@ -120,7 +127,6 @@ export default {
           ],
         },
       ],
-      validation: (Rule: any) => Rule.required(),
     },
     {
       name: 'description',
