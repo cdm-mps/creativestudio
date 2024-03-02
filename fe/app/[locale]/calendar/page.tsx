@@ -198,14 +198,13 @@ export default function CalendarPage() {
   return (
     <main className="mx-40 flex flex-col gap-10">
       <Title title={t("Menu.calendar")} category="businessWorkshops" />
-      <div className="mx-20 flex flex-col">
-        <div className="h-[150px]">
-          <Filters
-            filters={filters as Filter[]}
-            result={result}
-            setResult={setResult}
-          />
-        </div>
+      <div className="mx-20 flex flex-col gap-10">
+        <Filters
+          filters={filters as Filter[]}
+          result={result}
+          setResult={setResult}
+        />
+
         <Calendar
           events={filteredEvents}
           selectedDate={selectedDate}
