@@ -35,7 +35,7 @@ const Navbar = () => {
   }, [toggleMenuVisibility]);
 
   return (
-    <nav className="fixed top-0 z-50 mb-24 flex w-full items-center justify-between bg-background lg:px-6 lg:py-4">
+    <nav className="fixed top-0 z-[80] mb-24 flex w-full items-center justify-between bg-background lg:px-6 lg:py-4">
       <Link
         href="/"
         className="z-30 max-lg:absolute max-lg:left-6 max-lg:top-6 max-lg:w-40"
