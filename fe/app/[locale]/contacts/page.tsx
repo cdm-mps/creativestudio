@@ -20,9 +20,9 @@ export default function ContactsPage() {
   }, []);
 
   const PageStructure = ({ children }: PropsWithChildren) => (
-    <main className="mx-40 flex flex-col">
-      <div className="flex">
-        <div className="h-fit w-[calc(50vw-80px)]">
+    <main className="flex-comt-24 fle0 mx-12 md:mx-40">
+      <div className="flex max-md:flex-col">
+        <div className="h-fit md:w-[calc(50vw-80px)]">
           <Title title={t("Menu.contacts")} category="businessWorkshops" />
           <div className="my-12 font-noto-sans text-[28px] italic">
             {t("Contacts.firstHighlight")}
@@ -31,7 +31,7 @@ export default function ContactsPage() {
           <div className="my-12 font-noto-sans text-[28px] italic">
             {t("Contacts.secondHighlight")}
           </div>
-          <div className="flex ">
+          <div className="flex max-md:flex-col max-md:items-center">
             <CategoryElement category="editions" size="small" />
             <CategoryElement category="masterclasses" size="small" />
             <CategoryElement category="creativeTalks" size="small" />
@@ -39,8 +39,11 @@ export default function ContactsPage() {
             <CategoryElement category="artisticResidences" size="small" />
           </div>
         </div>
-        <div className="w-[50vw]">
-          <Map />
+        <div className="w-[50vw] max-md:hidden">
+          <Map type="desktop" />
+        </div>
+        <div className="mt-20 md:hidden">
+          <Map type="mobile" />
         </div>
       </div>
     </main>

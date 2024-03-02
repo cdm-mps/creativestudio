@@ -32,7 +32,7 @@ const CategoryElement = ({
           isDeactivated && "md:opacity-50",
           size === "medium"
             ? "h-[200px] w-[250px] md:h-[423px] md:w-[423px]"
-            : "h-[200px] w-[250px] md:h-[137px] md:w-[137px]",
+            : "h-[110px] w-[200px] md:h-[137px] md:w-[137px]",
         )}
       >
         <p
