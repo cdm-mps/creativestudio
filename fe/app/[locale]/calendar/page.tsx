@@ -6,6 +6,8 @@ import {
 } from "@/app/[locale]/calendar/Calendar.models";
 import { CalendarPageSkeleton } from "@/app/[locale]/calendar/skeleton";
 import { Calendar as CalendarModel } from "@/app/api/models/Calendar";
+import { GetCalendarPageOutputDto } from "@/app/api/models/GetCalendarPage.models";
+import { GetMentorsPageOutputDto } from "@/app/api/models/GetMentorsPage.models";
 import { urlFor } from "@/client";
 import ArrowTitle from "@components/ArrowTitle/ArrowTitle";
 import Calendar from "@components/Calendar/Calendar";
@@ -145,9 +147,9 @@ export default function CalendarPage() {
     if (currentDateRange !== selected) {
       fetch(`/api/getCalendar/${selected}`)
         .then((res) => res.json())
-        .then((data: CalendarModel[]) => {
+        .then((data: GetCalendarPageOutputDto) => {
           setPageContent({
-            events: data.map((event) => {
+            events: data.events.map((event) => {
               return {
                 _id: event._id,
                 category: event.category,
@@ -180,10 +182,14 @@ export default function CalendarPage() {
   }, [result, pageContent]);
 
   useEffect(() => {
-    fetch(`/api/getCalendarFilters`)
+    fetch(`/api/getMentors`)
       .then((res) => res.json())
-      .then((data: { name: string }[]) => {
-        buildFilters(data);
+      .then((data: GetMentorsPageOutputDto) => {
+        buildFilters(
+          data.mentors.map((mentor) => ({
+            name: mentor.name,
+          })),
+        );
       });
   }, []);
 

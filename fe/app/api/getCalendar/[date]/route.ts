@@ -10,5 +10,5 @@ export async function GET(request: Request, context: any) {
   );
   const res = await client.fetch(query);
 
-  return Response.json(res);
+  return Response.json({ events: res });
 }
