@@ -10,6 +10,7 @@ const CheckboxGroup = ({
   options,
   value,
   required,
+  hasError,
   onChangeValue,
 }: CheckboxGroupProps) => {
   return (
@@ -19,6 +20,7 @@ const CheckboxGroup = ({
         description={description}
         required={required}
         category={category}
+        hasError={hasError}
       />
       <div className="flex flex-col gap-4">
         {options.map((option) => (

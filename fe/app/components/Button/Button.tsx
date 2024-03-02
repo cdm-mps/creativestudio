@@ -2,6 +2,7 @@
 
 import { ButtonProps } from "@components/Button/Button.models";
 import Loader from "@components/shared/Loader/Loader";
+import clsx from "clsx";
 
 const Button = ({
   category,
@@ -11,14 +12,19 @@ const Button = ({
   isDisabled = false,
 }: ButtonProps) => {
   return (
-    <div className="relative w-[229px] h-[38px] md:w-[329px] md:h-[63px]">
+    <div
+      className={clsx(
+        "relative h-[38px] w-[229px] md:h-[63px] md:w-[329px]",
+        !isDisabled && !isLoading && "hover:opacity-80",
+      )}
+    >
       {isDisabled && (
-        <div className="absolute z-10 bg-black/50 w-full h-full" />
+        <div className="absolute z-10 h-full w-full bg-black/50" />
       )}
       <button
         onClick={onClick}
         disabled={isLoading || isDisabled}
-        className={`bg-${category} text-xl md:text-4xl font-league-gothic uppercase flex items-center justify-center md:gap-3 gap-2 w-[229px] h-[38px] md:w-[329px] md:h-[63px]`}
+        className={`bg-${category} flex h-[38px] w-[229px] items-center justify-center gap-2 font-league-gothic text-xl uppercase md:h-[63px] md:w-[329px] md:gap-3 md:text-4xl`}
       >
         {label}
         {isLoading && <Loader />}

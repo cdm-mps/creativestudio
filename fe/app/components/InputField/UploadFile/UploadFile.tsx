@@ -9,10 +9,19 @@ const UploadFile = ({
   description,
   category,
   required,
+  hasError,
+  onChangeValue,
 }: UploadFileProps) => {
   const t = useTranslations("Components.UploadFile");
-  const inputRef = useRef(null);
 
+  function getBase64(file: any) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = (error) => reject(error);
+    });
+  }
   return (
     <div className="my-8 flex flex-col gap-4">
       <Label
@@ -20,13 +29,14 @@ const UploadFile = ({
         description={description}
         category={category}
         required={required}
+        hasError={hasError}
       />
       <div className="flex">
         <input
-          ref={inputRef}
           id="upload-file-btn"
           type="file"
           className="hidden border"
+          onChange={(e) => onChangeValue(getBase64(e.target.files?.[0]))}
         />
         <label
           htmlFor="upload-file-btn"

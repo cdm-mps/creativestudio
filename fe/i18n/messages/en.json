@@ -86,16 +86,13 @@
     "EventElement": {
       "explore": "Explore"
     },
-    "EventGrid": {
-      "seeMore": "See more",
-      "seeLess": "See less"
-    },
     "EventInfo": {
       "level": "Level:"
     },
     "Stepper": {
-      "textOne": "Payment Info",
-      "textTwo": "Personal Info"
+      "textOne": "Personal Info",
+      "textTwo": "Form",
+      "textThree": "Payment Info"
     },
     "Filters": {
       "filter": "Filter",
@@ -114,7 +111,8 @@
   "CreativeWorkshop": {
     "areaOfInterest": "Area Of Interest",
     "upcomingDates": "Upcoming Dates",
-    "availableEvents": "available events",
+    "availableEventsSingular": "available event",
+    "availableEventsPlural": "available events",
     "previous": "Previous"
   },
   "AboutUs": {
@@ -136,7 +134,12 @@
     "required": "*Mandatory field",
     "previous": "Previous",
     "next": "Next",
-    "regulations": "Regulations"
+    "regulations": "Regulations",
+    "submit": "Submit",
+    "error_label": "Oops... Something's gone wrong",
+    "success_label": "Application submitted!",
+    "successs": "Your application has been successfully submitted, thank you for choosing us. \n You will soon be contacted by Creative Studio to proceed with payment. \n\n\n Creative Studio",
+    "error": "We are currently unable to submit your enrolment. \n Please try again later. \n\n\n Creative Studio"
   },
   "BusinessWorkshops": {
     "title": "Business Workshops",

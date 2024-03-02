@@ -15,8 +15,8 @@ import { Locales } from "@model/Locales";
 import { SubCategory } from "@model/SubCategory";
 import { useLocale, useTranslations } from "next-intl";
 import { notFound } from "next/navigation";
-import { useEffect, useState } from "react";
-import { CategoryPageSkeleton } from "./skeleton";
+import { useEffect, useRef, useState } from "react";
+import { CategoryPageSkeleton, EventGridSkeleton } from "./skeleton";
 import ArrowTitle from "@components/ArrowTitle/ArrowTitle";
 import React from "react";
 import { NotFoundBanner } from "@components/shared/NotFoundBanner/NotFoundBanner";
@@ -35,6 +35,8 @@ export default function CreativeWorkshopPage({
   const t_categories = useTranslations("Categories");
   const locale = useLocale();
 
+  const ref = useRef<any>(null);
+
   if (!categories.includes(category)) {
     notFound(); //TODO
   }
@@ -42,6 +44,7 @@ export default function CreativeWorkshopPage({
   const [categoryPage, setCategoryPage] = useState<GetCategoryPageOutputDto>();
   const [selectedTab, setSelectedTab] = useState(0);
   const [activeFilter, setActiveFilter] = useState(-1);
+  const [isLoading, setIsLoading] = useState(false);
 
   const subcategories = CategoryPageProjection[category].split(", ") as (
     | Category
@@ -51,6 +54,7 @@ export default function CreativeWorkshopPage({
   const hasAreasOfInsterest = CategoriesWithAreasOfInterest.includes(category);
 
   useEffect(() => {
+    setIsLoading(true);
     fetch(
       `/api/getPages/${category}${
         hasSubCategories ? `/${subcategories[selectedTab]}` : ""
@@ -59,7 +63,8 @@ export default function CreativeWorkshopPage({
       }`,
     )
       .then((res) => res.json())
-      .then((data: GetCategoryPageOutputDto) => setCategoryPage(data));
+      .then((data: GetCategoryPageOutputDto) => setCategoryPage(data))
+      .finally(() => setIsLoading(false));
   }, [selectedTab, activeFilter]);
 
   if (!categoryPage) {
@@ -69,24 +74,30 @@ export default function CreativeWorkshopPage({
   const EventsList = (events: EventThumbnail[], disabled?: boolean) => {
     return (
       <React.Fragment>
-        {events.length ? (
-          <EventGrid
-            events={events.map((event) => ({
-              _id: event._id,
-              title: event.title[locale as Locales],
-              subtitle: event.mentor.mentor.name,
-              date: event.date,
-              category,
-              image: {
-                src: urlFor(event.image.image.src).url(),
-                alt: event.image.image.title,
-                objectPosition: event.image.image.objectPosition,
-              },
-              disabled,
-            }))}
-          />
+        {isLoading ? (
+          <EventGridSkeleton />
         ) : (
-          <NotFoundBanner />
+          <React.Fragment>
+            {events.length ? (
+              <EventGrid
+                events={events.map((event) => ({
+                  _id: event._id,
+                  title: event.title[locale as Locales],
+                  subtitle: event.mentor.mentor.name,
+                  date: event.date,
+                  category,
+                  image: {
+                    src: urlFor(event.image.image.src).url(),
+                    alt: event.image.image.title,
+                    objectPosition: event.image.image.objectPosition,
+                  },
+                  disabled,
+                }))}
+              />
+            ) : (
+              <NotFoundBanner />
+            )}
+          </React.Fragment>
         )}
       </React.Fragment>
     );
@@ -166,14 +177,20 @@ export default function CreativeWorkshopPage({
               label: t_general(key),
               isActive: index === activeFilter,
             }))}
-            setFilterActiveStatus={(index) => setActiveFilter(index)}
+            setFilterActiveStatus={(index) => {
+              setActiveFilter(index);
+              ref.current?.scrollIntoView({
+                behavior: "smooth",
+              });
+            }}
           />
         </React.Fragment>
       )}
+      <div ref={ref} className="pb-20" />
       <ArrowTitle
         title={t("upcomingDates")}
         category={category}
-        subTitle={`${categoryPage.futureEvents.length} ${t("availableEvents")}`}
+        subTitle={`${categoryPage.futureEvents.length} ${categoryPage.futureEvents.length === 1 ? t("availableEventsSingular") : t("availableEventsPlural")}`}
       />
       <div className="mb-16" />
       {EventsList(categoryPage.futureEvents)}

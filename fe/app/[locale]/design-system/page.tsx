@@ -287,6 +287,7 @@ export default function Home() {
           <UploadFile
             title="Comprovativo de Transferencia"
             category="artisticResidences"
+            onChangeValue={() => {}}
           />
         </div>
       </div>

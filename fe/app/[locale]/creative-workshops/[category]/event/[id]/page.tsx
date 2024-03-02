@@ -101,7 +101,7 @@ export default function EventPage({ params }: { params: { id: string } }) {
             title={scheduleElement.description[locale as Locales]}
             duration={scheduleElement.duration}
             category={event.category}
-            bullet={{ index }}
+            bullet={{ index: index + 1 }}
           />
         ))}
       </div>
