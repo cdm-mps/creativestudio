@@ -20,12 +20,14 @@ import { Locales } from "@model/Locales";
 import { formatDate } from "@utils/date/formatDate";
 import { useLocale, useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function CalendarPage() {
   const t = useTranslations();
   const locale = useLocale();
   const { push } = useRouter();
+
+  const ref = useRef<any>(null);
 
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [currentDateRange, setCurrentDateRange] = useState<string>();
@@ -37,18 +39,20 @@ export default function CalendarPage() {
   const [result, setResult] = useState<Record<string, string | undefined>>({});
 
   const date = formatDate(selectedDate.toDateString(), "2-digit");
+
   const isDateInPast = (value: string): boolean => {
     const date = new Date(value);
     const currentDate = new Date();
     return date < currentDate;
   };
 
-  const buildLabel = (count: number) =>
-    count === 0
-      ? t("Components.NotFound.noEvents")
+  function buildLabel(previous: boolean, count: number) {
+    return count === 0
+      ? t(`Components.NotFound.noEvents`)
       : count === 1
-        ? `${count} ${t("Components.Mentor.eventBarSingular")}`
-        : `${count} ${t("Components.Mentor.eventBarPlural")}`;
+        ? `${count} ${t(`Components.Mentor.eventBarSingular${previous ? "Previous" : ""}`)}`
+        : `${count} ${t(`Components.Mentor.eventBarPlural${previous ? "Previous" : ""}`)}`;
+  }
 
   function buildFilters(mentors: { name: string }[]) {
     const filters: Filter[] = [
@@ -129,6 +133,13 @@ export default function CalendarPage() {
     setFilteredEvents(events);
   }
 
+  function handleSelectedDate(value: Date) {
+    setSelectedDate(value);
+    ref.current?.scrollIntoView({
+      behavior: "smooth",
+    });
+  }
+
   useEffect(() => {
     const selected = date.year + "-" + date.month;
     if (currentDateRange !== selected) {
@@ -198,14 +209,18 @@ export default function CalendarPage() {
         <Calendar
           events={filteredEvents}
           selectedDate={selectedDate}
-          setSelectedDate={setSelectedDate}
+          setSelectedDate={(value) => handleSelectedDate(value)}
         />
       </div>
       <ArrowTitle
         title={date.day + "/" + date.month}
         category={"businessWorkshops"}
-        subTitle={buildLabel(getSelectedDateEvents().length)}
+        subTitle={buildLabel(
+          isDateInPast(selectedDate.toDateString()),
+          getSelectedDateEvents().length,
+        )}
       />
+      <div ref={ref} />
       {getSelectedDateEvents().length > 0 ? (
         getSelectedDateEvents().map(
           (event, index) =>
@@ -215,6 +230,8 @@ export default function CalendarPage() {
                 mentor={event.mentor}
                 category={event.category}
                 title={event.title}
+                previous={event.disabled}
+                disabled
                 onClick={() =>
                   push(
                     `creative-workshops/${event.category}/event/${event._id}`,

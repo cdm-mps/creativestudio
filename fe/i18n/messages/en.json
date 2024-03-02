@@ -71,7 +71,9 @@
   "Components": {
     "Mentor": {
       "eventBarSingular": " available event",
-      "eventBarPlural": " available events"
+      "eventBarPlural": " available events",
+      "eventBarSingularPrevious": " event occured",
+      "eventBarPluralPrevious": " events occured"
     },
     "Acknowledgements": {
       "title": "Acknowledgements",
@@ -106,7 +108,9 @@
     "Input": {
       "writeHere": "Text here"
     },
-    "NotFound": { "noEvents": "No events" }
+    "NotFound": {
+      "noEvents": "No events"
+    }
   },
   "CreativeWorkshop": {
     "areaOfInterest": "Area Of Interest",
