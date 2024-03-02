@@ -22,7 +22,11 @@ const CategoryElement = ({
   return (
     <Link
       className={clsx("relative", showDescription && "z-50")}
-      href={`creative-workshops/${category}`}
+      href={
+        category === "businessWorkshops"
+          ? "business-workshops"
+          : `creative-workshops/${category}`
+      }
     >
       <div
         onMouseEnter={() => setShowDescription(true)}

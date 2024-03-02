@@ -20,6 +20,7 @@ import { AreaOfInterest } from "@model/AreaOfInterest";
 import { categories } from "@model/Category";
 import { Locales } from "@model/Locales";
 import { formatDate } from "@utils/date/formatDate";
+import { isDateInPast } from "@utils/date/isDateInPast";
 import { useLocale, useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
@@ -41,12 +42,6 @@ export default function CalendarPage() {
   const [result, setResult] = useState<Record<string, string | undefined>>({});
 
   const date = formatDate(selectedDate.toDateString(), "2-digit");
-
-  const isDateInPast = (value: string): boolean => {
-    const date = new Date(value);
-    const currentDate = new Date();
-    return date < currentDate;
-  };
 
   function buildLabel(previous: boolean, count: number) {
     return count === 0
