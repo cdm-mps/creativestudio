@@ -10,8 +10,8 @@ export default function NotFound() {
   const { push } = useRouter();
   const t = useTranslations("NotFound");
   return (
-    <div className="flex h-[calc(100vh-290px)] flex-col items-center justify-center gap-40 font-league-gothic">
-      <div className="mt-10 flex flex-col items-center justify-center gap-10">
+    <div className=" flex h-[calc(100vh-290px)] flex-col items-center justify-center gap-40 font-league-gothic">
+      <div className="mt-32 flex flex-col items-center justify-center gap-10">
         <IconTitle
           title={t("title")}
           category="businessWorkshops"
