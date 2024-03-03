@@ -153,7 +153,7 @@
     "workInProgress": "Work In Progress"
   },
   "NotFound": {
-    "title": "Ups, não econtramos a página",
+    "title": "Ups, página não encontrada",
     "subtitle": "Não existe o endereço que introduziste",
     "button": "página inicial"
   }
