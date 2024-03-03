@@ -151,5 +151,10 @@
   "BusinessWorkshops": {
     "title": "Business Workshops",
     "workInProgress": "Work In Progress"
+  },
+  "NotFound": {
+    "title": "Ups, página não encontrada",
+    "subtitle": "Não existe o endereço que introduziste",
+    "button": "página inicial"
   }
 }
