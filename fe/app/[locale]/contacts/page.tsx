@@ -20,7 +20,7 @@ export default function ContactsPage() {
   }, []);
 
   const PageStructure = ({ children }: PropsWithChildren) => (
-    <main className="mx-40 flex flex-col">
+    <main className="mx-40 flex h-[calc(100vh-290px)] flex-col ">
       <div className="flex">
         <div className="h-fit w-[calc(50vw-80px)]">
           <Title title={t("Menu.contacts")} category="businessWorkshops" />
