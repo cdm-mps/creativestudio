@@ -31,10 +31,10 @@ export default function Home() {
   }, []);
 
   const PageStructure = ({ children }: PropsWithChildren) => (
-    <main className="flex flex-col pt-40 md:pt-20">
-      <div className="flex h-[calc(76vh)] flex-col justify-between pb-7">
+    <main className="flex flex-col md:pt-20">
+      <div className="flex flex-col justify-between  pb-7 max-md:gap-20 md:h-[76vh] md:pb-7">
         <BannerGrid />
-        <div className="flex flex-col items-center gap-4">
+        <div className="flex flex-col items-center gap-4 max-md:hidden">
           <p className="w-fit font-league-gothic uppercase">{t("findOut")}</p>
           <Link href="#news-slider-section" className="scroll-smooth">
             <RoundArrowButton arrowDirection="down" />
@@ -57,7 +57,7 @@ export default function Home() {
     <PageStructure>
       <div
         id="news-slider-section"
-        className="mx-40 flex flex-col gap-14 pt-24"
+        className="mx-6 flex flex-col pt-8 md:mx-40 md:gap-14 md:pt-24"
       >
         <ArrowTitle title={t("news")} category="businessWorkshops" />
         <NewsSlider
@@ -78,15 +78,15 @@ export default function Home() {
           }))}
         />
       </div>
-      <div className="mt-[139px] w-full pt-[100px]">
-        <div className="mx-40">
+      <div className="mt-32 w-full md:mt-[139px] md:pt-[100px]">
+        <div className="mx-6 md:mx-40">
           <IconTitle
             title={t("noFilters")}
             category="businessWorkshops"
             mode="hashtag"
           />
         </div>
-        <div className="mx-40 pt-48">
+        <div className="mx-12 pt-16 md:mx-40 md:pt-48">
           <QuoteSlider
             quotes={pageContent?.comments.map((comment) => ({
               content: comment.quote[locale as Locales],
@@ -95,10 +95,10 @@ export default function Home() {
           />
         </div>
       </div>
-      <div className="my-48 text-center">
+      <div className="my-24 text-center md:my-48">
         <CoreTitle title={t("question")} />
       </div>
-      <div className="mb-[104px]">
+      <div className="md:mb-[104px]">
         <Sponsors
           sponsors={pageContent?.sponsors.map((sponsor) => ({
             src: urlFor(sponsor.src).url(),

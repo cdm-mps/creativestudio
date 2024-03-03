@@ -4,7 +4,7 @@ import QuoteElement from "./QuoteElement";
 const QuoteSlider = ({ quotes }: QuoteSliderProps) => {
   return (
     <div
-      className={`quotes flex w-[325px] overflow-x-scroll pb-[34px] md:w-[500px] md:pb-[54px] lg:w-[900px] xl:w-[100%]`}
+      className={`quotes flex w-[325px] overflow-x-scroll md:w-[500px] md:pb-[54px] lg:w-[900px] xl:w-[100%]`}
     >
       <div className="flex gap-[28px] md:gap-[58px]">
         {quotes?.map((quote, index) => (

@@ -31,7 +31,7 @@ export default function MentorsPage() {
       : t("Components.Mentor.eventBarPlural");
 
   return (
-    <main className="mx-40 flex flex-col">
+    <main className="mx-12 flex flex-col md:mx-40">
       <Title title={t("Menu.mentors")} category="businessWorkshops" />
       <Header
         description={pageContent?.pageStructure.description[locale as Locales]}
