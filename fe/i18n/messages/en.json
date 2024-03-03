@@ -141,5 +141,10 @@
   "BusinessWorkshops": {
     "title": "Business Workshops",
     "workInProgress": "Work In Progress"
+  },
+  "NotFound": {
+    "title": "Ups, this page isn't available",
+    "subtitle": "The link you followed may not exist",
+    "button": "Go back Home"
   }
 }

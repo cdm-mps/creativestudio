@@ -14,7 +14,6 @@ import { Category, categories } from "@model/Category";
 import { Locales } from "@model/Locales";
 import { SubCategory } from "@model/SubCategory";
 import { useLocale, useTranslations } from "next-intl";
-import { notFound } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { CategoryPageSkeleton, EventGridSkeleton } from "./skeleton";
 import ArrowTitle from "@components/ArrowTitle/ArrowTitle";
@@ -23,6 +22,7 @@ import { NotFoundBanner } from "@components/shared/NotFoundBanner/NotFoundBanner
 import IconTitle from "@components/IconTitle/IconTitle";
 import EventGrid from "@components/EventGrid/EventGrid";
 import { urlFor } from "@/client";
+import { notFound } from "next/dist/client/components/not-found";
 
 export default function CreativeWorkshopPage({
   params,
