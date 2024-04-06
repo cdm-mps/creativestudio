@@ -1512,7 +1512,7 @@ export default function Home() {
       <div className="flex flex-col items-center gap-10 px-3">
         <LocalTitle title="Category Element" />
         <div className="flex flex-col items-center gap-6">
-          <CategoryElement category="editions" />
+          <CategoryElement size="small" category="editions" />
           <Code text={`<CategoryElement category="editions"/>`} />
         </div>
       </div>
@@ -1522,7 +1522,34 @@ export default function Home() {
       <div className="flex flex-col items-center gap-4 px-3">
         <LocalTitle title="Category Grid" />
         <div className="flex flex-col items-center gap-4">
-          <CategoryGrid />
+          <CategoryGrid
+            elements={{
+              artisticResidences: {
+                pt: "Lorem ipsum soi sad dkas djsa",
+                en: "Lorem ipsum soi sad dkas djsa",
+              },
+              businessWorkshops: {
+                pt: "Lorem ipsum soi sad dkas djsa",
+                en: "Lorem ipsum soi sad dkas djsa",
+              },
+              creativeTalks: {
+                pt: "Lorem ipsum soi sad dkas djsa",
+                en: "Lorem ipsum soi sad dkas djsa",
+              },
+              editions: {
+                pt: "Lorem ipsum soi sad dkas djsa",
+                en: "Lorem ipsum soi sad dkas djsa",
+              },
+              masterclasses: {
+                pt: "Lorem ipsum soi sad dkas djsa",
+                en: "Lorem ipsum soi sad dkas djsa",
+              },
+              workshops: {
+                pt: "Lorem ipsum soi sad dkas djsa",
+                en: "Lorem ipsum soi sad dkas djsa",
+              },
+            }}
+          />
           <Code text={`<CategoryGrid />`} />
         </div>
       </div>

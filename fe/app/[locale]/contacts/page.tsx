@@ -8,6 +8,7 @@ import Title from "@components/Title/Title";
 import { useTranslations } from "next-intl";
 import { PropsWithChildren, useEffect, useState } from "react";
 import { ContactsPageSkeleton } from "./skeleton";
+import { categories } from "@model/Category";
 
 export default function ContactsPage() {
   const t = useTranslations();
@@ -31,12 +32,10 @@ export default function ContactsPage() {
           <div className="my-12 font-noto-sans text-[28px] italic">
             {t("Contacts.secondHighlight")}
           </div>
-          <div className="flex ">
-            <CategoryElement category="editions" size="small" />
-            <CategoryElement category="masterclasses" size="small" />
-            <CategoryElement category="creativeTalks" size="small" />
-            <CategoryElement category="workshops" size="small" />
-            <CategoryElement category="artisticResidences" size="small" />
+          <div className="flex flex-wrap">
+            {categories.map((category) => (
+              <CategoryElement category={category} size="small" />
+            ))}
           </div>
         </div>
         <div className="w-[50vw]">
