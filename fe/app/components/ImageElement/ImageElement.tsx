@@ -15,6 +15,7 @@ const ImageElement = (props: ImageProps) => {
         alt={props.alt}
         src={props.src}
         fill
+        className={clsx(props.blur && "blur-[8px] brightness-50")}
         style={{ objectFit: "cover", objectPosition: props.objectPosition }}
       />
     </div>

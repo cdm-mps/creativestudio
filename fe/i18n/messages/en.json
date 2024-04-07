@@ -132,6 +132,7 @@
   },
   "Event": {
     "previousEvent": "Event Occured",
+    "soldOutEvent": "Sold Out Event",
     "enrol": "Enrol",
     "schedule": "Schedule"
   },
