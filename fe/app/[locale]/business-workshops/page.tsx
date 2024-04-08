@@ -40,7 +40,11 @@ export default function BusinessWorkshopsPage() {
           {categoriesDictionary["businessWorkshops"]("max-md:w-4 h-auto")}
         </div>
         {pageStructure.isWIP && (
-          <Tag label={t("workInProgress")} category="businessWorkshops" />
+          <Tag
+            label={t("workInProgress")}
+            category="businessWorkshops"
+            size="small"
+          />
         )}
       </div>
       <Header
