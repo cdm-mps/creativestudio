@@ -114,9 +114,11 @@ export default function EventPage({ params }: { params: { id: string } }) {
                 push(`${event?._id}/form`);
               }}
             />
-            <div className="rotate absolute top-0 z-10 flex h-[63px]  w-full -rotate-12 items-center justify-center">
-              <Tag label={t("soldOutEvent")} size="large" />
-            </div>
+            {event.isSoldOut && (
+              <div className="rotate absolute top-0 z-10 flex h-[63px]  w-full -rotate-12 items-center justify-center">
+                <Tag label={t("soldOutEvent")} size="large" />
+              </div>
+            )}
           </div>
         )}
       </div>
