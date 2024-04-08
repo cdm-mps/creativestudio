@@ -112,6 +112,10 @@
     },
     "NotFound": {
       "noEvents": "Não existem eventos"
+    },
+    "ContactInfo": {
+      "contacts": "Contactos",
+      "follow": "Seguir"
     }
   },
   "CreativeWorkshop": {

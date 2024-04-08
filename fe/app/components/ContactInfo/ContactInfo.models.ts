@@ -1,10 +1,10 @@
 interface SocialElement {
   icon: JSX.Element;
-  text: string;
+  url: string;
 }
 
 export interface ContactInfoProps {
   email: string;
-  mobilePhone: string;
+  mobilePhone: string[];
   socials: SocialElement[];
 }
