@@ -23,6 +23,7 @@ import IconTitle from "@components/IconTitle/IconTitle";
 import EventGrid from "@components/EventGrid/EventGrid";
 import { urlFor } from "@/client";
 import { notFound } from "next/dist/client/components/not-found";
+import DefaultImage from "@assets/images/DeafultImage.jpg";
 
 export default function CreativeWorkshopPage({
   params,
@@ -115,39 +116,37 @@ export default function CreativeWorkshopPage({
       />
       <div className="flex flex-col">
         {hasSubCategories && (
-          <div className="pt-14">
-            <Tabs
-              tabs={subcategories.map(
-                (subcategory) =>
-                  categoryPage.pageContent[subcategory].label?.[
-                    locale as Locales
-                  ]!,
+          <Tabs
+            tabs={subcategories.map(
+              (subcategory) =>
+                categoryPage.pageContent[subcategory].label?.[
+                  locale as Locales
+                ]!,
+            )}
+            category={category}
+            selectedTab={selectedTab}
+            setSelectedTab={setSelectedTab}
+          >
+            <>
+              {subcategories.map(
+                (key, index) =>
+                  selectedTab === index && (
+                    <Header
+                      highlight={
+                        categoryPage.pageContent[key].highlight?.[
+                          locale as Locales
+                        ]
+                      }
+                      description={
+                        categoryPage.pageContent[key].description[
+                          locale as Locales
+                        ]
+                      }
+                    />
+                  ),
               )}
-              category={category}
-              selectedTab={selectedTab}
-              setSelectedTab={setSelectedTab}
-            >
-              <>
-                {subcategories.map(
-                  (key, index) =>
-                    selectedTab === index && (
-                      <Header
-                        highlight={
-                          categoryPage.pageContent[key].highlight?.[
-                            locale as Locales
-                          ]
-                        }
-                        description={
-                          categoryPage.pageContent[key].description[
-                            locale as Locales
-                          ]
-                        }
-                      />
-                    ),
-                )}
-              </>
-            </Tabs>
-          </div>
+            </>
+          </Tabs>
         )}
         {!hasSubCategories && (
           <Header
@@ -157,12 +156,17 @@ export default function CreativeWorkshopPage({
             description={
               categoryPage.pageContent[category].description[locale as Locales]
             }
+            image={{
+              src: DefaultImage,
+              alt: "defaultImage",
+              objectPosition: "center",
+            }}
           />
         )}
       </div>
       {hasAreasOfInsterest && (
         <React.Fragment>
-          <div className="mb-14 mt-16 font-league-gothic text-4xl">
+          <div className="mb-14 mt-16 font-league-gothic md:text-2xl lg:text-5xl">
             {t("areaOfInterest")}
           </div>
           <ButtonFilter
