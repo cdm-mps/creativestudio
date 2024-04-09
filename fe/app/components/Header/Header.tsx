@@ -4,7 +4,7 @@ import { HeaderProps } from "./Header.models";
 export const Header = ({ highlight, description }: HeaderProps) => (
   <div className="flex flex-col py-14">
     {highlight && (
-      <div className="font-noto-sans text-[28px] italic">{highlight}</div>
+      <div className="font-league-gothic text-[32px]">{highlight}</div>
     )}
     <div
       className={clsx(
