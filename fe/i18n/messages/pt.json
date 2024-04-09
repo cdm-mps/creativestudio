@@ -138,6 +138,7 @@
   },
   "Event": {
     "previousEvent": "Evento Ocorrido",
+    "soldOutEvent": "Evento Esgotado",
     "enrol": "Inscrever",
     "schedule": "Programação"
   },
