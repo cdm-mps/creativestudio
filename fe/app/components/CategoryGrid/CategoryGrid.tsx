@@ -1,45 +1,21 @@
 "use client";
 import CategoryElement from "@/app/components/CategoryElement/CategoryElement";
-import { Category, categories } from "@model/Category";
+import { Category } from "@model/Category";
 import { Locales } from "@model/Locales";
 import { useLocale } from "next-intl";
-import { useState } from "react";
+import { CategoryGridProps } from "./CategoryGrid.models";
 
-const CategoryGrid = ({
-  elementDescription,
-}: {
-  elementDescription?: Record<Category, Record<Locales, string>>;
-}) => {
+const CategoryGrid = ({ elements }: CategoryGridProps) => {
   const locale = useLocale();
-
-  const rows = categories.slice(0, 3);
-  const cols = categories.slice(3, 6);
-  const [hasEnteredGrid, setHasEnteredGrid] = useState<boolean>(false);
-
   return (
-    <div
-      className="flex-col"
-      onMouseEnter={() => setHasEnteredGrid(true)}
-      onMouseLeave={() => setHasEnteredGrid(false)}
-    >
-      <div className="flex max-md:flex-col">
-        {rows.map((category) => (
-          <CategoryElement
-            category={category}
-            isDisabled={hasEnteredGrid}
-            description={elementDescription?.[category][locale as Locales]}
-          />
-        ))}
-      </div>
-      <div className="flex max-md:flex-col">
-        {cols.map((category) => (
-          <CategoryElement
-            category={category}
-            isDisabled={hasEnteredGrid}
-            description={elementDescription?.[category][locale as Locales]}
-          />
-        ))}
-      </div>
+    <div className="group flex flex-col justify-center lg:flex-row lg:flex-wrap">
+      {Object.keys(elements).map((key) => (
+        <CategoryElement
+          size="medium"
+          category={key as Category}
+          description={elements[key as Category][locale as Locales]}
+        />
+      ))}
     </div>
   );
 };
