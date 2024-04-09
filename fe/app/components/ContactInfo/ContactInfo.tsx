@@ -1,19 +1,37 @@
 import React from "react";
 import { ContactInfoProps } from "./ContactInfo.models";
-import Divider from "../Divider/Divider";
+import { MdEmail } from "react-icons/md";
+import { FaPhoneAlt } from "react-icons/fa";
+import { useTranslations } from "next-intl";
 
 const ContactInfo = ({ email, mobilePhone, socials }: ContactInfoProps) => {
+  const t = useTranslations("Components.ContactInfo");
   return (
-    <div className="flex w-[290px] flex-col gap-y-2 font-noto-sans md:w-[439px] md:text-xl">
-      <span>{email}</span>
-      <span>{mobilePhone}</span>
-      <Divider />
-      <div className="flex items-center gap-6 font-semibold md:text-base">
+    <div className="flex flex-col gap-2">
+      <p className="font-league-gothic text-2xl uppercase tracking-wider text-businessWorkshops">
+        {t("contacts")}
+      </p>
+      <div className="flex items-center gap-2">
+        <MdEmail size={18} />
+        <span>{email}</span>
+      </div>
+
+      {mobilePhone.map((phone) => (
+        <div className="flex items-center gap-2">
+          <FaPhoneAlt size={18} />
+          <span>{phone}</span>
+        </div>
+      ))}
+
+      <p className="mt-6 font-league-gothic text-xl uppercase tracking-wider text-businessWorkshops">
+        {t("follow")}
+      </p>
+
+      <div className="flex gap-4">
         {socials.map((social) => (
-          <div key={social.text} className="flex items-center gap-[6px]">
+          <a href={social.url} target="_blank">
             {social.icon}
-            <span>{social.text}</span>
-          </div>
+          </a>
         ))}
       </div>
     </div>

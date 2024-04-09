@@ -21,5 +21,17 @@ export default {
       type: 'string',
       validation: (Rule: any) => Rule.required(),
     },
+    {
+      name: 'facebook',
+      title: 'Facebook',
+      type: 'string',
+      validation: (Rule: any) => Rule.required(),
+    },
+    {
+      name: 'tiktok',
+      title: 'TikTok',
+      type: 'string',
+      validation: (Rule: any) => Rule.required(),
+    },
   ],
 }

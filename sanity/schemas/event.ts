@@ -187,5 +187,12 @@ export default {
       description:
         'Indicates whether participants are expected to share content through video submissions. Enable if yes, disable if no.',
     },
+    {
+      name: 'isSoldOut',
+      type: 'boolean',
+      title: 'Is sold out',
+      initialValue: false,
+      description: 'Indicates if an event is sold out',
+    },
   ],
 }

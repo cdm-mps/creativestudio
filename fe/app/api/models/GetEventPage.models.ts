@@ -26,6 +26,7 @@ export interface GetEventPageOutputDto {
   level?: Level;
   levels: Levels;
   hasSubmiteVideo?: boolean;
+  isSoldOut?: boolean;
 }
 
 export interface Levels {

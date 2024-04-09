@@ -504,10 +504,10 @@ export default function Home() {
       <div className="flex flex-col items-center gap-4">
         <ContactInfo
           email="hello@creativestudionofilters.io"
-          mobilePhone="910 000 000"
+          mobilePhone={["910 000 000"]}
           socials={[
-            { icon: <Instagram />, text: "@creativestudio" },
-            { icon: <Instagram />, text: "/creativestudio" },
+            { icon: <Instagram />, url: "@creativestudio" },
+            { icon: <Instagram />, url: "/creativestudio" },
           ]}
         />
       </div>
