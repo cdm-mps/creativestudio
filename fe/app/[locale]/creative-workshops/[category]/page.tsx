@@ -23,7 +23,6 @@ import IconTitle from "@components/IconTitle/IconTitle";
 import EventGrid from "@components/EventGrid/EventGrid";
 import { urlFor } from "@/client";
 import { notFound } from "next/dist/client/components/not-found";
-import DefaultImage from "@assets/images/DeafultImage.jpg";
 
 export default function CreativeWorkshopPage({
   params,
@@ -72,6 +71,8 @@ export default function CreativeWorkshopPage({
     return <CategoryPageSkeleton />;
   }
 
+  const image = categoryPage.pageContent[category]?.image?.asset._ref;
+
   const EventsList = (events: EventThumbnail[], disabled?: boolean) => {
     return (
       <React.Fragment>
@@ -114,7 +115,7 @@ export default function CreativeWorkshopPage({
           { label: "Creative Workshops", url: "/creative-workshops" },
         ]}
       />
-      <div className="flex flex-col">
+      <div className="mt-10 flex flex-col">
         {hasSubCategories && (
           <Tabs
             tabs={subcategories.map(
@@ -156,11 +157,13 @@ export default function CreativeWorkshopPage({
             description={
               categoryPage.pageContent[category].description[locale as Locales]
             }
-            image={{
-              src: DefaultImage,
-              alt: "defaultImage",
-              objectPosition: "center",
-            }}
+            {...(image && {
+              image: {
+                src: urlFor(image).url(),
+                alt: `image-${category}`,
+                objectPosition: "center",
+              },
+            })}
           />
         )}
       </div>

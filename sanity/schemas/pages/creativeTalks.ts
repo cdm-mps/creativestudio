@@ -11,7 +11,7 @@ export default {
         {
           title: 'Highlight',
           name: 'highlight',
-          description:'Italic sentence above the description',
+          description: 'Italic sentence above the description',
           type: 'object',
           fields: [
             {name: 'pt', type: 'string', title: 'PT'},
@@ -26,6 +26,13 @@ export default {
             {name: 'pt', type: 'text', title: 'PT'},
             {name: 'en', type: 'text', title: 'EN'},
           ],
+        },
+        {
+          name: 'image',
+          type: 'image',
+          title: 'Image',
+          description: 'Image to be displayed',
+          validation: (Rule: any) => Rule.required(),
         },
       ],
       validation: (Rule: any) => Rule.required(),

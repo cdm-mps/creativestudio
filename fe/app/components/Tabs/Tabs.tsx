@@ -11,22 +11,19 @@ const Tabs = ({
   children,
 }: PropsWithChildren<TabsProps>) => {
   return (
-    <div className="flex w-full">
-      <div className="mt-40 flex w-[30%] flex-col items-start gap-20 pt-14">
+    <div className="flex gap-12">
+      <div className="flex flex-shrink-0 flex-grow flex-col items-start gap-6 pt-14">
         {tabs.map((e, i) => (
           <TabElement
             key={i}
             label={e}
-            // className={clsx(i !== 0 && "ml-6 md:ml-28")}
             category={category}
             selected={selectedTab === i}
             onClick={() => setSelectedTab(i)}
           />
         ))}
       </div>
-      <div className="flex w-[70%] gap-5 ">
-        <Divider category={category} orientation="vertical" /> {children}
-      </div>
+      <div className="flex flex-shrink flex-grow-0">{children}</div>
     </div>
   );
 };

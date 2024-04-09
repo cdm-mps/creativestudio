@@ -38,6 +38,13 @@ export interface CategoryPageContent {
   description: Record<Locales, string>;
   highlight?: Record<Locales, string>;
   label?: Record<Locales, string>;
+  image?: {
+    _type: string;
+    asset: {
+      _ref: string;
+      _type: string;
+    };
+  };
 }
 
 export const CategoriesWithAreasOfInterest: Category[] = [

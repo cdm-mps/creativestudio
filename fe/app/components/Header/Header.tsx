@@ -22,7 +22,7 @@ export const Header = ({ highlight, description, image }: HeaderProps) => (
     </div>
 
     {image && (
-      <div className="flex min-h-[500px] w-[40%] justify-center ">
+      <div className="flex h-[500px] w-[40%] justify-center ">
         <ImageElement {...image} className={clsx("w-full")} />
       </div>
     )}
