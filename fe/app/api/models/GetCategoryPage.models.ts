@@ -22,7 +22,7 @@ export const CategoryPageProjection: Record<Category, string> = {
   artisticResidences: "artisticResidences",
   businessWorkshops: "",
   creativeTalks: "creativeTalks",
-  editions: "focusEditions, allInOneEditions",
+  editions: "focusEditions, allInOneEditions, advancedWorkshops",
   masterclasses: "masterclasses",
   workshops: "onSiteWorkshops, shortDurationWorkshops, advancedWorkshops",
 };
