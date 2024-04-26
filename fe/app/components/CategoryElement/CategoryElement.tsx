@@ -1,6 +1,9 @@
 "use client";
 
-import { CategoryElementProps } from "@/app/components/CategoryElement/CategoryElement.models";
+import {
+  CategoryElementWithDescriptionProps,
+  CategoryElementWithoutDescriptionProps,
+} from "@/app/components/CategoryElement/CategoryElement.models";
 import RoundArrowButton from "@components/RoundArrowButton/RoundArrowButton";
 import { categoriesDictionary } from "@utils/categoriesDictionary";
 import clsx from "clsx";
@@ -8,84 +11,58 @@ import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { useState } from "react";
 
-const CategoryElement = ({
-  category,
-  description,
-  isDisabled = false,
-  size = "medium",
-}: CategoryElementProps) => {
+const CategoryElement = (
+  props:
+    | CategoryElementWithDescriptionProps
+    | CategoryElementWithoutDescriptionProps,
+) => {
   const t = useTranslations("Categories");
-  const [showDescription, setShowDescription] = useState<boolean>(false);
-
-  const isDeactivated = isDisabled && !showDescription;
-
+  const [isHover, setIsHover] = useState(false);
   return (
     <Link
-      className={clsx("relative", showDescription && "z-50")}
+      className={clsx(
+        `flex cursor-pointer flex-col items-center justify-center bg-${props.category} text-center lg:hover:z-10 lg:hover:scale-110`,
+        props.size === "small" &&
+          "h-[80px] w-[80px] gap-1 lg:h-[137px] lg:w-[137px]",
+        props.size == "medium" && !isHover && "lg:group-hover:opacity-50",
+        props.size === "medium" &&
+          "h-[320px] w-full gap-4 p-6 lg:h-[420px] lg:w-1/3",
+      )}
       href={
-        category === "businessWorkshops"
+        props.category === "businessWorkshops"
           ? "business-workshops"
-          : `creative-workshops/${category}`
+          : `creative-workshops/${props.category}`
       }
+      onMouseEnter={() => setIsHover(true)}
+      onMouseLeave={() => setIsHover(false)}
     >
-      <div
-        onMouseEnter={() => setShowDescription(true)}
-        onMouseLeave={() => setShowDescription(false)}
+      <p
         className={clsx(
-          `cursor-pointer p-3 md:hover:scale-110 bg-${category} flex flex-col items-center justify-center gap-3 md:gap-4`,
-          isDeactivated && "md:opacity-50",
-          size === "medium"
-            ? "h-[200px] w-[250px] md:h-[423px] md:w-[423px]"
-            : "h-[200px] w-[250px] md:h-[137px] md:w-[137px]",
+          "font-league-gothic uppercase",
+          props.size === "small" && "text-xs lg:text-2xl",
+          props.size === "medium" && "text-4xl max-xl:break-all lg:text-7xl",
         )}
       >
-        <p
-          className={clsx(
-            "text-center font-league-gothic uppercase",
-            isDeactivated && "md:opacity-50",
-            size === "medium" ? "text-2xl md:text-7xl" : "text-sm md:text-xl",
-          )}
-        >
-          {t(category)}
-        </p>
-        <div className="text-white">
-          {categoriesDictionary[category](
-            clsx(
-              "h-6 md:h-14",
-              isDeactivated && "md:opacity-50",
-              size === "medium" ? "h-6 md:h-14" : "h-3 md:h-7",
-            ),
-          )}
-        </div>
+        {t(props.category)}
+      </p>
+      {categoriesDictionary[props.category](
+        clsx(
+          props.size === "small" && "h-3 lg:h-7",
+          props.size === "medium" && "h-6 lg:h-14",
+        ),
+      )}
 
-        {showDescription && description && (
-          <div className="max-md:hidden">
-            <div
-              className={clsx(
-                "flex flex-col items-center justify-center gap-3 md:gap-4",
-              )}
-            >
-              <p className="line-clamp-4 text-center text-xs text-white md:text-base">
-                {description}
-              </p>
-              <RoundArrowButton arrowDirection="right" size="medium" />
-            </div>
-          </div>
+      <div
+        className={clsx(
+          "flex flex-col items-center gap-4",
+          props.size === "small" && "hidden",
+          props.size === "medium" && (isHover ? "block" : "block lg:hidden"),
         )}
-        {description && (
-          <div className="md:hidden">
-            <div
-              className={clsx(
-                "flex flex-col items-center justify-center gap-3 md:gap-6",
-              )}
-            >
-              <p className="line-clamp-4 text-center text-xs text-white md:text-sm">
-                {description}
-              </p>
-              <RoundArrowButton arrowDirection="right" size="small" />
-            </div>
-          </div>
-        )}
+      >
+        <p className="line-clamp-4 text-sm lg:text-base">
+          {(props as CategoryElementWithDescriptionProps).description}
+        </p>
+        <RoundArrowButton arrowDirection="right" size="medium" />
       </div>
     </Link>
   );

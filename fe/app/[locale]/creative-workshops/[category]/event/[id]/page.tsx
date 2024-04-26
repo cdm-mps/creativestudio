@@ -58,11 +58,6 @@ export default function EventPage({ params }: { params: { id: string } }) {
               },
             ]}
           />
-          {isPreviousEvent && (
-            <div className="mb-3 ml-10">
-              <Tag label={t("previousEvent")} category={event.category} />
-            </div>
-          )}
         </div>
         <EventInfo
           duration={event.duration || ""}
@@ -72,18 +67,30 @@ export default function EventPage({ params }: { params: { id: string } }) {
           onClick={() => setShowModal(true)}
         />
       </div>
-      <ImageElement
-        src={urlFor(event.image.image.src).url()}
-        alt={event.image.image.title}
-        className="mt-16 h-[500px] w-full"
-        objectPosition={event.image.image.objectPosition}
-      />
+      <div className="relative mt-16">
+        <ImageElement
+          src={urlFor(event.image.image.src).url()}
+          alt={event.image.image.title}
+          className="relative h-[500px] w-full"
+          blur={isPreviousEvent}
+          objectPosition={event.image.image.objectPosition}
+        />
+        {isPreviousEvent && (
+          <div className="absolute top-0 flex h-[500px] w-full items-center justify-center">
+            <Tag
+              label={t("previousEvent")}
+              category={event.category}
+              size="large"
+            />
+          </div>
+        )}
+      </div>
       <div className="mt-16 px-14 font-noto-sans text-lg">
         {event?.description[locale as Locales]}
       </div>
       <div className="mt-6 flex gap-4 px-14">
         {event.areasOfInterest?.map((area) => (
-          <Tag label={t_general(area)} category={event.category} />
+          <Tag label={t_general(area)} category={event.category} size="small" />
         ))}
       </div>
       <div className="mt-16 flex items-center justify-between px-14">
@@ -97,14 +104,23 @@ export default function EventPage({ params }: { params: { id: string } }) {
           }}
           name={event.mentor.mentor.name}
         />
-        <Button
-          category={event?.category}
-          label={t("enrol")}
-          onClick={() => {
-            push(`${event?._id}/form`);
-          }}
-          isDisabled={isPreviousEvent}
-        />
+        {!isPreviousEvent && (
+          <div className="relative">
+            <Button
+              category={event?.category}
+              label={t("enrol")}
+              isDisabled={event?.isSoldOut}
+              onClick={() => {
+                push(`${event?._id}/form`);
+              }}
+            />
+            {event.isSoldOut && (
+              <div className="rotate absolute top-0 z-10 flex h-[63px]  w-full -rotate-12 items-center justify-center">
+                <Tag label={t("soldOutEvent")} size="large" />
+              </div>
+            )}
+          </div>
+        )}
       </div>
       {event.schedule?.length && (
         <div className="mx-14 mb-16 mt-20 pl-[24px] pt-[48px]">

@@ -19,7 +19,7 @@ const Button = ({
       )}
     >
       {isDisabled && (
-        <div className="absolute z-10 h-full w-full bg-black/50" />
+        <div className="absolute z-10 h-full w-full bg-black/70" />
       )}
       <button
         onClick={onClick}

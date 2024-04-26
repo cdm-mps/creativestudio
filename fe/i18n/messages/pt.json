@@ -112,6 +112,10 @@
     },
     "NotFound": {
       "noEvents": "Não existem eventos"
+    },
+    "ContactInfo": {
+      "contacts": "Contactos",
+      "follow": "Seguir"
     }
   },
   "CreativeWorkshop": {
@@ -134,6 +138,7 @@
   },
   "Event": {
     "previousEvent": "Evento Ocorrido",
+    "soldOutEvent": "Evento Esgotado",
     "enrol": "Inscrever",
     "schedule": "Programação"
   },
