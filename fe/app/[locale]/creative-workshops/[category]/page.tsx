@@ -71,6 +71,8 @@ export default function CreativeWorkshopPage({
     return <CategoryPageSkeleton />;
   }
 
+  const image = categoryPage.pageContent[category]?.image?.asset._ref;
+
   const EventsList = (events: EventThumbnail[], disabled?: boolean) => {
     return (
       <React.Fragment>
@@ -113,41 +115,39 @@ export default function CreativeWorkshopPage({
           { label: "Creative Workshops", url: "/creative-workshops" },
         ]}
       />
-      <div className="flex flex-col">
+      <div className="mt-10 flex flex-col">
         {hasSubCategories && (
-          <div className="pt-14">
-            <Tabs
-              tabs={subcategories.map(
-                (subcategory) =>
-                  categoryPage.pageContent[subcategory].label?.[
-                    locale as Locales
-                  ]!,
+          <Tabs
+            tabs={subcategories.map(
+              (subcategory) =>
+                categoryPage.pageContent[subcategory].label?.[
+                  locale as Locales
+                ]!,
+            )}
+            category={category}
+            selectedTab={selectedTab}
+            setSelectedTab={setSelectedTab}
+          >
+            <>
+              {subcategories.map(
+                (key, index) =>
+                  selectedTab === index && (
+                    <Header
+                      highlight={
+                        categoryPage.pageContent[key].highlight?.[
+                          locale as Locales
+                        ]
+                      }
+                      description={
+                        categoryPage.pageContent[key].description[
+                          locale as Locales
+                        ]
+                      }
+                    />
+                  ),
               )}
-              category={category}
-              selectedTab={selectedTab}
-              setSelectedTab={setSelectedTab}
-            >
-              <>
-                {subcategories.map(
-                  (key, index) =>
-                    selectedTab === index && (
-                      <Header
-                        highlight={
-                          categoryPage.pageContent[key].highlight?.[
-                            locale as Locales
-                          ]
-                        }
-                        description={
-                          categoryPage.pageContent[key].description[
-                            locale as Locales
-                          ]
-                        }
-                      />
-                    ),
-                )}
-              </>
-            </Tabs>
-          </div>
+            </>
+          </Tabs>
         )}
         {!hasSubCategories && (
           <Header
@@ -157,12 +157,19 @@ export default function CreativeWorkshopPage({
             description={
               categoryPage.pageContent[category].description[locale as Locales]
             }
+            {...(image && {
+              image: {
+                src: urlFor(image).url(),
+                alt: `image-${category}`,
+                objectPosition: "center",
+              },
+            })}
           />
         )}
       </div>
       {hasAreasOfInsterest && (
         <React.Fragment>
-          <div className="mb-14 mt-16 font-league-gothic text-4xl">
+          <div className="mb-14 mt-16 font-league-gothic md:text-2xl lg:text-5xl">
             {t("areaOfInterest")}
           </div>
           <ButtonFilter

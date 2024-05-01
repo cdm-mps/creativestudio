@@ -30,8 +30,8 @@ export default function CreativeWorkshopsPage() {
   }
 
   return (
-    <main className="mx-10 flex lg:mx-40">
-      <div className="w-fit">
+    <main className="mx-40 flex">
+      <div className="w-full">
         <Title title={t("title")} category="businessWorkshops" />
         <Header
           highlight={pageStructure?.highlight[locale as Locales]}

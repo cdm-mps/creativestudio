@@ -1,7 +1,7 @@
-import React, { PropsWithChildren, useEffect, useState } from "react";
+import Divider from "@components/Divider/Divider";
+import { PropsWithChildren } from "react";
 import TabElement from "./TabElement/TabElement";
 import { TabsProps } from "./Tabs.models";
-import clsx from "clsx";
 
 const Tabs = ({
   tabs,
@@ -11,21 +11,20 @@ const Tabs = ({
   children,
 }: PropsWithChildren<TabsProps>) => {
   return (
-    <>
-      <div className="my-3 flex items-center justify-center">
+    <div className="flex gap-12">
+      <div className="flex flex-shrink-0 flex-grow flex-col items-start gap-6 pt-14">
         {tabs.map((e, i) => (
           <TabElement
             key={i}
             label={e}
-            className={clsx(i !== 0 && "ml-6 md:ml-28")}
             category={category}
             selected={selectedTab === i}
             onClick={() => setSelectedTab(i)}
           />
         ))}
       </div>
-      {children}
-    </>
+      <div className="flex flex-shrink flex-grow-0">{children}</div>
+    </div>
   );
 };
 
