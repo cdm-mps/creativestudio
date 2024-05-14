@@ -6,6 +6,7 @@ export interface ImageProps {
   objectPosition: ObjectPosition;
   rounded?: boolean;
   className?: string;
+  blur?: boolean;
 }
 
 export type ObjectPosition =

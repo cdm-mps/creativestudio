@@ -5,4 +5,6 @@ export interface UploadFileProps {
   description?: string;
   category: Category;
   required?: boolean;
+  hasError?: boolean;
+  onChangeValue: (value: any) => void;
 }

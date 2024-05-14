@@ -5,4 +5,5 @@ export interface LabelProps {
   description?: string;
   category: Category;
   required?: boolean;
+  hasError?: boolean;
 }

@@ -30,21 +30,21 @@
       "intermediate": "Intermediate"
     },
     "AreaOfInterest": {
-      "radio": "Rádio",
-      "photography": "Fotografia",
-      "comedy": "Comédia",
-      "music": "Musica",
-      "music-production": "Produção Musical",
+      "radio": "Radio",
+      "photography": "Photography",
+      "comedy": "Comedy",
+      "music": "Music",
+      "music-production": "Music Production",
       "acting": "Acting",
-      "television": "Televisão",
-      "cinema-directing": "Cinema/Realização",
-      "voiceover": "Locução",
-      "dub": "Dobragens",
-      "video-editing": "Edição de Video",
-      "poetry": "Poesia",
-      "scriptwriting": "Guionismo",
-      "audiovisual-production": "Produção Audiovisual",
-      "animation": "Animação"
+      "television": "Television",
+      "cinema-directing": "Cinema/Directing",
+      "voiceover": "Voiceover",
+      "dub": "Dub",
+      "video-editing": "Video Editing",
+      "poetry": "Poetry",
+      "scriptwriting": "Scriptwriting",
+      "audiovisual-production": "Audiovisual Production",
+      "animation": "Animation"
     }
   },
   "DesignSystem": {
@@ -71,7 +71,9 @@
   "Components": {
     "Mentor": {
       "eventBarSingular": " available event",
-      "eventBarPlural": " available events"
+      "eventBarPlural": " available events",
+      "eventBarSingularPrevious": " event occured",
+      "eventBarPluralPrevious": " events occured"
     },
     "Acknowledgements": {
       "title": "Acknowledgements",
@@ -86,19 +88,19 @@
     "EventElement": {
       "explore": "Explore"
     },
-    "EventGrid": {
-      "seeMore": "See more",
-      "seeLess": "See less"
-    },
     "EventInfo": {
       "level": "Level:"
     },
     "Stepper": {
-      "textOne": "Payment Info",
-      "textTwo": "Personal Info"
+      "textOne": "Personal Info",
+      "textTwo": "Form",
+      "textThree": "Payment Info"
     },
     "Filters": {
-      "filter": "Filter"
+      "filter": "Filter",
+      "eventType": "Event Type",
+      "areaOfInterest": "Area Of Interest",
+      "mentor": "Mentor"
     },
     "UploadFile": {
       "addFile": "Add file"
@@ -106,12 +108,19 @@
     "Input": {
       "writeHere": "Text here"
     },
-    "NotFound": { "noEvents": "No events" }
+    "NotFound": {
+      "noEvents": "No events"
+    },
+    "ContactInfo": {
+      "contacts": "Contacts",
+      "follow": "Follow"
+    }
   },
   "CreativeWorkshop": {
     "areaOfInterest": "Area Of Interest",
     "upcomingDates": "Upcoming Dates",
-    "availableEvents": "available events",
+    "availableEventsSingular": "available event",
+    "availableEventsPlural": "available events",
     "previous": "Previous"
   },
   "AboutUs": {
@@ -126,6 +135,8 @@
     "ourServices": "Our Services"
   },
   "Event": {
+    "previousEvent": "Event Occured",
+    "soldOutEvent": "Sold Out Event",
     "enrol": "Enrol",
     "schedule": "Schedule"
   },
@@ -133,10 +144,20 @@
     "required": "*Mandatory field",
     "previous": "Previous",
     "next": "Next",
-    "regulations": "Regulations"
+    "regulations": "Regulations",
+    "submit": "Submit",
+    "error_label": "Oops... Something's gone wrong",
+    "success_label": "Application submitted!",
+    "successs": "Your application has been successfully submitted, thank you for choosing us. \n You will soon be contacted by Creative Studio to proceed with payment. \n\n\n Creative Studio",
+    "error": "We are currently unable to submit your enrolment. \n Please try again later. \n\n\n Creative Studio"
   },
   "BusinessWorkshops": {
     "title": "Business Workshops",
     "workInProgress": "Work In Progress"
+  },
+  "NotFound": {
+    "title": "Ups, this page isn't available",
+    "subtitle": "The link you followed may not exist",
+    "button": "Go back Home"
   }
 }

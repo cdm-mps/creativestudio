@@ -31,7 +31,7 @@ const MentorIdentifier = ({
       ) : (
         <Link
           className="flex cursor-pointer items-center gap-x-2 font-noto-sans text-xs hover:opacity-80 md:gap-x-4 md:text-xl"
-          href={`/${locale}//mentors/${_id}`}
+          href={`/${locale}/mentors/${_id}`}
         >
           <Content {...props} />
         </Link>

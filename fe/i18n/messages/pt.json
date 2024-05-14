@@ -73,7 +73,9 @@
   "Components": {
     "Mentor": {
       "eventBarSingular": " evento disponível",
-      "eventBarPlural": " eventos disponíveis"
+      "eventBarPlural": " eventos disponíveis",
+      "eventBarSingularPrevious": " evento ocorrido",
+      "eventBarPluralPrevious": " eventos ocorridos"
     },
     "Acknowledgements": {
       "title": "Agradecimentos",
@@ -88,19 +90,19 @@
     "EventElement": {
       "explore": "Explorar"
     },
-    "EventGrid": {
-      "seeMore": "Ver mais",
-      "seeLess": "Ver menos"
-    },
     "EventInfo": {
       "level": "Nível:"
     },
     "Stepper": {
-      "textOne": "Dados de Pagamento",
-      "textTwo": "Dados Pessoais"
+      "textOne": "Dados Pessoais",
+      "textTwo": "Formulário",
+      "textThree": "Dados de Pagamento"
     },
     "Filters": {
-      "filter": "Filtrar"
+      "filter": "Filtrar",
+      "eventType": "Tipo de Evento",
+      "areaOfInterest": "Área de Interesse",
+      "mentor": "Mentor"
     },
     "UploadFile": {
       "addFile": "Adicionar ficheiro"
@@ -108,12 +110,19 @@
     "Input": {
       "writeHere": "Escreva aqui"
     },
-    "NotFound": { "noEvents": "Não existem eventos" }
+    "NotFound": {
+      "noEvents": "Não existem eventos"
+    },
+    "ContactInfo": {
+      "contacts": "Contactos",
+      "follow": "Seguir"
+    }
   },
   "CreativeWorkshop": {
     "areaOfInterest": "Área de Interesse",
     "upcomingDates": "Próximas Datas",
-    "availableEvents": "eventos disponíveis",
+    "availableEventsSingular": "evento disponível",
+    "availableEventsPlural": "eventos disponíveis",
     "previous": "Anteriores"
   },
   "AboutUs": {
@@ -128,6 +137,8 @@
     "ourServices": "Os nossos serviços"
   },
   "Event": {
+    "previousEvent": "Evento Ocorrido",
+    "soldOutEvent": "Evento Esgotado",
     "enrol": "Inscrever",
     "schedule": "Programação"
   },
@@ -135,10 +146,20 @@
     "required": "*Preenchimento Obrigatório",
     "previous": "Anterior",
     "next": "Seguinte",
-    "regulations": "Regulamento"
+    "regulations": "Regulamento",
+    "submit": "Submeter",
+    "error_label": "Ups... Algo correu mal",
+    "success_label": "Inscrição Submetida!",
+    "success": "A sua incrição foi submetida com sucesso, obrigada por nos ter escolhido. \n Em breve será contactado(a) pelo Creative Studio para proceder ao pagemento. \n\n\n Creative Studio",
+    "error": "Neste momento não estamos a conseguir submeter a sua inscrição. \n Por favor, tente mais tarde. \n\n\n Creative Studio"
   },
   "BusinessWorkshops": {
     "title": "Business Workshops",
     "workInProgress": "Work In Progress"
+  },
+  "NotFound": {
+    "title": "Ups, página não encontrada",
+    "subtitle": "Não existe o endereço que introduziste",
+    "button": "página inicial"
   }
 }

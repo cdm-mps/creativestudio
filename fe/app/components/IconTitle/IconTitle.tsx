@@ -1,3 +1,4 @@
+import { ExclamationMarkIcon } from "@assets/icons/ExclamationMarkIcon";
 import { IconTitleProps } from "@components/IconTitle/IconTitle.models";
 import CoreTitle from "@components/shared/CoreTitle/CoreTitle";
 import { ChevronIcon } from "@icons/ChevronIcon";
@@ -22,6 +23,12 @@ const IconTitle = ({ title, category, mode }: IconTitleProps) => {
       case "chevron":
         return (
           <ChevronIcon
+            className={`absolute -left-6 -top-32 w-20 text-${category} max-md:w-11`}
+          />
+        );
+      case "exclamation":
+        return (
+          <ExclamationMarkIcon
             className={`absolute -left-6 -top-32 w-20 text-${category} max-md:w-11`}
           />
         );

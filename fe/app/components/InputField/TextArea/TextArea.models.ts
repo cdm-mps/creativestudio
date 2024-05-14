@@ -6,5 +6,6 @@ export interface TextAreaProps {
   value: string;
   category: Category;
   required?: boolean;
+  hasError?: boolean;
   onChangeValue: (value: string) => void;
 }

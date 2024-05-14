@@ -10,20 +10,20 @@ export const CategoryPageSkeleton = () => (
       <Skeleton height={163} className="mb-3" />
     </div>
     <Skeleton height={100} width={380} className="mb-16 mt-20" />
-    <div className="mb-9 flex gap-8">
-      {Array(3)
-        .fill(null)
-        .map(() => (
-          <Skeleton height={320} width={290} />
-        ))}
+    <div className="mb-9">
+      <EventGridSkeleton />
     </div>
     <Skeleton height={100} width={380} className="mb-16 mt-20" />
-    <div className="flex gap-8">
-      {Array(3)
-        .fill(null)
-        .map(() => (
-          <Skeleton height={320} width={290} />
-        ))}
-    </div>
+    <EventGridSkeleton />
+  </div>
+);
+
+export const EventGridSkeleton = () => (
+  <div className="flex gap-8">
+    {Array(3)
+      .fill(null)
+      .map(() => (
+        <Skeleton height={320} width={290} />
+      ))}
   </div>
 );

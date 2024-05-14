@@ -287,6 +287,7 @@ export default function Home() {
           <UploadFile
             title="Comprovativo de Transferencia"
             category="artisticResidences"
+            onChangeValue={() => {}}
           />
         </div>
       </div>
@@ -503,10 +504,10 @@ export default function Home() {
       <div className="flex flex-col items-center gap-4">
         <ContactInfo
           email="hello@creativestudionofilters.io"
-          mobilePhone="910 000 000"
+          mobilePhone={["910 000 000"]}
           socials={[
-            { icon: <Instagram />, text: "@creativestudio" },
-            { icon: <Instagram />, text: "/creativestudio" },
+            { icon: <Instagram />, url: "@creativestudio" },
+            { icon: <Instagram />, url: "/creativestudio" },
           ]}
         />
       </div>
@@ -1122,6 +1123,7 @@ export default function Home() {
       <div className="flex flex-col items-center justify-center gap-4 md:px-32">
         <MentorEventBar
           mentor={{
+            _id: "id",
             name: "Benedita Pereira",
             image: {
               src: BeneditaPereiera,
@@ -1136,6 +1138,7 @@ export default function Home() {
         />
         <MentorEventBar
           mentor={{
+            _id: "id",
             name: "Benedita Pereira Very Very Very Very Very Very Very Very Very Very Long",
             image: {
               src: BeneditaPereiera,
@@ -1166,6 +1169,7 @@ export default function Home() {
         />
         <MentorEventBar
           mentor={{
+            _id: "id",
             name: "Carolina Leite",
             image: {
               src: CarolinaLeite,
@@ -1508,7 +1512,7 @@ export default function Home() {
       <div className="flex flex-col items-center gap-10 px-3">
         <LocalTitle title="Category Element" />
         <div className="flex flex-col items-center gap-6">
-          <CategoryElement category="editions" />
+          <CategoryElement size="small" category="editions" />
           <Code text={`<CategoryElement category="editions"/>`} />
         </div>
       </div>
@@ -1518,7 +1522,34 @@ export default function Home() {
       <div className="flex flex-col items-center gap-4 px-3">
         <LocalTitle title="Category Grid" />
         <div className="flex flex-col items-center gap-4">
-          <CategoryGrid />
+          <CategoryGrid
+            elements={{
+              artisticResidences: {
+                pt: "Lorem ipsum soi sad dkas djsa",
+                en: "Lorem ipsum soi sad dkas djsa",
+              },
+              businessWorkshops: {
+                pt: "Lorem ipsum soi sad dkas djsa",
+                en: "Lorem ipsum soi sad dkas djsa",
+              },
+              creativeTalks: {
+                pt: "Lorem ipsum soi sad dkas djsa",
+                en: "Lorem ipsum soi sad dkas djsa",
+              },
+              editions: {
+                pt: "Lorem ipsum soi sad dkas djsa",
+                en: "Lorem ipsum soi sad dkas djsa",
+              },
+              masterclasses: {
+                pt: "Lorem ipsum soi sad dkas djsa",
+                en: "Lorem ipsum soi sad dkas djsa",
+              },
+              workshops: {
+                pt: "Lorem ipsum soi sad dkas djsa",
+                en: "Lorem ipsum soi sad dkas djsa",
+              },
+            }}
+          />
           <Code text={`<CategoryGrid />`} />
         </div>
       </div>

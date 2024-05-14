@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=League+Gothic&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lato&family=League+Gothic&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Lato&family=League+Gothic&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lato&family=League+Gothic&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -57,7 +57,9 @@
   padding-bottom: 64px;
 }
 
-.ant-picker-calendar .ant-picker-calendar-header .ant-picker-calendar-mode-switch {
+.ant-picker-calendar
+  .ant-picker-calendar-header
+  .ant-picker-calendar-mode-switch {
   display: none;
 }
 
@@ -74,4 +76,16 @@
 }
 .ant-select-single.ant-select-show-arrow .ant-select-selection-placeholder {
   color: rgba(255, 255, 255, 0.4);
+}
+
+.ant-picker-calendar {
+  background: #0c0c0c;
+}
+
+.ant-select-single:not(.ant-select-customize-input) .ant-select-selector {
+  background: #0c0c0c;
+}
+
+.ant-picker-calendar.ant-picker-calendar-full .ant-picker-panel {
+  background: #0c0c0c;
 }

@@ -1,12 +1,14 @@
 "use client";
-import CategoryGrid from "@components/CategoryGrid/CategoryGrid";
+
+import { GetCreativeWorkshopsPageOutputDto } from "@/app/api/models/GetCreativeWorkshopsPage.models";
+import CategoryElement from "@components/CategoryElement/CategoryElement";
 import { Header } from "@components/Header/Header";
 import Title from "@components/Title/Title";
+import { Category } from "@model/Category";
 import { Locales } from "@model/Locales";
 import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import { CreativeWorkshopsSkeleton } from "./skeleton";
-import { GetCreativeWorkshopsPageOutputDto } from "@/app/api/models/GetCreativeWorkshopsPage.models";
 
 export default function CreativeWorkshopsPage() {
   const t = useTranslations("CreativeWorkshops");
@@ -29,7 +31,7 @@ export default function CreativeWorkshopsPage() {
 
   return (
     <main className="mx-40 flex">
-      <div className="w-fit">
+      <div className="w-full">
         <Title title={t("title")} category="businessWorkshops" />
         <Header
           highlight={pageStructure?.highlight[locale as Locales]}
@@ -40,11 +42,18 @@ export default function CreativeWorkshopsPage() {
             {t("ourServices")}
           </span>
         </div>
-
-        <div className="flex justify-center">
-          <CategoryGrid
-            elementDescription={pageStructure?.elementDescription}
-          />
+        <div className="group flex flex-col justify-center lg:flex-row lg:flex-wrap">
+          {Object.keys(pageStructure.elementDescription).map((key) => (
+            <CategoryElement
+              size="medium"
+              category={key as Category}
+              description={
+                pageStructure.elementDescription[key as Category][
+                  locale as Locales
+                ]
+              }
+            />
+          ))}
         </div>
       </div>
     </main>

@@ -16,9 +16,12 @@ import { useLocale, useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { EventPageSkeleton } from "./skeleton";
+import { isDateInPast } from "@utils/date/isDateInPast";
+import { Tag } from "@components/Tag/Tag";
 
 export default function EventPage({ params }: { params: { id: string } }) {
   const t_categories = useTranslations("Categories");
+  const t_general = useTranslations("general.AreaOfInterest");
   const t = useTranslations("Event");
   const locale = useLocale();
 
@@ -37,21 +40,25 @@ export default function EventPage({ params }: { params: { id: string } }) {
     return <EventPageSkeleton />;
   }
 
+  const isPreviousEvent = isDateInPast(event?.date);
+
   return (
     <main className="mx-40 flex flex-col">
-      <div className="flex h-fit w-full justify-between">
-        <BreadcrumbsTitle
-          title={event?.title[locale as Locales] || ""}
-          category={event?.category as Category}
-          withIcon
-          breadcrumbs={[
-            { label: "Creative Workshops", url: "/creative-workshops" },
-            {
-              label: t_categories(event.category),
-              url: `/creative-workshops/${event.category}`,
-            },
-          ]}
-        />
+      <div className="flex h-fit w-full items-start justify-between">
+        <div className="flex items-end">
+          <BreadcrumbsTitle
+            title={event?.title[locale as Locales] || ""}
+            category={event?.category as Category}
+            withIcon
+            breadcrumbs={[
+              { label: "Creative Workshops", url: "/creative-workshops" },
+              {
+                label: t_categories(event.category),
+                url: `/creative-workshops/${event.category}`,
+              },
+            ]}
+          />
+        </div>
         <EventInfo
           duration={event.duration || ""}
           date={event.date}
@@ -60,14 +67,31 @@ export default function EventPage({ params }: { params: { id: string } }) {
           onClick={() => setShowModal(true)}
         />
       </div>
-      <ImageElement
-        src={urlFor(event.image.image.src).url()}
-        alt={event.image.image.title}
-        className="mt-16 h-[500px] w-full"
-        objectPosition={event.image.image.objectPosition}
-      />
+      <div className="relative mt-16">
+        <ImageElement
+          src={urlFor(event.image.image.src).url()}
+          alt={event.image.image.title}
+          className="relative h-[500px] w-full"
+          blur={isPreviousEvent}
+          objectPosition={event.image.image.objectPosition}
+        />
+        {isPreviousEvent && (
+          <div className="absolute top-0 flex h-[500px] w-full items-center justify-center">
+            <Tag
+              label={t("previousEvent")}
+              category={event.category}
+              size="large"
+            />
+          </div>
+        )}
+      </div>
       <div className="mt-16 px-14 font-noto-sans text-lg">
         {event?.description[locale as Locales]}
+      </div>
+      <div className="mt-6 flex gap-4 px-14">
+        {event.areasOfInterest?.map((area) => (
+          <Tag label={t_general(area)} category={event.category} size="small" />
+        ))}
       </div>
       <div className="mt-16 flex items-center justify-between px-14">
         <MentorIdentifier
@@ -80,28 +104,40 @@ export default function EventPage({ params }: { params: { id: string } }) {
           }}
           name={event.mentor.mentor.name}
         />
-        <Button
-          category={event?.category}
-          label={t("enrol")}
-          onClick={() => {
-            push(`${event?._id}/form`);
-          }}
-        />
+        {!isPreviousEvent && (
+          <div className="relative">
+            <Button
+              category={event?.category}
+              label={t("enrol")}
+              isDisabled={event?.isSoldOut}
+              onClick={() => {
+                push(`${event?._id}/form`);
+              }}
+            />
+            {event.isSoldOut && (
+              <div className="rotate absolute top-0 z-10 flex h-[63px]  w-full -rotate-12 items-center justify-center">
+                <Tag label={t("soldOutEvent")} size="large" />
+              </div>
+            )}
+          </div>
+        )}
       </div>
-      <div className="mx-14 mb-16 mt-20 pl-[24px] pt-[48px]">
-        <IconTitle
-          title={t("schedule")}
-          mode="chevron"
-          category={event.category}
-        />
-      </div>
+      {event.schedule?.length && (
+        <div className="mx-14 mb-16 mt-20 pl-[24px] pt-[48px]">
+          <IconTitle
+            title={t("schedule")}
+            mode="chevron"
+            category={event.category}
+          />
+        </div>
+      )}
       <div className="mx-14 flex flex-col gap-8">
         {event.schedule?.map((scheduleElement, index) => (
           <ScheduleElement
             title={scheduleElement.description[locale as Locales]}
             duration={scheduleElement.duration}
             category={event.category}
-            bullet={{ index }}
+            bullet={{ index: index + 1 }}
           />
         ))}
       </div>

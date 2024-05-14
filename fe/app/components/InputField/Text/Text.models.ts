@@ -7,4 +7,5 @@ export interface TextProps {
   required?: boolean;
   category: Category;
   onChangeValue: (value: string) => void;
+  hasError?: boolean;
 }

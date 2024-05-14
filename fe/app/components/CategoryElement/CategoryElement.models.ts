@@ -1,8 +1,12 @@
 import { Category } from "@model/Category";
 
-export interface CategoryElementProps {
+export interface CategoryElementWithDescriptionProps {
+  size: "medium";
   category: Category;
-  description?: string;
-  isDisabled?: boolean;
-  size?: "medium" | "small";
+  description: string;
+}
+
+export interface CategoryElementWithoutDescriptionProps {
+  size: "small";
+  category: Category;
 }

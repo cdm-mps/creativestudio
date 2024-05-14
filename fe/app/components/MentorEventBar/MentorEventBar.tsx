@@ -9,15 +9,15 @@ const MentorEventBar = ({
   title,
   date,
   mentor,
-  onClick,
   previous = false,
   disabled = false,
+  onClick,
 }: MentorEventBarProps) => {
   return (
     <div
       className={`h-[52px] gap-x-2 px-3 py-2 md:h-[92px] md:gap-x-40 md:px-8 md:py-[14px] ${
         previous ? "border md:border-[2px]" : "bg-" + category
-      } flex w-full cursor-pointer items-center justify-between`}
+      } flex w-full cursor-pointer items-center justify-between opacity-80 hover:opacity-100`}
       onClick={onClick}
     >
       <div className="mr-auto flex items-center gap-2 md:gap-5">
@@ -31,9 +31,11 @@ const MentorEventBar = ({
           <span className="line-clamp-1 font-league-gothic text-base leading-none md:text-3xl md:leading-9">
             {title}
           </span>
-          <div className="mr-auto">
-            <DateInfo date={date} size={"xs"} />
-          </div>
+          {date && (
+            <div className="mr-auto">
+              <DateInfo date={date} size={"xs"} />
+            </div>
+          )}
         </div>
       </div>
       <div className="ml-auto flex items-center gap-1 md:gap-4">
@@ -42,6 +44,7 @@ const MentorEventBar = ({
           name={mentor.name || ""}
           previous
           disabled={disabled}
+          _id={mentor._id}
         />
         <RoundArrowButton arrowDirection="right" />
       </div>
