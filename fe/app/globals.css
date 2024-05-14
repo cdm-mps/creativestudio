@@ -5,16 +5,28 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+}
+
 @media only screen and (max-width: 1023px) {
-  .quotes::-webkit-scrollbar {
+  .customScroll::-webkit-scrollbar {
     height: 10px;
   }
 
-  .quotes::-webkit-scrollbar-thumb {
-    background: #63cbf8;
+  .customScroll::-webkit-scrollbar-thumb {
+    background: white;
   }
 
-  .quotes::-webkit-scrollbar-track {
+  .customScroll::-webkit-scrollbar-track {
     background: white;
     border-top: 4px solid transparent;
     border-bottom: 4px solid transparent;
@@ -25,20 +37,20 @@
 }
 
 @media only screen and (min-width: 1024px) {
-  .quotes::-webkit-scrollbar {
-    height: 11px;
+  .customScroll::-webkit-scrollbar {
+    height: 5px;
   }
 
-  .quotes::-webkit-scrollbar-thumb {
-    background: #63cbf8;
-  }
-
-  .quotes::-webkit-scrollbar-track {
+  .customScroll::-webkit-scrollbar-thumb {
     background: white;
-    border-top: 5px solid transparent;
-    border-bottom: 5px solid transparent;
-    margin-left: 15vw;
-    margin-right: 15vw;
+  }
+
+  .customScroll::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.394);
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+    margin-left: 30vw;
+    margin-right: 30vw;
     background-clip: padding-box;
   }
 }
