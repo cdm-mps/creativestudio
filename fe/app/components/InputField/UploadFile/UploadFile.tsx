@@ -23,7 +23,7 @@ const UploadFile = ({
     });
   }
   return (
-    <div className="my-8 flex flex-col gap-4">
+    <div className="my-4 flex flex-col gap-4 md:my-8">
       <Label
         title={title}
         description={description}

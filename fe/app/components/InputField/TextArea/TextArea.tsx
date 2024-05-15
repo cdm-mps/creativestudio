@@ -13,7 +13,7 @@ const TextArea = ({
 }: TextAreaProps) => {
   const t = useTranslations("Components.Input");
   return (
-    <div className="my-8 flex flex-col gap-8">
+    <div className="my-4 flex flex-col gap-8 md:my-8">
       <Label
         title={title}
         description={description}

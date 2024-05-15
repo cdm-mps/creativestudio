@@ -13,7 +13,7 @@ const Text = ({
 }: TextProps) => {
   const t = useTranslations("Components.Input");
   return (
-    <div className="my-8 flex flex-col gap-4">
+    <div className="my-4 md:my-8 flex flex-col gap-4">
       <Label
         title={title}
         description={description}
