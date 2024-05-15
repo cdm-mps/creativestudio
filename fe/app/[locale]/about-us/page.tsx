@@ -51,7 +51,7 @@ export default function AboutUsPage() {
           }))}
         />
       </div>
-      <div className="flex flex-col gap-12">
+      <div className="flex flex-col gap-12 mb-20">
         <Divider />
         <Acknowledgements />
         <Divider />
