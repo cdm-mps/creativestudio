@@ -139,7 +139,10 @@ export default function EventPage({ params }: { params: { id: string } }) {
       <div className="flex flex-col gap-4 md:mx-14 md:gap-8">
         {event.schedule?.map((scheduleElement, index) => (
           <ScheduleElement
-            key={scheduleElement.description[locale as Locales] + scheduleElement.duration}
+            key={
+              scheduleElement.description[locale as Locales] +
+              scheduleElement.duration
+            }
             title={scheduleElement.description[locale as Locales]}
             duration={scheduleElement.duration}
             category={event.category}
@@ -147,17 +150,17 @@ export default function EventPage({ params }: { params: { id: string } }) {
           />
         ))}
       </div>
-      {/*{showModal && (
+      {showModal && (
         <Modal onCloseModal={() => setShowModal(false)}>
           <div className="flex flex-col px-7 pb-9">
-            <span className="font-league-gothic text-3xl">
+            <span className="font-league-gothic text-xl md:text-3xl">
               {event.levels.title[locale as Locales]}
             </span>
             <BulletPoint
               category={event.category}
               text={event.levels.beginner.level_title[locale as Locales] || ""}
             />
-            <span className="mt-2">
+            <span className="mt-2 max-md:text-xs">
               {event.levels.beginner.level_description[locale as Locales]}
             </span>
             <BulletPoint
@@ -166,12 +169,12 @@ export default function EventPage({ params }: { params: { id: string } }) {
                 event.levels.intermediate.level_title[locale as Locales] || ""
               }
             />
-            <span className="mt-2">
+            <span className="mt-2 max-md:text-xs">
               {event.levels.intermediate.level_description[locale as Locales]}
             </span>
           </div>
         </Modal>
-      )} */}
+      )}
     </main>
   );
 }
