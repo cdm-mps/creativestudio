@@ -11,7 +11,7 @@ const Mentor = ({ _id, redirectOnClick, ...rest }: MentorProps) => {
     redirectOnClick && "cursor-pointer",
   );
   return (
-    <React.Fragment>
+    <>
       {redirectOnClick ? (
         <Link className={className} href={`mentors/${_id}`}>
           <Content redirectOnClick={redirectOnClick} {...rest} />
@@ -21,7 +21,7 @@ const Mentor = ({ _id, redirectOnClick, ...rest }: MentorProps) => {
           <Content redirectOnClick={redirectOnClick} {...rest} />
         </div>
       )}
-    </React.Fragment>
+    </>
   );
 };
 

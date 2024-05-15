@@ -15,7 +15,7 @@ const ScheduleElement = ({
         <EnumBulletPoint category={category} {...bullet} />
       </div>
 
-      <span className="min-w-[94px] flex-wrap font-noto-sans md:w-[290px] md:text-xl">
+      <span className="min-w-[94px] flex-wrap font-noto-sans md:w-[290px] text-sm md:text-xl">
         {title}
       </span>
       <div className="w-full">
@@ -25,7 +25,7 @@ const ScheduleElement = ({
         <div className="md:h-27 h-15 w-5 md:w-7">
           <Clock className="md:h-27 h-15 w-5 md:w-7" />
         </div>
-        <span className="font-league-gothic text-xl md:text-3xl">
+        <span className="font-league-gothic text-lg md:text-3xl">
           {duration}
         </span>
       </div>
