@@ -11,8 +11,8 @@ const Tabs = ({
   children,
 }: PropsWithChildren<TabsProps>) => {
   return (
-    <div className="flex gap-12">
-      <div className="flex flex-shrink-0 flex-grow flex-col items-start gap-6 pt-14">
+    <div className="flex max-md:flex-col md:gap-12">
+      <div className="flex flex-shrink-0 flex-grow flex-col items-start md:gap-6 md:pt-14 ">
         {tabs.map((e, i) => (
           <TabElement
             key={i}

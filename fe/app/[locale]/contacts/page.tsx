@@ -27,11 +27,11 @@ export default function ContactsPage() {
       <div className="flex max-md:flex-col">
         <div className="h-fit md:w-[calc(50vw-80px)]">
           <Title title={t("Menu.contacts")} category="businessWorkshops" />
-          <div className="my-8 font-league-gothic text-4xl">
+          <div className="my-8 font-league-gothic text-2xl md:text-4xl">
             {t("Contacts.firstHighlight")}
           </div>
           {children}
-          <div className="my-8 font-league-gothic text-4xl">
+          <div className="my-8 font-league-gothic text-2xl md:text-4xl">
             {t("Contacts.secondHighlight")}
           </div>
           <div className="flex flex-wrap max-md:flex-col max-md:items-center">
@@ -43,7 +43,7 @@ export default function ContactsPage() {
         <div className="w-[50vw] max-md:hidden">
           <Map type="desktop" />
         </div>
-        <div className="mt-20 md:hidden">
+        <div className="mt-20 overflow-hidden md:hidden">
           <Map type="mobile" />
         </div>
       </div>
