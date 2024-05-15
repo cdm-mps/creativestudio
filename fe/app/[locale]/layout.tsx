@@ -53,7 +53,7 @@ export default function RootLayout({
             }}
           >
             <Navbar />
-            <div className="my-24 md:mt-32 ">{children}</div>
+            <div className="mt-28 md:mt-32 max-md:min-h-[calc(100vh-166px)] min-h-[calc(100vh-200px)]">{children}</div>
             <Footer />
           </ConfigProvider>
         </body>

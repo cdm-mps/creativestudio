@@ -5,7 +5,7 @@ import Link from "next/link";
 const Footer = () => {
   const year = new Date().getFullYear();
   return (
-    <footer className="mx-6 mb-6 flex items-baseline justify-between">
+    <footer className="mt-8 mb-6 mx-6 flex items-baseline justify-between md:mb-12 md:mt-16">
       <div>
         <MadeByDarwinIcon />
         <Link

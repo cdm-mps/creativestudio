@@ -40,7 +40,7 @@ const CategoryElement = (
         className={clsx(
           "font-league-gothic uppercase",
           props.size === "small" && "text-xs lg:text-2xl",
-          props.size === "medium" && "text-4xl max-xl:break-all lg:text-7xl",
+          props.size === "medium" && "text-3xl max-xl:break-all lg:text-7xl",
         )}
       >
         {t(props.category)}
