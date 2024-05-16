@@ -192,9 +192,9 @@ export default function CalendarPage() {
     return <CalendarPageSkeleton />;
   }
 
-  // if (!filters) {
+  if (!filters) {
     return <CalendarPageSkeleton />;
-  // }
+  }
 
   return (
     <main className="md:mx-40 gap-5 md:gap-10 mx-12 flex flex-col">
