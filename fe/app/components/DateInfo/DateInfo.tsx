@@ -2,9 +2,11 @@ import React from "react";
 import { formatDate } from "@utils/date/formatDate";
 import clsx from "clsx";
 import { DateInfoProps } from "./DateInfo.models";
+import { useLocale } from "next-intl";
 
 const DateInfo = ({ date, category, size }: DateInfoProps) => {
-  const _date = formatDate(date);
+  const locale = useLocale();
+  const _date = formatDate(date, locale);
 
   return (
     <div className="flex items-center justify-center font-league-gothic uppercase  max-md:mt-1">

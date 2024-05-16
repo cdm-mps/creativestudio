@@ -41,7 +41,7 @@ export default function CalendarPage() {
   const [filters, setFilters] = useState<Filter[]>();
   const [result, setResult] = useState<Record<string, string | undefined>>({});
 
-  const date = formatDate(selectedDate.toDateString(), "2-digit");
+  const date = formatDate(selectedDate.toDateString(), locale, "2-digit");
 
   function buildLabel(previous: boolean, count: number) {
     return count === 0
@@ -87,7 +87,7 @@ export default function CalendarPage() {
 
     return filteredEvents.filter(
       (event: CalendarElementProps) =>
-        JSON.stringify(formatDate(event.date, "2-digit")) ===
+        JSON.stringify(formatDate(event.date, locale, "2-digit")) ===
         JSON.stringify(date),
     );
   }

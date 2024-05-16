@@ -22,6 +22,7 @@ export default {
           to: [{type: 'imageElement'}],
         },
       ],
+      validation: (Rule: any) => Rule.required(),
     },
     {
       name: 'occupation',

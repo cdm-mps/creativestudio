@@ -2,17 +2,19 @@ import { form as FormStructure } from "@/app/api/getPages/form/[eventId]/formStr
 import { formatDate } from "@utils/date/formatDate";
 import * as React from "react";
 import { EmailTemplateProps } from "./EmailTemplate.models";
+import { useLocale } from "next-intl";
 
 export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = (
   props,
 ) => {
+  const locale = useLocale();
   const fields = [
     ...FormStructure.form,
     ...FormStructure.paymentDetails,
     ...FormStructure.personalData,
   ];
 
-  const date = formatDate(props.event.date);
+  const date = formatDate(props.event.date, locale);
 
   return (
     <div>
