@@ -40,7 +40,7 @@ const Filters = ({ filters, result, setResult }: FiltersProps) => {
 
   return (
     <div className="flex flex-col md:items-end items-start">
-      <div className="flex flex-wrap items-center justify-end gap-4">
+      <div className="flex flex-wrap items-center md:justify-end gap-4">
         {filters.map((filter, i) => (
           <Select
             key={"filter_" + i}
