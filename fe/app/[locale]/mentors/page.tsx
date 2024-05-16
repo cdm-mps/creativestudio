@@ -36,22 +36,24 @@ export default function MentorsPage() {
       <Header
         description={pageContent?.pageStructure.description[locale as Locales]}
       />
-      <div className="flex flex-wrap justify-center gap-24">
-        {pageContent.mentors.map((mentor, i) => (
-          <Mentor
-            key={"mentor_" + i}
-            {...mentor}
-            image={{
-              src: urlFor(mentor.image.mentor_image.src).url(),
-              alt: mentor.image.mentor_image.title,
-              objectPosition: mentor.image.mentor_image.objectPosition,
-            }}
-            {...(mentor.eventCount > 0 && {
-              label: `${mentor.eventCount} ${buildLabel(mentor.eventCount)}`,
-            })}
-            redirectOnClick
-          />
-        ))}
+      <div className="flex flex-wrap justify-center gap-12 md:gap-24">
+        {pageContent.mentors.map((mentor, i) => {
+          if (mentor.image) return (
+            <Mentor
+              key={"mentor_" + i}
+              {...mentor}
+              image={{
+                src: urlFor(mentor.image.mentor_image.src).url(),
+                alt: mentor.image.mentor_image.title,
+                objectPosition: mentor.image.mentor_image.objectPosition,
+              }}
+              {...(mentor.eventCount > 0 && {
+                label: `${mentor.eventCount} ${buildLabel(mentor.eventCount)}`,
+              })}
+              redirectOnClick
+            />
+          );
+        })}
       </div>
     </main>
   );
