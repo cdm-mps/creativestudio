@@ -35,10 +35,10 @@ const Navbar = () => {
   }, [toggleMenuVisibility]);
 
   return (
-    <nav className="fixed top-0 z-[80] mb-24 flex w-full items-center justify-between bg-background lg:px-6">
+    <nav className="fixed top-0 z-10 mb-24 flex w-full items-center justify-between bg-background lg:px-6">
       <Link
         href="/"
-        className="z-30 max-lg:absolute max-lg:left-6 max-lg:top-6 max-lg:w-40"
+        className="max-lg:absolute max-lg:left-6 max-lg:top-6 max-lg:w-40"
         onClick={closeMenuVisibility}
       >
         <Image src={CreativeStudioLogo} alt="Creative Studio No Filters Logo" />
@@ -71,13 +71,13 @@ const Navbar = () => {
         <div
           className={`${
             toggleMenuVisibility ? "block" : "hidden"
-          } fixed left-0 top-0 z-10 flex h-screen w-screen flex-col items-center bg-black/60 pt-[100px] font-league-gothic text-xl`}
+          } fixed left-0 top-0 flex h-screen w-screen flex-col items-center bg-black/60 pt-[100px] font-league-gothic text-xl`}
           onClick={closeMenuVisibility}
         />
         <div
           className={`${
             toggleMenuVisibility ? "block" : "hidden"
-          } fixed left-0 top-0 z-20 flex h-fit w-screen flex-col items-center border-b border-white bg-black pt-[100px] font-league-gothic text-xl`}
+          } fixed left-0 top-0 flex h-fit w-screen flex-col items-center border-b border-white bg-black pt-[100px] font-league-gothic text-xl`}
         >
           <CloseIcon
             className="w-6 max-lg:absolute max-lg:right-6 max-lg:top-7"
