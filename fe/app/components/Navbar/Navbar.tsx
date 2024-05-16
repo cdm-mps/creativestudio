@@ -8,7 +8,6 @@ import { Instagram } from "@icons/Instagram";
 import { MenuIcon } from "@icons/MenuIcon";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import Link from "next/link";
 import React, { useState } from "react";
 
 const Navbar = () => {
@@ -35,19 +34,19 @@ const Navbar = () => {
 
   return (
     <nav className="fixed top-0 z-[80] mb-24 flex w-full items-center justify-between bg-background lg:px-6">
-      <Link
+      <a
         href="/"
         className="z-30 max-lg:absolute max-lg:left-6 max-lg:top-6 max-lg:w-40"
         onClick={closeMenuVisibility}
       >
         <Image src={CreativeStudioLogo} alt="Creative Studio No Filters Logo" />
-      </Link>
+      </a>
       <div className="flex items-center gap-6 max-lg:hidden">
         <div className="flex items-center gap-6 font-league-gothic text-2xl">
           <MenuOptions onClick={closeMenuVisibility} />
         </div>
         <Divider orientation="vertical" />
-        <Link
+        <a
           href="https://www.instagram.com/creativestudionofilters/"
           target="_blank"
           aria-label="Follow us on Instagram"
@@ -60,7 +59,7 @@ const Navbar = () => {
           </span>
 
           <Instagram outline={instagramHovered} />
-        </Link>
+        </a>
       </div>
       <div className="h-20 bg-black lg:hidden">
         <MenuIcon
@@ -83,7 +82,7 @@ const Navbar = () => {
             onClick={closeMenuVisibility}
           />
           <MenuOptions onClick={closeMenuVisibility} />
-          <Link
+          <a
             href="https://www.instagram.com/creativestudionofilters/"
             target="_blank"
             aria-label="Follow us on Instagram"
@@ -91,7 +90,7 @@ const Navbar = () => {
           >
             <span className="uppercase">{t("followUs")}</span>
             <Instagram outline />
-          </Link>
+          </a>
         </div>
       </div>
     </nav>
