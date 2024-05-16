@@ -47,7 +47,7 @@ const Navbar = () => {
       >
         <Image src={CreativeStudioLogo} alt="Creative Studio No Filters Logo" />
       </div>
-      <div className="z-50 flex items-center gap-6 max-lg:hidden">
+      <div className="flex items-center gap-6 max-lg:hidden">
         <div className="flex items-center gap-6 font-league-gothic text-2xl">
           <MenuOptions onClick={closeMenuVisibility} />
         </div>
