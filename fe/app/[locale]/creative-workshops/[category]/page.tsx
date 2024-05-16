@@ -115,7 +115,7 @@ export default function CreativeWorkshopPage({
           { label: "Creative Workshops", url: "/creative-workshops" },
         ]}
       />
-      <div className="md:mt-10 mt-5 flex flex-col">
+      <div className="mt-5 flex flex-col md:mt-10">
         {hasSubCategories && (
           <Tabs
             tabs={subcategories.map(
