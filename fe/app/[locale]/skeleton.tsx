@@ -4,25 +4,22 @@ import React from "react";
 export const HomePageSkeleton = () => {
   return (
     <>
-      <div
-        id="news-slider-section"
-        className="mx-40 flex flex-col gap-14 pt-24"
-      >
+      <div className="mx-9 flex flex-col gap-8">
         <Skeleton width={250} height={206} />
-        <Skeleton height={384} />
-      </div>
-      <div className="mt-[139px] w-full pt-[100px]">
-        <div className="mx-40">
-          <Skeleton width={250} height={206} />
-        </div>
-        <div className="mx-40 pt-48">
-          <Skeleton height={494} />
+        <div className="flex gap-14 ">
+          <Skeleton height={400} width={400} />
+          <Skeleton height={400} width={400} />
+          <Skeleton height={400} width={400} />
         </div>
       </div>
-      <div className="mx-40 my-48 text-center">
-        <Skeleton height={72} />
+      <div className="ml-9 mr-16 mt-64 flex items-center gap-10">
+        <Skeleton width={250} height={206} />
+        <Skeleton height={494} />
       </div>
-      <div className="mx-40 mb-[104px]">
+      <div className="mx-9 my-48 flex justify-center">
+        <Skeleton height={72} width={800} />
+      </div>
+      <div className="mx-9 mb-[104px]">
         <Skeleton height={115} />
       </div>
     </>

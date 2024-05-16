@@ -29,15 +29,21 @@ const config: Config = {
         businessWorkshops: "#63CBF8",
         "businessWorkshops-opacity": "rgba(99,203,248,0.20)",
         "not-found-disclaimer": "rgba(255,255,255,0.10)",
+        "black-50": "rgba(0,0,0,0.50)",
       },
       animation: {
         "autoplay-infinite": "slide 70s linear infinite",
         "skeleton-loading": "skeletonLoading 1s linear infinite alternate",
+        slideInLeft: "slideInLeft 300ms cubic-bezier(0.4, 0, 0.2, 1) alternate",
       },
       keyframes: {
         slide: {
           "0%": { transform: "translateX(0)" },
           "100%": { transform: "translateX(-100%)" },
+        },
+        slideInLeft: {
+          "0%": { transform: "translateX(-20%)" },
+          "100%": { transform: "translateX(0)" },
         },
         skeletonLoading: {
           "0%": { backgroundColor: "#ffffff" },
@@ -51,22 +57,22 @@ const config: Config = {
     {
       pattern:
         /text-(artisticResidence|workshop|edition|businessWorkshop|creativeTalks|masterclass)/,
-      variants: ["hover"],
+      variants: ["hover", "group-hover"],
     },
     {
       pattern:
         /bg-(artisticResidence|workshop|edition|businessWorkshop|creativeTalks|masterclass)/,
-      variants: ["hover"],
+      variants: ["hover", "group-hover"],
     },
     {
       pattern:
         /border-(artisticResidence|workshop|edition|businessWorkshop|creativeTalks|masterclass)/,
-      variants: ["hover"],
+      variants: ["hover", "group-hover"],
     },
     {
       pattern:
         /accent-(artisticResidence|workshop|edition|businessWorkshop|creativeTalks|masterclass)/,
-      variants: ["hover"],
+      variants: ["hover", "group-hover"],
     },
   ],
 };
