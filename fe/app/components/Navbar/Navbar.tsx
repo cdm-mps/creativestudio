@@ -1,20 +1,17 @@
 "use client";
 
+import CreativeStudioLogo from "@assets/images/CreativeStudio.png";
 import Divider from "@components/Divider/Divider";
+import MenuOptions from "@components/Navbar/MenuOptions/MenuOptions";
 import { CloseIcon } from "@icons/CloseIcon";
 import { Instagram } from "@icons/Instagram";
 import { MenuIcon } from "@icons/MenuIcon";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
-import CreativeStudioLogo from "@assets/images/CreativeStudio.png";
-import MenuOptions from "@components/Navbar/MenuOptions/MenuOptions";
-import React from "react";
-import { useRouter } from "next/navigation";
+import React, { useState } from "react";
 
 const Navbar = () => {
-  const { push } = useRouter();
   const t = useTranslations("Menu");
 
   const [toggleMenuVisibility, setToggleMenuVisibility] =
@@ -38,15 +35,13 @@ const Navbar = () => {
 
   return (
     <nav className="fixed top-0 z-[80] mb-24 flex w-full items-center justify-between bg-background lg:px-6">
-      <div
+      <Link
+        href="/"
         className="z-30 max-lg:absolute max-lg:left-6 max-lg:top-6 max-lg:w-40"
-        onClick={() => {
-          closeMenuVisibility();
-          push(`/`);
-        }}
+        onClick={closeMenuVisibility}
       >
         <Image src={CreativeStudioLogo} alt="Creative Studio No Filters Logo" />
-      </div>
+      </Link>
       <div className="flex items-center gap-6 max-lg:hidden">
         <div className="flex items-center gap-6 font-league-gothic text-2xl">
           <MenuOptions onClick={closeMenuVisibility} />
