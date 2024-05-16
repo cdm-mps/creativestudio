@@ -1,16 +1,14 @@
 "use client";
 
+import CreativeStudioLogo from "@assets/images/CreativeStudio.png";
 import Divider from "@components/Divider/Divider";
+import MenuOptions from "@components/Navbar/MenuOptions/MenuOptions";
 import { CloseIcon } from "@icons/CloseIcon";
 import { Instagram } from "@icons/Instagram";
 import { MenuIcon } from "@icons/MenuIcon";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import Link from "next/link";
-import { useState } from "react";
-import CreativeStudioLogo from "@assets/images/CreativeStudio.png";
-import MenuOptions from "@components/Navbar/MenuOptions/MenuOptions";
-import React from "react";
+import React, { useState } from "react";
 
 const Navbar = () => {
   const t = useTranslations("Menu");
@@ -36,19 +34,21 @@ const Navbar = () => {
 
   return (
     <nav className="fixed top-0 z-[80] mb-24 flex w-full items-center justify-between bg-background lg:px-6">
-      <Link
+      <a
         href="/"
         className="z-30 max-lg:absolute max-lg:left-6 max-lg:top-6 max-lg:w-40"
         onClick={closeMenuVisibility}
       >
         <Image src={CreativeStudioLogo} alt="Creative Studio No Filters Logo" />
-      </Link>
+      </a>
+
+      {/* Desktop */}
       <div className="flex items-center gap-6 max-lg:hidden">
         <div className="flex items-center gap-6 font-league-gothic text-2xl">
           <MenuOptions />
         </div>
         <Divider orientation="vertical" />
-        <Link
+        <a
           href="https://www.instagram.com/creativestudionofilters/"
           target="_blank"
           aria-label="Follow us on Instagram"
@@ -61,8 +61,10 @@ const Navbar = () => {
           </span>
 
           <Instagram outline={instagramHovered} />
-        </Link>
+        </a>
       </div>
+
+      {/* Mobile */}
       <div className="h-20 bg-black lg:hidden">
         <MenuIcon
           className="w-6 max-lg:absolute max-lg:right-6 max-lg:top-6"
@@ -84,7 +86,7 @@ const Navbar = () => {
             onClick={closeMenuVisibility}
           />
           <MenuOptions onClick={closeMenuVisibility} />
-          <Link
+          <a
             href="https://www.instagram.com/creativestudionofilters/"
             target="_blank"
             aria-label="Follow us on Instagram"
@@ -92,7 +94,7 @@ const Navbar = () => {
           >
             <span className="uppercase">{t("followUs")}</span>
             <Instagram outline />
-          </Link>
+          </a>
         </div>
       </div>
     </nav>
