@@ -11,8 +11,10 @@ import { useState } from "react";
 import CreativeStudioLogo from "@assets/images/CreativeStudio.png";
 import MenuOptions from "@components/Navbar/MenuOptions/MenuOptions";
 import React from "react";
+import { useRouter } from "next/navigation";
 
 const Navbar = () => {
+  const { push } = useRouter();
   const t = useTranslations("Menu");
 
   const [toggleMenuVisibility, setToggleMenuVisibility] =
@@ -36,16 +38,18 @@ const Navbar = () => {
 
   return (
     <nav className="fixed top-0 z-[80] mb-24 flex w-full items-center justify-between bg-background lg:px-6">
-      <Link
-        href="/"
+      <div
         className="z-30 max-lg:absolute max-lg:left-6 max-lg:top-6 max-lg:w-40"
-        onClick={closeMenuVisibility}
+        onClick={() => {
+          closeMenuVisibility();
+          push(`/`);
+        }}
       >
         <Image src={CreativeStudioLogo} alt="Creative Studio No Filters Logo" />
-      </Link>
+      </div>
       <div className="z-50 flex items-center gap-6 max-lg:hidden">
         <div className="flex items-center gap-6 font-league-gothic text-2xl">
-          <MenuOptions />
+          <MenuOptions onClick={closeMenuVisibility} />
         </div>
         <Divider orientation="vertical" />
         <Link
