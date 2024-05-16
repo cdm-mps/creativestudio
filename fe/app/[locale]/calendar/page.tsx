@@ -192,14 +192,14 @@ export default function CalendarPage() {
     return <CalendarPageSkeleton />;
   }
 
-  if (!filters) {
+  // if (!filters) {
     return <CalendarPageSkeleton />;
-  }
+  // }
 
   return (
-    <main className="mx-40 flex flex-col gap-10">
+    <main className="md:mx-40 gap-5 md:gap-10 mx-12 flex flex-col">
       <Title title={t("Menu.calendar")} category="businessWorkshops" />
-      <div className="mx-20 flex flex-col gap-10">
+      <div className="md:mx-20 flex flex-col gap-10">
         <Filters
           filters={filters as Filter[]}
           result={result}
