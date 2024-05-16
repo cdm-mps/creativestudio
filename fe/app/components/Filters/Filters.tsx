@@ -39,7 +39,7 @@ const Filters = ({ filters, result, setResult }: FiltersProps) => {
   };
 
   return (
-    <div className="flex flex-col items-end">
+    <div className="flex flex-col md:items-end">
       <div className="flex flex-wrap items-center justify-end gap-4">
         {filters.map((filter, i) => (
           <Select
@@ -54,7 +54,7 @@ const Filters = ({ filters, result, setResult }: FiltersProps) => {
           />
         ))}
       </div>
-      <div className="mt-8 flex flex-wrap justify-end gap-4">
+      <div className="mt-4 md:mt-8 flex flex-wrap justify-end gap-4">
         {Object.keys(result).map((_key) => (
           <React.Fragment key={"result_" + _key}>
             {result[_key] && (
@@ -71,9 +71,6 @@ const Filters = ({ filters, result, setResult }: FiltersProps) => {
           </React.Fragment>
         ))}
       </div>
-      {/* <span className="cursor-pointer font-league-gothic text-xl uppercase underline hover:opacity-80">
-        {t("filter")}
-      </span> */}
     </div>
   );
 };
