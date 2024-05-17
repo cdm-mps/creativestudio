@@ -5,7 +5,7 @@ export const Tag = ({ label, category, size }: TagProps) => {
   return (
     <div
       className={clsx(
-        `flex h-fit rounded-lg border-2 p-2`,
+        `flex h-fit w-fit rounded-lg border-2 p-2`,
         category ? `border-${category}` : "border-white",
       )}
     >

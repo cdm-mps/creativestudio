@@ -197,9 +197,9 @@ export default function CalendarPage() {
   }
 
   return (
-    <main className="mx-40 flex flex-col gap-10">
+    <main className="md:mx-40 gap-3 md:gap-10 mx-12 flex flex-col">
       <Title title={t("Menu.calendar")} category="businessWorkshops" />
-      <div className="mx-20 flex flex-col gap-10">
+      <div className="md:mx-20 max-md:mt-6 flex flex-col gap-5 md:gap-10">
         <Filters
           filters={filters as Filter[]}
           result={result}

@@ -43,8 +43,8 @@ export default function EventPage({ params }: { params: { id: string } }) {
   const isPreviousEvent = isDateInPast(event?.date);
 
   return (
-    <main className="mx-40 flex flex-col">
-      <div className="flex h-fit w-full items-start justify-between">
+    <main className="mx-12 flex flex-col md:mx-40">
+      <div className="flex h-fit w-full items-start justify-between max-md:flex-col">
         <div className="flex items-end">
           <BreadcrumbsTitle
             title={event?.title[locale as Locales] || ""}
@@ -67,16 +67,16 @@ export default function EventPage({ params }: { params: { id: string } }) {
           onClick={() => setShowModal(true)}
         />
       </div>
-      <div className="relative mt-16">
+      <div className="relative mt-8 md:mt-16">
         <ImageElement
           src={urlFor(event.image.image.src).url()}
           alt={event.image.image.title}
-          className="relative h-[500px] w-full"
+          className="relative h-[250px] w-full md:h-[500px]"
           blur={isPreviousEvent}
           objectPosition={event.image.image.objectPosition}
         />
         {isPreviousEvent && (
-          <div className="absolute top-0 flex h-[500px] w-full items-center justify-center">
+          <div className="absolute top-0 flex h-[250px] w-full items-center justify-center md:h-[500px]">
             <Tag
               label={t("previousEvent")}
               category={event.category}
@@ -85,15 +85,20 @@ export default function EventPage({ params }: { params: { id: string } }) {
           </div>
         )}
       </div>
-      <div className="mt-16 px-14 font-noto-sans text-lg">
+      <div className="mt-8 font-noto-sans text-sm md:mt-16 md:px-14 md:text-lg">
         {event?.description[locale as Locales]}
       </div>
-      <div className="mt-6 flex gap-4 px-14">
+      <div className="mt-6 flex flex-wrap gap-4 md:px-14">
         {event.areasOfInterest?.map((area) => (
-          <Tag label={t_general(area)} category={event.category} size="small" />
+          <Tag
+            key={area}
+            label={t_general(area)}
+            category={event.category}
+            size="small"
+          />
         ))}
       </div>
-      <div className="mt-16 flex items-center justify-between px-14">
+      <div className="mt-16 flex items-center justify-between max-md:flex-col max-md:gap-4 md:px-14">
         <MentorIdentifier
           _id={event.mentor.mentor._id}
           image={{
@@ -123,7 +128,7 @@ export default function EventPage({ params }: { params: { id: string } }) {
         )}
       </div>
       {event.schedule?.length && (
-        <div className="mx-14 mb-16 mt-20 pl-[24px] pt-[48px]">
+        <div className="mb-8 mt-10 pl-[24px] pt-[48px] md:mx-14 md:mb-16 md:mt-20">
           <IconTitle
             title={t("schedule")}
             mode="chevron"
@@ -131,9 +136,13 @@ export default function EventPage({ params }: { params: { id: string } }) {
           />
         </div>
       )}
-      <div className="mx-14 flex flex-col gap-8">
+      <div className="flex flex-col gap-4 md:mx-14 md:gap-8">
         {event.schedule?.map((scheduleElement, index) => (
           <ScheduleElement
+            key={
+              scheduleElement.description[locale as Locales] +
+              scheduleElement.duration
+            }
             title={scheduleElement.description[locale as Locales]}
             duration={scheduleElement.duration}
             category={event.category}
@@ -144,14 +153,14 @@ export default function EventPage({ params }: { params: { id: string } }) {
       {showModal && (
         <Modal onCloseModal={() => setShowModal(false)}>
           <div className="flex flex-col px-7 pb-9">
-            <span className="font-league-gothic text-3xl">
+            <span className="font-league-gothic text-xl md:text-3xl">
               {event.levels.title[locale as Locales]}
             </span>
             <BulletPoint
               category={event.category}
               text={event.levels.beginner.level_title[locale as Locales] || ""}
             />
-            <span className="mt-2">
+            <span className="mt-2 max-md:text-xs">
               {event.levels.beginner.level_description[locale as Locales]}
             </span>
             <BulletPoint
@@ -160,7 +169,7 @@ export default function EventPage({ params }: { params: { id: string } }) {
                 event.levels.intermediate.level_title[locale as Locales] || ""
               }
             />
-            <span className="mt-2">
+            <span className="mt-2 max-md:text-xs">
               {event.levels.intermediate.level_description[locale as Locales]}
             </span>
           </div>

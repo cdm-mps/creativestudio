@@ -9,11 +9,11 @@ const DateInfo = ({ date, category, size }: DateInfoProps) => {
   const _date = formatDate(date, locale);
 
   return (
-    <div className="flex items-center justify-center font-league-gothic uppercase">
+    <div className="flex items-center justify-center font-league-gothic uppercase  max-md:mt-1">
       <span
         className={clsx(
           "font-league-gothic uppercase",
-          size === "xs" && "text-2xl leading-none md:text-3xl md:leading-9",
+          size === "xs" && "text-xl leading-none md:text-3xl md:leading-9",
           size === "sm" && "text-3xl md:text-4xl",
           size === "lg" && "text-4xl md:text-7xl",
         )}

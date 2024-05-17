@@ -30,7 +30,7 @@ export default function CreativeWorkshopsPage() {
   }
 
   return (
-    <main className="mx-40 flex">
+    <main className="mx-12 flex flex-col md:mx-40">
       <div className="w-full">
         <Title title={t("title")} category="businessWorkshops" />
         <Header
@@ -38,7 +38,7 @@ export default function CreativeWorkshopsPage() {
           description={pageStructure?.description[locale as Locales] || ""}
         />
         <div className="mb-14 mt-6 flex justify-center">
-          <span className="font-league-gothic text-7xl uppercase">
+          <span className="font-league-gothic text-4xl md:text-7xl uppercase">
             {t("ourServices")}
           </span>
         </div>
@@ -54,7 +54,7 @@ export default function CreativeWorkshopsPage() {
               }
             />
           ))}
-        </div>
+        </div> 
       </div>
     </main>
   );

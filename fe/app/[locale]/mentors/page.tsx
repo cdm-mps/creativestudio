@@ -31,27 +31,29 @@ export default function MentorsPage() {
       : t("Components.Mentor.eventBarPlural");
 
   return (
-    <main className="mx-40 flex flex-col">
+    <main className="mx-12 flex flex-col md:mx-40">
       <Title title={t("Menu.mentors")} category="businessWorkshops" />
       <Header
         description={pageContent?.pageStructure.description[locale as Locales]}
       />
-      <div className="flex flex-wrap justify-center gap-24">
-        {pageContent.mentors.map((mentor, i) => (
-          <Mentor
-            key={"mentor_" + i}
-            {...mentor}
-            image={{
-              src: urlFor(mentor.image.mentor_image.src).url(),
-              alt: mentor.image.mentor_image.title,
-              objectPosition: mentor.image.mentor_image.objectPosition,
-            }}
-            {...(mentor.eventCount > 0 && {
-              label: `${mentor.eventCount} ${buildLabel(mentor.eventCount)}`,
-            })}
-            redirectOnClick
-          />
-        ))}
+      <div className="flex flex-wrap justify-center gap-12 md:gap-24">
+        {pageContent.mentors.map((mentor, i) => {
+          if (mentor.image) return (
+            <Mentor
+              key={"mentor_" + i}
+              {...mentor}
+              image={{
+                src: urlFor(mentor.image.mentor_image.src).url(),
+                alt: mentor.image.mentor_image.title,
+                objectPosition: mentor.image.mentor_image.objectPosition,
+              }}
+              {...(mentor.eventCount > 0 && {
+                label: `${mentor.eventCount} ${buildLabel(mentor.eventCount)}`,
+              })}
+              redirectOnClick
+            />
+          );
+        })}
       </div>
     </main>
   );

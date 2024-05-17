@@ -234,11 +234,11 @@ export default function FormPage({
     }
   };
   return (
-    <main className="mx-40 flex flex-col">
-      <div className="flex h-fit w-full justify-between">
+    <main className="mx-12 flex flex-col md:mx-40">
+      <div className="flex h-fit w-full items-start justify-between max-md:flex-col">
         <BreadcrumbsTitle
-          title={"Formulário de Inscrição"}
-          category={pageContent.event.category as Category}
+          title={t("title")}
+          category={pageContent.event.category}
           withIcon
           breadcrumbs={[
             {
@@ -274,8 +274,8 @@ export default function FormPage({
       <div ref={ref} className="mt-9 flex justify-center">
         <Stepper activeStep={activeStep} category={params.category} />
       </div>
-      <div className="mt-6 flex gap-28">
-        <div className="flex w-2/3 flex-col">
+      <div className="mt-6 flex gap-7 max-md:flex-col md:gap-28">
+        <div className="flex flex-col md:w-2/3">
           {activeStep === 0 && (
             <div className="flex flex-col">
               {pageContent.form.personalData.map((field) =>
@@ -296,8 +296,8 @@ export default function FormPage({
             </div>
           )}
           {activeStep === 3 && (
-            <div className="my-auto flex items-center justify-center">
-              <SubmitionStatus
+            <div className="my-auto flex items-center justify-center max-md:mt-10">
+             <SubmitionStatus
                 title={submissionStatus?.label!}
                 content={submissionStatus?.content!}
               />
@@ -305,13 +305,13 @@ export default function FormPage({
           )}
           {activeStep < 3 && (
             <span
-              className={`font-league-gothic text-lg uppercase text-${params.category}`}
+              className={`font-league-gothic text-sm uppercase md:text-lg text-${params.category}`}
             >
               {t("required")}
             </span>
           )}
 
-          <div className="mt-5 flex justify-between">
+          <div className="mt-5 flex justify-between max-md:mb-5">
             {activeStep !== 0 && activeStep < 3 && (
               <div
                 className="flex cursor-pointer items-center gap-3 hover:opacity-80"
@@ -325,7 +325,7 @@ export default function FormPage({
             )}
             {activeStep < 2 && (
               <div
-                className="ml-auto flex cursor-pointer items-center gap-3 hover:opacity-80"
+                className="ml-auto flex cursor-pointer items-center gap-3 hover:opacity-80 max-md:w-full max-md:justify-end"
                 onClick={() => {
                   if (!validateForm().length) setActiveStep(activeStep + 1);
                 }}
@@ -349,13 +349,13 @@ export default function FormPage({
             </div>
           )}
         </div>
-        <div className="mt-4 flex w-1/3 flex-col">
+        <div className="mt-2 flex flex-col md:mt-4 md:w-1/3">
           <span
-            className={`font-league-gothic text-2xl uppercase text-${params.category} mb-6`}
+            className={`font-league-gothic text-lg uppercase md:text-2xl text-${params.category} mb-6`}
           >
             {t("regulations")}
           </span>
-          <span className="whitespace-pre-line font-noto-sans">
+          <span className="whitespace-pre-line font-noto-sans max-md:text-xs">
             {pageContent?.regulations[locale as Locales]}
           </span>
         </div>

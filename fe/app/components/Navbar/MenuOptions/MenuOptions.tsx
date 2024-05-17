@@ -7,7 +7,7 @@ const MenuOptions = ({ onClick }: MenuOptionsProps) => {
   return (
     <>
       {options.map(({ text, label, href }) => (
-        <Link
+        <a
           key={text}
           href={href}
           aria-label={label}
@@ -15,7 +15,7 @@ const MenuOptions = ({ onClick }: MenuOptionsProps) => {
           className="uppercase max-lg:w-full max-lg:border-b max-lg:border-t max-lg:py-4 max-lg:text-center max-lg:hover:bg-businessWorkshops lg:hover:underline lg:hover:decoration-businessWorkshops"
         >
           {text}
-        </Link>
+        </a>
       ))}
     </>
   );

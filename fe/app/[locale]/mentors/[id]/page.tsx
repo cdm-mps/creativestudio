@@ -40,10 +40,11 @@ export default function MentorPage() {
 
   const EventsList = (events: EventBase[], previous?: boolean) => {
     return (
-      <React.Fragment>
+      <>
         {events.length ? (
           events.map((event) => (
             <MentorEventBar
+              key={event._id}
               title={event.title[locale as Locales]}
               mentor={{
                 _id: mentor._id,
@@ -68,54 +69,52 @@ export default function MentorPage() {
         ) : (
           <NotFoundBanner />
         )}
-      </React.Fragment>
+      </>
     );
   };
 
   return (
-    <main className="mx-40 flex flex-col gap-[89px]">
-      <>
-        <BreadcrumbsTitle
-          title={mentor.name}
-          category="businessWorkshops"
-          breadcrumbs={[{ label: t("Menu.mentors"), url: "/mentors" }]}
-        />
+    <main className="mx-12 flex flex-col gap-11 md:mx-40 md:gap-20">
+      <BreadcrumbsTitle
+        title={mentor.name}
+        category="businessWorkshops"
+        breadcrumbs={[{ label: t("Menu.mentors"), url: "/mentors" }]}
+      />
 
-        <div className="flex gap-20">
-          <MentorElement
-            _id={mentor._id}
-            label={mentor.occupation[locale as Locales]}
-            image={{
-              src: urlFor(mentor.image.mentor_image.src).url(),
-              alt: mentor.image.mentor_image.title,
-              objectPosition: mentor.image.mentor_image.objectPosition,
-            }}
-          />
-          <p className="font-noto-sans text-lg">
-            {mentor.bio[locale as Locales]}
-          </p>
+      <div className="flex gap-11 max-md:flex-col md:gap-20">
+        <MentorElement
+          _id={mentor._id}
+          label={mentor.occupation[locale as Locales]}
+          image={{
+            src: urlFor(mentor.image.mentor_image.src).url(),
+            alt: mentor.image.mentor_image.title,
+            objectPosition: mentor.image.mentor_image.objectPosition,
+          }}
+        />
+        <p className="font-noto-sans text-sm md:text-lg">
+          {mentor.bio[locale as Locales]}
+        </p>
+      </div>
+      <div className="flex flex-col gap-8 md:mt-6 md:gap-16">
+        <ArrowTitle
+          title={t("CreativeWorkshop.upcomingDates")}
+          category="businessWorkshops"
+          subTitle={`${mentor.futureEvents?.length} ${buildLabel(mentor.futureEvents?.length)}`}
+        />
+        <div className="mb-10 flex flex-col gap-10 md:mb-20">
+          {EventsList(mentor.futureEvents)}
         </div>
-        <div className="mt-6 flex flex-col gap-16">
-          <ArrowTitle
-            title={t("CreativeWorkshop.upcomingDates")}
-            category="businessWorkshops"
-            subTitle={`${mentor.futureEvents?.length} ${buildLabel(mentor.futureEvents?.length)}`}
-          />
-          <div className="mb-20 flex flex-col gap-10">
-            {EventsList(mentor.futureEvents)}
-          </div>
+      </div>
+      <div className="flex flex-col gap-8 md:gap-16">
+        <IconTitle
+          title={t("CreativeWorkshop.previous")}
+          mode="dots"
+          category="businessWorkshops"
+        />
+        <div className="flex flex-col gap-10">
+          {EventsList(mentor.previousEvents, true)}
         </div>
-        <div className="flex flex-col gap-16">
-          <IconTitle
-            title={t("CreativeWorkshop.previous")}
-            mode="dots"
-            category="businessWorkshops"
-          />
-          <div className="flex flex-col gap-10">
-            {EventsList(mentor.previousEvents, true)}
-          </div>
-        </div>
-      </>
+      </div>
     </main>
   );
 }

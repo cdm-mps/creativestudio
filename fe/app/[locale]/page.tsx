@@ -36,7 +36,7 @@ export default function Home() {
     children,
     showRoundButton,
   }: PropsWithChildren<{ showRoundButton: boolean }>) => (
-    <main className="flex flex-col pt-40 md:pt-20">
+    <main className="flex flex-col pt-30 md:pt-20">
       <div className="flex h-[calc(76vh)] flex-col justify-between pb-7">
         <BannerGrid />
         {showRoundButton && (
@@ -68,10 +68,10 @@ export default function Home() {
   return (
     <PageStructure showRoundButton={pageContent?.news.length > 0}>
       {pageContent.news.length && (
-        <div ref={scrollRef} className="mx-9 flex flex-col">
+        <div ref={scrollRef} className="mx-9 flex flex-col max-md:mt-10">
           <ArrowTitle title={t("news")} category="businessWorkshops" />
           <div className="customScroll mt-8 flex overflow-x-auto scroll-smooth pb-14">
-            <div className="mx-4 flex gap-14">
+            <div className="mx-4 flex gap-10 md:gap-14">
               {pageContent?.news.map((e) => (
                 <div
                   className="group relative flex cursor-pointer flex-col hover:z-10"
@@ -85,25 +85,27 @@ export default function Home() {
                     src={urlFor(e.image.image.src).url()}
                     alt={e.image.image.title}
                     objectPosition={e.image.image.objectPosition}
-                    className="relative h-[400px] w-[400px]"
+                    className="relative h-[200px] w-[200px] md:h-[400px] md:w-[400px]"
                   />
 
-                  <div className="absolute hidden h-[400px] w-[400px] bg-black-50 group-hover:block">
-                    <div className="flex h-full items-center justify-center group-hover:animate-slideInLeft">
-                      <div
-                        className={`flex w-full items-center justify-center bg-${e.category} p-2`}
-                      >
-                        <span className="font-league-gothic text-5xl uppercase">
-                          {t("explore")}
-                        </span>
-                        <StickHead className={"h-9 w-9 -rotate-90"} />
+                  <div className="absolute max-md:hidden">
+                    <div className="absolute hidden h-[400px] bg-black-50 group-hover:block md:w-[400px]">
+                      <div className="flex h-full items-center justify-center group-hover:animate-slideInLeft">
+                        <div
+                          className={`flex w-full items-center justify-center bg-${e.category} p-2`}
+                        >
+                          <span className="font-league-gothic text-5xl uppercase">
+                            {t("explore")}
+                          </span>
+                          <StickHead className={"h-9 w-9 -rotate-90"} />
+                        </div>
                       </div>
                     </div>
                   </div>
 
-                  <div className="mt-3 flex flex-col items-end group-hover:opacity-50">
+                  <div className="mt-3 flex flex-col items-end md:group-hover:opacity-50">
                     <DateInfo date={e.date} size="lg" category={e.category} />
-                    <div className="font-league-gothic text-4xl uppercase">
+                    <div className="text-right font-league-gothic text-2xl uppercase md:text-4xl">
                       {e.title[locale as Locales]}
                     </div>
                     <div>{e.mentor.mentor.name}</div>
@@ -116,7 +118,7 @@ export default function Home() {
       )}
 
       {pageContent.comments.length && (
-        <div className="ml-9 mr-16 mt-64 flex items-center gap-10">
+        <div className="ml-4 mr-8 mt-32 flex items-center gap-3 max-md:flex-col md:ml-9 md:mr-16 md:mt-64 md:gap-10">
           <div className="w-1/4">
             <IconTitle
               title={t("noFilters")}
@@ -124,10 +126,10 @@ export default function Home() {
               mode="hashtag"
             />
           </div>
-          <div className="customScroll grid grid-flow-col grid-rows-2 gap-20 overflow-x-scroll pt-10">
+          <div className=" customScroll grid w-3/4 grid-flow-col grid-rows-2 gap-10 overflow-x-scroll pt-10 md:gap-20">
             {pageContent?.comments.map((comment) => (
-              <div className="flex w-[300px] flex-col gap-4">
-                <div className="text-base">
+              <div className="flex w-[250px] flex-col gap-4 md:w-[300px]">
+                <div className="text-sm md:text-base">
                   {comment.quote[locale as Locales]}
                 </div>
                 <div className="font-league-gothic text-xl">
@@ -139,7 +141,7 @@ export default function Home() {
         </div>
       )}
 
-      <div className="my-40 text-center">
+      <div className="my-24 text-center md:my-40">
         <CoreTitle title={t("question")} />
       </div>
 
