@@ -14,7 +14,7 @@ import { Category } from "@model/Category";
 import { Locales } from "@model/Locales";
 import { useLocale, useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { EventPageSkeleton } from "./skeleton";
 import { isDateInPast } from "@utils/date/isDateInPast";
 import { Tag } from "@components/Tag/Tag";
@@ -30,11 +30,18 @@ export default function EventPage({ params }: { params: { id: string } }) {
   const [event, setEvent] = useState<GetEventPageOutputDto>();
   const [showModal, setShowModal] = useState(false);
 
+  const spanRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     fetch(`/api/getEvent/${params.id}`)
       .then((res) => res.json())
-      .then((data: GetEventPageOutputDto) => setEvent(data));
-  }, []);
+      .then((data: GetEventPageOutputDto) => {
+        setEvent(data);
+        if (spanRef.current) {
+          spanRef.current.innerHTML = data?.description[locale as Locales];
+        }
+      });
+  }, [spanRef.current]);
 
   if (!event) {
     return <EventPageSkeleton />;
@@ -85,9 +92,10 @@ export default function EventPage({ params }: { params: { id: string } }) {
           </div>
         )}
       </div>
-      <div className="mt-16 px-14 font-noto-sans text-lg">
-        {event?.description[locale as Locales]}
-      </div>
+      <div
+        ref={spanRef}
+        className="mt-16 whitespace-pre-line px-14 font-noto-sans text-lg"
+      />
       <div className="mt-6 flex gap-4 px-14">
         {event.areasOfInterest?.map((area) => (
           <Tag label={t_general(area)} category={event.category} size="small" />
