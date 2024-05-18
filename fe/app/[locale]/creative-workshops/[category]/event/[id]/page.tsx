@@ -94,7 +94,7 @@ export default function EventPage({ params }: { params: { id: string } }) {
       </div>
       <div
         ref={spanRef}
-        className="mt-8 font-noto-sans text-sm md:mt-16 md:px-14 md:text-lg"
+        className="mt-8 whitespace-pre-line font-noto-sans text-sm md:mt-16 md:px-14 md:text-lg"
       />
       <div className="mt-6 flex flex-wrap gap-4 md:px-14">
         {event.areasOfInterest?.map((area) => (
