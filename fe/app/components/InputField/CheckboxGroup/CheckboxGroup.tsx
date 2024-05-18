@@ -14,7 +14,7 @@ const CheckboxGroup = ({
   onChangeValue,
 }: CheckboxGroupProps) => {
   return (
-    <div className="my-8 flex flex-col gap-4">
+    <div className="md:my-8flex my-4 flex-col gap-4">
       <Label
         title={title}
         description={description}

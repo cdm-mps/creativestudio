@@ -33,11 +33,11 @@ export default function BusinessWorkshopsPage() {
   }
 
   return (
-    <main className="mx-40 flex flex-col">
-      <div className="flex items-center gap-8">
-        <div className="flex items-center gap-8">
+    <main className="mx-12 flex flex-col md:mx-40">
+      <div className="flex max-md:flex-col md:items-center gap-8">
+        <div className="flex items-center md:gap-8 gap-4">
           <Title title={t("title")} category="businessWorkshops" />
-          {categoriesDictionary["businessWorkshops"]("max-md:w-4 h-auto")}
+          {categoriesDictionary["businessWorkshops"]("max-md:w-7 h-auto")}
         </div>
         {pageStructure.isWIP && (
           <Tag

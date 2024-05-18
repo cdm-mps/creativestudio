@@ -13,13 +13,13 @@ const ContactInfo = ({ email, mobilePhone, socials }: ContactInfoProps) => {
       </p>
       <div className="flex items-center gap-2">
         <MdEmail size={18} />
-        <span>{email}</span>
+        <span className="max-md:text-sm">{email}</span>
       </div>
 
       {mobilePhone.map((phone) => (
         <div className="flex items-center gap-2">
           <FaPhoneAlt size={18} />
-          <span>{phone}</span>
+          <span className="max-md:text-sm">{phone}</span>
         </div>
       ))}
 

@@ -75,11 +75,11 @@ export default function CreativeWorkshopPage({
 
   const EventsList = (events: EventThumbnail[], disabled?: boolean) => {
     return (
-      <React.Fragment>
+      <>
         {isLoading ? (
           <EventGridSkeleton />
         ) : (
-          <React.Fragment>
+          <>
             {events.length ? (
               <EventGrid
                 events={events.map((event) => ({
@@ -99,14 +99,14 @@ export default function CreativeWorkshopPage({
             ) : (
               <NotFoundBanner />
             )}
-          </React.Fragment>
+          </>
         )}
-      </React.Fragment>
+      </>
     );
   };
 
   return (
-    <main className="mx-40 flex flex-col">
+    <main className="mx-12 flex flex-col md:mx-40">
       <BreadcrumbsTitle
         title={t_categories(category)}
         category={category}
@@ -115,7 +115,7 @@ export default function CreativeWorkshopPage({
           { label: "Creative Workshops", url: "/creative-workshops" },
         ]}
       />
-      <div className="mt-10 flex flex-col">
+      <div className="mt-5 flex flex-col md:mt-10">
         {hasSubCategories && (
           <Tabs
             tabs={subcategories.map(
@@ -133,6 +133,7 @@ export default function CreativeWorkshopPage({
                 (key, index) =>
                   selectedTab === index && (
                     <Header
+                      key={key}
                       highlight={
                         categoryPage.pageContent[key].highlight?.[
                           locale as Locales
@@ -168,8 +169,8 @@ export default function CreativeWorkshopPage({
         )}
       </div>
       {hasAreasOfInsterest && (
-        <React.Fragment>
-          <div className="mb-14 mt-16 font-league-gothic md:text-2xl lg:text-5xl">
+        <>
+          <div className="mb-7 mt-8 font-league-gothic text-2xl md:mb-14 md:mt-16 lg:text-5xl">
             {t("areaOfInterest")}
           </div>
           <ButtonFilter
@@ -185,19 +186,19 @@ export default function CreativeWorkshopPage({
               });
             }}
           />
-        </React.Fragment>
+        </>
       )}
-      <div ref={ref} className="pb-20" />
+      <div ref={ref} className="pb-10 md:pb-20" />
       <ArrowTitle
         title={t("upcomingDates")}
         category={category}
         subTitle={`${categoryPage.futureEvents.length} ${categoryPage.futureEvents.length === 1 ? t("availableEventsSingular") : t("availableEventsPlural")}`}
       />
-      <div className="mb-16" />
+      <div className="mb-8 md:mb-16" />
       {EventsList(categoryPage.futureEvents)}
-      <div className="mt-44" />
+      <div className="mt-20 md:mt-44" />
       <IconTitle title={t("previous")} mode="dots" category={category} />
-      <div className="mb-16" />
+      <div className="mb-8 md:mb-16" />
       {EventsList(categoryPage.previousEvents, true)}
     </main>
   );

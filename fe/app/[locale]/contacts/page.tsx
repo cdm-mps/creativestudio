@@ -23,25 +23,28 @@ export default function ContactsPage() {
   }, []);
 
   const PageStructure = ({ children }: PropsWithChildren) => (
-    <main className="mx-40 flex flex-col">
-      <div className="flex">
-        <div className="h-fit w-[calc(50vw-80px)]">
+    <main className="flex-comt-24 fle0 mx-12 md:mx-40">
+      <div className="flex max-md:flex-col">
+        <div className="h-fit md:w-[calc(50vw-80px)]">
           <Title title={t("Menu.contacts")} category="businessWorkshops" />
-          <div className="my-8 font-league-gothic text-4xl">
+          <div className="my-8 font-league-gothic text-2xl md:text-4xl">
             {t("Contacts.firstHighlight")}
           </div>
           {children}
-          <div className="my-8 font-league-gothic text-4xl">
+          <div className="my-8 font-league-gothic text-2xl md:text-4xl">
             {t("Contacts.secondHighlight")}
           </div>
-          <div className="flex flex-wrap">
+          <div className="flex flex-wrap max-md:flex-col max-md:items-center">
             {categories.map((category) => (
               <CategoryElement category={category} size="small" />
             ))}
           </div>
         </div>
-        <div className="w-[50vw]">
-          <Map />
+        <div className="w-[50vw] max-md:hidden">
+          <Map type="desktop" />
+        </div>
+        <div className="mt-20 overflow-hidden md:hidden">
+          <Map type="mobile" />
         </div>
       </div>
     </main>

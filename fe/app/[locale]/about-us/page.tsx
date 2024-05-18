@@ -28,14 +28,14 @@ export default function AboutUsPage() {
   }
 
   return (
-    <main className="mx-40 flex flex-col">
+    <main className="mx-12 flex flex-col md:mx-40">
       <Title title={t("Menu.aboutUs")} category="businessWorkshops" />
       <Header
         highlight={pageContent.highlight[locale as Locales]}
         description={pageContent.description[locale as Locales]}
       />
       <CategoryBarList />
-      <div className="flex flex-col gap-10 py-52">
+      <div className="flex flex-col py-20 md:gap-10 md:py-52">
         <span className="pb-14 text-center font-league-gothic text-3xl uppercase md:text-7xl">
           {t("AboutUs.team")}
         </span>
@@ -51,7 +51,7 @@ export default function AboutUsPage() {
           }))}
         />
       </div>
-      <div className="flex flex-col gap-12">
+      <div className="flex flex-col gap-12 mb-20">
         <Divider />
         <Acknowledgements />
         <Divider />

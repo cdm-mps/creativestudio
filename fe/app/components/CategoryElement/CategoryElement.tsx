@@ -23,7 +23,7 @@ const CategoryElement = (
       className={clsx(
         `flex cursor-pointer flex-col items-center justify-center bg-${props.category} text-center lg:hover:z-10 lg:hover:scale-110`,
         props.size === "small" &&
-          "h-[80px] w-[80px] gap-1 lg:h-[137px] lg:w-[137px]",
+          "h-[90px] w-full gap-1 lg:h-[137px] lg:w-[137px]",
         props.size == "medium" && !isHover && "lg:group-hover:opacity-50",
         props.size === "medium" &&
           "h-[320px] w-full gap-4 p-6 lg:h-[420px] lg:w-1/3",
@@ -39,15 +39,15 @@ const CategoryElement = (
       <p
         className={clsx(
           "font-league-gothic uppercase",
-          props.size === "small" && "text-xs lg:text-2xl",
-          props.size === "medium" && "text-4xl max-xl:break-all lg:text-7xl",
+          props.size === "small" && "text-xl md:text-2xl",
+          props.size === "medium" && "text-3xl max-xl:break-all lg:text-7xl",
         )}
       >
         {t(props.category)}
       </p>
       {categoriesDictionary[props.category](
         clsx(
-          props.size === "small" && "h-3 lg:h-7",
+          props.size === "small" && "h-5 lg:h-7",
           props.size === "medium" && "h-6 lg:h-14",
         ),
       )}
