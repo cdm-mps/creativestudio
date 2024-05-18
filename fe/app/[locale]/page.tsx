@@ -36,7 +36,7 @@ export default function Home() {
     children,
     showRoundButton,
   }: PropsWithChildren<{ showRoundButton: boolean }>) => (
-    <main className="flex flex-col pt-30 md:pt-20">
+    <main className="pt-30 flex flex-col md:pt-20">
       <div className="flex h-[calc(76vh)] flex-col justify-between pb-7">
         <BannerGrid />
         {showRoundButton && (
@@ -67,7 +67,7 @@ export default function Home() {
 
   return (
     <PageStructure showRoundButton={pageContent?.news.length > 0}>
-      {pageContent.news.length && (
+      {pageContent.news.length > 0 && (
         <div ref={scrollRef} className="mx-9 flex flex-col max-md:mt-10">
           <ArrowTitle title={t("news")} category="businessWorkshops" />
           <div className="customScroll mt-8 flex overflow-x-auto scroll-smooth pb-14">
@@ -117,7 +117,7 @@ export default function Home() {
         </div>
       )}
 
-      {pageContent.comments.length && (
+      {pageContent.comments.length > 0 && (
         <div className="ml-4 mr-8 mt-32 flex items-center gap-3 max-md:flex-col md:ml-9 md:mr-16 md:mt-64 md:gap-10">
           <div className="w-1/4">
             <IconTitle
@@ -126,7 +126,7 @@ export default function Home() {
               mode="hashtag"
             />
           </div>
-          <div className=" customScroll grid w-3/4 grid-flow-col grid-rows-2 gap-10 overflow-x-scroll pt-10 md:gap-20">
+          <div className="customScroll grid w-3/4 grid-flow-col grid-rows-2 gap-10 overflow-x-scroll pt-10 md:gap-20">
             {pageContent?.comments.map((comment) => (
               <div className="flex w-[250px] flex-col gap-4 md:w-[300px]">
                 <div className="text-sm md:text-base">
