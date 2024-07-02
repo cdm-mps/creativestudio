@@ -35,8 +35,8 @@ export default function ContactsPage() {
             {t("Contacts.secondHighlight")}
           </div>
           <div className="flex flex-wrap max-md:flex-col max-md:items-center">
-            {categories.map((category) => (
-              <CategoryElement category={category} size="small" />
+            {categories.map((category, i) => (
+              <CategoryElement key={i} category={category} size="small" />
             ))}
           </div>
         </div>

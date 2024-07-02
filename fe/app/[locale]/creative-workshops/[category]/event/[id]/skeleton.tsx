@@ -46,11 +46,18 @@ export const EventPageSkeleton = () => (
     <div className="flex flex-col gap-4 md:gap-8">
       {Array(3)
         .fill(null)
-        .map(() => (
-          <div className="mx-4 mt-1 flex items-center justify-between md:mx-14">
+        .map((_e, i) => (
+          <div
+            key={i}
+            className="mx-4 mt-1 flex items-center justify-between md:mx-14"
+          >
             <Skeleton height={52} width={52} className="mr-4 md:mr-8" />
             <Skeleton height={28} width={100} className="md:mr-8 md:hidden" />
-            <Skeleton height={28} width={193} className="md:mr-8 max-md:hidden" />
+            <Skeleton
+              height={28}
+              width={193}
+              className="max-md:hidden md:mr-8"
+            />
             <Skeleton height={2} className="mr-4 md:mr-8" />
             <Skeleton height={35} width={100} className="max-md:hidden" />
             <Skeleton height={35} width={80} className="md:hidden" />

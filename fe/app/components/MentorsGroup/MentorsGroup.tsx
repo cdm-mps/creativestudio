@@ -12,8 +12,8 @@ const MentorsGroup = ({
 }: MentorsGroupProps) => {
   return (
     <div className="my-2 flex items-center gap-[1px]">
-      {mentors.slice(0, 3).map((mentor, index) => (
-        <label title={mentor.alt}>
+      {mentors.slice(0, 3).map((mentor, i) => (
+        <label key={i} title={mentor.alt}>
           <ImageElement
             {...mentor}
             className={clsx(

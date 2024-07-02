@@ -83,9 +83,10 @@ export default function Home() {
           <ArrowTitle title={t("news")} category="businessWorkshops" />
           <div className="customScroll mt-8 flex overflow-x-auto scroll-smooth pb-14">
             <div className="mx-4 flex gap-10 md:gap-14">
-              {pageContent?.news.map((e) => {
+              {pageContent?.news.map((e, i) => {
                 return (
                   <div
+                    key={i}
                     className="group relative flex cursor-pointer flex-col hover:z-10"
                     onClick={() =>
                       push(
@@ -167,8 +168,11 @@ export default function Home() {
             />
           </div>
           <div className="customScroll grid w-3/4 grid-flow-col grid-rows-2 gap-10 overflow-x-scroll pt-10 md:gap-20">
-            {pageContent?.comments.map((comment) => (
-              <div className="flex w-[250px] flex-col gap-4 md:w-[300px]">
+            {pageContent?.comments.map((comment, i) => (
+              <div
+                key={i}
+                className="flex w-[250px] flex-col gap-4 md:w-[300px]"
+              >
                 <div className="text-sm md:text-base">
                   {comment.quote[locale as Locales]}
                 </div>

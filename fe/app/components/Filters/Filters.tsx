@@ -18,7 +18,7 @@ const Filters = ({ filters, result, setResult }: FiltersProps) => {
         {} as Record<string, string | undefined>,
       ),
     );
-  }, []);
+  }, [filters, setResult]);
 
   function formatFilterResult(_key: string) {
     switch (_key) {
@@ -39,8 +39,8 @@ const Filters = ({ filters, result, setResult }: FiltersProps) => {
   };
 
   return (
-    <div className="flex flex-col md:items-end items-start">
-      <div className="flex flex-wrap items-center md:justify-end gap-4">
+    <div className="flex flex-col items-start md:items-end">
+      <div className="flex flex-wrap items-center gap-4 md:justify-end">
         {filters.map((filter, i) => (
           <Select
             key={"filter_" + i}
@@ -54,7 +54,7 @@ const Filters = ({ filters, result, setResult }: FiltersProps) => {
           />
         ))}
       </div>
-      <div className="mt-4 md:mt-8 flex flex-wrap justify-end gap-4">
+      <div className="mt-4 flex flex-wrap justify-end gap-4 md:mt-8">
         {Object.keys(result).map((_key) => (
           <React.Fragment key={"result_" + _key}>
             {result[_key] && (

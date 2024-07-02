@@ -6,6 +6,7 @@ import { CalendarProps } from "./Calendar.models";
 const Calendar = ({ events, setSelectedDate }: CalendarProps) => {
   useEffect(() => {
     setSelectedDate(new Date());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const getEvents = (date: dayjs.Dayjs) => {

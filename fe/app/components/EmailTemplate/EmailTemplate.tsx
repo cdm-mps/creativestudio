@@ -20,9 +20,9 @@ export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = (
       <h1>
         {date.day}/{date.month}/{date.year}
       </h1>
-      {Object.keys(props.form).map((key) => {
+      {Object.keys(props.form).map((key, i) => {
         return (
-          <div style={{ marginTop: 8 }}>
+          <div key={i} style={{ marginTop: 8 }}>
             <h3>
               {fields.find((element) => element.key === key)?.label["pt"]}:
             </h3>

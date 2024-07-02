@@ -22,16 +22,21 @@ const EventInfo = ({ level, category, onClick, dates }: EventInfoProps) => {
             !expanded && " mt-[1px]",
           )}
         >
-          {dates.slice(0, 2).map((date) => (
-            <DateInfo dates={[date]} category={category} size="lg" />
+          {dates.slice(0, 2).map((date, i) => (
+            <DateInfo key={i} dates={[date]} category={category} size="lg" />
           ))}
         </div>
         <div className="relative">
           {expanded && (
             <div className="flex flex-col items-center">
               <div className="absolute z-10 flex w-[88px] flex-col items-center border-x border-b bg-background px-3 md:w-[170px] md:px-6">
-                {dates.slice(2, dates.length).map((date) => (
-                  <DateInfo dates={[date]} category={category} size="lg" />
+                {dates.slice(2, dates.length).map((date, i) => (
+                  <DateInfo
+                    key={i}
+                    dates={[date]}
+                    category={category}
+                    size="lg"
+                  />
                 ))}
                 <div
                   className={`cursor-pointer text-lg hover:opacity-70 md:text-5xl text-${category}`}

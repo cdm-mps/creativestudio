@@ -11,12 +11,8 @@ const DateInfo = ({ dates, size, ...rest }: DateInfoProps) => {
   const [startDate, setStartDate] = useState<DateFormat | undefined>(undefined);
   const [endDate, setEndDate] = useState<DateFormat | undefined>(undefined);
 
-  if (!dates || !dates.length) {
-    return;
-  }
-
   useEffect(() => {
-    const isMultipleDates = dates.length > 1;
+    const isMultipleDates = dates?.length > 1;
 
     if (isMultipleDates) {
       setStartDate(formatDate(dates[0], locale));
@@ -24,7 +20,11 @@ const DateInfo = ({ dates, size, ...rest }: DateInfoProps) => {
     } else {
       setStartDate(formatDate(dates[0], locale));
     }
-  }, []);
+  }, [dates, locale]);
+
+  if (!dates || !dates.length) {
+    return;
+  }
 
   return (
     <div

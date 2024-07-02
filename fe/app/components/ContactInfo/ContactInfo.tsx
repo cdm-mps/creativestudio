@@ -16,8 +16,8 @@ const ContactInfo = ({ email, mobilePhone, socials }: ContactInfoProps) => {
         <span className="max-md:text-sm">{email}</span>
       </div>
 
-      {mobilePhone.map((phone) => (
-        <div className="flex items-center gap-2">
+      {mobilePhone.map((phone, i) => (
+        <div key={i} className="flex items-center gap-2">
           <FaPhoneAlt size={18} />
           <span className="max-md:text-sm">{phone}</span>
         </div>
@@ -28,8 +28,8 @@ const ContactInfo = ({ email, mobilePhone, socials }: ContactInfoProps) => {
       </p>
 
       <div className="flex gap-4">
-        {socials.map((social) => (
-          <a href={social.url} target="_blank">
+        {socials.map((social, i) => (
+          <a key={i} href={social.url} target="_blank">
             {social.icon}
           </a>
         ))}

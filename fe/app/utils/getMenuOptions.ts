@@ -1,3 +1,4 @@
+"use client";
 import { useLocale, useTranslations } from "next-intl";
 
 export interface OptionProps {
@@ -6,10 +7,7 @@ export interface OptionProps {
   href: string;
 }
 
-export const getMenuOptions = () => {
-  const locale = useLocale();
-  const t = useTranslations("Menu");
-
+export const getMenuOptions = (locale: string, t: any) => {
   const options: OptionProps[] = [
     {
       text: t("creativeWorkshops"),

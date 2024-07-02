@@ -67,6 +67,7 @@ export default function FormPage({
           buildFormAnswers(data.form);
         }
       });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {

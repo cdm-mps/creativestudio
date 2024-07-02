@@ -27,6 +27,7 @@ export default function MentorPage() {
     fetch(`/api/getMentor/${params.id}`)
       .then((res) => res.json())
       .then((data: GetMentorPageOutputDto) => setMentor(data));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const buildLabel = (count: number) =>

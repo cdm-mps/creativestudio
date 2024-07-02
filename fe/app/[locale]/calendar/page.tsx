@@ -162,10 +162,12 @@ export default function CalendarPage() {
           setCurrentDateRange(selected);
         });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedDate]);
 
   useEffect(() => {
     getFilteredEvents();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [result, pageContent]);
 
   useEffect(() => {
@@ -178,6 +180,7 @@ export default function CalendarPage() {
           })),
         );
       });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (!pageContent) {

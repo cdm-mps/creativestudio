@@ -36,7 +36,7 @@ export default function EventPage({ params }: { params: { id: string } }) {
       .then((data: GetEventPageOutputDto) => {
         setEvent(data);
       });
-  }, []);
+  }, [params.id]);
 
   if (!event) {
     return <EventPageSkeleton />;
@@ -134,8 +134,9 @@ export default function EventPage({ params }: { params: { id: string } }) {
         Mentores
       </div>
       <div className="flex flex-col gap-4 md:flex-row md:flex-wrap md:gap-y-8 md:px-7">
-        {event.mentors.map((mentor) => (
+        {event.mentors.map((mentor, i) => (
           <MentorIdentifier
+            key={i}
             _id={mentor._id}
             image={{
               src: urlFor(mentor.image.mentor_image.src).url(),
