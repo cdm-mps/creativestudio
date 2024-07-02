@@ -95,9 +95,9 @@ export default function Home() {
                     }
                   >
                     <ImageElement
-                      src={urlFor(e.image.image.src).url()}
-                      alt={e.image.image.title}
-                      objectPosition={e.image.image.objectPosition}
+                      src={urlFor(e.thumbnail.image.src).url()}
+                      alt={e.thumbnail.image.title}
+                      objectPosition={e.thumbnail.image.objectPosition}
                       className="relative h-[200px] w-[200px] md:h-[400px] md:w-[400px]"
                     />
 
