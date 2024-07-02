@@ -15,7 +15,7 @@ import RadioButtonGroup from "@components/InputField/RadioButtonGroup/RadioButto
 import Text from "@components/InputField/Text/Text";
 import TextArea from "@components/InputField/TextArea/TextArea";
 import UploadFile from "@components/InputField/UploadFile/UploadFile";
-import MentorIdentifier from "@components/MentorIdentifier/MentorIdentifier";
+import MentorsGroup from "@components/MentorsGroup/MentorsGroup";
 import RoundArrowButton from "@components/RoundArrowButton/RoundArrowButton";
 import Stepper from "@components/Stepper/Stepper";
 import SubmitionStatus from "@components/SubmitionStatus/SubmitionStatus";
@@ -24,6 +24,7 @@ import { Locales } from "@model/Locales";
 import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
 import { FormPageSkeleton } from "./skeleton";
+import { useRouter } from "next/navigation";
 
 export default function FormPage({
   params,
@@ -33,6 +34,8 @@ export default function FormPage({
   const t = useTranslations("Form");
   const t_categories = useTranslations("Categories");
   const locale = useLocale();
+
+  const router = useRouter();
 
   const [activeStep, setActiveStep] = useState(0);
   const [pageContent, setPageContent] = useState<GetFormOutputDto>();
@@ -57,8 +60,12 @@ export default function FormPage({
     fetch(`/api/getPages/form/${params.id}`)
       .then((res) => res.json())
       .then((data: GetFormOutputDto) => {
-        setPageContent(data);
-        buildFormAnswers(data.form);
+        if (data.event.isSoldOut) {
+          router.back();
+        } else {
+          setPageContent(data);
+          buildFormAnswers(data.form);
+        }
       });
   }, []);
 
@@ -252,23 +259,19 @@ export default function FormPage({
           ]}
         />
         <EventInfo
-          duration={pageContent.event.duration || ""}
-          date={pageContent.event.date}
+          dates={pageContent.event.date}
           category={pageContent.event.category}
         />
       </div>
-      <div className="mt-7 flex w-fit">
-        <MentorIdentifier
-          _id={pageContent.event.mentor.mentor._id}
-          image={{
-            src: urlFor(
-              pageContent.event.mentor.mentor.image.mentor_image.src,
-            ).url(),
-            alt: pageContent.event.mentor.mentor.image.mentor_image.title,
-            objectPosition:
-              pageContent.event.mentor.mentor.image.mentor_image.objectPosition,
-          }}
-          name={pageContent.event.mentor.mentor.name}
+      <div className="my-4 flex flex-col md:flex-row md:flex-wrap md:gap-6">
+        <MentorsGroup
+          mentors={pageContent.event.mentors.map((mentor) => ({
+            src: urlFor(mentor.image.mentor_image.src).url(),
+            alt: mentor.image.mentor_image.title,
+            objectPosition: mentor.image.mentor_image.objectPosition,
+          }))}
+          category={pageContent.event.category}
+          size="large"
         />
       </div>
       <div ref={ref} className="mt-9 flex justify-center">
@@ -297,7 +300,7 @@ export default function FormPage({
           )}
           {activeStep === 3 && (
             <div className="my-auto flex items-center justify-center max-md:mt-10">
-             <SubmitionStatus
+              <SubmitionStatus
                 title={submissionStatus?.label!}
                 content={submissionStatus?.content!}
               />

@@ -13,9 +13,15 @@ export interface GetCategoryPageOutputDto {
 export interface EventThumbnail {
   _id: string;
   title: Record<Locales, string>;
-  date: string;
-  mentor: { mentor: { name: string } };
+  date: string[];
+  isSoldOut?: boolean;
+  mentors: {
+    _id: string;
+    name: string;
+    image: { mentor_image: ImageOutputDto };
+  }[];
   image: { image: ImageOutputDto };
+  thumbnail: { image: ImageOutputDto };
 }
 
 export const CategoryPageProjection: Record<Category, string> = {
@@ -32,7 +38,7 @@ export const GeneralEventsProjection = (
   subCategory?: SubCategory,
   areaOfInterest?: AreaOfInterest,
 ) =>
-  `"previousEvents": *[_type == "event" && !(_id in path("drafts.**")) && category == "${category}" ${subCategory ? `&& subcategory == "${subCategory}"` : ""} ${areaOfInterest ? `&& "${areaOfInterest}" in areasOfInterest` : ""} && date < now()]{_id, title, image { image -> { "src": image.asset._ref, title, objectPosition}}, date, mentor { mentor -> { name }}}, "futureEvents": *[_type == "event" && !(_id in path("drafts.**")) && category == "${category}" ${subCategory ? `&& subcategory == "${subCategory}"` : ""} ${areaOfInterest ? `&& "${areaOfInterest}" in areasOfInterest` : ""} && date > now()]{_id, title, image { image -> { "src": image.asset._ref, title, objectPosition}}, date, mentor { mentor -> { name }}}`;
+  `"previousEvents": *[_type == "event" && !(_id in path("drafts.**")) && category == "${category}" ${subCategory ? `&& subcategory == "${subCategory}"` : ""} ${areaOfInterest ? `&& "${areaOfInterest}" in areasOfInterest` : ""} && date[0] < now()]{_id, title, isSoldOut, image { image -> { "src": image.asset._ref, title, objectPosition}}, thumbnail { image -> { "src": image.asset._ref, title, objectPosition}}, date, mentors[] -> {_id, name, image{ mentor_image -> {"src":image.asset._ref, objectPosition, title }}}}, "futureEvents": *[_type == "event" && !(_id in path("drafts.**")) && category == "${category}" ${subCategory ? `&& subcategory == "${subCategory}"` : ""} ${areaOfInterest ? `&& "${areaOfInterest}" in areasOfInterest` : ""} && date[0] > now()]{_id, title, isSoldOut, image { image -> { "src": image.asset._ref, title, objectPosition}}, thumbnail { image -> { "src": image.asset._ref, title, objectPosition}}, date, mentors[] -> {_id, name, image{ mentor_image -> {"src":image.asset._ref, objectPosition, title }}}}`;
 
 export interface CategoryPageContent {
   description: Record<Locales, string>;

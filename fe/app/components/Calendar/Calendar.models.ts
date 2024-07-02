@@ -9,5 +9,5 @@ export interface CalendarProps {
 export interface EventCalendar {
   title: string;
   category: Category;
-  date: string;
+  date: string[];
 }

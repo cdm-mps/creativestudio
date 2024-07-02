@@ -12,15 +12,19 @@ export interface New {
   _id: string;
   title: Record<Locales, string>;
   category: Category;
-  date: string;
+  date: string[];
+  isSoldOut?: boolean;
   image: {
     image: ImageOutputDto;
   };
-  mentor: {
-    mentor: {
-      name: string;
-    };
+  thumbnail: {
+    image: ImageOutputDto;
   };
+  mentors: {
+    _id: string;
+    name: string;
+    image: { mentor_image: ImageOutputDto };
+  }[];
 }
 
 export interface Quote {

@@ -1,8 +1,14 @@
+export interface DateFormat {
+  day: string;
+  month: string;
+  year: string;
+}
+
 export const formatDate = (
   value: string,
   locale: string,
   monthType?: Intl.DateTimeFormatOptions["month"],
-): { day: string; month: string; year: string } => {
+): DateFormat => {
   const date = new Date(value);
 
   return {

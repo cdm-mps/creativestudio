@@ -7,7 +7,7 @@ export async function GET(
   context: { params: { eventId: string } },
 ) {
   const { params } = context;
-  const query = groq`*[_type == "enrollForm" && !(_id in path("drafts.**"))][0]{paymentDetails[] {label, value}, regulations, "event": *[_type == "event" && !(_id in path("drafts.**")) && _id == "${params.eventId}"][0]{ title, category, date, duration, hasSubmitVideo, mentor {mentor -> {_id, name, image {mentor_image -> {title, objectPosition, "src": image.asset._ref}} } } }}`;
+  const query = groq`*[_type == "enrollForm" && !(_id in path("drafts.**"))][0]{paymentDetails[] {label, value}, regulations, "event": *[_type == "event" && !(_id in path("drafts.**")) && _id == "${params.eventId}"][0]{ title, category, date, isSoldOut, mentors[] -> {_id, name, image {mentor_image -> {title, objectPosition, "src": image.asset._ref}} } }}`;
   const res = await client.fetch(query);
 
   return Response.json({ ...res, form });

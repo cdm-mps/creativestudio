@@ -14,6 +14,7 @@ export const Tag = ({ label, category, size }: TagProps) => {
           `font-league-gothic uppercase text-${category}`,
           category ? `text-${category}` : "text-white",
           size === "small" && "text-sm md:text-xl",
+          size === "medium" && "text-sm md:text-2xl",
           size === "large" && "text-xl md:text-4xl",
         )}
       >

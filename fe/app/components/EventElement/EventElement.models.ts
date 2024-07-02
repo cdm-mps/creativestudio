@@ -5,8 +5,10 @@ export interface EventElementProps {
   _id: string;
   title: string;
   subtitle?: string;
-  date: string;
+  dates: string[];
   category: Category;
   image: ImageProps;
   disabled?: boolean;
+  soldOut?: boolean;
+  mentors: ImageProps[];
 }

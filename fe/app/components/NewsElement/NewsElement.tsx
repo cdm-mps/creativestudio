@@ -18,7 +18,7 @@ const NewsElement = ({
       onClick={onClick}
     >
       <div className="mr-9 flex flex-col items-end">
-        <DateInfo date={date} size="lg" category={category} />
+        <DateInfo dates={[date]} size="lg" category={category} />
         <span className="w-[134.5px] text-end font-league-gothic text-3xl uppercase md:w-[269px] md:text-5xl">
           {title}
         </span>

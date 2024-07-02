@@ -5,7 +5,6 @@ import {
   CalendarProps,
 } from "@/app/[locale]/calendar/Calendar.models";
 import { CalendarPageSkeleton } from "@/app/[locale]/calendar/skeleton";
-import { Calendar as CalendarModel } from "@/app/api/models/Calendar";
 import { GetCalendarPageOutputDto } from "@/app/api/models/GetCalendarPage.models";
 import { GetMentorsPageOutputDto } from "@/app/api/models/GetMentorsPage.models";
 import { urlFor } from "@/client";
@@ -43,12 +42,12 @@ export default function CalendarPage() {
 
   const date = formatDate(selectedDate.toDateString(), locale, "2-digit");
 
-  function buildLabel(previous: boolean, count: number) {
+  function buildLabel(count: number) {
     return count === 0
       ? t(`Components.NotFound.noEvents`)
       : count === 1
-        ? `${count} ${t(`Components.Mentor.eventBarSingular${previous ? "Previous" : ""}`)}`
-        : `${count} ${t(`Components.Mentor.eventBarPlural${previous ? "Previous" : ""}`)}`;
+        ? `${count} ${t(`Calendar.event`)}`
+        : `${count} ${t(`Calendar.events`)}`;
   }
 
   function buildFilters(mentors: { name: string }[]) {
@@ -87,8 +86,8 @@ export default function CalendarPage() {
 
     return filteredEvents.filter(
       (event: CalendarElementProps) =>
-        JSON.stringify(formatDate(event.date, locale, "2-digit")) ===
-        JSON.stringify(date),
+        JSON.stringify(date) ===
+        JSON.stringify(formatDate(event.date[0], locale, "2-digit")),
     );
   }
 
@@ -99,7 +98,9 @@ export default function CalendarPage() {
       let res = true;
 
       if (result["mentor"] !== undefined)
-        res = res && _event.mentor.name === result["mentor"];
+        res =
+          res &&
+          _event.mentors.some((mentor) => mentor.name === result["mentor"]);
       if (result["eventType"] !== undefined)
         res = res && _event.category === result["eventType"];
       if (result["areaOfInterest"] !== undefined) {
@@ -152,18 +153,9 @@ export default function CalendarPage() {
                 date: event.date,
                 title: event.title[locale as Locales],
                 disabled: isDateInPast(event.date),
-                mentor: {
-                  image: {
-                    alt: event.mentor.mentor.image.mentor_image.title,
-                    objectPosition:
-                      event.mentor.mentor.image.mentor_image.objectPosition,
-                    src: urlFor(
-                      event.mentor.mentor.image.mentor_image.src,
-                    ).url(),
-                  },
-                  name: event.mentor.mentor.name,
-                  _id: event.mentor.mentor._id,
-                },
+                previous: isDateInPast(event.date),
+                mentors: event.mentors,
+                isSoldOut: !isDateInPast(event.date) && event.isSoldOut,
               };
             }) as CalendarElementProps[],
           });
@@ -197,9 +189,9 @@ export default function CalendarPage() {
   }
 
   return (
-    <main className="md:mx-40 gap-3 md:gap-10 mx-12 flex flex-col">
+    <main className="mx-12 flex flex-col gap-3 md:mx-40 md:gap-10">
       <Title title={t("Menu.calendar")} category="businessWorkshops" />
-      <div className="md:mx-20 max-md:mt-6 flex flex-col gap-5 md:gap-10">
+      <div className="flex flex-col gap-5 max-md:mt-6 md:mx-20 md:gap-10">
         <Filters
           filters={filters as Filter[]}
           result={result}
@@ -215,10 +207,7 @@ export default function CalendarPage() {
       <ArrowTitle
         title={date.day + "/" + date.month}
         category={"businessWorkshops"}
-        subTitle={buildLabel(
-          isDateInPast(selectedDate.toDateString()),
-          getSelectedDateEvents().length,
-        )}
+        subTitle={buildLabel(getSelectedDateEvents().length)}
       />
       <div ref={ref} />
       {getSelectedDateEvents().length > 0 ? (
@@ -227,11 +216,16 @@ export default function CalendarPage() {
             event && (
               <MentorEventBar
                 key={"event_" + index}
-                mentor={event.mentor}
+                mentors={event.mentors.map((mentor) => ({
+                  src: urlFor(mentor.image.mentor_image.src).url(),
+                  alt: mentor.image.mentor_image.title,
+                  objectPosition: mentor.image.mentor_image.objectPosition,
+                }))}
                 category={event.category}
                 title={event.title}
                 previous={event.disabled}
-                disabled
+                date={event.date}
+                soldOut={!event.disabled && event.isSoldOut}
                 onClick={() =>
                   push(
                     `creative-workshops/${event.category}/event/${event._id}`,

@@ -16,6 +16,9 @@ import { useRouter } from "next/navigation";
 import { PropsWithChildren, useEffect, useRef, useState } from "react";
 import { GetHomePageOutputDto } from "../api/models/GetHomePage.models";
 import { HomePageSkeleton } from "./skeleton";
+import MentorsGroup from "@components/MentorsGroup/MentorsGroup";
+import { getEventStatus } from "@utils/getEventStatus";
+import { Tag } from "@components/Tag/Tag";
 
 export default function Home() {
   const { push } = useRouter();
@@ -29,7 +32,15 @@ export default function Home() {
   useEffect(() => {
     fetch("/api/getPages/home")
       .then((res) => res.json())
-      .then((data) => setPageContent(data));
+      .then((data: GetHomePageOutputDto) =>
+        setPageContent({
+          ...data,
+          news: data.news.filter((e) => {
+            const status = getEventStatus(e.date, e.isSoldOut);
+            return status === "available" || status === "soldOut";
+          }),
+        }),
+      );
   }, []);
 
   const PageStructure = ({
@@ -72,46 +83,75 @@ export default function Home() {
           <ArrowTitle title={t("news")} category="businessWorkshops" />
           <div className="customScroll mt-8 flex overflow-x-auto scroll-smooth pb-14">
             <div className="mx-4 flex gap-10 md:gap-14">
-              {pageContent?.news.map((e) => (
-                <div
-                  className="group relative flex cursor-pointer flex-col hover:z-10"
-                  onClick={() =>
-                    push(
-                      `${locale}/creative-workshops/${e.category}/event/${e._id}`,
-                    )
-                  }
-                >
-                  <ImageElement
-                    src={urlFor(e.image.image.src).url()}
-                    alt={e.image.image.title}
-                    objectPosition={e.image.image.objectPosition}
-                    className="relative h-[200px] w-[200px] md:h-[400px] md:w-[400px]"
-                  />
+              {pageContent?.news.map((e) => {
+                return (
+                  <div
+                    className="group relative flex cursor-pointer flex-col hover:z-10"
+                    onClick={() =>
+                      push(
+                        `${locale}/creative-workshops/${e.category}/event/${e._id}`,
+                      )
+                    }
+                  >
+                    <ImageElement
+                      src={urlFor(e.image.image.src).url()}
+                      alt={e.image.image.title}
+                      objectPosition={e.image.image.objectPosition}
+                      className="relative h-[200px] w-[200px] md:h-[400px] md:w-[400px]"
+                    />
 
-                  <div className="absolute max-md:hidden">
-                    <div className="absolute hidden h-[400px] bg-black-50 group-hover:block md:w-[400px]">
-                      <div className="flex h-full items-center justify-center group-hover:animate-slideInLeft">
-                        <div
-                          className={`flex w-full items-center justify-center bg-${e.category} p-2`}
-                        >
-                          <span className="font-league-gothic text-5xl uppercase">
-                            {t("explore")}
-                          </span>
-                          <StickHead className={"h-9 w-9 -rotate-90"} />
+                    {e.isSoldOut && (
+                      <div className="absolute h-[200px] w-[200px] bg-black-50 group-hover:hidden md:h-[400px] md:w-[400px]">
+                        <div className="flex h-full items-center justify-center">
+                          <div className="rotate flex h-[63px] -rotate-12 items-center justify-center">
+                            <Tag
+                              label={t("soldOutEvent")}
+                              size="large"
+                              category={e.category}
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    )}
+
+                    <div className="absolute max-md:hidden">
+                      <div className="absolute hidden h-[400px] bg-black-50 group-hover:block md:w-[400px]">
+                        <div className="flex h-full items-center justify-center group-hover:animate-slideInLeft">
+                          <div
+                            className={`flex w-full items-center justify-center bg-${e.category} p-2`}
+                          >
+                            <span className="font-league-gothic text-5xl uppercase">
+                              {t("explore")}
+                            </span>
+                            <StickHead className={"h-9 w-9 -rotate-90"} />
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
 
-                  <div className="mt-3 flex flex-col items-end md:group-hover:opacity-50">
-                    <DateInfo date={e.date} size="lg" category={e.category} />
-                    <div className="text-right font-league-gothic text-2xl uppercase md:text-4xl">
-                      {e.title[locale as Locales]}
+                    <div className="mt-3 flex flex-col items-end md:group-hover:opacity-50">
+                      <DateInfo
+                        dates={e.date}
+                        size="lg"
+                        category={e.category}
+                      />
+                      <div className="text-right font-league-gothic text-2xl uppercase md:text-4xl">
+                        {e.title[locale as Locales]}
+                      </div>
+                      <MentorsGroup
+                        mentors={e.mentors.map((mentor) => ({
+                          src: urlFor(mentor.image.mentor_image.src).url(),
+                          alt: mentor.image.mentor_image.title,
+                          objectPosition:
+                            mentor.image.mentor_image.objectPosition,
+                        }))}
+                        category={e.category}
+                        size="small"
+                      />
                     </div>
-                    <div>{e.mentor.mentor.name}</div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </div>

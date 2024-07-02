@@ -1,12 +1,12 @@
-import { MentorProps } from "@components/Mentor/Mentor.models";
+import { ImageProps } from "@components/ImageElement/ImageElement.models";
 import { Category } from "@model/Category";
 
 export interface MentorEventBarProps {
-  mentor: Pick<MentorProps, "name" | "image" | "_id">;
+  mentors: ImageProps[];
   category: Category;
   title: string;
   previous?: boolean;
-  date?: string;
-  disabled?: boolean;
+  date: string[];
+  soldOut?: boolean;
   onClick: () => void;
 }

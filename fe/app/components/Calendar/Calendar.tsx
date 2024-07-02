@@ -11,12 +11,12 @@ const Calendar = ({ events, setSelectedDate }: CalendarProps) => {
   const getEvents = (date: dayjs.Dayjs) => {
     return (
       events.filter((event) => {
-        const eventDate = new Date(event.date).toISOString();
         const calendarDate = date.toDate();
-
         calendarDate.setHours(0, 0, 0, 0);
 
-        return eventDate === calendarDate.toISOString();
+        return (
+          new Date(event.date[0]).toISOString() === calendarDate.toISOString()
+        );
       }) || []
     );
   };
