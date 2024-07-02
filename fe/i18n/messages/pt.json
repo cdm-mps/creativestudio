@@ -4,6 +4,7 @@
       "findOut": "Descubra as novidades",
       "explore": "Explorar",
       "news": "Novidades",
+      "soldOutEvent": "Evento Esgotado",
       "noFilters": "Sem filtros",
       "question": "...E tu? Juntas-te a nós?"
     }
@@ -89,6 +90,7 @@
       "previous": "Próximo"
     },
     "EventElement": {
+      "soldOutEvent": "Evento Esgotado",
       "explore": "Explorar"
     },
     "EventInfo": {
@@ -117,6 +119,12 @@
     "ContactInfo": {
       "contacts": "Contactos",
       "follow": "Seguir"
+    },
+    "Status": {
+      "available": "Evento Disponível",
+      "soldOut": "Evento Esgotado",
+      "occurred": "Evento Decorrido",
+      "onGoing": "Evento a decorrer"
     }
   },
   "CreativeWorkshop": {
@@ -143,8 +151,12 @@
     "enrol": "Inscrever",
     "schedule": "Programação"
   },
+  "Calendar": {
+    "event": " evento encontrado",
+    "events": " eventos encontrados"
+  },
   "Form": {
-    "title":"Formulário de Inscrição",
+    "title": "Formulário de Inscrição",
     "required": "*Preenchimento Obrigatório",
     "previous": "Anterior",
     "next": "Seguinte",

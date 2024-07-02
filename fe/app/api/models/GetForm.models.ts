@@ -14,17 +14,14 @@ export interface GetFormOutputDto {
 
 export interface EventDetails {
   title: Record<Locales, string>;
+  isSoldOut?: boolean;
   category: Category;
-  date: string;
-  duration: string;
-  mentor: {
-    mentor: {
-      _id: string;
-      name: string;
-      image: { mentor_image: ImageOutputDto };
-    };
-  };
-  hasSubmitVideo?: boolean;
+  date: string[];
+  mentors: {
+    _id: string;
+    name: string;
+    image: { mentor_image: ImageOutputDto };
+  }[];
 }
 
 export interface FormStructure {

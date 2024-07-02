@@ -9,8 +9,9 @@ const CategoryGrid = ({ elements }: CategoryGridProps) => {
   const locale = useLocale();
   return (
     <div className="group flex flex-col justify-center lg:flex-row lg:flex-wrap">
-      {Object.keys(elements).map((key) => (
+      {Object.keys(elements).map((key, i) => (
         <CategoryElement
+          key={i}
           size="medium"
           category={key as Category}
           description={elements[key as Category][locale as Locales]}

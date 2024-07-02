@@ -38,13 +38,14 @@ export default function CreativeWorkshopsPage() {
           description={pageStructure?.description[locale as Locales] || ""}
         />
         <div className="mb-14 mt-6 flex justify-center">
-          <span className="font-league-gothic text-4xl md:text-7xl uppercase">
+          <span className="font-league-gothic text-4xl uppercase md:text-7xl">
             {t("ourServices")}
           </span>
         </div>
         <div className="group flex flex-col justify-center lg:flex-row lg:flex-wrap">
-          {Object.keys(pageStructure.elementDescription).map((key) => (
+          {Object.keys(pageStructure.elementDescription).map((key, i) => (
             <CategoryElement
+              key={i}
               size="medium"
               category={key as Category}
               description={
@@ -54,7 +55,7 @@ export default function CreativeWorkshopsPage() {
               }
             />
           ))}
-        </div> 
+        </div>
       </div>
     </main>
   );

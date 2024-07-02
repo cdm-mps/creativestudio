@@ -9,15 +9,16 @@ import IconTitle from "@components/IconTitle/IconTitle";
 import ImageElement from "@components/ImageElement/ImageElement";
 import MentorIdentifier from "@components/MentorIdentifier/MentorIdentifier";
 import Modal from "@components/Modal/Modal";
-import ScheduleElement from "@components/Schedule/ScheduleElement";
+import Status from "@components/Status/Status";
+import { Status as StatusType } from "@components/Status/Status.models";
+import { Tag } from "@components/Tag/Tag";
 import { Category } from "@model/Category";
 import { Locales } from "@model/Locales";
+import { getEventStatus } from "@utils/getEventStatus";
 import { useLocale, useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { EventPageSkeleton } from "./skeleton";
-import { isDateInPast } from "@utils/date/isDateInPast";
-import { Tag } from "@components/Tag/Tag";
 
 export default function EventPage({ params }: { params: { id: string } }) {
   const t_categories = useTranslations("Categories");
@@ -29,30 +30,24 @@ export default function EventPage({ params }: { params: { id: string } }) {
 
   const [event, setEvent] = useState<GetEventPageOutputDto>();
   const [showModal, setShowModal] = useState(false);
-
-  const spanRef = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
     fetch(`/api/getEvent/${params.id}`)
       .then((res) => res.json())
       .then((data: GetEventPageOutputDto) => {
         setEvent(data);
-        if (spanRef.current) {
-          spanRef.current.innerHTML = data?.description[locale as Locales];
-        }
       });
-  }, [spanRef.current]);
+  }, [params.id]);
 
   if (!event) {
     return <EventPageSkeleton />;
   }
 
-  const isPreviousEvent = isDateInPast(event?.date);
+  const eventStatus = getEventStatus(event?.date, event?.isSoldOut);
 
   return (
     <main className="mx-12 flex flex-col md:mx-40">
       <div className="flex h-fit w-full items-start justify-between max-md:flex-col">
-        <div className="flex items-end">
+        <div className="flex flex-col">
           <BreadcrumbsTitle
             title={event?.title[locale as Locales] || ""}
             category={event?.category as Category}
@@ -65,38 +60,67 @@ export default function EventPage({ params }: { params: { id: string } }) {
               },
             ]}
           />
+          <div className="mt-4 md:mt-8">
+            <Status
+              status={eventStatus as StatusType}
+              category={event.category}
+            />
+          </div>
         </div>
         <EventInfo
-          duration={event.duration || ""}
-          date={event.date}
+          dates={event.date}
           level={event.level}
           category={event.category}
           onClick={() => setShowModal(true)}
         />
       </div>
+
       <div className="relative mt-8 md:mt-16">
         <ImageElement
           src={urlFor(event.image.image.src).url()}
           alt={event.image.image.title}
-          className="relative h-[250px] w-full md:h-[500px]"
-          blur={isPreviousEvent}
+          className="relative hidden w-full md:block md:h-[500px]"
+          blur={eventStatus === "occurred" || eventStatus === "onGoing"}
           objectPosition={event.image.image.objectPosition}
         />
-        {isPreviousEvent && (
-          <div className="absolute top-0 flex h-[250px] w-full items-center justify-center md:h-[500px]">
-            <Tag
-              label={t("previousEvent")}
-              category={event.category}
-              size="large"
+        <ImageElement
+          src={urlFor(event.thumbnail.image.src).url()}
+          alt={event.thumbnail.image.title}
+          className="relative block h-[250px] w-full md:hidden"
+          blur={eventStatus === "occurred" || eventStatus === "onGoing"}
+          objectPosition={event.thumbnail.image.objectPosition}
+        />
+      </div>
+      <div className="my-9 flex flex-col justify-between gap-6 md:flex-row md:items-center">
+        <div className="pl-[24px] pt-[48px]">
+          <IconTitle
+            title={t("schedule")}
+            mode="chevron"
+            category={event.category}
+          />
+        </div>
+        {(eventStatus === "available" || eventStatus === "soldOut") && (
+          <div className="relative md:mt-10">
+            <Button
+              category={event?.category}
+              label={t("enrol")}
+              isDisabled={event?.isSoldOut}
+              onClick={() => {
+                push(`${event?._id}/form`);
+              }}
             />
+            {eventStatus === "soldOut" && (
+              <div className="rotate absolute -bottom-4 right-6 z-10 flex h-[63px] w-full -rotate-12 items-center  justify-center md:bottom-0 md:right-0 md:top-0">
+                <Tag label={t("soldOutEvent")} size="large" />
+              </div>
+            )}
           </div>
         )}
       </div>
-      <div
-        ref={spanRef}
-        className="mt-8 whitespace-pre-line font-noto-sans text-sm md:mt-16 md:px-14 md:text-lg"
-      />
-      <div className="mt-6 flex flex-wrap gap-4 md:px-14">
+      <div className="mt-8 whitespace-pre-line font-noto-sans text-sm md:mx-7 md:text-lg">
+        {event.description[locale as Locales]}
+      </div>
+      <div className="mt-6 flex flex-wrap gap-4 md:px-7">
         {event.areasOfInterest?.map((area) => (
           <Tag
             key={area}
@@ -106,55 +130,20 @@ export default function EventPage({ params }: { params: { id: string } }) {
           />
         ))}
       </div>
-      <div className="mt-16 flex items-center justify-between max-md:flex-col max-md:gap-4 md:px-14">
-        <MentorIdentifier
-          _id={event.mentor.mentor._id}
-          image={{
-            src: urlFor(event.mentor.mentor.image.mentor_image.src).url(),
-            alt: event.mentor.mentor.image.mentor_image.title,
-            objectPosition:
-              event.mentor.mentor.image.mentor_image.objectPosition,
-          }}
-          name={event.mentor.mentor.name}
-        />
-        {!isPreviousEvent && (
-          <div className="relative">
-            <Button
-              category={event?.category}
-              label={t("enrol")}
-              isDisabled={event?.isSoldOut}
-              onClick={() => {
-                push(`${event?._id}/form`);
-              }}
-            />
-            {event.isSoldOut && (
-              <div className="rotate absolute top-0 z-10 flex h-[63px]  w-full -rotate-12 items-center justify-center">
-                <Tag label={t("soldOutEvent")} size="large" />
-              </div>
-            )}
-          </div>
-        )}
+      <div className="py-8 font-league-gothic text-2xl uppercase md:px-7 md:py-12 md:text-4xl">
+        Mentores
       </div>
-      {event.schedule?.length && (
-        <div className="mb-8 mt-10 pl-[24px] pt-[48px] md:mx-14 md:mb-16 md:mt-20">
-          <IconTitle
-            title={t("schedule")}
-            mode="chevron"
-            category={event.category}
-          />
-        </div>
-      )}
-      <div className="flex flex-col gap-4 md:mx-14 md:gap-8">
-        {event.schedule?.map((scheduleElement, index) => (
-          <ScheduleElement
-            key={
-              scheduleElement.description[locale as Locales] +
-              scheduleElement.duration
-            }
-            title={scheduleElement.description[locale as Locales]}
-            duration={scheduleElement.duration}
-            category={event.category}
-            bullet={{ index: index + 1 }}
+      <div className="flex flex-col gap-4 md:flex-row md:flex-wrap md:gap-y-8 md:px-7">
+        {event.mentors.map((mentor, i) => (
+          <MentorIdentifier
+            key={i}
+            _id={mentor._id}
+            image={{
+              src: urlFor(mentor.image.mentor_image.src).url(),
+              alt: mentor.image.mentor_image.title,
+              objectPosition: mentor.image.mentor_image.objectPosition,
+            }}
+            name={mentor.name}
           />
         ))}
       </div>

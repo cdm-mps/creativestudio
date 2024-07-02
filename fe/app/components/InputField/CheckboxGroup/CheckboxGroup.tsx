@@ -23,8 +23,9 @@ const CheckboxGroup = ({
         hasError={hasError}
       />
       <div className="flex flex-col gap-4">
-        {options.map((option) => (
+        {options.map((option, i) => (
           <Checkbox
+            key={i}
             category={category}
             option={option}
             isChecked={option.value === value}

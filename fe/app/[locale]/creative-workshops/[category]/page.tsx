@@ -65,6 +65,7 @@ export default function CreativeWorkshopPage({
       .then((res) => res.json())
       .then((data: GetCategoryPageOutputDto) => setCategoryPage(data))
       .finally(() => setIsLoading(false));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedTab, activeFilter]);
 
   if (!categoryPage) {
@@ -85,15 +86,20 @@ export default function CreativeWorkshopPage({
                 events={events.map((event) => ({
                   _id: event._id,
                   title: event.title[locale as Locales],
-                  subtitle: event.mentor.mentor.name,
-                  date: event.date,
+                  dates: event.date,
                   category,
                   image: {
-                    src: urlFor(event.image.image.src).url(),
-                    alt: event.image.image.title,
-                    objectPosition: event.image.image.objectPosition,
+                    src: urlFor(event.thumbnail.image.src).url(),
+                    alt: event.thumbnail.image.title,
+                    objectPosition: event.thumbnail.image.objectPosition,
                   },
                   disabled,
+                  soldOut: event.isSoldOut,
+                  mentors: event.mentors.map((mentor) => ({
+                    alt: mentor.name,
+                    objectPosition: mentor.image.mentor_image.objectPosition,
+                    src: urlFor(mentor.image.mentor_image.src).url(),
+                  })),
                 }))}
               />
             ) : (

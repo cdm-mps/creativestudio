@@ -6,17 +6,18 @@ import { CalendarProps } from "./Calendar.models";
 const Calendar = ({ events, setSelectedDate }: CalendarProps) => {
   useEffect(() => {
     setSelectedDate(new Date());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const getEvents = (date: dayjs.Dayjs) => {
     return (
       events.filter((event) => {
-        const eventDate = new Date(event.date).toISOString();
         const calendarDate = date.toDate();
-
         calendarDate.setHours(0, 0, 0, 0);
 
-        return eventDate === calendarDate.toISOString();
+        return (
+          new Date(event.date[0]).toISOString() === calendarDate.toISOString()
+        );
       }) || []
     );
   };

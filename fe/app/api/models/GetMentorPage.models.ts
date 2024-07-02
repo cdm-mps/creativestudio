@@ -18,5 +18,11 @@ export interface EventBase {
   _id: string;
   title: Record<Locales, string>;
   category: Category;
-  date: string;
+  date: string[];
+  isSoldOut?: boolean;
+  mentors: {
+    _id: string;
+    name: string;
+    image: { mentor_image: ImageOutputDto };
+  }[];
 }

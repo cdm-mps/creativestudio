@@ -20,6 +20,9 @@ const config: Config = {
     },
     extend: {
       colors: {
+        available: "#83C62D",
+        soldOut: "#C69B2D",
+        occurred: "#C62D2D",
         background: "#0c0c0c",
         masterclasses: "#FFA630",
         editions: "#DC493A",
@@ -54,6 +57,11 @@ const config: Config = {
   },
   plugins: [],
   safelist: [
+    "left-[0px]",
+    "left-[42px]",
+    "left-[84px]",
+    "left-[126px]",
+    "left-[168px]",
     {
       pattern:
         /text-(artisticResidence|workshop|edition|businessWorkshop|creativeTalks|masterclass)/,
@@ -61,7 +69,7 @@ const config: Config = {
     },
     {
       pattern:
-        /bg-(artisticResidence|workshop|edition|businessWorkshop|creativeTalks|masterclass)/,
+        /bg-(artisticResidence|workshop|edition|businessWorkshop|creativeTalks|masterclass|available|occurred|soldOut|onGoing)/,
       variants: ["hover", "group-hover"],
     },
     {

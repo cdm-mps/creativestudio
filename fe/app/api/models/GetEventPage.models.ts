@@ -9,23 +9,19 @@ export interface GetEventPageOutputDto {
   _id: string;
   title: Record<Locales, string>;
   description: Record<Locales, string>;
-  date: string;
+  date: string[];
   category: Category;
   subcategory?: SubCategory;
   areasOfInterest?: AreaOfInterest[];
   image: { image: ImageOutputDto };
-  mentor: {
-    mentor: {
-      _id: string;
-      name: string;
-      image: { mentor_image: ImageOutputDto };
-    };
-  };
-  duration: string;
-  schedule?: ScheduleElement[];
+  thumbnail: { image: ImageOutputDto };
+  mentors: {
+    _id: string;
+    name: string;
+    image: { mentor_image: ImageOutputDto };
+  }[];
   level?: Level;
   levels: Levels;
-  hasSubmiteVideo?: boolean;
   isSoldOut?: boolean;
 }
 
@@ -39,9 +35,4 @@ export interface Levels {
     level_title: Record<Locales, string>;
     level_description: Record<Locales, string>;
   };
-}
-
-export interface ScheduleElement {
-  description: Record<Locales, string>;
-  duration: string;
 }

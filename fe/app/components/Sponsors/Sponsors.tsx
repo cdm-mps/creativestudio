@@ -14,12 +14,14 @@ const Sponsors = ({ sponsors }: { sponsors: SponsorsProps[] }) => {
               {...sponsor}
               width={32}
               height={32}
+              alt={sponsor.alt}
               className="md:hidden"
             />
             <Image
               key={`sponsor-${sponsor.alt}`}
               {...sponsor}
               width={45}
+              alt={sponsor.alt}
               height={45}
               className="max-md:hidden"
             />

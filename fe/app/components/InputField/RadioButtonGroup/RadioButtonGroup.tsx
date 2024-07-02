@@ -23,8 +23,9 @@ const RadioButtonGroup = ({
         hasError={hasError}
       />
       <div className="mt-4 flex gap-10">
-        {options.map((option) => (
+        {options.map((option, i) => (
           <RadioButton
+            key={i}
             category={category}
             option={option}
             isChecked={option.value === value}

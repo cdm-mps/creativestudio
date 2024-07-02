@@ -36,6 +36,20 @@ export default {
       validation: (Rule: any) => Rule.required(),
     },
     {
+      name: 'thumbnail',
+      title: 'Thumbnail',
+      type: 'object',
+      fields: [
+        {
+          title: 'Thumbnail of the Event',
+          name: 'image',
+          type: 'reference',
+          to: [{type: 'imageElement'}],
+        },
+      ],
+      validation: (Rule: any) => Rule.required(),
+    },
+    {
       name: 'category',
       type: 'string',
       title: 'Category',
@@ -70,63 +84,33 @@ export default {
     {
       title: 'Date of the Event',
       name: 'date',
-      type: 'date',
-      options: {
-        dateFormat: 'YYYY-MM-DD',
-        timeStep: 15,
-        calendarTodayLabel: 'Today',
-      },
+      type: 'array',
+      of: [
+        {
+          type: 'date',
+          options: {
+            dateFormat: 'YYYY-MM-DD',
+            timeStep: 15,
+            calendarTodayLabel: 'Today',
+          },
+        },
+      ],
+
       validation: (Rule: any) => Rule.required(),
     },
     {
-      name: 'mentor',
-      title: 'Mentor',
-      type: 'object',
-      fields: [
+      name: 'mentors',
+      title: 'Mentors',
+      type: 'array',
+      of: [
         {
-          title: 'The Mentor associated with the Event',
+          title: 'Mentor of the Event',
           name: 'mentor',
           type: 'reference',
           to: [{type: 'mentor'}],
         },
       ],
       validation: (Rule: any) => Rule.required(),
-    },
-    {
-      name: 'duration',
-      title: 'Duration',
-      type: 'string',
-      description: 'How long the Event is expected to last (e.g. 90min or 1h30min)',
-      validation: (Rule: any) => Rule.required(),
-    },
-    {
-      name: 'programation',
-      title: 'Programation',
-      type: 'array',
-      description: 'How long the Event is expected to last (e.g. 90min or 1h30min)',
-      of: [
-        {
-          title: 'Elemento Programação',
-          type: 'object',
-          fields: [
-            {
-              name: 'description',
-              type: 'object',
-              fields: [
-                {name: 'pt', type: 'string', title: 'PT'},
-                {name: 'en', type: 'string', title: 'EN'},
-              ],
-              title: 'Descrição',
-            },
-            {
-              name: 'duration',
-              type: 'string',
-              title: 'Duração',
-              description: '(e.g. 90min or 1h30min)',
-            },
-          ],
-        },
-      ],
     },
     {
       name: 'description',
@@ -179,14 +163,15 @@ export default {
         ],
       },
     },
-    {
-      name: 'hasSubmitVideo',
-      type: 'boolean',
-      title: 'Has Submit Video',
-      initialValue: false,
-      description:
-        'Indicates whether participants are expected to share content through video submissions. Enable if yes, disable if no.',
-    },
+    //TODO: When file submission is implemented
+    // {
+    //   name: 'hasSubmitVideo',
+    //   type: 'boolean',
+    //   title: 'Has Submit Video',
+    //   initialValue: false,
+    //   description:
+    //     'Indicates whether participants are expected to share content through video submissions. Enable if yes, disable if no.',
+    // },
     {
       name: 'isSoldOut',
       type: 'boolean',

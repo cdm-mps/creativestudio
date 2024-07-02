@@ -27,6 +27,7 @@ export default function MentorPage() {
     fetch(`/api/getMentor/${params.id}`)
       .then((res) => res.json())
       .then((data: GetMentorPageOutputDto) => setMentor(data));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const buildLabel = (count: number) =>
@@ -46,19 +47,15 @@ export default function MentorPage() {
             <MentorEventBar
               key={event._id}
               title={event.title[locale as Locales]}
-              mentor={{
-                _id: mentor._id,
-                name: mentor.name,
-                image: {
-                  src: urlFor(mentor.image.mentor_image.src).url(),
-                  alt: mentor.image.mentor_image.title,
-                  objectPosition: mentor.image.mentor_image.objectPosition,
-                },
-              }}
+              mentors={event.mentors.map((mentor) => ({
+                src: urlFor(mentor.image.mentor_image.src).url(),
+                alt: mentor.image.mentor_image.title,
+                objectPosition: mentor.image.mentor_image.objectPosition,
+              }))}
               category={event.category}
               date={event.date}
+              soldOut={event.isSoldOut}
               previous={previous}
-              disabled
               onClick={() =>
                 push(
                   `/${locale}/creative-workshops/${event.category}/event/${event._id}`,
@@ -91,7 +88,7 @@ export default function MentorPage() {
             objectPosition: mentor.image.mentor_image.objectPosition,
           }}
         />
-        <p className="font-noto-sans text-sm md:text-lg">
+        <p className="text-justify font-noto-sans text-sm md:text-lg">
           {mentor.bio[locale as Locales]}
         </p>
       </div>

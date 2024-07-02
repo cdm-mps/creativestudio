@@ -8,12 +8,11 @@ export async function POST(request: Request) {
   try {
     const data = await resend.emails.send({
       from: "Creative Studio <onboarding@resend.dev>",
-      to: ["mbc.silva@campus.fct.unl.pt"], //TODO: Alterar para o email da creative
+      to: ["creativestudionofilters@gmail.com"],
       subject: `Inscrição ${event.title["pt"]}`,
       text: "",
       react: <EmailTemplate form={form} event={event} />,
     });
-
     return Response.json(data);
   } catch (error) {
     return Response.json({ error });

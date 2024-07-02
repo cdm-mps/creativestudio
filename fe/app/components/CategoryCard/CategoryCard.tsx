@@ -26,9 +26,9 @@ const CategoryCard = ({
           : "group cursor-pointer hover:bg-businessWorkshops-opacity",
       )}
     >
-      <div className="flex w-fit md:max-w-[700px] flex-col  py-4 md:py-11 md:pl-11">
+      <div className="flex w-fit flex-col py-4  md:max-w-[700px] md:py-11 md:pl-11">
         <div className="flex items-center">
-          <span className="pr-10 font-league-gothic text-2xl md:text-6xl group-hover:underline">
+          <span className="pr-10 font-league-gothic text-2xl group-hover:underline md:text-6xl">
             {title}
           </span>
           <div className="hidden group-hover:block">
@@ -36,9 +36,12 @@ const CategoryCard = ({
           </div>
         </div>
         <span className="pt-7 font-noto-sans max-md:text-sm">{subtitle}</span>
-        <div className="mt-6 md:mt-12 flex flex-wrap gap-5">
-          {subCategories?.map((subCategory) => (
-            <span className="font-league-gothic text-xl md:text-5xl uppercase">
+        <div className="mt-6 flex flex-wrap gap-5 md:mt-12">
+          {subCategories?.map((subCategory, i) => (
+            <span
+              key={i}
+              className="font-league-gothic text-xl uppercase md:text-5xl"
+            >
               {subCategory}
             </span>
           ))}
@@ -47,7 +50,7 @@ const CategoryCard = ({
       <div className="md:mr-11 ">
         <ImageElement
           {...image}
-          className="h-[153px] grayscale w-[250px] md:h-[307px] md:w-[439px]"
+          className="h-[153px] w-[250px] grayscale md:h-[307px] md:w-[439px]"
         />
       </div>
     </div>

@@ -1,9 +1,13 @@
 import { MenuOptionsProps } from "@components/Navbar/MenuOptions/MenuOptions.models";
 import { getMenuOptions } from "@utils/getMenuOptions";
-import Link from "next/link";
+import { useLocale, useTranslations } from "next-intl";
 
 const MenuOptions = ({ onClick }: MenuOptionsProps) => {
-  const options = getMenuOptions();
+  const locale = useLocale();
+  const t = useTranslations("Menu");
+
+  const options = getMenuOptions(locale, t);
+
   return (
     <>
       {options.map(({ text, label, href }) => (
