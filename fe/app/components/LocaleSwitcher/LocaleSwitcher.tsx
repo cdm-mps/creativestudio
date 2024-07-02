@@ -7,6 +7,7 @@ import { usePathname, useRouter } from "@/i18n/navigation";
 import { useTransition } from "react";
 import { Dot } from "@icons/Dot";
 import { LocaleSwitcherProps } from "./LocaleSwitcher.models";
+import { Locales } from "@model/Locales";
 
 const LocaleSwitcher = (props: LocaleSwitcherProps) => {
   const locale = useLocale();
@@ -17,7 +18,7 @@ const LocaleSwitcher = (props: LocaleSwitcherProps) => {
 
   const onLocaleSelect = (nextLocale: string) => {
     startTransition(() => {
-      router.replace(pathname, { locale: nextLocale });
+      router.replace(pathname, { locale: nextLocale as Locales });
     });
   };
 
