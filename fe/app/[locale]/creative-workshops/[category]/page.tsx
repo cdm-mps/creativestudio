@@ -65,7 +65,8 @@ export default function CreativeWorkshopPage({
       .then((res) => res.json())
       .then((data: GetCategoryPageOutputDto) => setCategoryPage(data))
       .finally(() => setIsLoading(false));
-  }, [selectedTab, activeFilter, category, hasSubCategories, subcategories]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedTab, activeFilter]);
 
   if (!categoryPage) {
     return <CategoryPageSkeleton />;
