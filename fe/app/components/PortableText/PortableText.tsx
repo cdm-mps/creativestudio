@@ -1,19 +1,10 @@
 // components/PortableTextComponent.tsx
+import { CustomBlockProps, LinkProps } from "@components/PortableText/PortableText.models";
 import { Category } from "@model/Category";
 import { PortableText } from "@portabletext/react";
 import { PortableTextBlock } from "@portabletext/types";
 import clsx from "clsx";
 import React from "react";
-
-interface CustomBlockProps {
-  children: React.ReactNode;
-}
-
-interface LinkMarkProps extends CustomBlockProps {
-  value?: {
-    href: string;
-  };
-}
 
 const customComponents = (category?: Category) => {
   return {
@@ -40,7 +31,7 @@ const customComponents = (category?: Category) => {
         <em className="pr-1">{children}</em>
       ),
       underline: ({ children }: CustomBlockProps) => <u>{children}</u>,
-      link: ({ children, value }: LinkMarkProps) => (
+      link: ({ children, value }: LinkProps) => (
         <a
           href={value?.href}
           target="_blank"
