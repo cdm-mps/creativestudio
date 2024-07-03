@@ -2,7 +2,7 @@ export interface CustomBlockProps {
   children: React.ReactNode;
 }
 
-export interface LinkMarkProps extends CustomBlockProps {
+export interface LinkProps extends CustomBlockProps {
   value?: {
     href: string;
   };
