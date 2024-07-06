@@ -18,7 +18,7 @@ export default function CreativeWorkshopsPage() {
     useState<GetCreativeWorkshopsPageOutputDto>();
 
   useEffect(() => {
-    fetch(`/api/getPages/creativeWorkshops`)
+    fetch(`/api/getPages/creativeWorkshops`, { next: { revalidate: 10 } })
       .then((res) => res.json())
       .then((data: GetCreativeWorkshopsPageOutputDto) =>
         setPageStructure(data),

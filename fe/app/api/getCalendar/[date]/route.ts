@@ -10,5 +10,12 @@ export async function GET(request: Request, context: any) {
   );
   const res = await client.fetch(query);
 
-  return Response.json({ events: res });
+  // return Response.json({ events: res });
+  return Response.json(JSON.stringify({ events: res }), {
+    headers: {
+      "Accept": "application/json",
+      "Content-Type": "application/json",
+      "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
+    },
+  });
 }

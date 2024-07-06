@@ -30,7 +30,7 @@ export default function Home() {
   const [pageContent, setPageContent] = useState<GetHomePageOutputDto>();
 
   useEffect(() => {
-    fetch("/api/getPages/home")
+    fetch("/api/getPages/home", { next: { revalidate: 10 } })
       .then((res) => res.json())
       .then((data: GetHomePageOutputDto) =>
         setPageContent({

@@ -5,5 +5,12 @@ export async function GET(request: Request, context: any) {
   const query = groq` *[ _type == "contacts"  && !(_id in path("drafts.**"))][0]{ email, phone, instagram, facebook, tiktok }`;
   const res = await client.fetch(query);
 
-  return Response.json(res);
+  // return Response.json(res);
+  return Response.json(res, {
+    headers: {
+      "Accept": "application/json",
+      "Content-Type": "application/json",
+      "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
+    },
+  });
 }

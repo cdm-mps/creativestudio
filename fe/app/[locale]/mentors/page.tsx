@@ -16,7 +16,7 @@ export default function MentorsPage() {
   const [pageContent, setPageContent] = useState<GetMentorsPageOutputDto>();
 
   useEffect(() => {
-    fetch("/api/getMentors")
+    fetch("/api/getMentors", { next: { revalidate: 10 } })
       .then((res) => res.json())
       .then((data: GetMentorsPageOutputDto) => setPageContent(data));
   }, []);
