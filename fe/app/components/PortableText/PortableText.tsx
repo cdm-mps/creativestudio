@@ -1,5 +1,8 @@
 // components/PortableTextComponent.tsx
-import { CustomBlockProps, LinkProps } from "@components/PortableText/PortableText.models";
+import {
+  CustomBlockProps,
+  LinkProps,
+} from "@components/PortableText/PortableText.models";
 import { Category } from "@model/Category";
 import { PortableText } from "@portabletext/react";
 import { PortableTextBlock } from "@portabletext/types";
@@ -12,7 +15,7 @@ const customComponents = (category?: Category) => {
       h1: ({ children }: CustomBlockProps) => (
         <h1
           className={clsx(
-            "my-8 font-league-gothic text-4xl",
+            "my-8 font-league-gothic text-5xl",
             category ? `text-${category}` : "text-white",
           )}
         >
@@ -20,10 +23,10 @@ const customComponents = (category?: Category) => {
         </h1>
       ),
       h3: ({ children }: CustomBlockProps) => (
-        <h3 className="mb-3 mt-6 font-league-gothic text-2xl">{children}</h3>
+        <h3 className="mb-3 mt-6 font-league-gothic text-3xl">{children}</h3>
       ),
       normal: ({ children }: CustomBlockProps) => (
-        <p className="my-2 font-league-gothic text-xl">{children}</p>
+        <p className="my-2 font-league-gothic text-2xl">{children}</p>
       ),
     },
     marks: {
@@ -52,7 +55,7 @@ const customComponents = (category?: Category) => {
     },
     listItem: {
       bullet: ({ children }: CustomBlockProps) => (
-        <li className="font-league-gothic text-xl">{children}</li>
+        <li className="font-league-gothic text-2xl">{children}</li>
       ),
     },
   };
