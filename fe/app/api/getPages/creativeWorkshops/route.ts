@@ -5,5 +5,11 @@ export async function GET(request: Request) {
   const query = groq`  *[ _type == "creativeWorkshops"  && !(_id in path("drafts.**"))][0]{ highlight, description, elementDescription }`;
   const res = await client.fetch(query);
 
-  return Response.json(res);
+  // return Response.json(res);
+  return Response.json(JSON.stringify(res), {
+    headers: {
+      "Content-Type": "application/json",
+      "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
+    },
+  });
 }
