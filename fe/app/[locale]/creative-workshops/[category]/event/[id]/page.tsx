@@ -19,6 +19,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { EventPageSkeleton } from "./skeleton";
+import PortableTextComponent from "@components/PortableText/PortableText";
 
 export default function EventPage({ params }: { params: { id: string } }) {
   const t_categories = useTranslations("Categories");
@@ -117,8 +118,11 @@ export default function EventPage({ params }: { params: { id: string } }) {
           </div>
         )}
       </div>
-      <div className="mt-8 whitespace-pre-line font-noto-sans text-sm md:mx-7 md:text-lg">
-        {event.description[locale as Locales]}
+      <div className="whitespace-pre-line font-noto-sans text-sm md:mx-7 md:text-lg">
+        <PortableTextComponent
+          value={event.content[locale as Locales]}
+          category={event?.category}
+        />
       </div>
       <div className="mt-6 flex flex-wrap gap-4 md:px-7">
         {event.areasOfInterest?.map((area) => (

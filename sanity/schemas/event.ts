@@ -113,12 +113,82 @@ export default {
       validation: (Rule: any) => Rule.required(),
     },
     {
-      name: 'description',
+      name: 'content',
       title: 'Description',
       type: 'object',
       fields: [
-        {name: 'pt', type: 'text', title: 'PT'},
-        {name: 'en', type: 'text', title: 'EN'},
+        {
+          title: 'PT',
+          name: 'pt',
+          type: 'array',
+          of: [
+            {
+              type: 'block',
+              styles: [
+                {title: 'Text', value: 'normal'},
+                {title: 'Title', value: 'h1'},
+                {title: 'Subtitle', value: 'h3'},
+              ],
+              lists: [{title: 'Bullet', value: 'bullet'}],
+              marks: {
+                decorators: [
+                  {title: 'Emphasis', value: 'em'},
+                  {title: 'Underline', value: 'underline'},
+                ],
+                annotations: [
+                  {
+                    name: 'link',
+                    type: 'object',
+                    title: 'Link',
+                    fields: [
+                      {
+                        title: 'Link',
+                        name: 'href',
+                        type: 'url',
+                      },
+                    ],
+                  },
+                ],
+              },
+            },
+          ],
+        },
+        {
+          title: 'EN',
+          name: 'en',
+          type: 'array',
+          of: [
+            {
+              type: 'block',
+              styles: [
+                {title: 'Text', value: 'normal'},
+                {title: 'Title', value: 'h1'},
+                {title: 'Subtitle', value: 'h3'},
+              ],
+              lists: [{title: 'Bullet', value: 'bullet'}],
+              marks: {
+                decorators: [
+                  {title: 'Emphasis', value: 'em'},
+                  {title: 'Underline', value: 'underline'},
+                ],
+                annotations: [
+                  {
+                    name: 'link',
+                    type: 'object',
+                    title: 'Link',
+                    fields: [
+                      {
+                        title: 'Link',
+                        name: 'href',
+                        type: 'url',
+                      },
+                    ],
+                  },
+                ],
+              },
+            },
+          ],
+        },
       ],
       description:
         "A brief summary, providing key details about the Event's purpose, agenda, and highlights.",
