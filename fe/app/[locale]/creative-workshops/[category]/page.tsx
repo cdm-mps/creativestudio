@@ -61,6 +61,7 @@ export default function CreativeWorkshopPage({
       }${
         activeFilter > -1 ? `/${Object.keys(AreaOfInterest)[activeFilter]}` : ""
       }`,
+      { next: { revalidate: 10 } },
     )
       .then((res) => res.json())
       .then((data: GetCategoryPageOutputDto) => setCategoryPage(data))

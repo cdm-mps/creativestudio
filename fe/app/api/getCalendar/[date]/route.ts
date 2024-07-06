@@ -13,6 +13,7 @@ export async function GET(request: Request, context: any) {
   // return Response.json({ events: res });
   return Response.json(JSON.stringify({ events: res }), {
     headers: {
+      "Accept": "application/json",
       "Content-Type": "application/json",
       "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
     },

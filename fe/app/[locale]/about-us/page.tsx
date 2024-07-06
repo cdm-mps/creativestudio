@@ -18,7 +18,7 @@ export default function AboutUsPage() {
   const locale = useLocale();
 
   useEffect(() => {
-    fetch("/api/getPages/about")
+    fetch("/api/getPages/about", { next: { revalidate: 10 } })
       .then((res) => res.json())
       .then((data: GetAboutPageOutputDto) => setPageContent(data));
   }, []);

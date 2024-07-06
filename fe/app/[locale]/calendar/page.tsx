@@ -141,7 +141,7 @@ export default function CalendarPage() {
   useEffect(() => {
     const selected = date.year + "-" + date.month;
     if (currentDateRange !== selected) {
-      fetch(`/api/getCalendar/${selected}`)
+      fetch(`/api/getCalendar/${selected}`, { next: { revalidate: 10 } })
         .then((res) => res.json())
         .then((data: GetCalendarPageOutputDto) => {
           setPageContent({
@@ -171,7 +171,7 @@ export default function CalendarPage() {
   }, [result, pageContent]);
 
   useEffect(() => {
-    fetch(`/api/getMentors`)
+    fetch(`/api/getMentors`, { next: { revalidate: 10 } })
       .then((res) => res.json())
       .then((data: GetMentorsPageOutputDto) => {
         buildFilters(

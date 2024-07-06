@@ -6,8 +6,9 @@ export async function GET(request: Request) {
   const res = await client.fetch(query);
 
   // return Response.json(res);
-  return Response.json(JSON.stringify(res), {
+  return Response.json(res, {
     headers: {
+      "Accept": "application/json",
       "Content-Type": "application/json",
       "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
     },

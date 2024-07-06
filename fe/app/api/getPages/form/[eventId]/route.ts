@@ -11,8 +11,9 @@ export async function GET(
   const res = await client.fetch(query);
 
   // return Response.json({ ...res, form });
-  return Response.json(JSON.stringify({ ...res, form }), {
+  return Response.json({ ...res, form }, {
     headers: {
+      "Accept": "application/json",
       "Content-Type": "application/json",
       "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
     },

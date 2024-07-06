@@ -57,7 +57,7 @@ export default function FormPage({
     );
 
   useEffect(() => {
-    fetch(`/api/getPages/form/${params.id}`)
+    fetch(`/api/getPages/form/${params.id}`, { next: { revalidate: 10 } })
       .then((res) => res.json())
       .then((data: GetFormOutputDto) => {
         if (data.event.isSoldOut) {
@@ -204,17 +204,20 @@ export default function FormPage({
 
   const send = () => {
     if (!validateForm().length) {
-      fetch("/api/sendEmail", {
-        method: "post",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
+      fetch(
+        "/api/sendEmail",
+        {
+          method: "post",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            form: formAnswers,
+            event: pageContent.event,
+          }),
         },
-        body: JSON.stringify({
-          form: formAnswers,
-          event: pageContent.event,
-        }),
-      })
+      )
         .then((res) => res.json())
         .then((data) => {
           const success = (

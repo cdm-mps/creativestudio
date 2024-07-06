@@ -31,7 +31,7 @@ export default function EventPage({ params }: { params: { id: string } }) {
   const [event, setEvent] = useState<GetEventPageOutputDto>();
   const [showModal, setShowModal] = useState(false);
   useEffect(() => {
-    fetch(`/api/getEvent/${params.id}`)
+    fetch(`/api/getEvent/${params.id}`, { next: { revalidate: 10 } })
       .then((res) => res.json())
       .then((data: GetEventPageOutputDto) => {
         setEvent(data);

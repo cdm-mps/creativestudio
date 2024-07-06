@@ -21,7 +21,7 @@ export default function BusinessWorkshopsPage() {
     useState<GetBusinessWorkshopsPageOutputDto>();
 
   useEffect(() => {
-    fetch(`/api/getPages/businessWorkshops`)
+    fetch(`/api/getPages/businessWorkshops`, { next: { revalidate: 10 } })
       .then((res) => res.json())
       .then((data: GetBusinessWorkshopsPageOutputDto) =>
         setPageStructure(data),
