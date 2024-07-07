@@ -35,23 +35,25 @@ export default function AboutUsPage() {
         description={pageContent.description[locale as Locales]}
       />
       <CategoryBarList />
-      <div className="flex flex-col py-20 md:gap-10 md:py-52">
-        <span className="pb-14 text-center font-league-gothic text-3xl uppercase md:text-7xl">
-          {t("AboutUs.team")}
-        </span>
-        <TeamElementRow
-          teamElements={pageContent.team.map((element) => ({
-            name: element.name,
-            role: element.role[locale as Locales],
-            image: {
-              src: urlFor(element.image.teamElement_image.src).url(),
-              alt: element.image.teamElement_image.title,
-              objectPosition: element.image.teamElement_image.objectPosition,
-            },
-          }))}
-        />
-      </div>
-      <div className="mb-20 flex flex-col gap-12">
+      {pageContent.team.length > 0 && (
+        <div className="flex flex-col pt-20 md:gap-10 md:py-52">
+          <span className="pb-14 text-center font-league-gothic text-3xl uppercase md:text-7xl">
+            {t("AboutUs.team")}
+          </span>
+          <TeamElementRow
+            teamElements={pageContent.team.map((element) => ({
+              name: element.name,
+              role: element.role[locale as Locales],
+              image: {
+                src: urlFor(element.image.teamElement_image.src).url(),
+                alt: element.image.teamElement_image.title,
+                objectPosition: element.image.teamElement_image.objectPosition,
+              },
+            }))}
+          />
+        </div>
+      )}
+      <div className="mb-20 mt-20 flex flex-col gap-12">
         <Divider />
         <Acknowledgements />
         <Divider />
