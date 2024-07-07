@@ -8,7 +8,7 @@ export async function GET(
 ) {
   const { params } = context;
   const query = groq`*[_type == "enrollForm" && !(_id in path("drafts.**"))][0]{paymentDetails[] {label, value}, regulations, "event": *[_type == "event" && !(_id in path("drafts.**")) && _id == "${params.eventId}"][0]{ title, category, date, isSoldOut, mentors[] -> {_id, name, image {mentor_image -> {title, objectPosition, "src": image.asset._ref}} } }}`;
-  const res = await client.fetch(query);
+  const res = await client.fetch(query, {}, { next: { revalidate: 0 } });
 
   return Response.json({ ...res, form });
 }

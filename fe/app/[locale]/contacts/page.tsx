@@ -17,7 +17,7 @@ export default function ContactsPage() {
   const [pageContent, setPageContent] = useState<GetContactsPageOutputDto>();
 
   useEffect(() => {
-    fetch(`/api/getPages/contacts`)
+    fetch(`/api/getPages/contacts`, { cache: "no-cache" })
       .then((res) => res.json())
       .then((data: GetContactsPageOutputDto) => setPageContent(data));
   }, []);

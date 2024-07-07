@@ -24,7 +24,7 @@ export default function MentorPage() {
   const [mentor, setMentor] = useState<GetMentorPageOutputDto>();
 
   useEffect(() => {
-    fetch(`/api/getMentor/${params.id}`)
+    fetch(`/api/getMentor/${params.id}`, { cache: "no-cache" })
       .then((res) => res.json())
       .then((data: GetMentorPageOutputDto) => setMentor(data));
     // eslint-disable-next-line react-hooks/exhaustive-deps

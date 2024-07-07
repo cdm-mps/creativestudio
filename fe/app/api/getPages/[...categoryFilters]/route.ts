@@ -21,7 +21,7 @@ export async function GET(
     | undefined;
 
   const query = groq`*[_type == "${category}" && !(_id in path("drafts.**"))][0]{ "pageContent": {${CategoryPageProjection[category]}}, ${GeneralEventsProjection(category, subcategory, areaOfInterest)}}`;
-  const res = await client.fetch(query);
+  const res = await client.fetch(query, {}, { next: { revalidate: 0 } });
 
   return Response.json(res);
 }
