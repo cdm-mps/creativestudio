@@ -88,7 +88,7 @@ export default function MentorPage() {
             objectPosition: mentor.image.mentor_image.objectPosition,
           }}
         />
-        <p className="text-justify font-noto-sans text-sm md:text-lg">
+        <p className="whitespace-pre-line text-justify font-noto-sans text-sm md:text-lg">
           {mentor.bio[locale as Locales]}
         </p>
       </div>

@@ -8,7 +8,7 @@ import { ImageOutputDto } from "./Image.models";
 export interface GetEventPageOutputDto {
   _id: string;
   title: Record<Locales, string>;
-  description: Record<Locales, string>;
+  content: Record<Locales, any>;
   date: string[];
   category: Category;
   subcategory?: SubCategory;
