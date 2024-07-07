@@ -16,7 +16,7 @@ export default function MentorsPage() {
   const [pageContent, setPageContent] = useState<GetMentorsPageOutputDto>();
 
   useEffect(() => {
-    fetch("/api/getMentors")
+    fetch("/api/getMentors", { cache: "no-cache" })
       .then((res) => res.json())
       .then((data: GetMentorsPageOutputDto) => setPageContent(data));
   }, []);
@@ -38,21 +38,22 @@ export default function MentorsPage() {
       />
       <div className="flex flex-wrap justify-center gap-12 md:gap-24">
         {pageContent.mentors.map((mentor, i) => {
-          if (mentor.image) return (
-            <Mentor
-              key={"mentor_" + i}
-              {...mentor}
-              image={{
-                src: urlFor(mentor.image.mentor_image.src).url(),
-                alt: mentor.image.mentor_image.title,
-                objectPosition: mentor.image.mentor_image.objectPosition,
-              }}
-              {...(mentor.eventCount > 0 && {
-                label: `${mentor.eventCount} ${buildLabel(mentor.eventCount)}`,
-              })}
-              redirectOnClick
-            />
-          );
+          if (mentor.image)
+            return (
+              <Mentor
+                key={"mentor_" + i}
+                {...mentor}
+                image={{
+                  src: urlFor(mentor.image.mentor_image.src).url(),
+                  alt: mentor.image.mentor_image.title,
+                  objectPosition: mentor.image.mentor_image.objectPosition,
+                }}
+                {...(mentor.eventCount > 0 && {
+                  label: `${mentor.eventCount} ${buildLabel(mentor.eventCount)}`,
+                })}
+                redirectOnClick
+              />
+            );
         })}
       </div>
     </main>

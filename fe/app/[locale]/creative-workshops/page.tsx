@@ -18,7 +18,7 @@ export default function CreativeWorkshopsPage() {
     useState<GetCreativeWorkshopsPageOutputDto>();
 
   useEffect(() => {
-    fetch(`/api/getPages/creativeWorkshops`)
+    fetch(`/api/getPages/creativeWorkshops`, { cache: "no-cache" })
       .then((res) => res.json())
       .then((data: GetCreativeWorkshopsPageOutputDto) =>
         setPageStructure(data),

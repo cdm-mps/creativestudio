@@ -18,7 +18,7 @@ export default function AboutUsPage() {
   const locale = useLocale();
 
   useEffect(() => {
-    fetch("/api/getPages/about")
+    fetch("/api/getPages/about", { cache: "no-cache" })
       .then((res) => res.json())
       .then((data: GetAboutPageOutputDto) => setPageContent(data));
   }, []);
@@ -51,7 +51,7 @@ export default function AboutUsPage() {
           }))}
         />
       </div>
-      <div className="flex flex-col gap-12 mb-20">
+      <div className="mb-20 flex flex-col gap-12">
         <Divider />
         <Acknowledgements />
         <Divider />

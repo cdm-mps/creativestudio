@@ -21,7 +21,7 @@ export default function BusinessWorkshopsPage() {
     useState<GetBusinessWorkshopsPageOutputDto>();
 
   useEffect(() => {
-    fetch(`/api/getPages/businessWorkshops`)
+    fetch(`/api/getPages/businessWorkshops`, { cache: "no-cache" })
       .then((res) => res.json())
       .then((data: GetBusinessWorkshopsPageOutputDto) =>
         setPageStructure(data),
@@ -34,8 +34,8 @@ export default function BusinessWorkshopsPage() {
 
   return (
     <main className="mx-12 flex flex-col md:mx-40">
-      <div className="flex max-md:flex-col md:items-center gap-8">
-        <div className="flex items-center md:gap-8 gap-4">
+      <div className="flex gap-8 max-md:flex-col md:items-center">
+        <div className="flex items-center gap-4 md:gap-8">
           <Title title={t("title")} category="businessWorkshops" />
           {categoriesDictionary["businessWorkshops"]("max-md:w-7 h-auto")}
         </div>

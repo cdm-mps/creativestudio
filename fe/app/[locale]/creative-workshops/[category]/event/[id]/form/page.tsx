@@ -57,7 +57,7 @@ export default function FormPage({
     );
 
   useEffect(() => {
-    fetch(`/api/getPages/form/${params.id}`)
+    fetch(`/api/getPages/form/${params.id}`, { cache: "no-cache" })
       .then((res) => res.json())
       .then((data: GetFormOutputDto) => {
         if (data.event.isSoldOut) {
