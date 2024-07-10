@@ -2,8 +2,11 @@ import { Calendar as CalendarAntd } from "antd";
 import * as dayjs from "dayjs";
 import React, { useEffect } from "react";
 import { CalendarProps } from "./Calendar.models";
+import { formatDate } from "@utils/date/formatDate";
+import { useLocale } from "next-intl";
 
 const Calendar = ({ events, setSelectedDate }: CalendarProps) => {
+  const locale = useLocale();
   useEffect(() => {
     setSelectedDate(new Date());
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -12,11 +15,11 @@ const Calendar = ({ events, setSelectedDate }: CalendarProps) => {
   const getEvents = (date: dayjs.Dayjs) => {
     return (
       events.filter((event) => {
-        const calendarDate = date.toDate();
-        calendarDate.setHours(0, 0, 0, 0);
+        const calendarDate = formatDate(date.toISOString(), locale, "2-digit");
 
         return (
-          new Date(event.date[0]).toISOString() === calendarDate.toISOString()
+          JSON.stringify(calendarDate) ===
+          JSON.stringify(formatDate(event.date[0], locale, "2-digit"))
         );
       }) || []
     );
